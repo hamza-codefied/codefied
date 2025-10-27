@@ -18,7 +18,7 @@ export const Developerit = () => {
   ];
 
   return (
-    <section className='py-10 px-10 lg:px-0 max-w-5xl mx-auto'>
+    <section className='py-10 px-10 xl:px-0 max-w-5xl mx-auto'>
       <div className='grid md:grid-cols-2 gap-12 items-start'>
         {/* 🧭 Left Column */}
         <div className='space-y-5'>

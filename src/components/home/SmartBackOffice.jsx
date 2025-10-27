@@ -86,12 +86,12 @@ const SmartBackOffice = () => {
           key={card.id}
           className={`absolute bg-[#121212]/90 text-white rounded-xl shadow-lg p-5 w-[250px] md:w-[300px] backdrop-blur-md border border-white/10 transition-transform hover:-translate-y-2 duration-300 ${
             card.position === 'top-left'
-              ? 'top-20 left-5 md:left-36 shadow-lg shadow-green-100'
+              ? 'top-20 left-5 lg:left-36 shadow-lg shadow-green-100'
               : card.position === 'top-right'
-                ? 'top-8 right-5 md:right-56 shadow-lg shadow-red-100'
+                ? 'hidden sm:block top-8 right-5 lg:right-56 shadow-lg shadow-red-100'
                 : card.position === 'bottom-left'
-                  ? 'bottom-16 left-5 md:left-48 shadow-lg shadow-yellow-100'
-                  : 'bottom-20 right-5 md:right-52 shadow-lg shadow-blue-100'
+                  ? 'bottom-16 left-5 lg:left-48 shadow-lg shadow-yellow-100'
+                  : 'hidden sm:block bottom-20 right-5 lg:right-52 shadow-lg shadow-blue-100'
           }`}
         >
           <div className='flex items-center justify-start mb-3'>
