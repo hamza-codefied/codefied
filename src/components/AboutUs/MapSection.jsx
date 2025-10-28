@@ -1,0 +1,19 @@
+'use client';
+import React from 'react';
+
+const MapSection = () => {
+  return (
+    <section className='relative'>
+      {/* Map Image */}
+      <div className='max-w-full flex items-center justify-center mx-auto'>
+        <img
+          src='src/images/map.png'
+          alt='Global Office Map'
+          className='w-auto h-auto object-cover'
+        />
+      </div>
+    </section>
+  );
+};
+
+export default MapSection;

@@ -1,4 +1,6 @@
+import Counters from '@/components/AboutUs/Counters';
 import HeroSection from '@/components/AboutUs/HeroSection';
+import MapSection from '@/components/AboutUs/MapSection';
 import Team from '@/components/AboutUs/Team';
 import TestimonialsSection from '@/components/AboutUs/TestimoniolSection';
 import Timeline from '@/components/AboutUs/Timeline';
@@ -14,6 +16,8 @@ export const About = () => {
       <Vision />
       <Timeline />
       <WhyChooseUs />
+      <Counters />
+      <MapSection />
       <TestimonialsSection />
     </div>
   );
