@@ -1,4 +1,4 @@
-'use client';
+
 import React from 'react';
 
 const timelineData = [
@@ -47,7 +47,7 @@ const Timeline = () => {
       </div>
 
       {/* Timeline Container */}
-      <div className='relative mt-16 max-w-6xl mx-auto'>
+      <div className='relative mt-5 md:mt-16 max-w-6xl mx-auto'>
         {/* Center Line */}
         <div className='absolute left-1/2 transform -translate-x-1/2 h-full w-[3px] bg-[#3f3f3f]' />
 
@@ -57,38 +57,49 @@ const Timeline = () => {
             return (
               <div
                 key={index}
-                className={`relative flex flex-col md:flex-row items-center ${
-                  isLeft ? 'md:justify-start' : 'md:justify-end'
+                className={`relative flex flex-col md:flex-row items-start ${
+                  isLeft ? 'md:justify-center' : 'md:justify-center'
                 }`}
               >
                 {/* Connector Dot */}
                 <div className='absolute left-1/2 transform -translate-x-1/2 bg-black w-7 h-7 rounded-full border-8 border-[#d4575b] z-10 shadow-md' />
 
-                {/* Year Label (centered near dot) */}
-                <span
-                  className={`absolute text-black font-semibold text-sm md:text-base ${
-                    isLeft
-                      ? 'md:right-[52%] md:-translate-y-8'
-                      : 'md:left-[52%] md:-translate-y-8'
-                  }`}
-                >
-                  {item.year}
-                </span>
-
-                {/* Card */}
+                {/* Horizontal Dotted Line */}
                 <div
-                  className={`relative mt-10 md:mt-0 w-full md:w-[45%] bg-white shadow-lg rounded-2xl p-6 border border-gray-100 ${
+                  className={`hidden md:block absolute top-3.5 w-[400px] border-t-4 border-dotted border-black ${
                     isLeft
-                      ? 'md:mr-auto md:text-right md:rounded-tr-none md:rounded-bl-none'
-                      : 'md:ml-auto md:text-left md:rounded-tl-none md:rounded-br-none'
-                  }`}
-                >
-                  <h3 className='text-lg font-semibold text-gray-800 mb-2'>
-                    {item.title}
-                  </h3>
-                  <p className='text-gray-600 text-sm leading-relaxed'>
-                    {item.description}
-                  </p>
+                      ? 'right-1/2 -translate-x-[8px]'
+                      : 'left-1/2 translate-x-[8px]'
+                  } z-0`}
+                />
+
+                <div>
+                  {/* Year Label (centered near dot) */}
+                  <span
+                    className={`hidden xl:block absolute text-black font-semibold text-sm md:text-base ${
+                      isLeft
+                        ? 'md:right-[52%] md:-translate-y-8'
+                        : 'md:left-[52%] md:-translate-y-8'
+                    }`}
+                  >
+                    {item.year}
+                  </span>
+
+                  {/* Card */}
+                  <div
+                    className={`relative mt-10 w-full md:w-[45%] bg-white shadow-lg rounded-2xl p-4 border border-gray-100 ${
+                      isLeft
+                        ? 'md:mr-auto md:text-right'
+                        : 'md:ml-auto md:text-left '
+                    }`}
+                  >
+                    <h3 className='text-lg font-semibold text-gray-800 mb-2'>
+                      {item.title}
+                    </h3>
+                    <p className='text-gray-600 text-sm leading-relaxed'>
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
               </div>
             );

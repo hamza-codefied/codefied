@@ -1,4 +1,4 @@
-'use client';
+
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMinus, FiPlus, FiSearch } from 'react-icons/fi';

@@ -4,24 +4,33 @@ import { Button } from '@components/ui/Button';
 import logo from '@/images/logo.png';
 import { GoGlobe } from 'react-icons/go';
 import { FaArrowDownLong } from 'react-icons/fa6';
+import { MegaMenu } from './MegaMenu';
+import { ProductMegaMenu } from './ProductMegaMenu';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
+  const [isProductMegaMenuOpen, setIsProductMegaMenuOpen] = useState(false);
   const location = useLocation();
+
+  const serviceDropdown = [
+    { name: 'Web Development', href: '/services/web-development' },
+    { name: 'UI/UX Design', href: '/services/ui-ux' },
+    { name: 'Mobile App Development', href: '/services/mobile' },
+    { name: 'Cloud Solutions', href: '/services/cloud' },
+  ];
 
   const navigation = [
     { name: 'Home', href: '/' },
     {
       name: 'Services',
-      dropdown: [
-        { name: 'Consulting', href: '/services/consulting' },
-        { name: 'Design', href: '/services/design' },
-        { name: 'Development', href: '/services/development' },
-      ],
+      megaMenu: true, // services mega menu
+      dropdown: serviceDropdown,
     },
     {
       name: 'Products',
+      megaMenu: 'product', // products mega menu
       dropdown: [
         { name: 'SaaS Platform', href: '/products/saas' },
         { name: 'Mobile App', href: '/products/app' },
@@ -43,7 +52,7 @@ export const Header = () => {
           {/* Logo */}
           <div className='flex-shrink-0'>
             <Link to='/' className='flex items-center'>
-              <img src={logo} alt='Codefied Logo' className='' />
+              <img src={logo} alt='Codefied Logo' className='h-10' />
             </Link>
           </div>
 
@@ -53,10 +62,86 @@ export const Header = () => {
               <div
                 key={item.name}
                 className='relative'
-                onMouseEnter={() => setOpenDropdown(item.name)}
                 onMouseLeave={() => setOpenDropdown(null)}
               >
-                {!item.dropdown ? (
+                {/* === Services Mega Menu === */}
+                {item.megaMenu === true ? (
+                  <div className='relative'>
+                    <button
+                      type='button'
+                      onClick={() => {
+                        setIsMegaMenuOpen(prev => !prev);
+                        setIsProductMegaMenuOpen(false);
+                      }}
+                      className={`px-3 mt-[-5px] py-2 rounded-md text-sm font-medium flex items-center gap-1 transition-colors ${
+                        isMegaMenuOpen
+                          ? 'text-white bg-[#d4575b] bg-opacity-90'
+                          : 'text-black hover:bg-gray-50'
+                      }`}
+                    >
+                      {item.name}
+                      <svg
+                        xmlns='http://www.w3.org/2000/svg'
+                        className={`h-4 w-4 transform transition-transform ${
+                          isMegaMenuOpen ? 'rotate-180' : ''
+                        }`}
+                        fill='none'
+                        viewBox='0 0 24 24'
+                        stroke='currentColor'
+                      >
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth={2}
+                          d='M19 9l-7 7-7-7'
+                        />
+                      </svg>
+                    </button>
+                    <MegaMenu
+                      isOpen={isMegaMenuOpen}
+                      onClose={() => setIsMegaMenuOpen(false)}
+                    />
+                  </div>
+                ) : item.megaMenu === 'product' ? (
+                  /* === Products Mega Menu === */
+                  <div className='relative'>
+                    <button
+                      type='button'
+                      onClick={() => {
+                        setIsProductMegaMenuOpen(prev => !prev);
+                        setIsMegaMenuOpen(false);
+                      }}
+                      className={`px-3 mt-[-5px] py-2 rounded-md text-sm font-medium flex items-center gap-1 transition-colors ${
+                        isProductMegaMenuOpen
+                          ? 'text-white bg-[#d4575b] bg-opacity-90'
+                          : 'text-black hover:bg-gray-50'
+                      }`}
+                    >
+                      {item.name}
+                      <svg
+                        xmlns='http://www.w3.org/2000/svg'
+                        className={`h-4 w-4 transform transition-transform ${
+                          isProductMegaMenuOpen ? 'rotate-180' : ''
+                        }`}
+                        fill='none'
+                        viewBox='0 0 24 24'
+                        stroke='currentColor'
+                      >
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth={2}
+                          d='M19 9l-7 7-7-7'
+                        />
+                      </svg>
+                    </button>
+                    <ProductMegaMenu
+                      isOpen={isProductMegaMenuOpen}
+                      onClose={() => setIsProductMegaMenuOpen(false)}
+                    />
+                  </div>
+                ) : !item.dropdown ? (
+                  /* === Normal Link === */
                   <Link
                     to={item.href}
                     className={`px-3 py-2 rounded-md text-sm font-medium mt-[30px] transition-colors ${
@@ -68,9 +153,11 @@ export const Header = () => {
                     {item.name}
                   </Link>
                 ) : (
+                  /* === Small Dropdown (like About, Career, etc) === */
                   <>
                     <button
                       type='button'
+                      onMouseEnter={() => setOpenDropdown(item.name)}
                       className={`px-3 py-2 mt-[-5px] rounded-md text-sm font-medium flex items-center gap-1 transition-colors ${
                         openDropdown === item.name
                           ? 'text-white bg-[#d4575b] bg-opacity-90'
@@ -94,7 +181,6 @@ export const Header = () => {
                       </svg>
                     </button>
 
-                    {/* Dropdown Menu */}
                     {openDropdown === item.name && (
                       <div className='absolute top-full left-0 mt-[2px] w-44 bg-white border rounded-lg shadow-lg py-2'>
                         {item.dropdown.map(sub => (
@@ -120,7 +206,7 @@ export const Header = () => {
             <FaArrowDownLong className='text-2xl' />
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile Menu Button */}
           <div className='lg:hidden'>
             <Button
               variant='ghost'
@@ -159,10 +245,53 @@ export const Header = () => {
           <div className='lg:hidden'>
             <div className='px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t'>
               {navigation.map(item =>
-                !item.dropdown ? (
+                item.megaMenu ? (
+                  <div key={item.name} className='pl-1'>
+                    <button
+                      onClick={() =>
+                        setOpenDropdown(
+                          openDropdown === item.name ? null : item.name
+                        )
+                      }
+                      className='w-full text-left px-3 py-2 rounded-md text-base font-medium text-black hover:text-[#d4575b] hover:bg-gray-50 flex justify-between items-center'
+                    >
+                      {item.name}
+                      <svg
+                        xmlns='http://www.w3.org/2000/svg'
+                        className={`h-4 w-4 transform transition-transform ${
+                          openDropdown === item.name ? 'rotate-180' : ''
+                        }`}
+                        fill='none'
+                        viewBox='0 0 24 24'
+                        stroke='currentColor'
+                      >
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth={2}
+                          d='M19 9l-7 7-7-7'
+                        />
+                      </svg>
+                    </button>
+                    {openDropdown === item.name && (
+                      <div className='ml-4 border-l border-gray-200'>
+                        {item.dropdown.map(sub => (
+                          <Link
+                            key={sub.name}
+                            to={sub.href}
+                            className='block px-3 py-2 text-gray-600 hover:text-[#d4575b] hover:bg-gray-50'
+                            onClick={() => setIsMenuOpen(false)}
+                          >
+                            {sub.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : !item.dropdown ? (
                   <Link
                     key={item.name}
-                    to={item.href}
+                    to={item.href || '#'}
                     className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
                       isActive(item.href)
                         ? 'text-[#d4575b]'

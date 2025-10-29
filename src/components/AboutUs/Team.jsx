@@ -37,7 +37,7 @@ const Team = () => {
         {/* RIGHT COLUMN */}
         <div className='flex justify-center relative'>
           {/* Vertical Line */}
-          <div className='absolute left-1/2 md:left-[185px] top-0 bottom-0 w-[2px] bg-white/80 transform -translate-x-1/2 md:translate-x-0'></div>
+          <div className='hidden xl:block absolute left-1/2 md:left-[185px] 2xl:left-[227px] top-0 bottom-0 w-[2px] bg-white/80 transform -translate-x-1/2 md:translate-x-0'></div>
 
           <ul className='space-y-8 md:space-y-10 relative z-10'>
             {[
@@ -53,7 +53,7 @@ const Team = () => {
                 {/* Bullet */}
                 <div
                   className={`w-4 h-4 rounded-full relative z-20 ${
-                    idx === 0 ? 'bg-white' : 'bg-[#d4575b]'
+                    idx === 0 ? 'bg-white hidden xl:block' : 'bg-[#d4575b]'
                   }`}
                 ></div>
                 {/* Label */}

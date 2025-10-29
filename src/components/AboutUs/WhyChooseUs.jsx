@@ -53,7 +53,7 @@ const WhyChooseUs = () => {
         </p>
 
         {/* 2-Column Layout */}
-        <div className='grid md:grid-cols-2'>
+        <div className='grid md:grid-cols-2 gap-5 md:gap-0'>
           {/* Left Column */}
           <div className='space-y-4'>
             {items.map((item, index) => (
