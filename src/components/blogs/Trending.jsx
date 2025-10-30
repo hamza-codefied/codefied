@@ -22,7 +22,7 @@ const containerVariants = {
 
 const FeaturedSection = () => {
   return (
-    <section className='relative top-[-20px] max-w-6xl mx-auto rounded-3xl bg-black/90 text-white overflow-hidden py-10 px-6 md:px-12'>
+    <section className='relative top-[-20px] max-w-6xl 2xl:max-w-[1400px] mx-auto rounded-3xl bg-black/90 text-white overflow-hidden py-10 xl:py-12 px-6 md:px-12'>
       {/* Subtle gradient glow background */}
       <div className='absolute inset-0 bg-gradient-to-tr from-purple-900/20 via-transparent to-blue-900/20 blur-3xl' />
 
