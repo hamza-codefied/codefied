@@ -14,6 +14,7 @@ import { Contact } from '@pages/Contact';
 import { Blogs } from '@pages/Blogs';
 import { Portfolio } from '@pages/Portfolio';
 import { NotFound } from '@pages/NotFound';
+import ServiceDetail from './pages/ServiceDetail';
 
 function App() {
   // Preload critical resources
@@ -31,6 +32,7 @@ function App() {
             <Route path='/contact' element={<Contact />} />
             <Route path='/blogs' element={<Blogs />} />
             <Route path='/portfolio' element={<Portfolio />} />
+            <Route path='/services/:serviceId' element={<ServiceDetail />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
 

@@ -2,10 +2,12 @@ import React, { useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
 import { MdArrowCircleRight } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 const categories = [
   {
     title: 'Business Solutions',
+    slug: 'business-solutions',
     items: [
       'Nicheflow | SAAS Solutions',
       'ERP & CRM Solutions',
@@ -16,6 +18,7 @@ const categories = [
   },
   {
     title: 'Developer/IT',
+    slug: 'web-development',
     items: [
       'Mobile App Development',
       'Web App Development',
@@ -28,6 +31,7 @@ const categories = [
   },
   {
     title: 'Back Office',
+    slug: 'back-office',
     items: [
       'End-to-End Production',
       'Project Management',
@@ -39,6 +43,7 @@ const categories = [
   },
   {
     title: 'Community Management',
+    slug: 'community-management',
     items: [
       'Engagement and Interaction',
       'Moderation and Support',
@@ -49,6 +54,7 @@ const categories = [
   },
   {
     title: 'Strategic Partnership',
+    slug: 'strategic-partnership',
     items: [
       'Collaborative Innovation',
       'Market Expansion',
@@ -63,12 +69,9 @@ const categories = [
 export const MegaMenu = ({ isOpen, onClose }) => {
   const ref = useRef(null);
 
-  // Close when clicking outside
   useEffect(() => {
     const handleClickOutside = e => {
-      if (ref.current && !ref.current.contains(e.target)) {
-        onClose();
-      }
+      if (ref.current && !ref.current.contains(e.target)) onClose();
     };
     if (isOpen) document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
@@ -88,7 +91,7 @@ export const MegaMenu = ({ isOpen, onClose }) => {
             onClick={onClose}
           />
 
-          {/* Mega menu content */}
+          {/* Mega menu */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -98,9 +101,8 @@ export const MegaMenu = ({ isOpen, onClose }) => {
             ref={ref}
           >
             <div className='w-full bg-white shadow-2xl border overflow-hidden'>
-              {/* Flex layout instead of grid for exact width control */}
               <div className='flex flex-col md:flex-row w-full h-full'>
-                {/* Left column (25%) */}
+                {/* Left column */}
                 <div
                   style={{
                     backgroundImage: "url('/src/images/partner_bg.png')",
@@ -120,20 +122,33 @@ export const MegaMenu = ({ isOpen, onClose }) => {
                   </div>
                 </div>
 
-                {/* Right column (75%) */}
+                {/* Right column */}
                 <div className='md:w-3/4 w-full bg-white p-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-8 overflow-y-auto'>
                   {categories.map((category, index) => (
                     <div key={index}>
-                      <h4 className='font-semibold text-gray-900 w-fit text-[20px] mb-3 border-b-2 border-[#d4575b] pb-1'>
+                      {/* Category Title (Main Route) */}
+                      <Link
+                        to={`/services/${category.slug}`}
+                        onClick={onClose}
+                        className='font-semibold text-gray-900 w-fit text-[20px] mb-3 border-b-2 border-[#d4575b] pb-1 hover:text-[#d4575b] transition-colors block'
+                      >
                         {category.title}
-                      </h4>
+                      </Link>
+
+                      {/* Sub Items */}
                       <ul className='space-y-1'>
                         {category.items.map((item, idx) => (
-                          <li
-                            key={idx}
-                            className='text-gray-400 text-[13px] hover:text-[#d4575b] cursor-pointer transition-colors'
-                          >
-                            {item}
+                          <li key={idx}>
+                            <Link
+                              to={`/services/${category.slug}#${item
+                                .toLowerCase()
+                                .replace(/\s+/g, '-')
+                                .replace(/[^\w-]/g, '')}`}
+                              onClick={onClose}
+                              className='text-gray-500 text-[13px] hover:text-[#d4575b] cursor-pointer transition-colors block'
+                            >
+                              {item}
+                            </Link>
                           </li>
                         ))}
                       </ul>

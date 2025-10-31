@@ -354,7 +354,7 @@ export default function AllProjectsSection() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -40 }}
           transition={{ duration: 0.6 }}
-          className='grid gap-8 sm:grid-cols-2 2xl:grid-cols-3'
+          className='grid sm:grid-cols-2 2xl:grid-cols-3 gap-20'
         >
           {projectData[activeTab].map(blog => (
             <motion.div

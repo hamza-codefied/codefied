@@ -6,7 +6,7 @@ export default function HeroSection() {
   return (
     <>
       <Section
-        classNames='relative bg-cover bg-center bg-no-repeat py-24'
+        classNames='relative bg-cover bg-center bg-no-repeat py-24 2xl:py-60'
         style={{ backgroundImage: "url('/src/images/portfolio_bg.png')" }}
       >
         {/* subtle overlay */}
