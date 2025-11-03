@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
 import { MdArrowCircleRight } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import partnerImg from '@/images/partner.png';
+import partnerBg from '@/images/partner_bg.png';
 
 const categories = [
   {
@@ -105,13 +107,13 @@ export const MegaMenu = ({ isOpen, onClose }) => {
                 {/* Left column */}
                 <div
                   style={{
-                    backgroundImage: "url('/src/images/partner_bg.png')",
+                    backgroundImage: `url(${partnerBg})`,
                   }}
                   className='md:w-1/4 w-full flex flex-col justify-center items-center p-8 bg-cover bg-center bg-no-repeat relative'
                 >
                   <div className='relative flex flex-col items-center text-center space-y-2'>
                     <img
-                      src='src/images/partner.png'
+                      src={partnerImg}
                       alt='Partner with Codefied'
                       className='w-[300px] h-auto'
                     />
