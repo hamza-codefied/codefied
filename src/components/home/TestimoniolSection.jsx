@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Button } from '@components/ui/Button';
-import quote from '@images/quote.png';
+import quote_icon from '@images/quote_icon.png';
 import avatar from '@images/avatar.png';
 import coins from '@images/coins.png';
 
@@ -29,7 +29,7 @@ export default function TestimonialsSection() {
           it anywhere on the planet.
         </p>
 
-        <img className='mb-8' src={quote} alt='testimoniol' />
+        <img className='mb-8' src={quote_icon} alt='testimoniol' />
 
         <blockquote className='text-black text-sm w-full lg:w-[400px]'>
           I am very helped by this e-wallet application. My days are very easy
