@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Button } from '@components/ui/Button';
+import quote from '@images/quote.png';
+import avatar from '@images/avatar.png';
+import coins from '@images/coins.png';
 
 export default function TestimonialsSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
@@ -26,7 +29,7 @@ export default function TestimonialsSection() {
           it anywhere on the planet.
         </p>
 
-        <img className='mb-8' src='src/images/quote.png' alt='testimoniol' />
+        <img className='mb-8' src={quote} alt='testimoniol' />
 
         <blockquote className='text-black text-sm w-full lg:w-[400px]'>
           I am very helped by this e-wallet application. My days are very easy
@@ -60,7 +63,7 @@ export default function TestimonialsSection() {
             className='w-10 h-10 rounded-full border-2 border-white shadow'
           />
           <img
-            src='src/images/avatar.png'
+            src={avatar}
             alt='user'
             className='w-10 h-10 rounded-full border-2 border-white shadow'
           />
@@ -76,11 +79,7 @@ export default function TestimonialsSection() {
       >
         <div className='bg-[#121212]/90 text-white rounded-2xl shadow-lg p-8 w-full max-w-md mx-auto'>
           <div className='text-center mb-6'>
-            <img
-              src='src/images/coins.png'
-              alt='Get Started Icon'
-              className='mx-auto mb-2'
-            />
+            <img src={coins} alt='Get Started Icon' className='mx-auto mb-2' />
             <h3 className='text-2xl font-semibold'>Get Started</h3>
           </div>
 

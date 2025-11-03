@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@components/ui/Button';
 import featurebg from '@/images/feature_bg.png';
 import { IoIosArrowDroprightCircle } from 'react-icons/io';
+import featured from '@/images/featured.png';
 
 const products = [
   {
@@ -9,21 +10,21 @@ const products = [
     title: 'Build My Plan',
     description:
       'Create, edit, and download multi-floor plans with smart tools and stunning visuals no CAD skills needed.',
-    image: 'src//images/featured.png',
+    image: featured,
   },
   {
     id: 1,
     title: 'Build My Plan',
     description:
       'Create, edit, and download multi-floor plans with smart tools and stunning visuals no CAD skills needed.',
-    image: 'src//images/featured.png',
+    image: featured,
   },
   {
     id: 1,
     title: 'Build My Plan',
     description:
       'Create, edit, and download multi-floor plans with smart tools and stunning visuals no CAD skills needed.',
-    image: 'src//images/featured.png',
+    image: featured,
   },
 ];
 

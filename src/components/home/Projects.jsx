@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { GoArrowUpRight } from 'react-icons/go';
 import { useNavigate } from 'react-router-dom';
+import project from `@/images/project.png`;
 
 const ProjectsSection = () => {
   const navigate = useNavigate();
@@ -45,7 +46,7 @@ const ProjectsSection = () => {
       {/* Center Image */}
       <div className='flex justify-center'>
         <img
-          src='src/images/project.png'
+          src={project}
           alt='Projects showcase'
           className='max-w-full md:max-w-3xl lg:max-w-4xl object-contain'
         />

@@ -1,5 +1,7 @@
 import React from 'react';
 import { GoArrowUpRight } from 'react-icons/go';
+import backoffice from '@/images/backoffice.png';
+import circle from '@/images/circle.png';
 
 const SmartBackOffice = () => {
   const cards = [
@@ -7,28 +9,28 @@ const SmartBackOffice = () => {
       id: 1,
       title: 'Automated Operations',
       description: 'Streamline workflows and eliminate manual tasks.',
-      image: 'src/images/backoffice.png',
+      image: backoffice,
       position: 'top-left',
     },
     {
       id: 2,
       title: 'Integrated Customer Support',
       description: 'Connect your platforms with responsive support systems.',
-      image: 'src/images/backoffice.png',
+      image: backoffice,
       position: 'top-right',
     },
     {
       id: 3,
       title: 'Data & Analytics',
       description: 'Turn raw information into actionable insights.',
-      image: 'src/images/backoffice.png',
+      image: backoffice,
       position: 'bottom-left',
     },
     {
       id: 4,
       title: 'Scalable Infrastructure',
       description: 'Ensure your systems grow with your business.',
-      image: 'src/images/backoffice.png',
+      image: backoffice,
       position: 'bottom-right',
     },
   ];
@@ -37,7 +39,7 @@ const SmartBackOffice = () => {
     <section className='relative max-w-6xl mx-auto flex items-center justify-center py-64 px-4 overflow-hidden mt-10 sm:mt-32'>
       {/* Background Image */}
       <img
-        src='src/images/circle.png'
+        src={circle}
         alt='background circle'
         className='absolute inset-0 w-full h-full object-contain opacity-90 pointer-events-none'
       />

@@ -1,6 +1,7 @@
 import { Linkedin, Instagram, Twitter } from 'lucide-react';
 import { FaInstagramSquare } from 'react-icons/fa';
 import { FaLinkedin, FaTwitter } from 'react-icons/fa6';
+import logo from '@/images/logo.png';
 
 export const Footer = () => {
   return (
@@ -9,7 +10,7 @@ export const Footer = () => {
         {/* Top Section */}
         <div className='flex flex-col md:flex-row md:items-start md:justify-between mb-2 gap-2'>
           {/* Logo */}
-          <img src='src/images/logo.png' className='w-12 h-10' alt='Logo' />
+          <img src={logo} className='w-12 h-10' alt='Logo' />
 
           {/* Social Media */}
           <div className='flex items-center space-x-3 text-sm text-gray-700'>

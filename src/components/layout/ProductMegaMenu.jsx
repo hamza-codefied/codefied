@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GoArrowUpRight } from 'react-icons/go';
+import product1 from '@/images/product1.jpg';
 
 export const ProductMegaMenu = ({ isOpen, onClose }) => {
   const products = [
@@ -12,7 +13,7 @@ export const ProductMegaMenu = ({ isOpen, onClose }) => {
       subtitle: 'Design Floor Plans Faster',
       description:
         'Create, edit, and download multi-floor plans with smart tools and stunning visuals — no CAD skills needed.',
-      image: 'src/images/product1.jpg',
+      image: product1,
       link: '/products/build-my-plan',
     },
     {
@@ -21,7 +22,7 @@ export const ProductMegaMenu = ({ isOpen, onClose }) => {
       subtitle: 'Design Floor Plans Faster',
       description:
         'Create, edit, and download multi-floor plans with smart tools and stunning visuals — no CAD skills needed.',
-      image: 'src/images/product1.jpg',
+      image: product1,
       link: '/products/build-my-plan',
     },
     {
@@ -30,7 +31,7 @@ export const ProductMegaMenu = ({ isOpen, onClose }) => {
       subtitle: 'Design Floor Plans Faster',
       description:
         'Create, edit, and download multi-floor plans with smart tools and stunning visuals — no CAD skills needed.',
-      image: 'src/images/product1.jpg',
+      image: product1,
       link: '/products/build-my-plan',
     },
   ];
