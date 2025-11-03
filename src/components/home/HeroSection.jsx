@@ -2,7 +2,7 @@ import { Button } from 'antd';
 import React from 'react';
 import Section from '@layouts/Section';
 import { TypeAnimation } from 'react-type-animation';
-import herobg from '@images/hero_bg.png';
+import herobg from '@images/hero.png';
 
 export default function HeroSection() {
   return (
