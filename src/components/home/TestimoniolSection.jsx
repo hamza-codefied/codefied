@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Button } from '@components/ui/Button';
-import quote_icon from '@images/quote_icon.png';
-import avatar from '@images/avatar.png';
-import coins from '@images/coins.png';
+import quote_icon from '@/images/quote_icon.png';
+import avatar from '@/images/avatar.png';
+import coins from '@/images/coins.png';
 
 export default function TestimonialsSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
