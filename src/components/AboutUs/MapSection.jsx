@@ -1,4 +1,5 @@
 import React from 'react';
+import map from '@/images/map.png';
 
 const MapSection = () => {
   return (
@@ -6,7 +7,7 @@ const MapSection = () => {
       {/* Map Image */}
       <div className='max-w-full flex items-center justify-center mx-auto'>
         <img
-          src='src/images/map.png'
+          src={map}
           alt='Global Office Map'
           className='w-auto h-auto object-cover'
         />

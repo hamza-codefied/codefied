@@ -7,7 +7,7 @@ import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { FaUser } from 'react-icons/fa6';
 import { TbMessageCircleFilled } from 'react-icons/tb';
 import { GoArrowUpRight } from 'react-icons/go';
-import blog from `@/images/blog.png`;
+import blog from '@/images/blog.png';
 
 const Blog = [
   {
@@ -16,7 +16,7 @@ const Blog = [
     comments: 83,
     title: 'Speaking remotely at Word Camp US.',
     date: '24 March',
-    image: blog
+    image: blog,
   },
   {
     id: 1,
@@ -24,7 +24,7 @@ const Blog = [
     comments: 83,
     title: 'Speaking remotely at Word Camp US.',
     date: '24 March',
-    image: blog
+    image: blog,
   },
   {
     id: 1,
@@ -32,7 +32,7 @@ const Blog = [
     comments: 83,
     title: 'Speaking remotely at Word Camp US.',
     date: '24 March',
-    image: blog
+    image: blog,
   },
 ];
 

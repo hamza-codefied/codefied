@@ -2,7 +2,7 @@ import React from 'react';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { GoArrowUpRight } from 'react-icons/go';
 import { useNavigate } from 'react-router-dom';
-import project from `@/images/project.png`;
+import project from '@/images/project.png';
 
 const ProjectsSection = () => {
   const navigate = useNavigate();

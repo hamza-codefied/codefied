@@ -1,5 +1,5 @@
-
 import React from 'react';
+import hero_bg from '@/images/hero.png';
 
 const timelineData = [
   {
@@ -32,7 +32,7 @@ const Timeline = () => {
   return (
     <section
       className='relative bg-cover bg-center bg-no-repeat py-20 px-4 md:px-10 lg:px-20'
-      style={{ backgroundImage: "url('/src/images/hero_bg.png')" }}
+      style={{ backgroundImage: `url(${hero_bg})` }}
     >
       <div className='max-w-6xl mx-auto text-center'>
         {/* Tag */}
