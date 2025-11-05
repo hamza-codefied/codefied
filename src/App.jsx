@@ -15,6 +15,7 @@ import { Blogs } from '@pages/Blogs';
 import { Portfolio } from '@pages/Portfolio';
 import { NotFound } from '@pages/NotFound';
 import ServiceDetail from './pages/ServiceDetail';
+import ProductDetails from './pages/ProductDetails';
 
 function App() {
   // Preload critical resources
@@ -33,6 +34,8 @@ function App() {
             <Route path='/blogs' element={<Blogs />} />
             <Route path='/portfolio' element={<Portfolio />} />
             <Route path='/services/:serviceId' element={<ServiceDetail />} />
+            <Route path='/products/:slug' element={<ProductDetails />} />
+
             <Route path='*' element={<NotFound />} />
           </Routes>
 

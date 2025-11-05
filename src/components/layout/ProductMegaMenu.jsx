@@ -4,38 +4,11 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GoArrowUpRight } from 'react-icons/go';
 import product1 from '@/images/product1.jpg';
+import product2 from '@/images/product2.jpg';
+import product3 from '@/images/product3.jpg';
+import products from '@/data/productData';
 
 export const ProductMegaMenu = ({ isOpen, onClose }) => {
-  const products = [
-    {
-      id: 1,
-      title: 'Build My Plan',
-      subtitle: 'Design Floor Plans Faster',
-      description:
-        'Create, edit, and download multi-floor plans with smart tools and stunning visuals — no CAD skills needed.',
-      image: product1,
-      link: '/products/build-my-plan',
-    },
-    {
-      id: 2,
-      title: 'Build My Plan',
-      subtitle: 'Design Floor Plans Faster',
-      description:
-        'Create, edit, and download multi-floor plans with smart tools and stunning visuals — no CAD skills needed.',
-      image: product1,
-      link: '/products/build-my-plan',
-    },
-    {
-      id: 3,
-      title: 'Build My Plan',
-      subtitle: 'Design Floor Plans Faster',
-      description:
-        'Create, edit, and download multi-floor plans with smart tools and stunning visuals — no CAD skills needed.',
-      image: product1,
-      link: '/products/build-my-plan',
-    },
-  ];
-
   return (
     <AnimatePresence>
       {isOpen && (
@@ -60,7 +33,7 @@ export const ProductMegaMenu = ({ isOpen, onClose }) => {
                 </p>
               </div>
               <Link
-                to='/products'
+                to=''
                 className='text-[#d4575b] hover:underline font-medium flex items-center justify-start gap-2'
               >
                 View All Products{' '}
@@ -81,22 +54,22 @@ export const ProductMegaMenu = ({ isOpen, onClose }) => {
                   className='bg-[#0f0f0f] hover:bg-white text-white hover:text-[#0f0f0f] rounded-xl overflow-hidden shadow-lg cursor-pointer'
                 >
                   <img
-                    src={product.image}
+                    src={product.thumnailImage}
                     alt={product.title}
                     className='w-full h-40 object-cover'
                   />
                   <div className='p-5'>
-                    <h3 className='text-sm uppercase tracking-wide'>
+                    <h2 className='text-xl font-semibold'>{product.title}</h2>
+                    <h3 className='text-sm uppercase tracking-wide mt-1'>
                       {product.subtitle}
                     </h3>
-                    <h2 className='text-xl font-semibold mt-1'>
-                      {product.title}
-                    </h2>
-                    <p className='text-sm mt-2 leading-relaxed'>
+
+                    <p className='text-sm mt-2 leading-relaxed line-clamp-3'>
                       {product.description}
                     </p>
                     <Link
-                      to={product.link}
+                      to={`/products/${product.slug}`}
+                      onClick={onClose}
                       className='mt-4 text-[#d4575b] font-medium hover:underline flex items-center justify-start gap-2'
                     >
                       View Product
