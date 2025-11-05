@@ -3,6 +3,16 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { link } from 'framer-motion/client';
 import { GoArrowUpRight } from 'react-icons/go';
+import portfolio1 from '@/images/portfolio1.png';
+import blog2 from '@/images/blog2.png';
+import blog3 from '@/images/blog3.png';
+import blog1 from '@/images/blog1.png';
+import blog4 from '@/images/blog4.png';
+import blog5 from '@/images/blog5.png';
+import blog6 from '@/images/blog6.png';
+import blog7 from '@/images/blog7.png';
+import blog8 from '@/images/blog8.png';
+import blog9 from '@/images/blog9.png';
 
 const categories = [
   { id: 'saas', label: 'SaaS' },
@@ -18,49 +28,49 @@ const projectData = {
   saas: [
     {
       id: 1,
-      image: 'src/images/portfolio1.png',
+      image: portfolio1,
       title: 'Building Scalable SaaS Products',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 2,
-      image: 'src/images/blog2.png',
+      image: blog2,
       title: 'Top SaaS Growth Strategies for Startups',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 3,
-      image: 'src/images/blog3.png',
+      image: blog3,
       title: 'How to Price Your SaaS Product Smartly',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 4,
-      image: 'src/images/blog1.png',
+      image: blog1,
       title: 'Building Scalable SaaS Products',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 5,
-      image: 'src/images/blog2.png',
+      image: blog2,
       title: 'Top SaaS Growth Strategies for Startups',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 6,
-      image: 'src/images/blog3.png',
+      image: blog3,
       title: 'How to Price Your SaaS Product Smartly',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 7,
-      image: 'src/images/blog1.png',
+      image: blog1,
       title: 'Building Scalable SaaS Products',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 8,
-      image: 'src/images/blog2.png',
+      image: blog2,
       title: 'Top SaaS Growth Strategies for Startups',
       link: 'www.grocerycomparison.com',
     },
@@ -68,49 +78,49 @@ const projectData = {
   webdev: [
     {
       id: 1,
-      image: 'src/images/blog4.png',
+      image: blog4,
       title: 'Modern Web Development Trends 2025',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 2,
-      image: 'src/images/blog5.png',
+      image: blog5,
       title: 'How to Optimize Next.js for Performance',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 3,
-      image: 'src/images/blog6.png',
+      image: blog6,
       title: 'Top 10 React UI Libraries in 2025',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 4,
-      image: 'src/images/blog4.png',
+      image: blog4,
       title: 'Modern Web Development Trends 2025',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 5,
-      image: 'src/images/blog5.png',
+      image: blog5,
       title: 'How to Optimize Next.js for Performance',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 6,
-      image: 'src/images/blog6.png',
+      image: blog6,
       title: 'Top 10 React UI Libraries in 2025',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 7,
-      image: 'src/images/blog4.png',
+      image: blog4,
       title: 'Modern Web Development Trends 2025',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 8,
-      image: 'src/images/blog5.png',
+      image: blog5,
       title: 'How to Optimize Next.js for Performance',
       link: 'www.grocerycomparison.com',
     },
@@ -118,49 +128,49 @@ const projectData = {
   appdev: [
     {
       id: 1,
-      image: 'src/images/blog7.png',
+      image: blog7,
       title: 'Mastering Cross-Platform App Dev',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 2,
-      image: 'src/images/blog7.png',
+      image: blog8,
       title: 'Mobile UI Best Practices',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 3,
-      image: 'src/images/blog7.png',
+      image: blog2,
       title: 'Integrating AI in Mobile Apps',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 4,
-      image: 'src/images/blog7.png',
+      image: blog1,
       title: 'Mastering Cross-Platform App Dev',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 5,
-      image: 'src/images/blog7.png',
+      image: blog4,
       title: 'Mobile UI Best Practices',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 6,
-      image: 'src/images/blog7.png',
+      image: blog6,
       title: 'Integrating AI in Mobile Apps',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 7,
-      image: 'src/images/blog7.png',
+      image: blog9,
       title: 'Mastering Cross-Platform App Dev',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 8,
-      image: 'src/images/blog7.png',
+      image: blog8,
       title: 'Mobile UI Best Practices',
       link: 'www.grocerycomparison.com',
     },
@@ -168,49 +178,49 @@ const projectData = {
   arvr: [
     {
       id: 1,
-      image: 'src/images/blog8.png',
+      image: blog1,
       title: 'AR/VR in Education — The Future is Here',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 2,
-      image: 'src/images/blog8.png',
+      image: blog2,
       title: 'Top 5 AR Frameworks for Developers',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 3,
-      image: 'src/images/blog8.png',
+      image: blog3,
       title: 'VR Gaming Evolution in 2025',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 4,
-      image: 'src/images/blog8.png',
+      image: blog4,
       title: 'AR/VR in Education — The Future is Here',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 5,
-      image: 'src/images/blog8.png',
+      image: blog5,
       title: 'Top 5 AR Frameworks for Developers',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 6,
-      image: 'src/images/blog8.png',
+      image: blog6,
       title: 'VR Gaming Evolution in 2025',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 7,
-      image: 'src/images/blog8.png',
+      image: blog7,
       title: 'AR/VR in Education — The Future is Here',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 8,
-      image: 'src/images/blog8.png',
+      image: blog8,
       title: 'Top 5 AR Frameworks for Developers',
       link: 'www.grocerycomparison.com',
     },
@@ -218,49 +228,49 @@ const projectData = {
   uiux: [
     {
       id: 1,
-      image: 'src/images/blog9.png',
+      image: blog1,
       title: 'UI/UX Trends Dominating 2025',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 2,
-      image: 'src/images/blog9.png',
+      image: blog2,
       title: 'Creating Emotionally Engaging Interfaces',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 3,
-      image: 'src/images/blog9.png',
+      image: blog3,
       title: 'Color Psychology in UI Design',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 4,
-      image: 'src/images/blog9.png',
+      image: blog4,
       title: 'UI/UX Trends Dominating 2025',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 5,
-      image: 'src/images/blog9.png',
+      image: blog5,
       title: 'Creating Emotionally Engaging Interfaces',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 6,
-      image: 'src/images/blog9.png',
+      image: blog6,
       title: 'Color Psychology in UI Design',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 7,
-      image: 'src/images/blog9.png',
+      image: blog7,
       title: 'UI/UX Trends Dominating 2025',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 8,
-      image: 'src/images/blog9.png',
+      image: blog8,
       title: 'Creating Emotionally Engaging Interfaces',
       link: 'www.grocerycomparison.com',
     },
@@ -268,49 +278,49 @@ const projectData = {
   gamedev: [
     {
       id: 1,
-      image: 'src/images/blog2.png',
+      image: blog1,
       title: 'Unreal vs Unity — 2025 Comparison',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 2,
-      image: 'src/images/blog2.png',
+      image: blog2,
       title: 'Game Monetization Models That Work',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 3,
-      image: 'src/images/blog2.png',
+      image: blog3,
       title: 'AI in Game Design — Smarter Worlds',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 4,
-      image: 'src/images/blog2.png',
+      image: blog4,
       title: 'Unreal vs Unity — 2025 Comparison',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 5,
-      image: 'src/images/blog2.png',
+      image: blog5,
       title: 'Game Monetization Models That Work',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 6,
-      image: 'src/images/blog2.png',
+      image: blog6,
       title: 'AI in Game Design — Smarter Worlds',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 7,
-      image: 'src/images/blog2.png',
+      image: blog7,
       title: 'Unreal vs Unity — 2025 Comparison',
       link: 'www.grocerycomparison.com',
     },
     {
       id: 8,
-      image: 'src/images/blog2.png',
+      image: blog8,
       title: 'Game Monetization Models That Work',
       link: 'www.grocerycomparison.com',
     },
