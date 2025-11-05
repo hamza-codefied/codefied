@@ -1,6 +1,16 @@
 'use client';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import blog1 from '@/images/blog1.png';
+import blog2 from '@/images/blog2.png';
+import blog3 from '@/images/blog3.png';
+import blog4 from '@/images/blog4.png';
+import blog5 from '@/images/blog5.png';
+import blog6 from '@/images/blog6.png';
+import blog7 from '@/images/blog7.png';
+import blog8 from '@/images/blog8.png';
+import blog9 from '@/images/blog9.png';
+import { b } from 'framer-motion/client';
 
 const categories = [
   { id: 'saas', label: 'SaaS' },
@@ -16,7 +26,7 @@ const blogData = {
   saas: [
     {
       id: 1,
-      image: 'src/images/blog1.png',
+      image: blog1,
       title: 'Building Scalable SaaS Products',
       desc: 'Learn the core principles of scaling your SaaS efficiently.',
       author: 'Alex Morgan',
@@ -24,7 +34,7 @@ const blogData = {
     },
     {
       id: 2,
-      image: 'src/images/blog2.png',
+      image: blog2,
       title: 'Top SaaS Growth Strategies for Startups',
       desc: 'Discover proven methods to grow your SaaS startup in 2025.',
       author: 'Emily Carter',
@@ -32,7 +42,7 @@ const blogData = {
     },
     {
       id: 3,
-      image: 'src/images/blog3.png',
+      image: blog3,
       title: 'How to Price Your SaaS Product Smartly',
       desc: 'A detailed guide to SaaS pricing strategies that convert.',
       author: 'James Kim',
@@ -40,7 +50,7 @@ const blogData = {
     },
     {
       id: 4,
-      image: 'src/images/blog1.png',
+      image: blog4,
       title: 'Building Scalable SaaS Products',
       desc: 'Learn the core principles of scaling your SaaS efficiently.',
       author: 'Alex Morgan',
@@ -48,7 +58,7 @@ const blogData = {
     },
     {
       id: 5,
-      image: 'src/images/blog2.png',
+      image: blog5,
       title: 'Top SaaS Growth Strategies for Startups',
       desc: 'Discover proven methods to grow your SaaS startup in 2025.',
       author: 'Emily Carter',
@@ -56,7 +66,7 @@ const blogData = {
     },
     {
       id: 6,
-      image: 'src/images/blog3.png',
+      image: blog6,
       title: 'How to Price Your SaaS Product Smartly',
       desc: 'A detailed guide to SaaS pricing strategies that convert.',
       author: 'James Kim',
@@ -64,7 +74,7 @@ const blogData = {
     },
     {
       id: 7,
-      image: 'src/images/blog1.png',
+      image: blog7,
       title: 'Building Scalable SaaS Products',
       desc: 'Learn the core principles of scaling your SaaS efficiently.',
       author: 'Alex Morgan',
@@ -72,7 +82,7 @@ const blogData = {
     },
     {
       id: 8,
-      image: 'src/images/blog2.png',
+      image: blog8,
       title: 'Top SaaS Growth Strategies for Startups',
       desc: 'Discover proven methods to grow your SaaS startup in 2025.',
       author: 'Emily Carter',
@@ -80,7 +90,7 @@ const blogData = {
     },
     {
       id: 9,
-      image: 'src/images/blog3.png',
+      image: blog9,
       title: 'How to Price Your SaaS Product Smartly',
       desc: 'A detailed guide to SaaS pricing strategies that convert.',
       author: 'James Kim',
@@ -90,7 +100,7 @@ const blogData = {
   webdev: [
     {
       id: 1,
-      image: 'src/images/blog4.png',
+      image: blog1,
       title: 'Modern Web Development Trends 2025',
       desc: 'Explore the latest tools and frameworks in web dev.',
       author: 'Sarah Lee',
@@ -98,7 +108,7 @@ const blogData = {
     },
     {
       id: 2,
-      image: 'src/images/blog5.png',
+      image: blog2,
       title: 'How to Optimize Next.js for Performance',
       desc: 'Boost speed and SEO for your Next.js projects.',
       author: 'Michael Adams',
@@ -106,7 +116,7 @@ const blogData = {
     },
     {
       id: 3,
-      image: 'src/images/blog6.png',
+      image: blog3,
       title: 'Top 10 React UI Libraries in 2025',
       desc: 'Build faster with these UI component libraries.',
       author: 'Rachel Green',
@@ -114,7 +124,7 @@ const blogData = {
     },
     {
       id: 4,
-      image: 'src/images/blog4.png',
+      image: blog4,
       title: 'Modern Web Development Trends 2025',
       desc: 'Explore the latest tools and frameworks in web dev.',
       author: 'Sarah Lee',
@@ -122,7 +132,7 @@ const blogData = {
     },
     {
       id: 5,
-      image: 'src/images/blog5.png',
+      image: blog5,
       title: 'How to Optimize Next.js for Performance',
       desc: 'Boost speed and SEO for your Next.js projects.',
       author: 'Michael Adams',
@@ -130,7 +140,7 @@ const blogData = {
     },
     {
       id: 6,
-      image: 'src/images/blog6.png',
+      image: blog6,
       title: 'Top 10 React UI Libraries in 2025',
       desc: 'Build faster with these UI component libraries.',
       author: 'Rachel Green',
@@ -138,7 +148,7 @@ const blogData = {
     },
     {
       id: 7,
-      image: 'src/images/blog4.png',
+      image: blog7,
       title: 'Modern Web Development Trends 2025',
       desc: 'Explore the latest tools and frameworks in web dev.',
       author: 'Sarah Lee',
@@ -146,7 +156,7 @@ const blogData = {
     },
     {
       id: 8,
-      image: 'src/images/blog5.png',
+      image: blog8,
       title: 'How to Optimize Next.js for Performance',
       desc: 'Boost speed and SEO for your Next.js projects.',
       author: 'Michael Adams',
@@ -154,7 +164,7 @@ const blogData = {
     },
     {
       id: 9,
-      image: 'src/images/blog6.png',
+      image: blog9,
       title: 'Top 10 React UI Libraries in 2025',
       desc: 'Build faster with these UI component libraries.',
       author: 'Rachel Green',
@@ -164,7 +174,7 @@ const blogData = {
   appdev: [
     {
       id: 1,
-      image: 'src/images/blog7.png',
+      image: blog1,
       title: 'Mastering Cross-Platform App Dev',
       desc: 'Flutter vs React Native — which to choose in 2025?',
       author: 'David Chen',
@@ -172,7 +182,7 @@ const blogData = {
     },
     {
       id: 2,
-      image: 'src/images/blog7.png',
+      image: blog2,
       title: 'Mobile UI Best Practices',
       desc: 'Designing for both Android and iOS without compromise.',
       author: 'Lara Johnson',
@@ -180,7 +190,7 @@ const blogData = {
     },
     {
       id: 3,
-      image: 'src/images/blog7.png',
+      image: blog3,
       title: 'Integrating AI in Mobile Apps',
       desc: 'Enhance user experience through smart AI features.',
       author: 'Henry Park',
@@ -188,7 +198,7 @@ const blogData = {
     },
     {
       id: 4,
-      image: 'src/images/blog7.png',
+      image: blog4,
       title: 'Mastering Cross-Platform App Dev',
       desc: 'Flutter vs React Native — which to choose in 2025?',
       author: 'David Chen',
@@ -196,7 +206,7 @@ const blogData = {
     },
     {
       id: 5,
-      image: 'src/images/blog7.png',
+      image: blog5,
       title: 'Mobile UI Best Practices',
       desc: 'Designing for both Android and iOS without compromise.',
       author: 'Lara Johnson',
@@ -204,7 +214,7 @@ const blogData = {
     },
     {
       id: 6,
-      image: 'src/images/blog7.png',
+      image: blog6,
       title: 'Integrating AI in Mobile Apps',
       desc: 'Enhance user experience through smart AI features.',
       author: 'Henry Park',
@@ -212,7 +222,7 @@ const blogData = {
     },
     {
       id: 7,
-      image: 'src/images/blog7.png',
+      image: blog7,
       title: 'Mastering Cross-Platform App Dev',
       desc: 'Flutter vs React Native — which to choose in 2025?',
       author: 'David Chen',
@@ -220,7 +230,7 @@ const blogData = {
     },
     {
       id: 8,
-      image: 'src/images/blog7.png',
+      image: blog8,
       title: 'Mobile UI Best Practices',
       desc: 'Designing for both Android and iOS without compromise.',
       author: 'Lara Johnson',
@@ -228,7 +238,7 @@ const blogData = {
     },
     {
       id: 9,
-      image: 'src/images/blog7.png',
+      image: blog9,
       title: 'Integrating AI in Mobile Apps',
       desc: 'Enhance user experience through smart AI features.',
       author: 'Henry Park',
@@ -238,7 +248,7 @@ const blogData = {
   arvr: [
     {
       id: 1,
-      image: 'src/images/blog8.png',
+      image: blog1,
       title: 'AR/VR in Education — The Future is Here',
       desc: 'How immersive tech is revolutionizing classrooms.',
       author: 'Sophia Patel',
@@ -246,7 +256,7 @@ const blogData = {
     },
     {
       id: 2,
-      image: 'src/images/blog8.png',
+      image: blog2,
       title: 'Top 5 AR Frameworks for Developers',
       desc: 'Start building your next AR experience today.',
       author: 'Chris Brown',
@@ -254,7 +264,7 @@ const blogData = {
     },
     {
       id: 3,
-      image: 'src/images/blog8.png',
+      image: blog3,
       title: 'VR Gaming Evolution in 2025',
       desc: 'What’s next in immersive gaming worlds.',
       author: 'Olivia Zhang',
@@ -262,7 +272,7 @@ const blogData = {
     },
     {
       id: 4,
-      image: 'src/images/blog8.png',
+      image: blog4,
       title: 'AR/VR in Education — The Future is Here',
       desc: 'How immersive tech is revolutionizing classrooms.',
       author: 'Sophia Patel',
@@ -270,7 +280,7 @@ const blogData = {
     },
     {
       id: 5,
-      image: 'src/images/blog8.png',
+      image: blog5,
       title: 'Top 5 AR Frameworks for Developers',
       desc: 'Start building your next AR experience today.',
       author: 'Chris Brown',
@@ -278,7 +288,7 @@ const blogData = {
     },
     {
       id: 6,
-      image: 'src/images/blog8.png',
+      image: blog6,
       title: 'VR Gaming Evolution in 2025',
       desc: 'What’s next in immersive gaming worlds.',
       author: 'Olivia Zhang',
@@ -286,7 +296,7 @@ const blogData = {
     },
     {
       id: 7,
-      image: 'src/images/blog8.png',
+      image: blog7,
       title: 'AR/VR in Education — The Future is Here',
       desc: 'How immersive tech is revolutionizing classrooms.',
       author: 'Sophia Patel',
@@ -294,7 +304,7 @@ const blogData = {
     },
     {
       id: 8,
-      image: 'src/images/blog8.png',
+      image: blog8,
       title: 'Top 5 AR Frameworks for Developers',
       desc: 'Start building your next AR experience today.',
       author: 'Chris Brown',
@@ -302,7 +312,7 @@ const blogData = {
     },
     {
       id: 9,
-      image: 'src/images/blog8.png',
+      image: blog9,
       title: 'VR Gaming Evolution in 2025',
       desc: 'What’s next in immersive gaming worlds.',
       author: 'Olivia Zhang',
@@ -312,7 +322,7 @@ const blogData = {
   uiux: [
     {
       id: 1,
-      image: 'src/images/blog9.png',
+      image: blog1,
       title: 'UI/UX Trends Dominating 2025',
       desc: 'From glassmorphism to neobrutalism — what’s hot?',
       author: 'Hannah Lee',
@@ -320,7 +330,7 @@ const blogData = {
     },
     {
       id: 2,
-      image: 'src/images/blog9.png',
+      image: blog2,
       title: 'Creating Emotionally Engaging Interfaces',
       desc: 'Design with empathy for a better experience.',
       author: 'Ethan Moore',
@@ -328,7 +338,7 @@ const blogData = {
     },
     {
       id: 3,
-      image: 'src/images/blog9.png',
+      image: blog3,
       title: 'Color Psychology in UI Design',
       desc: 'Leverage colors to drive user actions.',
       author: 'Grace Kim',
@@ -336,7 +346,7 @@ const blogData = {
     },
     {
       id: 4,
-      image: 'src/images/blog9.png',
+      image: blog4,
       title: 'UI/UX Trends Dominating 2025',
       desc: 'From glassmorphism to neobrutalism — what’s hot?',
       author: 'Hannah Lee',
@@ -344,7 +354,7 @@ const blogData = {
     },
     {
       id: 5,
-      image: 'src/images/blog9.png',
+      image: blog5,
       title: 'Creating Emotionally Engaging Interfaces',
       desc: 'Design with empathy for a better experience.',
       author: 'Ethan Moore',
@@ -352,7 +362,7 @@ const blogData = {
     },
     {
       id: 6,
-      image: 'src/images/blog9.png',
+      image: blog6,
       title: 'Color Psychology in UI Design',
       desc: 'Leverage colors to drive user actions.',
       author: 'Grace Kim',
@@ -360,7 +370,7 @@ const blogData = {
     },
     {
       id: 7,
-      image: 'src/images/blog9.png',
+      image: blog7,
       title: 'UI/UX Trends Dominating 2025',
       desc: 'From glassmorphism to neobrutalism — what’s hot?',
       author: 'Hannah Lee',
@@ -368,7 +378,7 @@ const blogData = {
     },
     {
       id: 8,
-      image: 'src/images/blog9.png',
+      image: blog8,
       title: 'Creating Emotionally Engaging Interfaces',
       desc: 'Design with empathy for a better experience.',
       author: 'Ethan Moore',
@@ -376,7 +386,7 @@ const blogData = {
     },
     {
       id: 9,
-      image: 'src/images/blog9.png',
+      image: blog9,
       title: 'Color Psychology in UI Design',
       desc: 'Leverage colors to drive user actions.',
       author: 'Grace Kim',
@@ -386,7 +396,7 @@ const blogData = {
   gamedev: [
     {
       id: 1,
-      image: 'src/images/blog2.png',
+      image: blog1,
       title: 'Unreal vs Unity — 2025 Comparison',
       desc: 'Choosing the right engine for your game studio.',
       author: 'Nick Carter',
@@ -394,7 +404,7 @@ const blogData = {
     },
     {
       id: 2,
-      image: 'src/images/blog2.png',
+      image: blog2,
       title: 'Game Monetization Models That Work',
       desc: 'Best ways to make your game profitable in 2025.',
       author: 'Bella Tran',
@@ -402,7 +412,7 @@ const blogData = {
     },
     {
       id: 3,
-      image: 'src/images/blog2.png',
+      image: blog3,
       title: 'AI in Game Design — Smarter Worlds',
       desc: 'Creating adaptive, intelligent gameplay experiences.',
       author: 'Tom Richards',
@@ -410,7 +420,7 @@ const blogData = {
     },
     {
       id: 4,
-      image: 'src/images/blog2.png',
+      image: blog4,
       title: 'Unreal vs Unity — 2025 Comparison',
       desc: 'Choosing the right engine for your game studio.',
       author: 'Nick Carter',
@@ -418,7 +428,7 @@ const blogData = {
     },
     {
       id: 5,
-      image: 'src/images/blog2.png',
+      image: blog5,
       title: 'Game Monetization Models That Work',
       desc: 'Best ways to make your game profitable in 2025.',
       author: 'Bella Tran',
@@ -426,7 +436,7 @@ const blogData = {
     },
     {
       id: 6,
-      image: 'src/images/blog2.png',
+      image: blog6,
       title: 'AI in Game Design — Smarter Worlds',
       desc: 'Creating adaptive, intelligent gameplay experiences.',
       author: 'Tom Richards',
@@ -434,7 +444,7 @@ const blogData = {
     },
     {
       id: 7,
-      image: 'src/images/blog2.png',
+      image: blog7,
       title: 'Unreal vs Unity — 2025 Comparison',
       desc: 'Choosing the right engine for your game studio.',
       author: 'Nick Carter',
@@ -442,7 +452,7 @@ const blogData = {
     },
     {
       id: 8,
-      image: 'src/images/blog2.png',
+      image: blog8,
       title: 'Game Monetization Models That Work',
       desc: 'Best ways to make your game profitable in 2025.',
       author: 'Bella Tran',
@@ -450,7 +460,7 @@ const blogData = {
     },
     {
       id: 9,
-      image: 'src/images/blog2.png',
+      image: blog9,
       title: 'AI in Game Design — Smarter Worlds',
       desc: 'Creating adaptive, intelligent gameplay experiences.',
       author: 'Tom Richards',
