@@ -1,5 +1,7 @@
 // src/data/servicesData.js
 
+import service from '@/images/service.png';
+
 export const servicesData = {
   'business-solutions': {
     title: 'Business Solutions',
@@ -36,7 +38,7 @@ export const servicesData = {
               'User-friendly interface that empowers your team to navigate your platform effortlessly.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
       {
@@ -67,7 +69,7 @@ export const servicesData = {
               'User-friendly interface that empowers your team to navigate your platform effortlessly.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
       {
@@ -98,7 +100,7 @@ export const servicesData = {
               'User-friendly interface that empowers your team to navigate your platform effortlessly.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
       {
@@ -129,7 +131,7 @@ export const servicesData = {
               'User-friendly interface that empowers your team to navigate your platform effortlessly.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
       {
@@ -160,7 +162,7 @@ export const servicesData = {
               'User-friendly interface that empowers your team to navigate your platform effortlessly.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
     ],
@@ -202,7 +204,7 @@ export const servicesData = {
               'Intuitive UX/UI that delights users and drives retention.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
       {
@@ -231,7 +233,7 @@ export const servicesData = {
             description: 'Clean, modern UI/UX for seamless user experience.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
       {
@@ -261,7 +263,7 @@ export const servicesData = {
               'Natural gesture-based controls for intuitive interaction.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
       {
@@ -288,7 +290,7 @@ export const servicesData = {
             description: 'Comfortable and accessible VR navigation.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
       {
@@ -315,7 +317,7 @@ export const servicesData = {
             description: 'Spatial UI designed for natural interaction.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
       {
@@ -342,7 +344,7 @@ export const servicesData = {
             description: 'Polished gameplay with intuitive controls.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
       {
@@ -369,7 +371,7 @@ export const servicesData = {
             description: 'Simple dashboard for non-technical teams.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
     ],
@@ -407,7 +409,7 @@ export const servicesData = {
             description: 'Client portal for real-time updates.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
       {
@@ -434,7 +436,7 @@ export const servicesData = {
             description: 'Easy-to-use dashboards for stakeholders.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
       {
@@ -461,7 +463,7 @@ export const servicesData = {
             description: 'Clear reports for non-technical executives.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
       {
@@ -488,7 +490,7 @@ export const servicesData = {
             description: 'Simple recommendations, no jargon.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
       {
@@ -515,7 +517,7 @@ export const servicesData = {
             description: 'Client portal with ticketing and updates.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
       {
@@ -542,7 +544,7 @@ export const servicesData = {
             description: 'Collaborative editing with stakeholders.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
     ],
@@ -580,7 +582,7 @@ export const servicesData = {
             description: 'Moderator dashboard with quick actions.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
       {
@@ -607,7 +609,7 @@ export const servicesData = {
             description: 'Simple reporting for community members.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
       {
@@ -634,7 +636,7 @@ export const servicesData = {
             description: 'Gamified profiles and leaderboards.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
       {
@@ -661,7 +663,7 @@ export const servicesData = {
             description: 'Easy submission and approval portal.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
       {
@@ -688,7 +690,7 @@ export const servicesData = {
             description: 'Exportable reports in one click.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
     ],
@@ -726,7 +728,7 @@ export const servicesData = {
             description: 'Shared workspace with version control.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
       {
@@ -753,7 +755,7 @@ export const servicesData = {
             description: 'Partner portal for shared assets.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
       {
@@ -780,7 +782,7 @@ export const servicesData = {
             description: 'Self-service resource request system.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
       {
@@ -807,7 +809,7 @@ export const servicesData = {
             description: 'No-code integration builder.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
       {
@@ -834,7 +836,7 @@ export const servicesData = {
             description: 'Investor and partner reporting portal.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
       {
@@ -861,7 +863,7 @@ export const servicesData = {
             description: 'Shared compliance checklist.',
           },
         ],
-        image: '/src/images/service.png',
+      image: service,
         badge: 'Get A Free Consultation',
       },
     ],
