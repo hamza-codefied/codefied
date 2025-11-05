@@ -5,6 +5,7 @@ import { servicesData } from '@/data/servicesData';
 import Section from '@/layouts/Section';
 import { GoArrowUpRight } from 'react-icons/go';
 import { FaArrowRightLong } from 'react-icons/fa6';
+import servicebg from '@/images/service_bg.png';
 
 export default function ServiceDetail() {
   const { serviceId } = useParams();
@@ -83,7 +84,7 @@ export default function ServiceDetail() {
       {/* HERO SECTION */}
       <Section
         classNames='relative bg-cover bg-no-repeat py-24 2xl:py-60'
-        style={{ backgroundImage: "url('/src/images/service_bg.png')" }}
+        style={{ backgroundImage: `url(${servicebg})` }}
       >
         <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-start'>
           <motion.h1
