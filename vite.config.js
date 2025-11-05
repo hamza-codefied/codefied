@@ -1,11 +1,11 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import { VitePWA } from 'vite-plugin-pwa'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { VitePWA } from 'vite-plugin-pwa';
 // import sitemap from 'vite-plugin-sitemap'
-import { createHtmlPlugin } from 'vite-plugin-html'
-import viteCompression from 'vite-plugin-compression'
-import { visualizer } from 'rollup-plugin-visualizer'
-import path from 'path'
+import { createHtmlPlugin } from 'vite-plugin-html';
+import viteCompression from 'vite-plugin-compression';
+import { visualizer } from 'rollup-plugin-visualizer';
+import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -17,17 +17,19 @@ export default defineConfig({
       manifest: {
         name: 'Codefied - Professional React Application',
         short_name: 'Codefied',
-        description: 'A modern, professional React application built with Vite, Tailwind CSS, and best practices for scalable development.',
+        description:
+          'A modern, professional React application built with Vite, Tailwind CSS, and best practices for scalable development.',
         theme_color: '#3b82f6',
         background_color: '#ffffff',
         display: 'standalone',
         orientation: 'portrait',
         scope: '/',
-        start_url: '/'
+        start_url: '/',
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg}']
-      }
+        globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, // 10 MB
+      },
     }),
     // sitemap({
     //   hostname: 'https://codefied.com',
@@ -43,28 +45,30 @@ export default defineConfig({
       inject: {
         data: {
           title: 'Codefied - Professional React Application',
-          description: 'A modern, professional React application built with Vite, Tailwind CSS, and best practices for scalable development.',
-          keywords: 'React, Vite, Tailwind CSS, PWA, SEO, Performance, Modern Web Development',
+          description:
+            'A modern, professional React application built with Vite, Tailwind CSS, and best practices for scalable development.',
+          keywords:
+            'React, Vite, Tailwind CSS, PWA, SEO, Performance, Modern Web Development',
           author: 'Codefied Team',
           ogImage: '/og-image.jpg',
-          twitterCard: 'summary_large_image'
-        }
-      }
+          twitterCard: 'summary_large_image',
+        },
+      },
     }),
     viteCompression({
       algorithm: 'gzip',
-      ext: '.gz'
+      ext: '.gz',
     }),
     viteCompression({
       algorithm: 'brotliCompress',
-      ext: '.br'
+      ext: '.br',
     }),
     visualizer({
       filename: 'dist/stats.html',
       open: true,
       gzipSize: true,
-      brotliSize: true
-    })
+      brotliSize: true,
+    }),
   ],
   resolve: {
     alias: {
@@ -93,24 +97,24 @@ export default defineConfig({
         manualChunks: {
           vendor: ['react', 'react-dom'],
           router: ['react-router-dom'],
-          helmet: ['react-helmet-async']
-        }
-      }
+          helmet: ['react-helmet-async'],
+        },
+      },
     },
     terserOptions: {
       compress: {
         drop_console: true,
-        drop_debugger: true
-      }
+        drop_debugger: true,
+      },
     },
-    chunkSizeWarningLimit: 1000
+    chunkSizeWarningLimit: 1000,
   },
   server: {
     port: 3000,
-    open: true
+    open: true,
   },
   preview: {
     port: 4173,
-    open: true
-  }
-})
+    open: true,
+  },
+});
