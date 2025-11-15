@@ -34,7 +34,8 @@ const WhyChooseUs = () => {
 
   return (
     <section className='bg-[#0c0c0c]/90 text-white py-20 px-4 md:px-12 lg:px-20'>
-      <div className='max-w-6xl mx-auto'>
+      <div className='container m-auto px-8'>
+        <div className=''>
         {/* Tag */}
         <p className='text-sm text-[#d4575b] tracking-widest mb-2'>
           WHY CHOOSE US
@@ -53,7 +54,7 @@ const WhyChooseUs = () => {
         </p>
 
         {/* 2-Column Layout */}
-        <div className='grid md:grid-cols-2 gap-5 md:gap-0'>
+        <div className='grid md:grid-cols-2 gap-8'>
           {/* Left Column */}
           <div className='space-y-4'>
             {items.map((item, index) => (
@@ -77,12 +78,13 @@ const WhyChooseUs = () => {
           </div>
 
           {/* Right Column */}
-          <div className='flex items-center justify-start w-full md:w-[300px] mx-auto '>
-            <p className='text-gray-300 leading-relaxed'>
+          <div className='flex items-center justify-start w-full mx-auto '>
+            <p className='text-gray-300 text-lg leading-relaxed'>
               {items[activeIndex].description}
             </p>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

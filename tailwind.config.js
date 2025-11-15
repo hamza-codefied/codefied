@@ -35,8 +35,9 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+        // sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        // mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+         lufga: ["Lufga", "sans-serif"],
       },
       spacing: {
         '18': '4.5rem',

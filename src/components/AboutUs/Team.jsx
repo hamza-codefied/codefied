@@ -7,10 +7,11 @@ import { GoArrowUpRight } from 'react-icons/go';
 const Team = () => {
   return (
     <section
-      className='relative mt-[-40px] bg-cover bg-center bg-no-repeat text-white py-20 px-4 md:px-10 lg:px-20'
+      className='relative bg-cover bg-center bg-no-repeat text-white py-20 '
       style={{ backgroundImage: `url(${aboutbg})` }}
     >
-      <div className='max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center'>
+      <div className='container m-auto px-8'>
+  <div className=' grid grid-cols-1 md:grid-cols-2 gap-12 items-center'>
         {/* LEFT COLUMN */}
         <div className='space-y-6 text-center md:text-left'>
           <h2 className='text-2xl font-bold leading-snug'>
@@ -37,9 +38,9 @@ const Team = () => {
         {/* RIGHT COLUMN */}
         <div className='flex justify-center relative'>
           {/* Vertical Line */}
-          <div className='hidden xl:block absolute left-1/2 md:left-[185px] 2xl:left-[227px] top-0 bottom-0 w-[2px] bg-white/80 transform -translate-x-1/2 md:translate-x-0'></div>
+          <div className='w-[2px] bg-white/80 transform -translate-x-1/2 md:translate-x-0'></div>
 
-          <ul className='space-y-8 md:space-y-10 relative z-10'>
+          <ul className='space-y-8 md:space-y-10 relative z-10 -ml-2.5 md:-ml-2'>
             {[
               '',
               'Developers',
@@ -53,7 +54,7 @@ const Team = () => {
                 {/* Bullet */}
                 <div
                   className={`w-4 h-4 rounded-full relative z-20 ${
-                    idx === 0 ? 'bg-white hidden xl:block' : 'bg-[#d4575b]'
+                    idx === 0 ? 'bg-white ' : 'bg-[#d4575b]'
                   }`}
                 ></div>
                 {/* Label */}
@@ -65,6 +66,8 @@ const Team = () => {
           </ul>
         </div>
       </div>
+      </div>
+    
     </section>
   );
 };

@@ -6,8 +6,9 @@ const Vision = () => {
   const [activeTab, setActiveTab] = useState('vision');
 
   return (
-    <section className='w-full bg-white text-black py-20 px-4 md:px-10 lg:px-20'>
-      <div className='max-w-5xl mx-auto text-start space-y-6'>
+    <div className='container m-auto px-8'>
+      <section className='w-full bg-white text-black py-20 '>
+      <div className='text-start space-y-6'>
         {/* Heading */}
         <h2 className='text-2xl md:text-3xl font-bold'>
           Innovating Solutions , <br />
@@ -15,7 +16,7 @@ const Vision = () => {
         </h2>
 
         {/* Paragraph */}
-        <p className='text-gray-500 text-sm leading-relaxed max-w-3xl'>
+        <p className='text-gray-500 text-sm leading-relaxed'>
           At Codefied Software Development Company, we are passionate about
           leveraging technology to create innovative and impactful solutions.At
           Codefied Software Development Company, we are passionate about
@@ -43,7 +44,7 @@ const Vision = () => {
         <div className='mt-8'>
           {activeTab === 'vision' ? (
             <div className='space-y-4 border-l-2 border-[#d4575b] pl-6 py-4'>
-              <p className='text-black text-sm leading-relaxed max-w-3xl'>
+              <p className='text-black text-sm leading-relaxed'>
                 At Codefied Software Development Company, we are passionate
                 about leveraging technology to create innovative and impactful
                 solutions. Our team of dedicated professionals specializes in
@@ -85,6 +86,7 @@ const Vision = () => {
         </div>
       </div>
     </section>
+    </div>
   );
 };
 

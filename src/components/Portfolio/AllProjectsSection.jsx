@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { link } from 'framer-motion/client';
+import { div, link } from 'framer-motion/client';
 import { GoArrowUpRight } from 'react-icons/go';
 import portfolio1 from '@/images/portfolio1.png';
 import blog2 from '@/images/blog2.png';
@@ -331,70 +331,72 @@ export default function AllProjectsSection() {
   const [activeTab, setActiveTab] = useState('saas');
 
   return (
-    <section className='text-white py-5 px-4 sm:px-6 lg:px-16'>
-      <div className='text-center mb-12'>
-        {/* Tabs */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className='flex flex-wrap justify-center gap-3 w-fit px-5 py-2 rounded-full border-2'
-        >
-          {categories.map(cat => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveTab(cat.id)}
-              className={`px-5 py-2 rounded-full font-medium text-sm transition-all duration-300 ${
-                activeTab === cat.id
-                  ? 'bg-black text-white shadow-lg scale-105'
-                  : 'bg-white hover:bg-gray-100 text-black'
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </motion.div>
-      </div>
+    <div className='container m-auto px-8'>
+      <section className='text-white py-5'>
+        <div className='text-center mb-12'>
+          {/* Tabs */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className='flex flex-wrap justify-center gap-3 w-fit px-5 py-2 rounded-full border-2'
+          >
+            {categories.map(cat => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveTab(cat.id)}
+                className={`px-5 py-2 rounded-full font-medium text-sm transition-all duration-300 ${
+                  activeTab === cat.id
+                    ? 'bg-black text-white shadow-lg scale-105'
+                    : 'bg-white hover:bg-gray-100 text-black'
+                }`}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </motion.div>
+        </div>
 
-      {/* Cards */}
-      <AnimatePresence mode='wait'>
-        <motion.div
-          key={activeTab}
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -40 }}
-          transition={{ duration: 0.6 }}
-          className='grid sm:grid-cols-2 2xl:grid-cols-3 gap-20'
-        >
-          {projectData[activeTab].map(blog => (
-            <motion.div
-              key={blog.id}
-              whileHover={{ scale: 1.03 }}
-              transition={{ type: 'spring', stiffness: 200 }}
-              className='rounded-2xl overflow-hidden hover:shadow-purple-500/20 transition-all'
-            >
-              <div className='h-96 w-full overflow-hidden'>
-                <img
-                  src={blog.image}
-                  alt={blog.title}
-                  className='h-full w-full object-cover'
-                />
-              </div>
-              <div className='flex items-center justify-between'>
-                <div className='py-5 text-black space-y-1'>
-                  <h3 className='text-md font-semibold'>{blog.title}</h3>
-                  <p className='text-sm bg-black w-fit px-3 py-1 rounded-md text-gray-400'>
-                    {blog.link}
-                  </p>
+        {/* Cards */}
+        <AnimatePresence mode='wait'>
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -40 }}
+            transition={{ duration: 0.6 }}
+            className='grid sm:grid-cols-2 2xl:grid-cols-3 gap-20'
+          >
+            {projectData[activeTab].map(blog => (
+              <motion.div
+                key={blog.id}
+                whileHover={{ scale: 1.03 }}
+                transition={{ type: 'spring', stiffness: 200 }}
+                className='rounded-2xl overflow-hidden hover:shadow-purple-500/20 transition-all'
+              >
+                <div className='h-96 w-full overflow-hidden'>
+                  <img
+                    src={blog.image}
+                    alt={blog.title}
+                    className='h-full w-full object-cover'
+                  />
                 </div>
-                <div className='bg-black rounded-full p-2'>
-                  <GoArrowUpRight className='text-[#d4575b] text-5xl mt-[2px]' />
+                <div className='flex items-center justify-between'>
+                  <div className='py-5 text-black space-y-1'>
+                    <h3 className='text-md font-semibold'>{blog.title}</h3>
+                    <p className='text-sm bg-black w-fit px-3 py-1 rounded-md text-gray-400'>
+                      {blog.link}
+                    </p>
+                  </div>
+                  <div className='bg-black rounded-full p-2'>
+                    <GoArrowUpRight className='text-[#d4575b] text-5xl mt-[2px]' />
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </AnimatePresence>
-    </section>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+      </section>
+    </div>
   );
 }

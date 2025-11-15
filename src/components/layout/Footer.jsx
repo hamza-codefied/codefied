@@ -5,34 +5,34 @@ import logo from '@/images/logo.png';
 
 export const Footer = () => {
   return (
-    <footer className='bg-white text-gray-700'>
-      <div className='w-full px-4 sm:px-6 lg:px-8 py-10'>
+    <footer className='bg-white text-gray-700 container mx-auto px-8'>
+      <div className='w-full py-10'>
         {/* Top Section */}
-        <div className='flex flex-col md:flex-row md:items-start md:justify-between mb-2 gap-2'>
+        <div className='flex flex-col md:flex-row md:items-start md:justify-between pb-8 gap-2'>
           {/* Logo */}
-          <img src={logo} className='w-12 h-10' alt='Logo' />
+          <img src={logo} className='w-16 ' alt='Logo' />
 
           {/* Social Media */}
           <div className='flex items-center space-x-3 text-sm text-gray-700'>
-            <span className='text-xs'>Follow Us On Social Media</span>
+            <span className='text-base'>Follow Us On Social Media</span>
             <div className='flex space-x-3'>
               <a
                 href='#'
-                className='p-2 bg-black text-white rounded-full hover:bg-gray-700 transition'
+                className='p-4 bg-black text-white rounded-full hover:bg-gray-700 transition'
               >
-                <FaLinkedin size={18} className='text-[#d4575b]' />
+                <FaLinkedin size={24} className='text-[#d4575b]' />
               </a>
               <a
                 href='#'
-                className='p-2 bg-black text-white rounded-full hover:bg-gray-700 transition'
+                className='p-4 bg-black text-white rounded-full hover:bg-gray-700 transition'
               >
-                <FaInstagramSquare size={18} className='text-[#d4575b]' />
+                <FaInstagramSquare size={24} className='text-[#d4575b]' />
               </a>
               <a
                 href='#'
-                className='p-2 bg-black text-white rounded-full hover:bg-gray-700 transition'
+                className='p-4 bg-black text-white rounded-full hover:bg-gray-700 transition'
               >
-                <FaTwitter size={18} className='text-[#d4575b]' />
+                <FaTwitter size={24} className='text-[#d4575b]' />
               </a>
             </div>
           </div>
@@ -42,7 +42,7 @@ export const Footer = () => {
         <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 border-t border-gray-200 pt-8'>
           {/* Home */}
           <div>
-            <h3 className='font-semibold text-[#d4575b] mb-3'>Home</h3>
+            <h3 className='font-semibold text-[#d4575b] mb-6'>Home</h3>
             <ul className='space-y-2 text-sm'>
               <li>
                 <a href='#'>Benefits</a>
@@ -58,7 +58,7 @@ export const Footer = () => {
 
           {/* Services */}
           <div>
-            <h3 className='font-semibold text-[#d4575b] mb-3'>Services</h3>
+            <h3 className='font-semibold text-[#d4575b] mb-6'>Services</h3>
             <ul className='space-y-2 text-sm'>
               <li>
                 <a href='#'>Web Design</a>
@@ -77,7 +77,7 @@ export const Footer = () => {
 
           {/* Projects */}
           <div>
-            <h3 className='font-semibold text-[#d4575b] mb-3'>Projects</h3>
+            <h3 className='font-semibold text-[#d4575b] mb-6'>Projects</h3>
             <ul className='space-y-2 text-sm'>
               <li>
                 <a href='#'>ABC Tech Solutions</a>
@@ -99,7 +99,7 @@ export const Footer = () => {
 
           {/* About Us */}
           <div>
-            <h3 className='font-semibold text-[#d4575b] mb-3'>About Us</h3>
+            <h3 className='font-semibold text-[#d4575b] mb-6'>About Us</h3>
             <ul className='space-y-2 text-sm'>
               <li>
                 <a href='#'>Our Team</a>
@@ -115,7 +115,7 @@ export const Footer = () => {
 
           {/* Careers */}
           <div>
-            <h3 className='font-semibold text-[#d4575b] mb-3'>Careers</h3>
+            <h3 className='font-semibold text-[#d4575b] mb-6'>Careers</h3>
             <ul className='space-y-2 text-sm'>
               <li>
                 <a href='#'>Job Openings</a>
@@ -131,7 +131,7 @@ export const Footer = () => {
 
           {/* Blogs */}
           <div>
-            <h3 className='font-semibold text-[#d4575b] mb-3'>Blogs</h3>
+            <h3 className='font-semibold text-[#d4575b] mb-6'>Blogs</h3>
             <ul className='space-y-2 text-sm'>
               <li>
                 <a href='#'>Our Blogs</a>
@@ -142,9 +142,15 @@ export const Footer = () => {
 
         {/* Bottom Bar */}
         <div className='border-t border-gray-200 mt-8 pt-6 flex flex-col md:flex-row items-center justify-between text-sm text-gray-600'>
-          <p>@2023 Digitax. All Rights Reserved.</p>
-          <div className='flex flex-wrap items-center justify-center mt-3 md:mt-0 space-x-3'>
+          <div>
+            <p>@2023 Codefied. All Rights Reserved.</p>
+          </div>
+
+          <div>
             <span>Version 1.0</span>
+          </div>
+
+          <div className='flex flex-wrap items-center justify-center mt-3 md:mt-0 space-x-3'>
             <a href='#' className='hover:text-[#E74C3C]'>
               Privacy Policy
             </a>

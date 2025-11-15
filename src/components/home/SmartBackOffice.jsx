@@ -2,6 +2,7 @@ import React from 'react';
 import { GoArrowUpRight } from 'react-icons/go';
 import backoffice from '@/images/backoffice.png';
 import circle from '@/images/circle.png';
+import { div } from 'framer-motion/client';
 
 const SmartBackOffice = () => {
   const cards = [
@@ -36,7 +37,9 @@ const SmartBackOffice = () => {
   ];
 
   return (
-    <section className='relative max-w-6xl mx-auto flex items-center justify-center py-64 px-4 overflow-hidden mt-10 sm:mt-32'>
+    /* Container */
+    <div className='container m-auto px-8'>
+       <section className='relative  flex items-center justify-center py-64 px-4 overflow-hidden mt-10 sm:mt-32'>
       {/* Background Image */}
       <img
         src={circle}
@@ -108,6 +111,8 @@ const SmartBackOffice = () => {
         </div>
       ))}
     </section>
+    </div>
+   
   );
 };
 

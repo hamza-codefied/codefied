@@ -473,7 +473,8 @@ export default function AllBlogsSection() {
   const [activeTab, setActiveTab] = useState('saas');
 
   return (
-    <section className='text-white py-20 px-4 sm:px-6 lg:px-16'>
+  <div className='container m-auto px-8'>
+      <section className='text-white py-20'>
       <div className='text-center mb-12'>
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
@@ -545,5 +546,6 @@ export default function AllBlogsSection() {
         </motion.div>
       </AnimatePresence>
     </section>
+  </div>
   );
 }

@@ -6,7 +6,7 @@ import {
   generateOrganizationStructuredData,
 } from '@utils/seo';
 import HeroSection from '@/components/home/HeroSection';
-import ClientSection from '@/components/home/ClientSection';
+
 import OurCapabilities from '@/components/home/OurCapabilities';
 import Developerit from '@/components/home/DeveloperIT';
 import FeaturedProducts from '@/components/home/FeaturedProducts';
@@ -15,7 +15,7 @@ import ProjectsSection from '@/components/home/Projects';
 import Blogs from '@/components/home/Blogs';
 import FAQSection from '@/components/home/Faq';
 import ClientSection2 from '@/components/home/ClientSection2';
-import TestimonialsSection from '@/components/home/TestimoniolSection';
+import TestimonialsSection from '@/components/global/TestimoniolSection';
 
 export const Home = () => {
   const structuredData = [
@@ -25,6 +25,7 @@ export const Home = () => {
 
   return (
     <>
+    
       <SEOHead
         title='Codefied - Professional React Application'
         description='A modern, professional React application built with Vite, Tailwind CSS, and best practices for scalable development. Get started with our optimized template today.'
@@ -35,7 +36,7 @@ export const Home = () => {
 
       <div className='min-h-screen'>
         <HeroSection />
-        <ClientSection />
+        
         <OurCapabilities />
         <Developerit />
         <FeaturedProducts />

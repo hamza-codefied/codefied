@@ -16,6 +16,7 @@ import { Portfolio } from '@pages/Portfolio';
 import { NotFound } from '@pages/NotFound';
 import ServiceDetail from './pages/ServiceDetail';
 import ProductDetails from './pages/ProductDetails';
+import ScrollToTop from './components/global/ScrollToTop';
 
 function App() {
   // Preload critical resources
@@ -26,6 +27,7 @@ function App() {
   return (
     <SEOProvider>
       <Router>
+           <ScrollToTop />
         <Layout>
           <Routes>
             <Route path='/' element={<Home />} />

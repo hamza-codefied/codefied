@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@components/ui/Button';
 import logo from '@/images/logo.png';
@@ -6,6 +6,8 @@ import { GoGlobe } from 'react-icons/go';
 import { FaArrowDownLong } from 'react-icons/fa6';
 import { MegaMenu } from './MegaMenu';
 import { ProductMegaMenu } from './ProductMegaMenu';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,6 +15,21 @@ export const Header = () => {
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
   const [isProductMegaMenuOpen, setIsProductMegaMenuOpen] = useState(false);
   const location = useLocation();
+
+ useEffect(() => {
+  console.log(typeof document)
+  if (typeof document === "undefined") return;
+
+  const prev = document.body.style.overflow; // remember previous value
+  if (isMegaMenuOpen) document.body.style.overflow = "hidden";
+   else if (isProductMegaMenuOpen) document.body.style.overflow = "hidden";
+  else document.body.style.overflow = prev || "auto";
+
+  return () => {
+    // restore on unmount
+    document.body.style.overflow = prev || "auto";
+  };
+}, [isMegaMenuOpen, isProductMegaMenuOpen]);
 
   const serviceDropdown = [
     { name: 'Web Development', href: '/services/web-development' },
@@ -46,9 +63,10 @@ export const Header = () => {
   const isActive = path => location.pathname === path;
 
   return (
-    <header className='bg-white shadow-sm border-b relative z-50'>
-      <div className='w-full mx-auto px-4 sm:px-6 lg:px-32'>
-        <div className='flex justify-between items-center h-16'>
+    <header className='bg-white shadow-sm border-b relative z-50 h-[10vh]  py-8'>
+      <div className='container h-full m-auto px-8'>
+         <div className='w-full   flex justify-center h-full'>
+        <div className='flex justify-between items-center w-full'>
           {/* Logo */}
           <div className='flex-shrink-0'>
             <Link to='/' className='flex items-center'>
@@ -57,7 +75,7 @@ export const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className='hidden lg:flex space-x-6 py-2 relative'>
+          <nav className='hidden lg:flex space-x-6 py-2 relative items-center'>
             {navigation.map(item => (
               <div
                 key={item.name}
@@ -73,7 +91,7 @@ export const Header = () => {
                         setIsMegaMenuOpen(prev => !prev);
                         setIsProductMegaMenuOpen(false);
                       }}
-                      className={`px-3 mt-[-5px] py-2 rounded-md text-sm font-medium flex items-center gap-1 transition-colors ${
+                      className={`px-3  py-2 rounded-md text-base font-medium flex items-center gap-1 transition-colors ${
                         isMegaMenuOpen
                           ? 'text-white bg-[#d4575b] bg-opacity-90'
                           : 'text-black hover:bg-gray-50'
@@ -111,7 +129,7 @@ export const Header = () => {
                         setIsProductMegaMenuOpen(prev => !prev);
                         setIsMegaMenuOpen(false);
                       }}
-                      className={`px-3 mt-[-5px] py-2 rounded-md text-sm font-medium flex items-center gap-1 transition-colors ${
+                      className={`px-3  py-2 rounded-md text-sm font-medium flex items-center gap-1 transition-colors ${
                         isProductMegaMenuOpen
                           ? 'text-white bg-[#d4575b] bg-opacity-90'
                           : 'text-black hover:bg-gray-50'
@@ -350,6 +368,8 @@ export const Header = () => {
           </div>
         )}
       </div>
+      </div>
+     
     </header>
   );
 };
