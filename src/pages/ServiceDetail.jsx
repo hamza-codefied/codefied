@@ -84,7 +84,7 @@ export default function ServiceDetail() {
     <div className='min-h-screen bg-gradient-to-b from-white to-gray-50 overflow-hidden'>
       {/* HERO SECTION */}
       <HeroSection
-        classNames={'h-[70vh]'}
+        classNames={'h-[50vh]'}
         BannerText={'Services'}
         BottomText={
           <motion.div

@@ -39,7 +39,7 @@ export default function TestimonialsSection() {
           </blockquote>
           <p className='mb-6'>😍</p>
 
-          <p className='font-semibold text-[#d4575b]'>_ Aria Zhenario</p>
+          <p className='font-semibold text-[#d4575b]'>Aria Zhenario</p>
 
           {/* Avatars */}
           <div className='flex items-center mt-8 space-x-4 flex-wrap'>

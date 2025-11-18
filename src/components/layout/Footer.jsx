@@ -143,7 +143,7 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className='border-t border-gray-200 mt-8 pt-6 flex flex-col md:flex-row items-center justify-between text-sm text-gray-600'>
           <div>
-            <p>@2023 Codefied. All Rights Reserved.</p>
+            <p>＠2023 Codefied. All Rights Reserved.</p>
           </div>
 
           <div>
@@ -155,7 +155,7 @@ export const Footer = () => {
               Privacy Policy
             </a>
             <a href='#' className='hover:text-[#E74C3C]'>
-              Terms & Conditions
+              Terms ＆ Conditions
             </a>
             <a href='#' className='hover:text-[#E74C3C]'>
               Cookie Policy

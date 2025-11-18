@@ -12,7 +12,7 @@ export const Developerit = () => {
       desc: 'Our web app development services are designed to provide robust, scalable, and secure applications that drive business growth. From simple websites to complex web-based applications, we deliver solutions that meet your unique requirements.',
     },
     {
-      title: 'Augmented Reality (AR)',
+      title: 'Augmented Reality',
       desc: 'Enhance the real world with our Augmented Reality solutions. AR overlays digital content onto the physical environment, providing interactive and immersive experiences that captivate users.',
     },
   ];
@@ -23,7 +23,7 @@ export const Developerit = () => {
         {/* 🧭 Left Column */}
         <div className='space-y-5'>
           <h2 className='text-3xl md:text-4xl font-bold text-gray-900'>
-            Developer/IT
+            Developer／IT
           </h2>
           <p className='text-black w-full sm:w-[400px]'>
             From concept to launch, we cover the entire spectrum of digital
