@@ -25,7 +25,6 @@ export const Home = () => {
 
   return (
     <>
-    
       <SEOHead
         title='Codefied - Professional React Application'
         description='A modern, professional React application built with Vite, Tailwind CSS, and best practices for scalable development. Get started with our optimized template today.'
@@ -36,7 +35,6 @@ export const Home = () => {
 
       <div className='min-h-screen'>
         <HeroSection />
-        
         <OurCapabilities />
         <Developerit />
         <FeaturedProducts />

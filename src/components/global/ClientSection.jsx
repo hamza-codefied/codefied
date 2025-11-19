@@ -55,7 +55,7 @@ export const ClientSection = () => {
     <>
       <div className='h-[15vh] bg-[#242424]/90 '>
         <div className='relative flex justify-center items-center'>
-          <div className='bg-black text-white text-xs w-fit mx-auto px-4 py-2 rounded-full absolute z-50 -top-[15px] h-[30px]'>
+          <div className='bg-black text-white text-xs w-fit mx-auto px-4 py-2 rounded-full absolute z-10 -top-[15px] h-[30px]'>
             Trusted By 250+ Companies
           </div>
         </div>

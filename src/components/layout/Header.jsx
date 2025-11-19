@@ -16,20 +16,44 @@ export const Header = () => {
   const [isProductMegaMenuOpen, setIsProductMegaMenuOpen] = useState(false);
   const location = useLocation();
 
- useEffect(() => {
-  console.log(typeof document)
-  if (typeof document === "undefined") return;
+  useEffect(() => {
+    if (typeof document === "undefined") return;
 
-  const prev = document.body.style.overflow; // remember previous value
-  if (isMegaMenuOpen) document.body.style.overflow = "hidden";
-   else if (isProductMegaMenuOpen) document.body.style.overflow = "hidden";
-  else document.body.style.overflow = prev || "auto";
+    // Disable body scroll when either mega menu is open
+    if (isMegaMenuOpen || isProductMegaMenuOpen) {
+      // Store current scroll position
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Re-enable body scroll when menus are closed
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      
+      // Restore scroll position
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
+    }
 
-  return () => {
-    // restore on unmount
-    document.body.style.overflow = prev || "auto";
-  };
-}, [isMegaMenuOpen, isProductMegaMenuOpen]);
+    return () => {
+      // Cleanup: restore scroll on unmount
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
+    };
+  }, [isMegaMenuOpen, isProductMegaMenuOpen]);
 
   const serviceDropdown = [
     { name: 'Web Development', href: '/services/web-development' },
