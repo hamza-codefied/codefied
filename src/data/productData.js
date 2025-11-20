@@ -16,7 +16,7 @@ const products = [
     short:
       'Create, edit, and download multi-floor plans with smart tools and stunning visuals — no CAD skills needed.',
     description:
-      'Build My Plan helps contractors, architects and homeowners rapidly create accurate multi-floor plans. Includes snapping guides, furniture library, export to PNG/PDF/DWG and collaborative sharing.',
+      'Build My Plan helps contractors, architects and homeowners rapidly create accurate multi-floor plans. Includes snapping guides, furniture library, export to PNG, PDF, DWG and collaborative sharing.',
     features: [
       {
         image: productA,

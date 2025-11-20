@@ -10,11 +10,11 @@ export const Developerit = () => {
   const features = [
     {
       title: 'Mobile App Development',
-      desc: 'Transform your ideas into powerful mobile applications with our expert development team. We create high-quality, user-friendly apps for both iOS and Android platforms, ensuring a seamless experience for your users.',
+      desc: 'Transform your ideas into powerful mobile applications with our expert development team. We create high quality, user friendly apps for both iOS and Android platforms, ensuring a seamless experience for your users.',
     },
     {
       title: 'Web App Development',
-      desc: 'Our web app development services are designed to provide robust, scalable, and secure applications that drive business growth. From simple websites to complex web-based applications, we deliver solutions that meet your unique requirements.',
+      desc: 'Our web app development services are designed to provide robust, scalable, and secure applications that drive business growth. From simple websites to complex web based applications, we deliver solutions that meet your unique requirements.',
     },
     {
       title: 'Augmented Reality',
@@ -22,11 +22,11 @@ export const Developerit = () => {
     },
     {
       title: 'Mobile App Development',
-      desc: 'Transform your ideas into powerful mobile applications with our expert development team. We create high-quality, user-friendly apps for both iOS and Android platforms, ensuring a seamless experience for your users.',
+      desc: 'Transform your ideas into powerful mobile applications with our expert development team. We create high quality, user friendly apps for both iOS and Android platforms, ensuring a seamless experience for your users.',
     },
     {
       title: 'Web App Development',
-      desc: 'Our web app development services are designed to provide robust, scalable, and secure applications that drive business growth. From simple websites to complex web-based applications, we deliver solutions that meet your unique requirements.',
+      desc: 'Our web app development services are designed to provide robust, scalable, and secure applications that drive business growth. From simple websites to complex web based applications, we deliver solutions that meet your unique requirements.',
     },
     {
       title: 'Augmented Reality',
@@ -388,7 +388,7 @@ export const Developerit = () => {
                 }
               >
                 Learn More
-                <GoArrowUpRight size={20} className='text-black mt-[2px]' />
+                <IoIosArrowDroprightCircle className='text-black' />
               </a>
             </div>
           ))}

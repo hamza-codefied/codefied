@@ -22,7 +22,7 @@ const Blog = [
     by: 'Rohail Naveed',
     comments: 83,
     title: 'Speaking remotely at Word Camp US.',
-    date: '24 March',
+    date: '2 March',
     image: blog,
   },
   {
@@ -30,7 +30,7 @@ const Blog = [
     by: 'Rohail Naveed',
     comments: 83,
     title: 'Speaking remotely at Word Camp US.',
-    date: '24 March',
+    date: '2 March',
     image: blog,
   },
   {
@@ -38,7 +38,7 @@ const Blog = [
     by: 'Rohail Naveed',
     comments: 83,
     title: 'Speaking remotely at Word Camp US.',
-    date: '24 March',
+    date: '2 March',
     image: blog,
   },
   {
@@ -109,7 +109,7 @@ const Blogs = () => {
             {/* Tag */}
             <div className='sm:text-start mb-2'>
               <span className='text-sm font-semibold text-[#d4575b] uppercase tracking-wider'>
-                Blog & News
+                Blog And News
               </span>
             </div>
 
@@ -117,8 +117,9 @@ const Blogs = () => {
             <div className='flex flex-col md:flex-row items-start justify-between gap-8 mb-4'>
               {/* Left Side */}
               <div className='md:w-2/3 flex items-center'>
-                <h2 className='text-3xl font-bold mb-4 relative inline-block'>
-                  Read Our Latest News & <br /> Blog Get Every Updates
+                <h2 className='text-3xl font-bold mb-4 relative inline-block text-start'>
+                  Read Our Latest Blogs
+                  <br /> Get Every Updates
                   <span className='block lg:w-40 h-[1px] bg-gray-500 mt-3 rounded-full'></span>
                 </h2>
               </div>

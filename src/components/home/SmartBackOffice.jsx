@@ -22,7 +22,7 @@ const SmartBackOffice = () => {
     },
     {
       id: 3,
-      title: 'Data & Analytics',
+      title: 'Data Analytics',
       description: 'Turn raw information into actionable insights.',
       image: backoffice,
       position: 'bottom-left',
