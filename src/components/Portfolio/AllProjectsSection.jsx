@@ -1,18 +1,9 @@
 'use client';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { div, link } from 'framer-motion/client';
 import { GoArrowUpRight } from 'react-icons/go';
-import portfolio1 from '@/images/portfolio1.png';
-import blog2 from '@/images/blog2.png';
-import blog3 from '@/images/blog3.png';
-import blog1 from '@/images/blog1.png';
-import blog4 from '@/images/blog4.png';
-import blog5 from '@/images/blog5.png';
-import blog6 from '@/images/blog6.png';
-import blog7 from '@/images/blog7.png';
-import blog8 from '@/images/blog8.png';
-import blog9 from '@/images/blog9.png';
+import { getAllProjects } from '@/data/projectData';
 
 const categories = [
   { id: 'saas', label: 'SaaS' },
@@ -23,312 +14,23 @@ const categories = [
   { id: 'gamedev', label: 'Game Dev' },
 ];
 
-// Mock data for each category
-const projectData = {
-  saas: [
-    {
-      id: 1,
-      image: portfolio1,
-      title: 'Building Scalable SaaS Products',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 2,
-      image: blog2,
-      title: 'Top SaaS Growth Strategies for Startups',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 3,
-      image: blog3,
-      title: 'How to Price Your SaaS Product Smartly',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 4,
-      image: blog1,
-      title: 'Building Scalable SaaS Products',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 5,
-      image: blog2,
-      title: 'Top SaaS Growth Strategies for Startups',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 6,
-      image: blog3,
-      title: 'How to Price Your SaaS Product Smartly',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 7,
-      image: blog1,
-      title: 'Building Scalable SaaS Products',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 8,
-      image: blog2,
-      title: 'Top SaaS Growth Strategies for Startups',
-      link: 'www.grocerycomparison.com',
-    },
-  ],
-  webdev: [
-    {
-      id: 1,
-      image: blog4,
-      title: 'Modern Web Development Trends 2025',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 2,
-      image: blog5,
-      title: 'How to Optimize Next.js for Performance',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 3,
-      image: blog6,
-      title: 'Top 10 React UI Libraries in 2025',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 4,
-      image: blog4,
-      title: 'Modern Web Development Trends 2025',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 5,
-      image: blog5,
-      title: 'How to Optimize Next.js for Performance',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 6,
-      image: blog6,
-      title: 'Top 10 React UI Libraries in 2025',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 7,
-      image: blog4,
-      title: 'Modern Web Development Trends 2025',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 8,
-      image: blog5,
-      title: 'How to Optimize Next.js for Performance',
-      link: 'www.grocerycomparison.com',
-    },
-  ],
-  appdev: [
-    {
-      id: 1,
-      image: blog7,
-      title: 'Mastering Cross-Platform App Dev',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 2,
-      image: blog8,
-      title: 'Mobile UI Best Practices',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 3,
-      image: blog2,
-      title: 'Integrating AI in Mobile Apps',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 4,
-      image: blog1,
-      title: 'Mastering Cross-Platform App Dev',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 5,
-      image: blog4,
-      title: 'Mobile UI Best Practices',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 6,
-      image: blog6,
-      title: 'Integrating AI in Mobile Apps',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 7,
-      image: blog9,
-      title: 'Mastering Cross-Platform App Dev',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 8,
-      image: blog8,
-      title: 'Mobile UI Best Practices',
-      link: 'www.grocerycomparison.com',
-    },
-  ],
-  arvr: [
-    {
-      id: 1,
-      image: blog1,
-      title: 'AR/VR in Education — The Future is Here',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 2,
-      image: blog2,
-      title: 'Top 5 AR Frameworks for Developers',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 3,
-      image: blog3,
-      title: 'VR Gaming Evolution in 2025',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 4,
-      image: blog4,
-      title: 'AR/VR in Education — The Future is Here',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 5,
-      image: blog5,
-      title: 'Top 5 AR Frameworks for Developers',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 6,
-      image: blog6,
-      title: 'VR Gaming Evolution in 2025',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 7,
-      image: blog7,
-      title: 'AR/VR in Education — The Future is Here',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 8,
-      image: blog8,
-      title: 'Top 5 AR Frameworks for Developers',
-      link: 'www.grocerycomparison.com',
-    },
-  ],
-  uiux: [
-    {
-      id: 1,
-      image: blog1,
-      title: 'UI/UX Trends Dominating 2025',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 2,
-      image: blog2,
-      title: 'Creating Emotionally Engaging Interfaces',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 3,
-      image: blog3,
-      title: 'Color Psychology in UI Design',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 4,
-      image: blog4,
-      title: 'UI/UX Trends Dominating 2025',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 5,
-      image: blog5,
-      title: 'Creating Emotionally Engaging Interfaces',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 6,
-      image: blog6,
-      title: 'Color Psychology in UI Design',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 7,
-      image: blog7,
-      title: 'UI/UX Trends Dominating 2025',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 8,
-      image: blog8,
-      title: 'Creating Emotionally Engaging Interfaces',
-      link: 'www.grocerycomparison.com',
-    },
-  ],
-  gamedev: [
-    {
-      id: 1,
-      image: blog1,
-      title: 'Unreal vs Unity — 2025 Comparison',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 2,
-      image: blog2,
-      title: 'Game Monetization Models That Work',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 3,
-      image: blog3,
-      title: 'AI in Game Design — Smarter Worlds',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 4,
-      image: blog4,
-      title: 'Unreal vs Unity — 2025 Comparison',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 5,
-      image: blog5,
-      title: 'Game Monetization Models That Work',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 6,
-      image: blog6,
-      title: 'AI in Game Design — Smarter Worlds',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 7,
-      image: blog7,
-      title: 'Unreal vs Unity — 2025 Comparison',
-      link: 'www.grocerycomparison.com',
-    },
-    {
-      id: 8,
-      image: blog8,
-      title: 'Game Monetization Models That Work',
-      link: 'www.grocerycomparison.com',
-    },
-  ],
-};
-
 export default function AllProjectsSection() {
   const [activeTab, setActiveTab] = useState('saas');
+  const navigate = useNavigate();
+
+  // Get projects by category
+  const projectData = useMemo(() => {
+    const allProjects = getAllProjects();
+    const categorized = {
+      saas: allProjects.filter(project => project.category === 'saas'),
+      webdev: allProjects.filter(project => project.category === 'webdev'),
+      appdev: allProjects.filter(project => project.category === 'appdev'),
+      arvr: allProjects.filter(project => project.category === 'arvr'),
+      uiux: allProjects.filter(project => project.category === 'uiux'),
+      gamedev: allProjects.filter(project => project.category === 'gamedev'),
+    };
+    return categorized;
+  }, []);
 
   return (
     <div className='container m-auto px-8'>
@@ -367,25 +69,26 @@ export default function AllProjectsSection() {
             transition={{ duration: 0.6 }}
             className='grid sm:grid-cols-2 2xl:grid-cols-3 gap-20'
           >
-            {projectData[activeTab].map(blog => (
+            {projectData[activeTab]?.map(project => (
               <motion.div
-                key={blog.id}
+                key={project.id}
                 whileHover={{ scale: 1.03 }}
                 transition={{ type: 'spring', stiffness: 200 }}
-                className='rounded-2xl overflow-hidden hover:shadow-purple-500/20 transition-all'
+                onClick={() => navigate(`/portfolio/${project.slug}`)}
+                className='rounded-2xl overflow-hidden hover:shadow-purple-500/20 transition-all cursor-pointer'
               >
                 <div className='h-96 w-full overflow-hidden'>
                   <img
-                    src={blog.image}
-                    alt={blog.title}
+                    src={project.image}
+                    alt={project.title}
                     className='h-full w-full object-cover'
                   />
                 </div>
                 <div className='flex items-center justify-between'>
                   <div className='py-5 text-black space-y-1'>
-                    <h3 className='text-md font-semibold'>{blog.title}</h3>
+                    <h3 className='text-md font-semibold'>{project.title}</h3>
                     <p className='text-sm bg-black w-fit px-3 py-1 rounded-md text-gray-400'>
-                      {blog.link}
+                      {project.website}
                     </p>
                   </div>
                   <div className='bg-black rounded-full p-2'>

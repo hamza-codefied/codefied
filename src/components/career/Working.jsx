@@ -6,30 +6,18 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const Developerit = () => {
+export const Working = () => {
   const features = [
     {
-      title: 'Mobile App Development',
+      title: 'Working at codefied',
       desc: 'Transform your ideas into powerful mobile applications with our expert development team. We create high quality, user friendly apps for both iOS and Android platforms, ensuring a seamless experience for your users.',
     },
     {
-      title: 'Web App Development',
+      title: 'Trainees',
       desc: 'Our web app development services are designed to provide robust, scalable, and secure applications that drive business growth. From simple websites to complex web based applications, we deliver solutions that meet your unique requirements.',
     },
     {
-      title: 'Augmented Reality',
-      desc: 'Enhance the real world with our Augmented Reality solutions. AR overlays digital content onto the physical environment, providing interactive and immersive experiences that captivate users.',
-    },
-    {
-      title: 'Mobile App Development',
-      desc: 'Transform your ideas into powerful mobile applications with our expert development team. We create high quality, user friendly apps for both iOS and Android platforms, ensuring a seamless experience for your users.',
-    },
-    {
-      title: 'Web App Development',
-      desc: 'Our web app development services are designed to provide robust, scalable, and secure applications that drive business growth. From simple websites to complex web based applications, we deliver solutions that meet your unique requirements.',
-    },
-    {
-      title: 'Augmented Reality',
+      title: 'Diversity And Inclusion',
       desc: 'Enhance the real world with our Augmented Reality solutions. AR overlays digital content onto the physical environment, providing interactive and immersive experiences that captivate users.',
     },
   ];
@@ -338,7 +326,7 @@ export const Developerit = () => {
       <div
         id='section1'
         className={
-          'flex flex-col xl:flex-row justify-between gap-8 xl:gap-0 min-h-screen xl:min-h-0'
+          'flex flex-col xl:flex-row xl:justify-between gap-8 xl:gap-0 min-h-screen xl:min-h-0'
         }
       >
         {/* Left side - Heading and heroSubText */}
@@ -347,39 +335,42 @@ export const Developerit = () => {
           <div className='heading-container' style={{ width: 'fit-content' }}>
             <h1
               ref={text}
-              className='text-4xl md:text-5xl xl:text-6xl font-semibold'
+              className='text-4xl md:text-5xl font-semibold'
               style={{ width: 'fit-content', display: 'inline-block' }}
             >
-              Developer
-              <span style={{ fontFamily: 'Arial' }}>/</span>
-              IT
+              <span style={{ color: '#000000' }}>Working</span>{' '}
+              <span style={{ color: '#d4575b' }}>At</span>{' '}
+              <span
+                style={{
+                  background:
+                    'linear-gradient(to right, #1a1a1a 0%, #d4575b 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
+                Codefied
+              </span>
             </h1>
           </div>
 
           {/* Hero Sub Text */}
-          <div className={'heroSubText flex gap-y-3 text-2xl flex-col'}>
+          <div
+            className={'heroSubText flex gap-y-3 text-lg sm:text-2xl flex-col'}
+          >
             <div>
               From concept to launch, we cover the entire spectrum of digital
               innovation.
             </div>
           </div>
-          <a
-            href='#'
-            className='text-sm font-semibold text-[#d4575b] flex items-center justify-start gap-2 cursor-pointer'
-          >
-            <p className='text-2xl'>Get Free Consultation</p>
-            <GoArrowUpRight size={30} className='text-black mt-[2px]' />
-          </a>
         </div>
 
         {/* Right side - Features */}
         <div
-          className={
-            'flex flex-col p-6 md:p-0 gap-y-12 xl:items-end w-full xl:w-[50%]'
-          }
+          className={'flex flex-col gap-y-12 xl:items-end w-full xl:w-[50%]'}
         >
-          {features.map(({ title, desc }, index) => (
-            <div ref={addToRefs} className='p-6 md:p-0 w-full' key={`${title}-${index}`}>
+          {features.map(({ title, desc }) => (
+            <div ref={addToRefs} className='w-full' key={title}>
               <h2 className={'text-xl md:text-2xl mb-2'}>{title}</h2>
               <p className={'mb-4 text-sm md:text-base'}>{desc}</p>
               <a
@@ -398,4 +389,4 @@ export const Developerit = () => {
   );
 };
 
-export default Developerit;
+export default Working;

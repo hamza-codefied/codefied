@@ -1,0 +1,133 @@
+/* Ant Design Custom Styles for ApplyNow Page */
+
+/* Select Dropdown Styles */
+.ant-select {
+  font-family: Arial, sans-serif !important;
+}
+
+.ant-select-selector {
+  border-radius: 0.5rem !important;
+  border-color: #d1d5db !important;
+  padding: 0.625rem 1rem !important;
+  min-height: 48px !important;
+  height: 48px !important;
+}
+
+.ant-select-focused .ant-select-selector {
+  border-color: #d4575b !important;
+  box-shadow: 0 0 0 2px rgba(212, 87, 91, 0.1) !important;
+}
+
+.ant-select:hover .ant-select-selector {
+  border-color: #d4575b !important;
+}
+
+.ant-select-large .ant-select-selector {
+  padding: 0.75rem 1rem !important;
+  min-height: 48px !important;
+  height: 48px !important;
+}
+
+/* Dropdown Menu Styles */
+.ant-select-dropdown {
+  border-radius: 0.5rem !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+.ant-select-item {
+  padding: 0.625rem 1rem !important;
+  border-radius: 0.25rem !important;
+  font-family: Arial, sans-serif !important;
+}
+
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  background-color: rgba(212, 87, 91, 0.1) !important;
+  color: #d4575b !important;
+  font-weight: 500 !important;
+}
+
+.ant-select-item-option:hover:not(.ant-select-item-option-disabled) {
+  background-color: rgba(212, 87, 91, 0.05) !important;
+}
+
+.ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+  background-color: rgba(212, 87, 91, 0.1) !important;
+}
+
+/* Placeholder and Selected Value */
+.ant-select-selection-placeholder {
+  color: #9ca3af !important;
+  font-family: Arial, sans-serif !important;
+}
+
+.ant-select-selection-item {
+  color: #111827 !important;
+  font-family: Arial, sans-serif !important;
+}
+
+/* Arrow Icon */
+.ant-select-arrow {
+  color: #6b7280 !important;
+}
+
+.ant-select:hover .ant-select-arrow {
+  color: #d4575b !important;
+}
+
+/* Clear Icon */
+.ant-select-clear {
+  background-color: #d4575b !important;
+  color: white !important;
+}
+
+/* Notification Styles */
+.custom-notification .ant-notification-notice-message {
+  color: #111827 !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  margin-bottom: 4px !important;
+}
+
+.custom-notification .ant-notification-notice-description {
+  color: #6b7280 !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+}
+
+.custom-notification .ant-notification-notice-icon {
+  color: #d4575b !important;
+  font-size: 24px !important;
+}
+
+.custom-notification .ant-notification-notice-close {
+  color: #9ca3af !important;
+}
+
+.custom-notification .ant-notification-notice-close:hover {
+  color: #d4575b !important;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .ant-select-selector {
+    padding: 0.625rem 0.875rem !important;
+    min-height: 42px !important;
+    height: 42px !important;
+  }
+
+  .ant-select-large .ant-select-selector {
+    padding: 0.625rem 0.875rem !important;
+    min-height: 42px !important;
+    height: 42px !important;
+  }
+
+  .custom-notification .ant-notification-notice-message {
+    font-size: 14px !important;
+  }
+
+  .custom-notification .ant-notification-notice-description {
+    font-size: 13px !important;
+  }
+}
+

@@ -24,7 +24,7 @@ const FeaturedSection = () => {
   return (
     <section className='relative top-[-20px] max-w-6xl 2xl:max-w-[1400px] mx-auto rounded-3xl bg-black/90 text-white overflow-hidden py-10 xl:py-12 px-6 md:px-12'>
       {/* Subtle gradient glow background */}
-      <div className='absolute inset-0 bg-gradient-to-tr from-purple-900/20 via-transparent to-blue-900/20 blur-3xl' />
+      <div className='absolute inset-0 bg-gradient-to-tr from-[#d4575b]/20 via-transparent to-[#d4575b]/10 blur-3xl' />
 
       <motion.div
         variants={containerVariants}
@@ -83,7 +83,7 @@ const FeaturedSection = () => {
           className='flex justify-center md:justify-end relative'
         >
           <motion.div
-            className='absolute inset-0 bg-gradient-to-t from-purple-600/20 to-transparent rounded-2xl blur-2xl'
+            className='absolute inset-0 bg-gradient-to-t from-[#d4575b]/20 to-transparent rounded-2xl blur-2xl'
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1.2, delay: 0.4 }}
