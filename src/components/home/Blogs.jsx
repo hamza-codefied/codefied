@@ -82,14 +82,14 @@ const Blogs = () => {
     arrows: false,
     responsive: [
       {
-        breakpoint: 1024, // Below lg screens
+        breakpoint: 1024, // Below lg screens (medium/tablet screens)
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 640, // Below md screens (small screens)
+        breakpoint: 640, // Below sm screens (mobile screens)
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -101,6 +101,7 @@ const Blogs = () => {
   return (
     <div className='w-full'>
       <section
+        id='blogs'
         className='relative mt-10 bg-cover bg-center bg-no-repeat text-black py-20'
         style={{ backgroundImage: `url(${blogbg})` }}
       >
@@ -153,33 +154,33 @@ const Blogs = () => {
             <div className='blog-slider'>
               <Slider ref={sliderRef} {...sliderSettings}>
                 {Blog.map((product, index) => (
-                  <div key={`${product.id}-${index}`} className='px-4'>
-                    <div className='bg-transparent border border-white/20 rounded-2xl p-3 flex flex-col items-start justify-start border-white hover:bg-white/80 transition-all duration-300 h-full'>
+                  <div key={`${product.id}-${index}`} className='px-2 sm:px-4'>
+                    <div className='bg-transparent border border-white/20 rounded-2xl p-3 sm:p-4 md:p-3 flex flex-col items-start justify-start border-white hover:bg-white/80 transition-all duration-300 h-full'>
                       <img
                         src={product.image}
                         alt={product.title}
-                        className='object-contain mb-4 w-full'
+                        className='object-contain mb-3 sm:mb-4 w-full h-auto'
                       />
-                      <div className='flex items-center justify-between w-full mb-5'>
-                        <p className='text-xs flex items-center gap-2 text-black mb-2'>
-                          <FaUser className='text-[#d4575b]' />
-                          By: {product.by}
+                      <div className='flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-2 sm:gap-0 mb-4 sm:mb-5'>
+                        <p className='text-xs flex items-center gap-2 text-black'>
+                          <FaUser className='text-[#d4575b] flex-shrink-0' />
+                          <span className='truncate'>By: {product.by}</span>
                         </p>
-                        <p className='text-xs flex items-center gap-2 text-black mb-2'>
-                          <TbMessageCircleFilled className='text-[#d4575b]' />
-                          {product.comments} Comments
+                        <p className='text-xs flex items-center gap-2 text-black'>
+                          <TbMessageCircleFilled className='text-[#d4575b] flex-shrink-0' />
+                          <span>{product.comments} Comments</span>
                         </p>
                       </div>
-                      <h3 className='text-lg text-start font-semibold mb-2 text-black'>
+                      <h3 className='text-base sm:text-lg text-start font-semibold mb-2 text-black line-clamp-2'>
                         {product.title}
                       </h3>
-                      <p className='text-xs text-start text-black mb-2'>
+                      <p className='text-xs text-start text-black mb-2 line-clamp-2 sm:line-clamp-3'>
                         {product.description}
                       </p>
-                      <div className='flex items-center justify-between w-full mt-auto'>
+                      <div className='flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-2 sm:gap-0 mt-auto'>
                         <a
                           href='#'
-                          className='text-[#d4575b] text-xs flex items-center gap-1 font-medium'
+                          className='text-[#d4575b] text-xs flex items-center gap-1 font-medium hover:underline'
                         >
                           Read More
                           <GoArrowUpRight className='mt-[2px]' />

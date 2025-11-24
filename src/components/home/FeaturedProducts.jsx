@@ -38,6 +38,7 @@ const FeaturedProducts = () => {
   return (
     <div className='container m-auto px-8'>
       <section
+        id='products'
         className='relative mt-10 bg-cover bg-center bg-no-repeat text-black py-10 px-4 rounded-3xl'
         style={{ backgroundImage: `url(${featurebg})` }}
       >

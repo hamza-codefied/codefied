@@ -331,7 +331,7 @@ export const Developerit = () => {
   }, []);
 
   return (
-    <div className='container m-auto px-8 pb-20 relative w-full'>
+    <div id='developer-it' className='container m-auto px-8 pb-20 relative w-full'>
       {/* Spacer to push content down initially on xl screens */}
       <div className='h-[50vh] xl:block hidden'></div>
 

@@ -112,6 +112,7 @@ const CounterSection = () => {
 
   return (
     <section
+      id='success-count'
       ref={sectionRef}
       className='relative w-full py-16 md:py-24 lg:py-32 xl:py-40 2xl:py-56 overflow-hidden'
       style={{

@@ -9,6 +9,7 @@ import { HiOutlineStar } from 'react-icons/hi2';
 import shadeImage from '@/images/blogdetailshade.png';
 import TestimonialsSection from '@/components/global/TestimoniolSection';
 import ClientSection2 from '@/components/home/ClientSection2';
+import { formatText } from '@/utils/textFormatter';
 
 const PortfolioDetail = () => {
   const { slug } = useParams();
@@ -71,14 +72,14 @@ const PortfolioDetail = () => {
                         backgroundClip: 'text',
                       }}
                     >
-                      {word}
+                      {formatText(word)}
                       {index < words.length - 1 ? ' ' : ''}
                     </span>
                   );
                 } else {
                   return (
                     <span key={index} style={{ color: '#000000' }}>
-                      {word}
+                      {formatText(word)}
                       {index < words.length - 1 ? ' ' : ''}
                     </span>
                   );
@@ -88,7 +89,7 @@ const PortfolioDetail = () => {
 
             {/* Subtitle */}
             <p className='text-start text-base sm:text-lg md:text-xl lg:text-4xl text-gray-700'>
-              {project.subtitle}
+              {formatText(project.subtitle)}
             </p>
           </motion.div>
         </div>
@@ -120,7 +121,7 @@ const PortfolioDetail = () => {
                   About Project
                 </h2>
                 <p className='text-base sm:text-lg lg:text-2xl text-gray-700 leading-relaxed'>
-                  {project.aboutProject}
+                  {formatText(project.aboutProject)}
                 </p>
               </div>
 
@@ -139,61 +140,61 @@ const PortfolioDetail = () => {
             {/* Bottom Grid - Remaining Images */}
             <div className='space-y-4 md:space-y-6'>
               {/* First Row: 2 images - 1/3 and 2/3 width */}
-              <div className='grid grid-cols-3 gap-4 md:gap-6'>
+              <div className='grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6'>
                 {/* First image - 1/3 width - blog10 */}
-                <div className='col-span-1'>
+                <div className='md:col-span-1'>
                   <div className='overflow-hidden rounded-2xl'>
                     <img
                       src={project.aboutSectionImages.phone1}
                       alt='Project Image'
-                      className='w-full h-[350px] object-cover'
+                      className='w-full h-[250px] sm:h-[300px] md:h-[350px] object-cover'
                     />
                   </div>
                 </div>
 
                 {/* Second image - 2/3 width - blog11 */}
-                <div className='col-span-2'>
+                <div className='md:col-span-2'>
                   <div className='overflow-hidden rounded-2xl'>
                     <img
                       src={project.aboutSectionImages.laptopDark}
                       alt='Project Image'
-                      className='w-full h-[350px] object-cover'
+                      className='w-full h-[250px] sm:h-[300px] md:h-[350px] object-cover'
                     />
                   </div>
                 </div>
               </div>
 
               {/* Second Row: 3 images - 50%, 25%, 25% */}
-              <div className='grid grid-cols-4 gap-4 md:gap-6'>
+              <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6'>
                 {/* First image - 50% width - blog13 */}
-                <div className='col-span-2'>
+                <div className='sm:col-span-2 md:col-span-2'>
                   <div className='overflow-hidden rounded-2xl'>
                     <img
                       src={project.aboutSectionImages.laptopColored}
                       alt='Project Image'
-                      className='w-full h-[350px] object-cover'
+                      className='w-full h-[250px] sm:h-[300px] md:h-[350px] object-cover'
                     />
                   </div>
                 </div>
 
                 {/* Second image - 25% width - blog14 */}
-                <div className='col-span-1'>
+                <div className='sm:col-span-1 md:col-span-1'>
                   <div className='overflow-hidden rounded-2xl'>
                     <img
                       src={project.aboutSectionImages.logo}
                       alt='Project Image'
-                      className='w-full h-[350px] object-cover'
+                      className='w-full h-[250px] sm:h-[300px] md:h-[350px] object-cover'
                     />
                   </div>
                 </div>
 
                 {/* Third image - 25% width - blog12 */}
-                <div className='col-span-1'>
+                <div className='sm:col-span-1 md:col-span-1'>
                   <div className='overflow-hidden rounded-2xl'>
                     <img
                       src={project.aboutSectionImages.phone2}
                       alt='Project Image'
-                      className='w-full h-[350px] object-cover'
+                      className='w-full h-[250px] sm:h-[300px] md:h-[350px] object-cover'
                     />
                   </div>
                 </div>
@@ -201,8 +202,6 @@ const PortfolioDetail = () => {
             </div>
           </motion.div>
         )}
-
-        {/* The Problem Section */}
       </div>
 
       {/* The Problem Section - Full Width */}
@@ -224,7 +223,7 @@ const PortfolioDetail = () => {
               The Problem
             </h2>
             <p className='text-base sm:text-lg lg:text-xl text-gray-700'>
-              {project.theProblem}
+              {formatText(project.theProblem)}
             </p>
           </div>
         </div>
@@ -246,7 +245,7 @@ const PortfolioDetail = () => {
 
             {/* Intro Paragraph */}
             <p className='text-base sm:text-lg text-gray-700 mb-8 md:mb-12'>
-              {project.codefiedSolution.intro}
+              {formatText(project.codefiedSolution.intro)}
             </p>
 
             {/* Content Grid */}
@@ -257,7 +256,7 @@ const PortfolioDetail = () => {
                 <img
                   src={project.codefiedSolution.laptopImage}
                   alt='Solution Preview'
-                  className='w-full h-[475px]'
+                  className='w-full md:h-[475px]'
                 />
               </div>
 
@@ -298,10 +297,10 @@ const PortfolioDetail = () => {
                       {/* Content */}
                       <div className='flex-1'>
                         <h3 className='text-xl sm:text-2xl font-semibold text-black mb-2 md:mb-3'>
-                          {solution.title}
+                          {formatText(solution.title)}
                         </h3>
                         <p className='text-sm sm:text-base text-gray-700 leading-relaxed'>
-                          {solution.description}
+                          {formatText(solution.description)}
                         </p>
                       </div>
                     </motion.div>

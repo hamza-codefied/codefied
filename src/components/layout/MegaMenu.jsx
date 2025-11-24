@@ -5,6 +5,7 @@ import { MdArrowCircleRight } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import partnerImg from '@/images/partner.png';
 import partnerBg from '@/images/partner_bg.png';
+import { formatText } from '@/utils/textFormatter';
 
 const categories = [
   {
@@ -20,7 +21,7 @@ const categories = [
   },
   {
     title: 'Developer/IT',
-    slug: 'web-development',
+    slug: 'developer-it',
     items: [
       'Mobile App Development',
       'Web App Development',
@@ -134,7 +135,7 @@ export const MegaMenu = ({ isOpen, onClose }) => {
                         onClick={onClose}
                         className='font-semibold text-gray-900 w-fit text-[20px] mb-3 border-b-2 border-[#d4575b] pb-1 hover:text-[#d4575b] transition-colors block'
                       >
-                        {category.title}
+                        {formatText(category.title)}
                       </Link>
 
                       {/* Sub Items */}
@@ -149,7 +150,7 @@ export const MegaMenu = ({ isOpen, onClose }) => {
                               onClick={onClose}
                               className='text-gray-500 text-[13px] hover:text-[#d4575b] cursor-pointer transition-colors block'
                             >
-                              {item}
+                              {formatText(item)}
                             </Link>
                           </li>
                         ))}

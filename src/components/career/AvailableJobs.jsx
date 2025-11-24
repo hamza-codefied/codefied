@@ -149,7 +149,7 @@ const AvailableJobs = ({ filters }) => {
   }, [filters, allJobs]);
 
   return (
-    <div className='container m-auto px-4 sm:px-6 md:px-8 py-8 md:py-12'>
+    <div id='available-jobs' className='container m-auto px-4 sm:px-6 md:px-8 py-8 md:py-12'>
       <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-6 md:mb-8 text-center md:text-start'>
         Available Jobs
       </h2>

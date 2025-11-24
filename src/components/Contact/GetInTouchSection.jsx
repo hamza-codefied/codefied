@@ -92,7 +92,7 @@ const GetInTouchSection = () => {
 
   return (
     <div className='container m-auto px-8'>
-      <section className='w-full mt-[-20px] py-10'>
+      <section id='contact-form' className='w-full mt-[-20px] py-10'>
         <div className=' grid grid-cols-1 lg:grid-cols-2 gap-10'>
           {/* LEFT COLUMN */}
           <div className='flex flex-col justify-center'>

@@ -7,7 +7,7 @@ const Vision = () => {
 
   return (
     <div className='container m-auto px-8'>
-      <section className='w-full bg-white text-black py-20 '>
+      <section id='vision-mission' className='w-full bg-white text-black py-20 '>
       <div className='text-start space-y-6'>
         {/* Heading */}
         <h2 className='text-2xl md:text-3xl font-bold'>

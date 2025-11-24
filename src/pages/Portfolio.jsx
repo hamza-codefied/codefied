@@ -7,12 +7,12 @@ export const Portfolio = () => {
     <>
       <div className='min-h-screen'>
         <HeroSection
-        classNames={'h-[440px]'}
+        classNames={'h-[350px]'}
         BannerText={'Portfolio'}
         BottomText={
           <h2 className='text-xl font-semibold mb-2 text-center relative inline-block'>
             <span className='relative inline-block'>
-             For Fourtune 500's, Enterprises & Startups
+             For Fourtune 500<span style={{ fontFamily: 'Arial, sans-serif' }}>'</span>s, Enterprises <span style={{ fontFamily: 'Arial, sans-serif' }}>&</span> Startups
             </span>
           </h2>
         }

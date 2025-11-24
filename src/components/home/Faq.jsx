@@ -71,7 +71,7 @@ const evenFaqs = filteredFaqs
 
   return (
     <div className='container m-auto px-8'>
-      <section className='w-full py-16 bg-white'>
+      <section id='faqs' className='w-full py-16 bg-white'>
         <div className=''>
           {/* Heading */}
           <div className='text-center mb-10'>

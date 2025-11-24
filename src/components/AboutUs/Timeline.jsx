@@ -31,6 +31,7 @@ const timelineData = [
 const Timeline = () => {
   return (
     <section
+      id='our-journey'
       className='relative bg-cover bg-center bg-no-repeat py-20 px-4 md:px-10 lg:px-20'
       style={{ backgroundImage: `url(${hero_bg})` }}
     >

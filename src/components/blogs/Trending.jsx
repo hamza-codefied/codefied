@@ -22,82 +22,84 @@ const containerVariants = {
 
 const FeaturedSection = () => {
   return (
-    <section className='relative top-[-20px] max-w-6xl 2xl:max-w-[1400px] mx-auto rounded-3xl bg-black/90 text-white overflow-hidden py-10 xl:py-12 px-6 md:px-12'>
-      {/* Subtle gradient glow background */}
-      <div className='absolute inset-0 bg-gradient-to-tr from-[#d4575b]/20 via-transparent to-[#d4575b]/10 blur-3xl' />
+    <div className='container m-auto px-8'>
+      <section className='relative top-0 lg:top-[-20px] rounded-3xl bg-black/90 text-white overflow-hidden py-10 xl:py-12 px-6 md:px-12'>
+        {/* Subtle gradient glow background */}
+        <div className='absolute inset-0 bg-gradient-to-tr from-[#d4575b]/20 via-transparent to-[#d4575b]/10 blur-3xl' />
 
-      <motion.div
-        variants={containerVariants}
-        initial='hidden'
-        whileInView='visible'
-        viewport={{ once: true, amount: 0.3 }}
-        className='relative z-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12'
-      >
-        {/* Left Column (Text) */}
         <motion.div
-          variants={textVariants}
-          className='space-y-3 text-center md:text-left'
+          variants={containerVariants}
+          initial='hidden'
+          whileInView='visible'
+          viewport={{ once: true, amount: 0.3 }}
+          className='relative z-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12'
         >
-          <motion.span
-            className='text-lg font-semibold text-[#d4575b]'
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-          >
-            Trending Post
-          </motion.span>
-
-          <motion.h2
-            className='text-3xl font-bold'
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: 'easeOut', delay: 0.4 }}
-          >
-            New invoicing features to help you get paid faster
-          </motion.h2>
-
-          <motion.p
-            className='text-gray-300 text-base max-w-xl mx-auto md:mx-0'
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: 'easeOut', delay: 0.6 }}
-          >
-            Over the past few months, we’ve added several new features to SaaS
-            Invoicing to help any business get paid faster and streamline their
-            collection workflows.
-          </motion.p>
-
-          <motion.p
-            className='text-gray-300 text-base max-w-xl mx-auto md:mx-0'
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: 'easeOut', delay: 0.6 }}
-          >
-            Rohail Naveed | November 8, 2021
-          </motion.p>
-        </motion.div>
-
-        {/* Right Column (Image) */}
-        <motion.div
-          variants={imageVariants}
-          className='flex justify-center md:justify-end relative'
-        >
+          {/* Left Column (Text) */}
           <motion.div
-            className='absolute inset-0 bg-gradient-to-t from-[#d4575b]/20 to-transparent rounded-2xl blur-2xl'
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 1.2, delay: 0.4 }}
-          />
-          <motion.img
-            src={blogImage}
-            alt='Legal tech illustration'
-            className='w-full max-w-md rounded-2xl shadow-2xl object-cover relative z-10'
-            whileHover={{ scale: 1.05, rotate: 1 }}
-            transition={{ type: 'spring', stiffness: 120, damping: 10 }}
-          />
+            variants={textVariants}
+            className='space-y-3 text-center md:text-left'
+          >
+            <motion.span
+              className='text-lg font-semibold text-[#d4575b]'
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+            >
+              Trending Post
+            </motion.span>
+
+            <motion.h2
+              className='text-3xl font-bold'
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: 'easeOut', delay: 0.4 }}
+            >
+              New invoicing features to help you get paid faster
+            </motion.h2>
+
+            <motion.p
+              className='text-gray-300 text-base max-w-xl mx-auto md:mx-0'
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: 'easeOut', delay: 0.6 }}
+            >
+              Over the past few months, we’ve added several new features to SaaS
+              Invoicing to help any business get paid faster and streamline
+              their collection workflows.
+            </motion.p>
+
+            <motion.p
+              className='text-gray-300 text-base max-w-xl mx-auto md:mx-0'
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: 'easeOut', delay: 0.6 }}
+            >
+              Rohail Naveed | November 8, 2021
+            </motion.p>
+          </motion.div>
+
+          {/* Right Column (Image) */}
+          <motion.div
+            variants={imageVariants}
+            className='flex justify-center md:justify-end relative'
+          >
+            <motion.div
+              className='absolute inset-0 bg-gradient-to-t from-[#d4575b]/20 to-transparent rounded-2xl blur-2xl'
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1.2, delay: 0.4 }}
+            />
+            <motion.img
+              src={blogImage}
+              alt='Legal tech illustration'
+              className='w-full max-w-md rounded-2xl shadow-2xl object-cover relative z-10'
+              whileHover={{ scale: 1.05, rotate: 1 }}
+              transition={{ type: 'spring', stiffness: 120, damping: 10 }}
+            />
+          </motion.div>
         </motion.div>
-      </motion.div>
-    </section>
+      </section>
+    </div>
   );
 };
 

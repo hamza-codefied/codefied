@@ -7,6 +7,7 @@ import { GoArrowUpRight } from 'react-icons/go';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import servicebg from '@/images/service_bg.png';
 import HeroSection from '@/components/global/HeroBanner';
+import { formatText } from '@/utils/textFormatter';
 
 export default function ServiceDetail() {
   const { serviceId } = useParams();
@@ -81,10 +82,10 @@ export default function ServiceDetail() {
   };
 
   return (
-    <div className='min-h-screen bg-gradient-to-b from-white to-gray-50 overflow-hidden'>
+    <div className='min-h-screen bg-white overflow-hidden'>
       {/* HERO SECTION */}
       <HeroSection
-        classNames={'h-[50vh]'}
+        classNames={'h-[350px]'}
         BannerText={'Services'}
         BottomText={
           <motion.div
@@ -96,9 +97,13 @@ export default function ServiceDetail() {
           >
             {service.breadcrumbs.map((crumb, index) => (
               <span key={index}>
-                <span className='text-black'>{crumb}</span>
+                <span className='text-black'>{formatText(crumb)}</span>
                 {index < service.breadcrumbs.length - 1 && (
-                  <span className='text-[#d4575b] mx-1'>&gt;&gt;</span>
+                  <span className='text-[#d4575b] mx-1'>
+                    <span style={{ fontFamily: 'Arial, sans-serif' }}>
+                      &gt;&gt;
+                    </span>
+                  </span>
                 )}
               </span>
             ))}
@@ -111,7 +116,7 @@ export default function ServiceDetail() {
             animate='visible'
             className='text-4xl sm:text-5xl md:text-6xl font-bold mb-2 capitalize tracking-tight'
           >
-            {service.title}
+            {formatText(service.title)}
           </motion.h1>
         }
         bannerTextAdjust={{
@@ -130,13 +135,13 @@ export default function ServiceDetail() {
           className='max-w-6xl mx-auto px-6 text-center mt-10 sm:mt-20'
         >
           <h2 className='text-2xl sm:text-3xl font-bold text-[#d4575b]'>
-            {service.title}
+            {formatText(service.title)}
           </h2>
           <h3 className='text-lg sm:text-2xl text-black font-medium mt-2'>
-            {service.subtitle}
+            {formatText(service.subtitle)}
           </h3>
           <p className='max-w-4xl mx-auto text-gray-600 mt-4 text-sm sm:text-base leading-relaxed'>
-            {service.description}
+            {formatText(service.description)}
           </p>
         </motion.div>
 
@@ -161,10 +166,10 @@ export default function ServiceDetail() {
                 {/* LEFT TEXT AREA */}
                 <div className='flex-1 text-center md:text-left'>
                   <h3 className='text-xl sm:text-2xl font-semibold text-gray-900 mb-3'>
-                    {sec.title}
+                    {formatText(sec.title)}
                   </h3>
                   <p className='text-gray-600 mb-4 text-sm sm:text-base'>
-                    {sec.description}
+                    {formatText(sec.description)}
                   </p>
 
                   {sec.badge && (
@@ -212,11 +217,11 @@ export default function ServiceDetail() {
                         <FaArrowRightLong />
                       </span>
                       <h4 className='font-semibold text-base sm:text-lg text-gray-900'>
-                        {f.title}
+                        {formatText(f.title)}
                       </h4>
                     </div>
                     <p className='text-gray-600 text-sm sm:text-base leading-relaxed'>
-                      {f.description}
+                      {formatText(f.description)}
                     </p>
                   </motion.div>
                 ))}

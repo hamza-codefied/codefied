@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { FiArrowLeft } from 'react-icons/fi';
 import shadeImage from '@/images/blogdetailshade.png';
 import TestimonialsSection from '@/components/global/TestimoniolSection';
+import { formatText } from '@/utils/textFormatter';
 
 const BlogDetail = () => {
   const { slug } = useParams();
@@ -67,12 +68,12 @@ const BlogDetail = () => {
 
               {/* Blog Title */}
               <h1 className='text-2xl sm:text-3xl md:text-4xl font-semibold mb-5'>
-                {blog.title}
+                {formatText(blog.title)}
               </h1>
 
               {/* Description */}
               <p className='text-sm sm:text-base text-gray-600 mb-5 leading-relaxed'>
-                {blog.intro}
+                {formatText(blog.intro)}
               </p>
 
               {/* Author and Date */}
@@ -105,7 +106,7 @@ const BlogDetail = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className='text-3xl sm:text-4xl font-semibold text-black mb-6 md:mb-8'
         >
-          {blog.title}
+          {formatText(blog.title)}
         </motion.h1>
 
         {/* Introduction */}
@@ -115,7 +116,7 @@ const BlogDetail = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className='text-base sm:text-lg text-gray-700 mb-8 md:mb-12 leading-relaxed'
         >
-          {blog.content.introduction}
+          {formatText(blog.content.introduction)}
         </motion.p>
 
         {/* Content Sections */}
@@ -162,7 +163,7 @@ const BlogDetail = () => {
                 key={index}
                 className='px-4 py-1 border border-[#d4575b] text-gray-700 rounded-3xl text-sm md:text-base font-medium hover:bg-gray-200 transition-colors cursor-pointer'
               >
-                {tag}
+                {formatText(tag)}
               </span>
             ))}
           </div>
@@ -205,10 +206,10 @@ const BlogDetail = () => {
                   </div>
                   <div className='pt-3'>
                     <h4 className='text-lg md:text-xl font-semibold text-black mb-2 line-clamp-2'>
-                      {similarBlog.title}
+                      {formatText(similarBlog.title)}
                     </h4>
                     <p className='text-sm md:text-base text-gray-600 mb-3 line-clamp-2'>
-                      {similarBlog.description}
+                      {formatText(similarBlog.description)}
                     </p>
                     <p className='text-sm text-gray-400'>
                       {blog.author}{' '}

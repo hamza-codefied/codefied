@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GoArrowUpRight } from 'react-icons/go';
 import { getAllProjects } from '@/data/projectData';
+import { formatText } from '@/utils/textFormatter';
 
 const categories = [
   { id: 'saas', label: 'SaaS' },
@@ -41,7 +42,7 @@ export default function AllProjectsSection() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className='flex flex-wrap justify-center gap-3 w-fit px-5 py-2 rounded-full border-2'
+            className='flex flex-col md:flex-row flex-wrap justify-center gap-3 w-fit px-5 py-2 rounded-2xl md:rounded-full border-2 mx-auto md:mx-0'
           >
             {categories.map(cat => (
               <button
@@ -53,7 +54,7 @@ export default function AllProjectsSection() {
                     : 'bg-white hover:bg-gray-100 text-black'
                 }`}
               >
-                {cat.label}
+                {formatText(cat.label)}
               </button>
             ))}
           </motion.div>
@@ -86,8 +87,8 @@ export default function AllProjectsSection() {
                 </div>
                 <div className='flex items-center justify-between'>
                   <div className='py-5 text-black space-y-1'>
-                    <h3 className='text-md font-semibold'>{project.title}</h3>
-                    <p className='text-sm bg-black w-fit px-3 py-1 rounded-md text-gray-400'>
+                    <h3 className='text-xs sm:text-md font-semibold'>{project.title}</h3>
+                    <p className='text-xs md:text-sm bg-black w-fit px-3 py-1 rounded-md text-gray-400'>
                       {project.website}
                     </p>
                   </div>

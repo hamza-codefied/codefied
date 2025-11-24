@@ -12,7 +12,7 @@ const ProjectsSection = () => {
 
   return (
     <div className='container m-auto px-8'>
-      <section className='mt-0 sm:mt-10 py-5 sm:py-20 bg-white'>
+      <section id='projects' className='mt-0 sm:mt-10 py-5 sm:py-20 bg-white'>
         {/* Tag */}
         <div className='text-center sm:text-start mb-2'>
           <span className='text-sm font-semibold text-[#d4575b] uppercase tracking-wider'>

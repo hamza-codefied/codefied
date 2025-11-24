@@ -33,7 +33,7 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className='bg-[#0c0c0c]/90 text-white py-20 px-4 md:px-12 lg:px-20'>
+    <section id='why-choose-us' className='bg-[#0c0c0c]/90 text-white py-20 px-4 md:px-12 lg:px-20'>
       <div className='container m-auto px-8'>
         <div className=''>
         {/* Tag */}

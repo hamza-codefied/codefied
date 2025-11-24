@@ -6,6 +6,10 @@ import { GoGlobe } from 'react-icons/go';
 import { FaArrowDownLong } from 'react-icons/fa6';
 import { MegaMenu } from './MegaMenu';
 import { ProductMegaMenu } from './ProductMegaMenu';
+import products from '@/data/productData';
+import { formatText } from '@/utils/textFormatter';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaTimes } from 'react-icons/fa';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -19,8 +23,8 @@ export const Header = () => {
   useEffect(() => {
     if (typeof document === "undefined") return;
 
-    // Disable body scroll when either mega menu is open
-    if (isMegaMenuOpen || isProductMegaMenuOpen) {
+    // Disable body scroll when either mega menu or mobile menu is open
+    if (isMegaMenuOpen || isProductMegaMenuOpen || isMenuOpen) {
       // Store current scroll position
       const scrollY = window.scrollY;
       document.body.style.position = 'fixed';
@@ -53,7 +57,7 @@ export const Header = () => {
         window.scrollTo(0, parseInt(scrollY || '0') * -1);
       }
     };
-  }, [isMegaMenuOpen, isProductMegaMenuOpen]);
+  }, [isMegaMenuOpen, isProductMegaMenuOpen, isMenuOpen]);
 
   const serviceDropdown = [
     { name: 'Web Development', href: '/services/web-development' },
@@ -87,14 +91,14 @@ export const Header = () => {
   const isActive = path => location.pathname === path;
 
   return (
-    <header className='bg-white shadow-sm border-b relative z-50 h-[10vh]  py-8'>
-      <div className='container h-full m-auto px-8'>
+    <header className='bg-white shadow-sm border-b relative z-50 h-auto min-h-[70px] sm:min-h-[50px] py-3 sm:py-4'>
+      <div className='container h-full m-auto px-4 sm:px-6 md:px-8'>
          <div className='w-full   flex justify-center h-full'>
         <div className='flex justify-between items-center w-full'>
           {/* Logo */}
           <div className='flex-shrink-0'>
             <Link to='/' className='flex items-center'>
-              <img src={logo} alt='Codefied Logo' className='h-10' />
+              <img src={logo} alt='Codefied Logo' className='h-8 sm:h-9 md:h-10' />
             </Link>
           </div>
 
@@ -283,114 +287,243 @@ export const Header = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className='lg:hidden'>
-            <div className='px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t'>
-              {navigation.map(item =>
-                item.megaMenu ? (
-                  <div key={item.name} className='pl-1'>
-                    <button
-                      onClick={() =>
-                        setOpenDropdown(
-                          openDropdown === item.name ? null : item.name
-                        )
-                      }
-                      className='w-full text-left px-3 py-2 rounded-md text-base font-medium text-black hover:text-[#d4575b] hover:bg-gray-50 flex justify-between items-center'
-                    >
-                      {item.name}
-                      <svg
-                        xmlns='http://www.w3.org/2000/svg'
-                        className={`h-4 w-4 transform transition-transform ${
-                          openDropdown === item.name ? 'rotate-180' : ''
-                        }`}
-                        fill='none'
-                        viewBox='0 0 24 24'
-                        stroke='currentColor'
-                      >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth={2}
-                          d='M19 9l-7 7-7-7'
-                        />
-                      </svg>
-                    </button>
-                    {openDropdown === item.name && (
-                      <div className='ml-4 border-l border-gray-200'>
-                        {item.dropdown.map(sub => (
-                          <Link
-                            key={sub.name}
-                            to={sub.href}
-                            className='block px-3 py-2 text-gray-600 hover:text-[#d4575b] hover:bg-gray-50'
-                            onClick={() => setIsMenuOpen(false)}
-                          >
-                            {sub.name}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ) : !item.dropdown ? (
-                  <Link
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              className='lg:hidden fixed inset-0 top-[70px] sm:top-[80px] bg-gradient-to-b from-[#fef9f9] via-[#fef5f5] to-[#fef2f2] z-40 overflow-y-auto'
+              onClick={(e) => {
+                if (e.target === e.currentTarget) {
+                  setIsMenuOpen(false);
+                }
+              }}
+            >
+              {/* Close Button
+              <div className='sticky top-0 bg-white/80 backdrop-blur-sm border-b border-gray-200 z-10 flex justify-end p-4'>
+                <button
+                  onClick={() => setIsMenuOpen(false)}
+                  className='p-2 rounded-lg bg-white shadow-sm hover:bg-gray-50 transition-colors'
+                  aria-label='Close menu'
+                >
+                  <FaTimes className='h-5 w-5 text-gray-700' />
+                </button>
+              </div> */}
+
+              {/* Navigation Items */}
+              <div className='px-4 sm:px-6 py-6 space-y-2'>
+                {navigation.map((item, index) => (
+                  <motion.div
                     key={item.name}
-                    to={item.href || '#'}
-                    className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
-                      isActive(item.href)
-                        ? 'text-[#d4575b]'
-                        : 'text-black hover:text-[#d4575b] hover:bg-gray-50'
-                    }`}
-                    onClick={() => setIsMenuOpen(false)}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
                   >
-                    {item.name}
-                  </Link>
-                ) : (
-                  <div key={item.name} className='pl-1'>
-                    <button
-                      onClick={() =>
-                        setOpenDropdown(
-                          openDropdown === item.name ? null : item.name
-                        )
-                      }
-                      className='w-full text-left px-3 py-2 rounded-md text-base font-medium text-black hover:text-[#d4575b] hover:bg-gray-50 flex justify-between items-center'
-                    >
-                      {item.name}
-                      <svg
-                        xmlns='http://www.w3.org/2000/svg'
-                        className={`h-4 w-4 transform transition-transform ${
-                          openDropdown === item.name ? 'rotate-180' : ''
-                        }`}
-                        fill='none'
-                        viewBox='0 0 24 24'
-                        stroke='currentColor'
-                      >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth={2}
-                          d='M19 9l-7 7-7-7'
-                        />
-                      </svg>
-                    </button>
-                    {openDropdown === item.name && (
-                      <div className='ml-4 border-l border-gray-200'>
-                        {item.dropdown.map(sub => (
-                          <Link
-                            key={sub.name}
-                            to={sub.href}
-                            className='block px-3 py-2 text-gray-600 hover:text-[#d4575b] hover:bg-gray-50'
-                            onClick={() => setIsMenuOpen(false)}
+                    {/* Services Mega Menu */}
+                    {item.megaMenu === true ? (
+                      <div className='mb-2'>
+                        <button
+                          onClick={() =>
+                            setOpenDropdown(
+                              openDropdown === item.name ? null : item.name
+                            )
+                          }
+                          className={`w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all duration-200 flex justify-between items-center ${
+                            openDropdown === item.name
+                              ? 'text-[#d4575b] bg-white shadow-md'
+                              : 'text-gray-900 hover:text-[#d4575b] hover:bg-white/50'
+                          }`}
+                        >
+                          <span>{item.name}</span>
+                          <svg
+                            xmlns='http://www.w3.org/2000/svg'
+                            className={`h-5 w-5 transform transition-transform duration-200 ${
+                              openDropdown === item.name ? 'rotate-180' : ''
+                            }`}
+                            fill='none'
+                            viewBox='0 0 24 24'
+                            stroke='currentColor'
                           >
-                            {sub.name}
-                          </Link>
-                        ))}
+                            <path
+                              strokeLinecap='round'
+                              strokeLinejoin='round'
+                              strokeWidth={2}
+                              d='M19 9l-7 7-7-7'
+                            />
+                          </svg>
+                        </button>
+                        <AnimatePresence>
+                          {openDropdown === item.name && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.2 }}
+                              className='mt-2 ml-4 space-y-1 border-l-2 border-[#d4575b]/20 pl-4'
+                            >
+                              {[
+                                { title: 'Business Solutions', slug: 'business-solutions' },
+                                { title: 'Developer/IT', slug: 'developer-it' },
+                                { title: 'Back Office', slug: 'back-office' },
+                                { title: 'Community Management', slug: 'community-management' },
+                                { title: 'Strategic Partnership', slug: 'strategic-partnership' },
+                              ].map((category) => (
+                                <Link
+                                  key={category.slug}
+                                  to={`/services/${category.slug}`}
+                                  className='block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:text-[#d4575b] hover:bg-white/70 transition-colors'
+                                  onClick={() => {
+                                    setIsMenuOpen(false);
+                                    setOpenDropdown(null);
+                                  }}
+                                >
+                                  {formatText(category.title)}
+                                </Link>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    ) : item.megaMenu === 'product' ? (
+                      /* Products Mega Menu */
+                      <div className='mb-2'>
+                        <button
+                          onClick={() =>
+                            setOpenDropdown(
+                              openDropdown === item.name ? null : item.name
+                            )
+                          }
+                          className={`w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all duration-200 flex justify-between items-center ${
+                            openDropdown === item.name
+                              ? 'text-[#d4575b] bg-white shadow-md'
+                              : 'text-gray-900 hover:text-[#d4575b] hover:bg-white/50'
+                          }`}
+                        >
+                          <span>{item.name}</span>
+                          <svg
+                            xmlns='http://www.w3.org/2000/svg'
+                            className={`h-5 w-5 transform transition-transform duration-200 ${
+                              openDropdown === item.name ? 'rotate-180' : ''
+                            }`}
+                            fill='none'
+                            viewBox='0 0 24 24'
+                            stroke='currentColor'
+                          >
+                            <path
+                              strokeLinecap='round'
+                              strokeLinejoin='round'
+                              strokeWidth={2}
+                              d='M19 9l-7 7-7-7'
+                            />
+                          </svg>
+                        </button>
+                        <AnimatePresence>
+                          {openDropdown === item.name && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.2 }}
+                              className='mt-2 ml-4 space-y-1 border-l-2 border-[#d4575b]/20 pl-4'
+                            >
+                              {products.map((product) => (
+                                <Link
+                                  key={product.slug}
+                                  to={`/products/${product.slug}`}
+                                  className='block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:text-[#d4575b] hover:bg-white/70 transition-colors'
+                                  onClick={() => {
+                                    setIsMenuOpen(false);
+                                    setOpenDropdown(null);
+                                  }}
+                                >
+                                  {formatText(product.title)}
+                                </Link>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    ) : !item.dropdown ? (
+                      /* Regular Links */
+                      <Link
+                        to={item.href || '#'}
+                        className={`block px-4 py-3 rounded-xl text-base font-semibold transition-all duration-200 ${
+                          isActive(item.href)
+                            ? 'text-[#d4575b] bg-white shadow-md'
+                            : 'text-gray-900 hover:text-[#d4575b] hover:bg-white/50'
+                        }`}
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    ) : (
+                      /* Links with Small Dropdown */
+                      <div className='mb-2'>
+                        <button
+                          onClick={() =>
+                            setOpenDropdown(
+                              openDropdown === item.name ? null : item.name
+                            )
+                          }
+                          className={`w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all duration-200 flex justify-between items-center ${
+                            openDropdown === item.name
+                              ? 'text-[#d4575b] bg-white shadow-md'
+                              : 'text-gray-900 hover:text-[#d4575b] hover:bg-white/50'
+                          }`}
+                        >
+                          <span>{item.name}</span>
+                          <svg
+                            xmlns='http://www.w3.org/2000/svg'
+                            className={`h-5 w-5 transform transition-transform duration-200 ${
+                              openDropdown === item.name ? 'rotate-180' : ''
+                            }`}
+                            fill='none'
+                            viewBox='0 0 24 24'
+                            stroke='currentColor'
+                          >
+                            <path
+                              strokeLinecap='round'
+                              strokeLinejoin='round'
+                              strokeWidth={2}
+                              d='M19 9l-7 7-7-7'
+                            />
+                          </svg>
+                        </button>
+                        <AnimatePresence>
+                          {openDropdown === item.name && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.2 }}
+                              className='mt-2 ml-4 space-y-1 border-l-2 border-[#d4575b]/20 pl-4'
+                            >
+                              {item.dropdown.map((sub) => (
+                                <Link
+                                  key={sub.name}
+                                  to={sub.href}
+                                  className='block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:text-[#d4575b] hover:bg-white/70 transition-colors'
+                                  onClick={() => {
+                                    setIsMenuOpen(false);
+                                    setOpenDropdown(null);
+                                  }}
+                                >
+                                  {sub.name}
+                                </Link>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
                       </div>
                     )}
-                  </div>
-                )
-              )}
-            </div>
-          </div>
-        )}
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
       </div>
      

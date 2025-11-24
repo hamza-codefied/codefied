@@ -7,15 +7,14 @@ import FeaturedSection from '@/components/blogs/Trending';
 export const Blogs = () => {
   return (
     <div className='min-h-screen'>
-       <HeroSection
-        classNames={'h-[350px]'}
+      <HeroSection
+        classNames={'h-[100px] md:h-[200px] lg:h-[350px]'}
         BannerText={'Blogs'}
         bannerTextAdjust={{
           fontSize: 'clamp(40px, 20vw, 600px)', // responsive font size
-            lineHeight: 1,
-            transform: 'translateY(15%)', // cut half of the text
+          lineHeight: 1,
+          transform: 'translateY(15%)', // cut half of the text
         }}
-       
       />
       <FeaturedSection />
       <AllBlogsSection />
