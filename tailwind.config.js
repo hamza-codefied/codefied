@@ -5,6 +5,7 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+
     extend: {
       colors: {
         primary: {
@@ -37,7 +38,7 @@ export default {
       fontFamily: {
         // sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         // mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
-         lufga: ["Lufga", "sans-serif"],
+        lufga: ["Lufga", "sans-serif"],
       },
       spacing: {
         '18': '4.5rem',

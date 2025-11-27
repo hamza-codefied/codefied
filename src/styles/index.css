@@ -56,7 +56,7 @@
 }
 
 html, body {
-  overflow-x: hidden !important;
+  /* overflow-x: hidden !important; */
 }
 
 @layer components {
@@ -225,9 +225,9 @@ body{
 /* HTML: <div class="inverted-radius"></div> */
 .inverted-radius {
   --r: 10px; /* the radius */
-  --s: 30px; /* size of inner curve */
-  --x: 28px; /* horizontal offset (no percentane) */
-  --y: 28px; /* vertical offset (no percentage) */
+  --s: 35px; /* size of inner curve */
+  --x: 55px; /* horizontal offset (no percentane) */
+  --y: 55px; /* vertical offset (no percentage) */
   
   /* width: 250px; */
   aspect-ratio: 1;

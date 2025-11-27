@@ -38,7 +38,7 @@ export const Header = () => {
       document.body.style.top = '';
       document.body.style.width = '';
       document.body.style.overflow = '';
-      
+
       // Restore scroll position
       if (scrollY) {
         window.scrollTo(0, parseInt(scrollY || '0') * -1);
@@ -52,7 +52,7 @@ export const Header = () => {
       document.body.style.top = '';
       document.body.style.width = '';
       document.body.style.overflow = '';
-      
+
       if (scrollY) {
         window.scrollTo(0, parseInt(scrollY || '0') * -1);
       }
@@ -91,217 +91,211 @@ export const Header = () => {
   const isActive = path => location.pathname === path;
 
   return (
-    <header className='bg-white shadow-sm border-b relative z-50 h-auto min-h-[70px] sm:min-h-[50px] py-3 sm:py-4'>
+    <header className='bg-white shadow-sm border-b relative z-50 h-[80px]'>
       <div className='container h-full m-auto px-4 sm:px-6 md:px-8'>
-         <div className='w-full   flex justify-center h-full'>
-        <div className='flex justify-between items-center w-full'>
-          {/* Logo */}
-          <div className='flex-shrink-0'>
-            <Link to='/' className='flex items-center'>
-              <img src={logo} alt='Codefied Logo' className='h-8 sm:h-9 md:h-10' />
-            </Link>
-          </div>
+        <div className='w-full   flex justify-center h-full'>
+          <div className='flex justify-between items-center w-full'>
+            {/* Logo */}
+            <div className='flex-shrink-0'>
+              <Link to='/' className='flex items-center'>
+                <img src={logo} alt='Codefied Logo' className='h-8 sm:h-9 md:h-10' />
+              </Link>
+            </div>
 
-          {/* Desktop Navigation */}
-          <nav className='hidden lg:flex space-x-6 py-2 relative items-center'>
-            {navigation.map(item => (
-              <div
-                key={item.name}
-                className='relative'
-                onMouseLeave={() => setOpenDropdown(null)}
-              >
-                {/* === Services Mega Menu === */}
-                {item.megaMenu === true ? (
-                  <div className='relative'>
-                    <button
-                      type='button'
-                      onClick={() => {
-                        setIsMegaMenuOpen(prev => !prev);
-                        setIsProductMegaMenuOpen(false);
-                      }}
-                      className={`px-3  py-2 rounded-md text-base font-medium flex items-center gap-1 transition-colors ${
-                        isMegaMenuOpen
+            {/* Desktop Navigation */}
+            <nav className='hidden lg:flex space-x-6 py-2 relative items-center'>
+              {navigation.map(item => (
+                <div
+                  key={item.name}
+                  className='relative'
+                  onMouseLeave={() => setOpenDropdown(null)}
+                >
+                  {/* === Services Mega Menu === */}
+                  {item.megaMenu === true ? (
+                    <div className='relative'>
+                      <button
+                        type='button'
+                        onClick={() => {
+                          setIsMegaMenuOpen(prev => !prev);
+                          setIsProductMegaMenuOpen(false);
+                        }}
+                        className={`px-3  py-2 rounded-md text-[18px] font-medium flex items-center gap-1 transition-colors ${isMegaMenuOpen
+                            ? 'text-white bg-[#d4575b] bg-opacity-90'
+                            : 'text-black hover:bg-gray-50'
+                          }`}
+                      >
+                        {item.name}
+                        <svg
+                          xmlns='http://www.w3.org/2000/svg'
+                          className={`h-4 w-4 transform transition-transform ${isMegaMenuOpen ? 'rotate-180' : ''
+                            }`}
+                          fill='none'
+                          viewBox='0 0 24 24'
+                          stroke='currentColor'
+                        >
+                          <path
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            strokeWidth={2}
+                            d='M19 9l-7 7-7-7'
+                          />
+                        </svg>
+                      </button>
+                      <MegaMenu
+                        isOpen={isMegaMenuOpen}
+                        onClose={() => setIsMegaMenuOpen(false)}
+                      />
+                    </div>
+                  ) : item.megaMenu === 'product' ? (
+                    /* === Products Mega Menu === */
+                    <div className='relative'>
+                      <button
+                        type='button'
+                        onClick={() => {
+                          setIsProductMegaMenuOpen(prev => !prev);
+                          setIsMegaMenuOpen(false);
+                        }}
+                        className={`px-3  py-2 rounded-md text-[18px] font-medium flex items-center gap-1 transition-colors ${isProductMegaMenuOpen
+                            ? 'text-white bg-[#d4575b] bg-opacity-90'
+                            : 'text-black hover:bg-gray-50'
+                          }`}
+                      >
+                        {item.name}
+                        <svg
+                          xmlns='http://www.w3.org/2000/svg'
+                          className={`h-4 w-4 transform transition-transform ${isProductMegaMenuOpen ? 'rotate-180' : ''
+                            }`}
+                          fill='none'
+                          viewBox='0 0 24 24'
+                          stroke='currentColor'
+                        >
+                          <path
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            strokeWidth={2}
+                            d='M19 9l-7 7-7-7'
+                          />
+                        </svg>
+                      </button>
+                      <ProductMegaMenu
+                        isOpen={isProductMegaMenuOpen}
+                        onClose={() => setIsProductMegaMenuOpen(false)}
+                      />
+                    </div>
+                  ) : !item.dropdown ? (
+                    /* === Normal Link === */
+                    <Link
+                      to={item.href}
+                      className={`px-3 py-2 rounded-md text-[18px] font-medium mt-[30px] transition-colors ${isActive(item.href)
                           ? 'text-white bg-[#d4575b] bg-opacity-90'
                           : 'text-black hover:bg-gray-50'
-                      }`}
-                    >
-                      {item.name}
-                      <svg
-                        xmlns='http://www.w3.org/2000/svg'
-                        className={`h-4 w-4 transform transition-transform ${
-                          isMegaMenuOpen ? 'rotate-180' : ''
                         }`}
-                        fill='none'
-                        viewBox='0 0 24 24'
-                        stroke='currentColor'
-                      >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth={2}
-                          d='M19 9l-7 7-7-7'
-                        />
-                      </svg>
-                    </button>
-                    <MegaMenu
-                      isOpen={isMegaMenuOpen}
-                      onClose={() => setIsMegaMenuOpen(false)}
-                    />
-                  </div>
-                ) : item.megaMenu === 'product' ? (
-                  /* === Products Mega Menu === */
-                  <div className='relative'>
-                    <button
-                      type='button'
-                      onClick={() => {
-                        setIsProductMegaMenuOpen(prev => !prev);
-                        setIsMegaMenuOpen(false);
-                      }}
-                      className={`px-3  py-2 rounded-md text-sm font-medium flex items-center gap-1 transition-colors ${
-                        isProductMegaMenuOpen
-                          ? 'text-white bg-[#d4575b] bg-opacity-90'
-                          : 'text-black hover:bg-gray-50'
-                      }`}
                     >
                       {item.name}
-                      <svg
-                        xmlns='http://www.w3.org/2000/svg'
-                        className={`h-4 w-4 transform transition-transform ${
-                          isProductMegaMenuOpen ? 'rotate-180' : ''
-                        }`}
-                        fill='none'
-                        viewBox='0 0 24 24'
-                        stroke='currentColor'
+                    </Link>
+                  ) : (
+                    /* === Small Dropdown (like About, Career, etc) === */
+                    <>
+                      <button
+                        type='button'
+                        onMouseEnter={() => setOpenDropdown(item.name)}
+                        className={`px-3 py-2 mt-[-5px] rounded-md text-[18px] font-medium flex items-center gap-1 transition-colors ${openDropdown === item.name
+                            ? 'text-white bg-[#d4575b] bg-opacity-90'
+                            : 'text-black hover:bg-gray-50'
+                          }`}
                       >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth={2}
-                          d='M19 9l-7 7-7-7'
-                        />
-                      </svg>
-                    </button>
-                    <ProductMegaMenu
-                      isOpen={isProductMegaMenuOpen}
-                      onClose={() => setIsProductMegaMenuOpen(false)}
-                    />
-                  </div>
-                ) : !item.dropdown ? (
-                  /* === Normal Link === */
-                  <Link
-                    to={item.href}
-                    className={`px-3 py-2 rounded-md text-sm font-medium mt-[30px] transition-colors ${
-                      isActive(item.href)
-                        ? 'text-white bg-[#d4575b] bg-opacity-90'
-                        : 'text-black hover:bg-gray-50'
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                ) : (
-                  /* === Small Dropdown (like About, Career, etc) === */
-                  <>
-                    <button
-                      type='button'
-                      onMouseEnter={() => setOpenDropdown(item.name)}
-                      className={`px-3 py-2 mt-[-5px] rounded-md text-sm font-medium flex items-center gap-1 transition-colors ${
-                        openDropdown === item.name
-                          ? 'text-white bg-[#d4575b] bg-opacity-90'
-                          : 'text-black hover:bg-gray-50'
-                      }`}
-                    >
-                      {item.name}
-                      <svg
-                        xmlns='http://www.w3.org/2000/svg'
-                        className='h-4 w-4'
-                        fill='none'
-                        viewBox='0 0 24 24'
-                        stroke='currentColor'
-                      >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth={2}
-                          d='M19 9l-7 7-7-7'
-                        />
-                      </svg>
-                    </button>
+                        {item.name}
+                        <svg
+                          xmlns='http://www.w3.org/2000/svg'
+                          className='h-4 w-4'
+                          fill='none'
+                          viewBox='0 0 24 24'
+                          stroke='currentColor'
+                        >
+                          <path
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            strokeWidth={2}
+                            d='M19 9l-7 7-7-7'
+                          />
+                        </svg>
+                      </button>
 
-                    {openDropdown === item.name && (
-                      <div className='absolute top-full left-0 mt-[2px] w-44 bg-white border rounded-lg shadow-lg py-2'>
-                        {item.dropdown.map(sub => (
-                          <Link
-                            key={sub.name}
-                            to={sub.href}
-                            className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#d4575b]'
-                          >
-                            {sub.name}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </>
-                )}
-              </div>
-            ))}
-          </nav>
+                      {openDropdown === item.name && (
+                        <div className='absolute top-full left-0 mt-[2px] w-44 bg-white border rounded-lg shadow-lg py-2'>
+                          {item.dropdown.map(sub => (
+                            <Link
+                              key={sub.name}
+                              to={sub.href}
+                              className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#d4575b]'
+                            >
+                              {sub.name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  )}
+                </div>
+              ))}
+            </nav>
 
-          {/* Desktop CTA */}
-          <div className='hidden lg:flex items-center space-x-2'>
-            <GoGlobe className='text-2xl' />
-            <FaArrowDownLong className='text-2xl' />
-          </div>
+            {/* Desktop CTA */}
+            <div className='hidden lg:flex items-center space-x-2'>
+              <GoGlobe size={24} />
+              <FaArrowDownLong className='text-2xl' />
+            </div>
 
-          {/* Mobile Menu Button */}
-          <div className='lg:hidden'>
-            <Button
-              variant='ghost'
-              size='sm'
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className='p-2'
-            >
-              <svg
-                className='h-6 w-6'
-                fill='none'
-                viewBox='0 0 24 24'
-                stroke='currentColor'
+            {/* Mobile Menu Button */}
+            <div className='lg:hidden'>
+              <Button
+                variant='ghost'
+                size='sm'
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className='p-2'
               >
-                {isMenuOpen ? (
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M6 18L18 6M6 6l12 12'
-                  />
-                ) : (
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M4 6h16M4 12h16M4 18h16'
-                  />
-                )}
-              </svg>
-            </Button>
+                <svg
+                  className='h-6 w-6'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke='currentColor'
+                >
+                  {isMenuOpen ? (
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth={2}
+                      d='M6 18L18 6M6 6l12 12'
+                    />
+                  ) : (
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth={2}
+                      d='M4 6h16M4 12h16M4 18h16'
+                    />
+                  )}
+                </svg>
+              </Button>
+            </div>
           </div>
-        </div>
 
-        {/* Mobile Navigation */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className='lg:hidden fixed inset-0 top-[70px] sm:top-[80px] bg-gradient-to-b from-[#fef9f9] via-[#fef5f5] to-[#fef2f2] z-40 overflow-y-auto'
-              onClick={(e) => {
-                if (e.target === e.currentTarget) {
-                  setIsMenuOpen(false);
-                }
-              }}
-            >
-              {/* Close Button
+          {/* Mobile Navigation */}
+          <AnimatePresence>
+            {isMenuOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                className='lg:hidden fixed inset-0 top-[70px] sm:top-[80px] bg-gradient-to-b from-[#fef9f9] via-[#fef5f5] to-[#fef2f2] z-40 overflow-y-auto'
+                onClick={(e) => {
+                  if (e.target === e.currentTarget) {
+                    setIsMenuOpen(false);
+                  }
+                }}
+              >
+                {/* Close Button
               <div className='sticky top-0 bg-white/80 backdrop-blur-sm border-b border-gray-200 z-10 flex justify-end p-4'>
                 <button
                   onClick={() => setIsMenuOpen(false)}
@@ -312,221 +306,214 @@ export const Header = () => {
                 </button>
               </div> */}
 
-              {/* Navigation Items */}
-              <div className='px-4 sm:px-6 py-6 space-y-2'>
-                {navigation.map((item, index) => (
-                  <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                  >
-                    {/* Services Mega Menu */}
-                    {item.megaMenu === true ? (
-                      <div className='mb-2'>
-                        <button
-                          onClick={() =>
-                            setOpenDropdown(
-                              openDropdown === item.name ? null : item.name
-                            )
-                          }
-                          className={`w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all duration-200 flex justify-between items-center ${
-                            openDropdown === item.name
+                {/* Navigation Items */}
+                <div className='px-4 sm:px-6 py-6 space-y-2'>
+                  {navigation.map((item, index) => (
+                    <motion.div
+                      key={item.name}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05 }}
+                    >
+                      {/* Services Mega Menu */}
+                      {item.megaMenu === true ? (
+                        <div className='mb-2'>
+                          <button
+                            onClick={() =>
+                              setOpenDropdown(
+                                openDropdown === item.name ? null : item.name
+                              )
+                            }
+                            className={`w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all duration-200 flex justify-between items-center ${openDropdown === item.name
+                                ? 'text-[#d4575b] bg-white shadow-md'
+                                : 'text-gray-900 hover:text-[#d4575b] hover:bg-white/50'
+                              }`}
+                          >
+                            <span>{item.name}</span>
+                            <svg
+                              xmlns='http://www.w3.org/2000/svg'
+                              className={`h-5 w-5 transform transition-transform duration-200 ${openDropdown === item.name ? 'rotate-180' : ''
+                                }`}
+                              fill='none'
+                              viewBox='0 0 24 24'
+                              stroke='currentColor'
+                            >
+                              <path
+                                strokeLinecap='round'
+                                strokeLinejoin='round'
+                                strokeWidth={2}
+                                d='M19 9l-7 7-7-7'
+                              />
+                            </svg>
+                          </button>
+                          <AnimatePresence>
+                            {openDropdown === item.name && (
+                              <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: 'auto' }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.2 }}
+                                className='mt-2 ml-4 space-y-1 border-l-2 border-[#d4575b]/20 pl-4'
+                              >
+                                {[
+                                  { title: 'Business Solutions', slug: 'business-solutions' },
+                                  { title: 'Developer/IT', slug: 'developer-it' },
+                                  { title: 'Back Office', slug: 'back-office' },
+                                  { title: 'Community Management', slug: 'community-management' },
+                                  { title: 'Strategic Partnership', slug: 'strategic-partnership' },
+                                ].map((category) => (
+                                  <Link
+                                    key={category.slug}
+                                    to={`/services/${category.slug}`}
+                                    className='block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:text-[#d4575b] hover:bg-white/70 transition-colors'
+                                    onClick={() => {
+                                      setIsMenuOpen(false);
+                                      setOpenDropdown(null);
+                                    }}
+                                  >
+                                    {formatText(category.title)}
+                                  </Link>
+                                ))}
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      ) : item.megaMenu === 'product' ? (
+                        /* Products Mega Menu */
+                        <div className='mb-2'>
+                          <button
+                            onClick={() =>
+                              setOpenDropdown(
+                                openDropdown === item.name ? null : item.name
+                              )
+                            }
+                            className={`w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all duration-200 flex justify-between items-center ${openDropdown === item.name
+                                ? 'text-[#d4575b] bg-white shadow-md'
+                                : 'text-gray-900 hover:text-[#d4575b] hover:bg-white/50'
+                              }`}
+                          >
+                            <span>{item.name}</span>
+                            <svg
+                              xmlns='http://www.w3.org/2000/svg'
+                              className={`h-5 w-5 transform transition-transform duration-200 ${openDropdown === item.name ? 'rotate-180' : ''
+                                }`}
+                              fill='none'
+                              viewBox='0 0 24 24'
+                              stroke='currentColor'
+                            >
+                              <path
+                                strokeLinecap='round'
+                                strokeLinejoin='round'
+                                strokeWidth={2}
+                                d='M19 9l-7 7-7-7'
+                              />
+                            </svg>
+                          </button>
+                          <AnimatePresence>
+                            {openDropdown === item.name && (
+                              <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: 'auto' }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.2 }}
+                                className='mt-2 ml-4 space-y-1 border-l-2 border-[#d4575b]/20 pl-4'
+                              >
+                                {products.map((product) => (
+                                  <Link
+                                    key={product.slug}
+                                    to={`/products/${product.slug}`}
+                                    className='block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:text-[#d4575b] hover:bg-white/70 transition-colors'
+                                    onClick={() => {
+                                      setIsMenuOpen(false);
+                                      setOpenDropdown(null);
+                                    }}
+                                  >
+                                    {formatText(product.title)}
+                                  </Link>
+                                ))}
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      ) : !item.dropdown ? (
+                        /* Regular Links */
+                        <Link
+                          to={item.href || '#'}
+                          className={`block px-4 py-3 rounded-xl text-base font-semibold transition-all duration-200 ${isActive(item.href)
                               ? 'text-[#d4575b] bg-white shadow-md'
                               : 'text-gray-900 hover:text-[#d4575b] hover:bg-white/50'
-                          }`}
-                        >
-                          <span>{item.name}</span>
-                          <svg
-                            xmlns='http://www.w3.org/2000/svg'
-                            className={`h-5 w-5 transform transition-transform duration-200 ${
-                              openDropdown === item.name ? 'rotate-180' : ''
                             }`}
-                            fill='none'
-                            viewBox='0 0 24 24'
-                            stroke='currentColor'
-                          >
-                            <path
-                              strokeLinecap='round'
-                              strokeLinejoin='round'
-                              strokeWidth={2}
-                              d='M19 9l-7 7-7-7'
-                            />
-                          </svg>
-                        </button>
-                        <AnimatePresence>
-                          {openDropdown === item.name && (
-                            <motion.div
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: 'auto' }}
-                              exit={{ opacity: 0, height: 0 }}
-                              transition={{ duration: 0.2 }}
-                              className='mt-2 ml-4 space-y-1 border-l-2 border-[#d4575b]/20 pl-4'
-                            >
-                              {[
-                                { title: 'Business Solutions', slug: 'business-solutions' },
-                                { title: 'Developer/IT', slug: 'developer-it' },
-                                { title: 'Back Office', slug: 'back-office' },
-                                { title: 'Community Management', slug: 'community-management' },
-                                { title: 'Strategic Partnership', slug: 'strategic-partnership' },
-                              ].map((category) => (
-                                <Link
-                                  key={category.slug}
-                                  to={`/services/${category.slug}`}
-                                  className='block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:text-[#d4575b] hover:bg-white/70 transition-colors'
-                                  onClick={() => {
-                                    setIsMenuOpen(false);
-                                    setOpenDropdown(null);
-                                  }}
-                                >
-                                  {formatText(category.title)}
-                                </Link>
-                              ))}
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    ) : item.megaMenu === 'product' ? (
-                      /* Products Mega Menu */
-                      <div className='mb-2'>
-                        <button
-                          onClick={() =>
-                            setOpenDropdown(
-                              openDropdown === item.name ? null : item.name
-                            )
-                          }
-                          className={`w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all duration-200 flex justify-between items-center ${
-                            openDropdown === item.name
-                              ? 'text-[#d4575b] bg-white shadow-md'
-                              : 'text-gray-900 hover:text-[#d4575b] hover:bg-white/50'
-                          }`}
+                          onClick={() => setIsMenuOpen(false)}
                         >
-                          <span>{item.name}</span>
-                          <svg
-                            xmlns='http://www.w3.org/2000/svg'
-                            className={`h-5 w-5 transform transition-transform duration-200 ${
-                              openDropdown === item.name ? 'rotate-180' : ''
-                            }`}
-                            fill='none'
-                            viewBox='0 0 24 24'
-                            stroke='currentColor'
+                          {item.name}
+                        </Link>
+                      ) : (
+                        /* Links with Small Dropdown */
+                        <div className='mb-2'>
+                          <button
+                            onClick={() =>
+                              setOpenDropdown(
+                                openDropdown === item.name ? null : item.name
+                              )
+                            }
+                            className={`w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all duration-200 flex justify-between items-center ${openDropdown === item.name
+                                ? 'text-[#d4575b] bg-white shadow-md'
+                                : 'text-gray-900 hover:text-[#d4575b] hover:bg-white/50'
+                              }`}
                           >
-                            <path
-                              strokeLinecap='round'
-                              strokeLinejoin='round'
-                              strokeWidth={2}
-                              d='M19 9l-7 7-7-7'
-                            />
-                          </svg>
-                        </button>
-                        <AnimatePresence>
-                          {openDropdown === item.name && (
-                            <motion.div
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: 'auto' }}
-                              exit={{ opacity: 0, height: 0 }}
-                              transition={{ duration: 0.2 }}
-                              className='mt-2 ml-4 space-y-1 border-l-2 border-[#d4575b]/20 pl-4'
+                            <span>{item.name}</span>
+                            <svg
+                              xmlns='http://www.w3.org/2000/svg'
+                              className={`h-5 w-5 transform transition-transform duration-200 ${openDropdown === item.name ? 'rotate-180' : ''
+                                }`}
+                              fill='none'
+                              viewBox='0 0 24 24'
+                              stroke='currentColor'
                             >
-                              {products.map((product) => (
-                                <Link
-                                  key={product.slug}
-                                  to={`/products/${product.slug}`}
-                                  className='block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:text-[#d4575b] hover:bg-white/70 transition-colors'
-                                  onClick={() => {
-                                    setIsMenuOpen(false);
-                                    setOpenDropdown(null);
-                                  }}
-                                >
-                                  {formatText(product.title)}
-                                </Link>
-                              ))}
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    ) : !item.dropdown ? (
-                      /* Regular Links */
-                      <Link
-                        to={item.href || '#'}
-                        className={`block px-4 py-3 rounded-xl text-base font-semibold transition-all duration-200 ${
-                          isActive(item.href)
-                            ? 'text-[#d4575b] bg-white shadow-md'
-                            : 'text-gray-900 hover:text-[#d4575b] hover:bg-white/50'
-                        }`}
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    ) : (
-                      /* Links with Small Dropdown */
-                      <div className='mb-2'>
-                        <button
-                          onClick={() =>
-                            setOpenDropdown(
-                              openDropdown === item.name ? null : item.name
-                            )
-                          }
-                          className={`w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all duration-200 flex justify-between items-center ${
-                            openDropdown === item.name
-                              ? 'text-[#d4575b] bg-white shadow-md'
-                              : 'text-gray-900 hover:text-[#d4575b] hover:bg-white/50'
-                          }`}
-                        >
-                          <span>{item.name}</span>
-                          <svg
-                            xmlns='http://www.w3.org/2000/svg'
-                            className={`h-5 w-5 transform transition-transform duration-200 ${
-                              openDropdown === item.name ? 'rotate-180' : ''
-                            }`}
-                            fill='none'
-                            viewBox='0 0 24 24'
-                            stroke='currentColor'
-                          >
-                            <path
-                              strokeLinecap='round'
-                              strokeLinejoin='round'
-                              strokeWidth={2}
-                              d='M19 9l-7 7-7-7'
-                            />
-                          </svg>
-                        </button>
-                        <AnimatePresence>
-                          {openDropdown === item.name && (
-                            <motion.div
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: 'auto' }}
-                              exit={{ opacity: 0, height: 0 }}
-                              transition={{ duration: 0.2 }}
-                              className='mt-2 ml-4 space-y-1 border-l-2 border-[#d4575b]/20 pl-4'
-                            >
-                              {item.dropdown.map((sub) => (
-                                <Link
-                                  key={sub.name}
-                                  to={sub.href}
-                                  className='block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:text-[#d4575b] hover:bg-white/70 transition-colors'
-                                  onClick={() => {
-                                    setIsMenuOpen(false);
-                                    setOpenDropdown(null);
-                                  }}
-                                >
-                                  {sub.name}
-                                </Link>
-                              ))}
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    )}
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+                              <path
+                                strokeLinecap='round'
+                                strokeLinejoin='round'
+                                strokeWidth={2}
+                                d='M19 9l-7 7-7-7'
+                              />
+                            </svg>
+                          </button>
+                          <AnimatePresence>
+                            {openDropdown === item.name && (
+                              <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: 'auto' }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.2 }}
+                                className='mt-2 ml-4 space-y-1 border-l-2 border-[#d4575b]/20 pl-4'
+                              >
+                                {item.dropdown.map((sub) => (
+                                  <Link
+                                    key={sub.name}
+                                    to={sub.href}
+                                    className='block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:text-[#d4575b] hover:bg-white/70 transition-colors'
+                                    onClick={() => {
+                                      setIsMenuOpen(false);
+                                      setOpenDropdown(null);
+                                    }}
+                                  >
+                                    {sub.name}
+                                  </Link>
+                                ))}
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      )}
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
-      </div>
-     
+
     </header>
   );
 };

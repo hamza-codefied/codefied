@@ -43,14 +43,15 @@ export const OurCapabilities = () => {
   const isExpanded = visibleCount >= allCapabilities.length;
 
   return (
-    <section className='bg-white text-center py-16 px-6 overflow-hidden'>
+    // <section className='bg-white text-center py-6 px-6 overflow-hidden'>
+    <section className='bg-white text-center px-6 overflow-hidden' style={{ paddingTop: '134px', paddingBottom: '150px' }}>
       {/* 🔴 Tag */}
-      <div className='inline-block uppercase text-[#d4575b] text-xs font-semibold mb-1'>
+      <div className='inline-block uppercase text-[#D4575B] text-[14px] font-normal mb-1'>
         Our Capabilities
       </div>
 
       {/* 🏷️ Heading */}
-      <h2 className='text-3xl md:text-4xl font-bold text-black mb-10'>
+      <h2 className="pt-[16px] mb-[53px] text-[54px] font-semibold text-black">
         We can help you with...
       </h2>
 
@@ -58,7 +59,7 @@ export const OurCapabilities = () => {
       <motion.div
         layout
         transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-        className='flex flex-wrap justify-center gap-2 max-w-6xl mx-auto'
+        className='flex flex-wrap justify-center gap-2 max-w-[1600px] mx-auto '
       >
         <AnimatePresence>
           {allCapabilities.slice(0, visibleCount).map((capability, index) => (
@@ -69,7 +70,10 @@ export const OurCapabilities = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className='bg-[#d4575b] bg-opacity-80 text-black font-medium text-xs px-3 py-2 rounded-lg hover:scale-105 transition-transform duration-300'
+              style={{
+                letterSpacing: '1.5px',
+              }}
+              className='bg-[#D4575B] bg-opacity-80 text-white text-xs px-8 py-4 rounded-lg hover:scale-105 transition-transform duration-300'
             >
               {capability}
             </motion.div>
@@ -77,13 +81,29 @@ export const OurCapabilities = () => {
         </AnimatePresence>
       </motion.div>
 
-      {/* ⚙️ Load More / Load Less */}
-      <div className='mt-8 flex items-center justify-center gap-3'>
-        {loading && <FiLoader className='animate-spin text-[#d4575b]' />}
+
+      <div className='pt-[53px] flex items-center justify-center gap-4'>
+        {/* Loader – always visible, size 25×25, spins only when loading */}
+        <div className='w-[25px] h-[25px] flex items-center justify-center'>
+          <FiLoader
+            className='w-[25px] h-[25px] text-[#D4575B] transition-all duration-300'
+            style={{
+              animation: loading ? 'spin 1s linear infinite' : 'none',
+              opacity: loading ? 1 : 0.5,           // subtle when idle
+            }}
+          />
+        </div>
+
+        {/* Button – font size 18px, weight 300 */}
         <button
           onClick={handleToggle}
           disabled={loading}
-          className='text-black text-base font-normal hover:scale-105 transition-transform duration-300'
+          className='
+      text-black text-[18px] font-light 
+      hover:scale-105 active:scale-100 
+      transition-transform duration-300 
+      disabled:cursor-not-allowed disabled:opacity-60
+    '
         >
           {isExpanded ? 'Load Less' : 'Load More'}
         </button>

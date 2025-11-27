@@ -1,7 +1,7 @@
-const Section = ({ 
+const Section = ({
     classNames,
     width = 'w-full',
-    height = 'h-auto',
+    height = '',
     background = '',
     color = 'text-gray-900',
     padding = 'p-4',
@@ -11,7 +11,7 @@ const Section = ({
     ...rest
 }) => {
     return (
-        <section 
+        <section
             className={`${classNames} ${width} ${height} ${background} ${color} ${padding} ${margin} ${classNames ?? ''}`}
             {...rest}
         >

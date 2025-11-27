@@ -342,7 +342,7 @@ export const Developerit = () => {
         }
       >
         {/* Left side - Heading and heroSubText */}
-        <div className={'flex flex-col w-full xl:w-[45%] gap-8'}>
+        <div className={'flex flex-col w-full xl:w-[45%] gap-8 xl:sticky xl:top-28 xl:h-fit'}>
           {/* Heading container - will animate from top to here */}
           <div className='heading-container' style={{ width: 'fit-content' }}>
             <h1
