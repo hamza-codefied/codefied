@@ -8,37 +8,48 @@ import product2 from '@/images/product2.jpg';
 import product3 from '@/images/product3.jpg';
 import products from '@/data/productData';
 
-export const ProductMegaMenu = ({ isOpen, onClose }) => {
+export const ProductMegaMenu = ({ isOpen, onClose, onMouseEnter, onMouseLeave }) => {
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, y: -10 }}
+          initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
+          exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.3, ease: 'easeInOut' }}
-          className='fixed left-0 top-[60px] w-full bg-gradient-to-r from-[#f8fafc] via-[#fdf2f2] to-[#fff7f7]  border-t border-gray-200 shadow-lg z-10'
+          className='fixed left-0 right-0 top-[80px] w-full bg-gradient-to-r from-[#f8fafc] via-[#fdf2f2] to-[#fff7f7] border-t border-gray-200 shadow-lg z-10'
           onClick={onClose}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
         >
-          <div className='max-w-full mx-auto p-6'>
+          <div className='max-w-full mx-auto px-[56px] py-6'>
             {/* Header Section */}
-            <div className='flex justify-between items-center mb-10'>
-              <div>
-                <h2 className='text-2xl font-bold text-gray-900'>
+            <div className='flex justify-between items-start mb-10 pt-[70px]'>
+              <div className='flex-1'>
+                <h2
+                  className='text-gray-900'
+                  style={{ fontSize: '42px', fontWeight: 700 }}
+                >
                   Our Products
                 </h2>
-                <p className='text-gray-600'>
-                  From concept to launch, we cover the entire spectrum of
-                  digital innovation.
-                </p>
+                <div className='flex items-center justify-between mt-[5px]'>
+                  <p
+                    className='text-black'
+                    style={{ fontSize: '24px', lineHeight: '24px', fontWeight: 400 }}
+                  >
+                    From concept to launch, we cover the entire spectrum of
+                    digital innovation.
+                  </p>
+                  <Link
+                    to=''
+                    className='text-[#d4575b] hover:underline flex items-center justify-start ml-4'
+                    style={{ fontSize: '24px', fontWeight: 600, gap: '8px' }}
+                  >
+                    View All Products
+                    <GoArrowUpRight style={{ fontSize: '25px', color: '#000000' }} />
+                  </Link>
+                </div>
               </div>
-              <Link
-                to=''
-                className='text-[#d4575b] hover:underline font-medium flex items-center justify-start gap-2'
-              >
-                View All Products{' '}
-                <GoArrowUpRight className='text-black mt-[2px]' />
-              </Link>
             </div>
 
             {/* Product Cards */}
@@ -51,30 +62,47 @@ export const ProductMegaMenu = ({ isOpen, onClose }) => {
                     boxShadow: '0px 8px 25px rgba(212, 87, 91, 0.3)',
                     transition: { duration: 0.3 },
                   }}
-                  className='bg-[#0f0f0f] hover:bg-white text-white hover:text-[#0f0f0f] rounded-xl overflow-hidden shadow-lg cursor-pointer'
+                  className='relative bg-[#0f0f0f] hover:bg-white text-white hover:text-[#0f0f0f] rounded-xl overflow-hidden shadow-lg cursor-pointer'
+                  style={{ padding: '30px', paddingTop: '0px' }}
                 >
                   <img
                     src={product.thumnailImage}
                     alt={product.title}
-                    className='w-full h-40 object-cover'
+                    className='absolute inset-0 w-full h-full object-cover'
+                    style={{ borderRadius: '5px' }}
                   />
-                  <div className='p-5'>
-                    <h2 className='text-xl font-semibold'>{product.title}</h2>
-                    <h3 className='text-sm uppercase tracking-wide mt-1'>
-                      {product.subtitle}
-                    </h3>
-
-                    <p className='text-sm mt-2 leading-relaxed line-clamp-3'>
-                      {product.description}
-                    </p>
-                    <Link
-                      to={`/products/${product.slug}`}
-                      onClick={onClose}
-                      className='mt-4 text-[#d4575b] font-medium hover:underline flex items-center justify-start gap-2'
-                    >
-                      View Product
-                      <GoArrowUpRight className='text-[#d4575b] mt-[2px]' />
-                    </Link>
+                  {/* Black glassy effect overlay */}
+                  <div
+                    className='absolute inset-0 bg-black/40 backdrop-blur-sm'
+                    style={{ borderRadius: '5px' }}
+                  />
+                  <div className='relative z-10 p-5 flex flex-col justify-end h-[388px]'>
+                    <div className='flex flex-col w-full'>
+                      <h2
+                        className='text-white'
+                        style={{ fontSize: '24px', fontWeight: 700, paddingBottom: '7px' }}
+                      >
+                        {product.title}
+                      </h2>
+                      <h3 className='text-white text-sm uppercase tracking-wide' style={{ fontWeight: 400, marginBottom: '4px' }}>
+                        {product.subtitle}
+                      </h3>
+                      <p
+                        className='text-white leading-relaxed line-clamp-3 mb-[15px]'
+                        style={{ fontSize: '16px', fontWeight: 300 }}
+                      >
+                        {product.description}
+                      </p>
+                      <Link
+                        to={`/products/${product.slug}`}
+                        onClick={onClose}
+                        className='text-white hover:underline flex items-center justify-start gap-2 w-fit'
+                        style={{ fontSize: '16px', fontWeight: 700 }}
+                      >
+                        View Product
+                        <GoArrowUpRight className='text-white' size={14} />
+                      </Link>
+                    </div>
                   </div>
                 </motion.div>
               ))}

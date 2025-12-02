@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@components/ui/Button';
 import logo from '@/images/logo.png';
@@ -18,7 +18,10 @@ export const Header = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
   const [isProductMegaMenuOpen, setIsProductMegaMenuOpen] = useState(false);
+  const [hoveredNavItem, setHoveredNavItem] = useState(null);
   const location = useLocation();
+  const megaMenuTimeoutRef = useRef(null);
+  const productMegaMenuTimeoutRef = useRef(null);
 
   useEffect(() => {
     if (typeof document === "undefined") return;
@@ -59,6 +62,18 @@ export const Header = () => {
     };
   }, [isMegaMenuOpen, isProductMegaMenuOpen, isMenuOpen]);
 
+  // Cleanup timeouts on unmount
+  useEffect(() => {
+    return () => {
+      if (megaMenuTimeoutRef.current) {
+        clearTimeout(megaMenuTimeoutRef.current);
+      }
+      if (productMegaMenuTimeoutRef.current) {
+        clearTimeout(productMegaMenuTimeoutRef.current);
+      }
+    };
+  }, []);
+
   const serviceDropdown = [
     { name: 'Web Development', href: '/services/web-development' },
     { name: 'UI/UX Design', href: '/services/ui-ux' },
@@ -91,10 +106,10 @@ export const Header = () => {
   const isActive = path => location.pathname === path;
 
   return (
-    <header className='bg-white shadow-sm border-b relative z-50 h-[80px]'>
-      <div className='container h-full m-auto px-4 sm:px-6 md:px-8'>
-        <div className='w-full   flex justify-center h-full'>
-          <div className='flex justify-between items-center w-full'>
+    <header className='bg-white shadow-sm border-b relative z-50 h-[80px] overflow-x-hidden max-w-full'>
+      <div className='container h-full m-auto px-4 sm:px-6 md:px-8 max-w-full'>
+        <div className='w-full flex justify-center h-full max-w-full'>
+          <div className='flex justify-between items-center w-full max-w-full'>
             {/* Logo */}
             <div className='flex-shrink-0'>
               <Link to='/' className='flex items-center'>
@@ -112,22 +127,35 @@ export const Header = () => {
                 >
                   {/* === Services Mega Menu === */}
                   {item.megaMenu === true ? (
-                    <div className='relative'>
+                    <div
+                      className='relative'
+                      onMouseEnter={() => {
+                        if (megaMenuTimeoutRef.current) {
+                          clearTimeout(megaMenuTimeoutRef.current);
+                          megaMenuTimeoutRef.current = null;
+                        }
+                        setHoveredNavItem(item.name);
+                        setIsMegaMenuOpen(true);
+                        setIsProductMegaMenuOpen(false);
+                      }}
+                      onMouseLeave={() => {
+                        megaMenuTimeoutRef.current = setTimeout(() => {
+                          setHoveredNavItem(null);
+                          setIsMegaMenuOpen(false);
+                        }, 50);
+                      }}
+                    >
                       <button
                         type='button'
-                        onClick={() => {
-                          setIsMegaMenuOpen(prev => !prev);
-                          setIsProductMegaMenuOpen(false);
-                        }}
-                        className={`px-3  py-2 rounded-md text-[18px] font-medium flex items-center gap-1 transition-colors ${isMegaMenuOpen
-                            ? 'text-white bg-[#d4575b] bg-opacity-90'
-                            : 'text-black hover:bg-gray-50'
+                        className={`px-3 py-2 text-[18px] font-medium flex items-center gap-1 transition-all duration-300 ${hoveredNavItem === item.name
+                          ? 'text-[#d4575b]'
+                          : 'text-black hover:text-[#d4575b]'
                           }`}
                       >
                         {item.name}
                         <svg
                           xmlns='http://www.w3.org/2000/svg'
-                          className={`h-4 w-4 transform transition-transform ${isMegaMenuOpen ? 'rotate-180' : ''
+                          className={`h-4 w-4 transform transition-transform duration-300 ${hoveredNavItem === item.name ? 'rotate-180' : ''
                             }`}
                           fill='none'
                           viewBox='0 0 24 24'
@@ -141,29 +169,67 @@ export const Header = () => {
                           />
                         </svg>
                       </button>
+                      {/* Invisible bridge to prevent flicker when moving mouse to overlay */}
+                      {isMegaMenuOpen && (
+                        <div className='absolute left-0 right-0 top-full h-2 bg-transparent z-50' />
+                      )}
                       <MegaMenu
                         isOpen={isMegaMenuOpen}
-                        onClose={() => setIsMegaMenuOpen(false)}
+                        onClose={() => {
+                          if (megaMenuTimeoutRef.current) {
+                            clearTimeout(megaMenuTimeoutRef.current);
+                            megaMenuTimeoutRef.current = null;
+                          }
+                          setHoveredNavItem(null);
+                          setIsMegaMenuOpen(false);
+                        }}
+                        onMouseEnter={() => {
+                          if (megaMenuTimeoutRef.current) {
+                            clearTimeout(megaMenuTimeoutRef.current);
+                            megaMenuTimeoutRef.current = null;
+                          }
+                          setHoveredNavItem(item.name);
+                          setIsMegaMenuOpen(true);
+                        }}
+                        onMouseLeave={() => {
+                          megaMenuTimeoutRef.current = setTimeout(() => {
+                            setHoveredNavItem(null);
+                            setIsMegaMenuOpen(false);
+                          }, 50);
+                        }}
                       />
                     </div>
                   ) : item.megaMenu === 'product' ? (
                     /* === Products Mega Menu === */
-                    <div className='relative'>
+                    <div
+                      className='relative'
+                      onMouseEnter={() => {
+                        if (productMegaMenuTimeoutRef.current) {
+                          clearTimeout(productMegaMenuTimeoutRef.current);
+                          productMegaMenuTimeoutRef.current = null;
+                        }
+                        setHoveredNavItem(item.name);
+                        setIsProductMegaMenuOpen(true);
+                        setIsMegaMenuOpen(false);
+                      }}
+                      onMouseLeave={() => {
+                        productMegaMenuTimeoutRef.current = setTimeout(() => {
+                          setHoveredNavItem(null);
+                          setIsProductMegaMenuOpen(false);
+                        }, 50);
+                      }}
+                    >
                       <button
                         type='button'
-                        onClick={() => {
-                          setIsProductMegaMenuOpen(prev => !prev);
-                          setIsMegaMenuOpen(false);
-                        }}
-                        className={`px-3  py-2 rounded-md text-[18px] font-medium flex items-center gap-1 transition-colors ${isProductMegaMenuOpen
-                            ? 'text-white bg-[#d4575b] bg-opacity-90'
-                            : 'text-black hover:bg-gray-50'
+                        className={`px-3 py-2 text-[18px] font-medium flex items-center gap-1 transition-all duration-300 ${hoveredNavItem === item.name
+                          ? 'text-[#d4575b]'
+                          : 'text-black hover:text-[#d4575b]'
                           }`}
                       >
                         {item.name}
                         <svg
                           xmlns='http://www.w3.org/2000/svg'
-                          className={`h-4 w-4 transform transition-transform ${isProductMegaMenuOpen ? 'rotate-180' : ''
+                          className={`h-4 w-4 transform transition-transform duration-300 ${hoveredNavItem === item.name ? 'rotate-180' : ''
                             }`}
                           fill='none'
                           viewBox='0 0 24 24'
@@ -177,18 +243,45 @@ export const Header = () => {
                           />
                         </svg>
                       </button>
+                      {/* Invisible bridge to prevent flicker when moving mouse to overlay */}
+                      {isProductMegaMenuOpen && (
+                        <div className='absolute left-0 right-0 top-full h-2 bg-transparent z-50' />
+                      )}
                       <ProductMegaMenu
                         isOpen={isProductMegaMenuOpen}
-                        onClose={() => setIsProductMegaMenuOpen(false)}
+                        onClose={() => {
+                          if (productMegaMenuTimeoutRef.current) {
+                            clearTimeout(productMegaMenuTimeoutRef.current);
+                            productMegaMenuTimeoutRef.current = null;
+                          }
+                          setHoveredNavItem(null);
+                          setIsProductMegaMenuOpen(false);
+                        }}
+                        onMouseEnter={() => {
+                          if (productMegaMenuTimeoutRef.current) {
+                            clearTimeout(productMegaMenuTimeoutRef.current);
+                            productMegaMenuTimeoutRef.current = null;
+                          }
+                          setHoveredNavItem(item.name);
+                          setIsProductMegaMenuOpen(true);
+                        }}
+                        onMouseLeave={() => {
+                          productMegaMenuTimeoutRef.current = setTimeout(() => {
+                            setHoveredNavItem(null);
+                            setIsProductMegaMenuOpen(false);
+                          }, 50);
+                        }}
                       />
                     </div>
                   ) : !item.dropdown ? (
                     /* === Normal Link === */
                     <Link
                       to={item.href}
-                      className={`px-3 py-2 rounded-md text-[18px] font-medium mt-[30px] transition-colors ${isActive(item.href)
-                          ? 'text-white bg-[#d4575b] bg-opacity-90'
-                          : 'text-black hover:bg-gray-50'
+                      onMouseEnter={() => setHoveredNavItem(item.name)}
+                      onMouseLeave={() => setHoveredNavItem(null)}
+                      className={`px-3 py-2 text-[18px] font-medium mt-[30px] transition-all duration-300 ${hoveredNavItem === item.name || (isActive(item.href) && !isMegaMenuOpen && !isProductMegaMenuOpen && !hoveredNavItem)
+                        ? 'text-[#d4575b]'
+                        : 'text-black hover:text-[#d4575b]'
                         }`}
                     >
                       {item.name}
@@ -199,9 +292,9 @@ export const Header = () => {
                       <button
                         type='button'
                         onMouseEnter={() => setOpenDropdown(item.name)}
-                        className={`px-3 py-2 mt-[-5px] rounded-md text-[18px] font-medium flex items-center gap-1 transition-colors ${openDropdown === item.name
-                            ? 'text-white bg-[#d4575b] bg-opacity-90'
-                            : 'text-black hover:bg-gray-50'
+                        className={`px-3 py-2 mt-[-5px] text-[18px] font-medium flex items-center gap-1 transition-all duration-300 ${openDropdown === item.name
+                          ? 'text-[#d4575b]'
+                          : 'text-black hover:text-[#d4575b]'
                           }`}
                       >
                         {item.name}
@@ -325,8 +418,8 @@ export const Header = () => {
                               )
                             }
                             className={`w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all duration-200 flex justify-between items-center ${openDropdown === item.name
-                                ? 'text-[#d4575b] bg-white shadow-md'
-                                : 'text-gray-900 hover:text-[#d4575b] hover:bg-white/50'
+                              ? 'text-[#d4575b] bg-white shadow-md'
+                              : 'text-gray-900 hover:text-[#d4575b] hover:bg-white/50'
                               }`}
                           >
                             <span>{item.name}</span>
@@ -388,8 +481,8 @@ export const Header = () => {
                               )
                             }
                             className={`w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all duration-200 flex justify-between items-center ${openDropdown === item.name
-                                ? 'text-[#d4575b] bg-white shadow-md'
-                                : 'text-gray-900 hover:text-[#d4575b] hover:bg-white/50'
+                              ? 'text-[#d4575b] bg-white shadow-md'
+                              : 'text-gray-900 hover:text-[#d4575b] hover:bg-white/50'
                               }`}
                           >
                             <span>{item.name}</span>
@@ -440,8 +533,8 @@ export const Header = () => {
                         <Link
                           to={item.href || '#'}
                           className={`block px-4 py-3 rounded-xl text-base font-semibold transition-all duration-200 ${isActive(item.href)
-                              ? 'text-[#d4575b] bg-white shadow-md'
-                              : 'text-gray-900 hover:text-[#d4575b] hover:bg-white/50'
+                            ? 'text-[#d4575b] bg-white shadow-md'
+                            : 'text-gray-900 hover:text-[#d4575b] hover:bg-white/50'
                             }`}
                           onClick={() => setIsMenuOpen(false)}
                         >
@@ -457,8 +550,8 @@ export const Header = () => {
                               )
                             }
                             className={`w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all duration-200 flex justify-between items-center ${openDropdown === item.name
-                                ? 'text-[#d4575b] bg-white shadow-md'
-                                : 'text-gray-900 hover:text-[#d4575b] hover:bg-white/50'
+                              ? 'text-[#d4575b] bg-white shadow-md'
+                              : 'text-gray-900 hover:text-[#d4575b] hover:bg-white/50'
                               }`}
                           >
                             <span>{item.name}</span>

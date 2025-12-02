@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { GoArrowUpRight } from 'react-icons/go';
+import { motion, useInView } from 'framer-motion';
 import backoffice from '@/images/backoffice.png';
 import circle from '@/images/circle.png';
-import { div } from 'framer-motion/client';
 
 const SmartBackOffice = () => {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: false, amount: 0.2 });
+
   const cards = [
     {
       id: 1,
@@ -39,7 +42,7 @@ const SmartBackOffice = () => {
   return (
     /* Container */
     <div className='container m-auto '>
-      <section className='relative  flex items-center justify-center py-64 px-4 overflow-hidden mt-10 sm:mt-[200px]'>
+      <section ref={sectionRef} className='relative flex items-center justify-center py-32 sm:py-48 md:py-64 px-4 overflow-hidden mt-10 sm:mt-[200px] min-h-[600px] sm:min-h-[700px] md:min-h-[800px]'>
         {/* Background Image */}
         <img
           src={circle}
@@ -49,7 +52,7 @@ const SmartBackOffice = () => {
 
         {/* Center Content */}
         <div className='relative z-10 text-center max-w-2xl mx-auto'>
-          <h2 className='text-3xl font-bold mb-4 leading-snug text-center relative inline-block'>
+          <h2 className='text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 leading-snug text-center relative inline-block'>
             Behind Every Great Product <br />
             Is a Smarter{' '}
             <span className='relative inline-block'>
@@ -86,29 +89,55 @@ const SmartBackOffice = () => {
         </div>
 
         {/* Floating Cards */}
-        {cards.map(card => (
-          <div
-            key={card.id}
-            className={`absolute bg-[#121212]/90 text-white rounded-xl shadow-lg p-5 w-[250px] md:w-[300px] backdrop-blur-md border border-white/10 transition-transform hover:-translate-y-2 duration-300 ${card.position === 'top-left'
-              ? 'top-20 left-5 lg:left-36 shadow-lg shadow-green-100'
-              : card.position === 'top-right'
-                ? 'hidden sm:block top-8 right-5 lg:right-56 shadow-lg shadow-red-100'
-                : card.position === 'bottom-left'
-                  ? 'bottom-16 left-5 lg:left-48 shadow-lg shadow-yellow-100'
-                  : 'hidden sm:block bottom-20 right-5 lg:right-52 shadow-lg shadow-blue-100'
-              }`}
-          >
-            <div className='flex items-center justify-start mb-3'>
-              <img
-                src={card.image}
-                alt={card.title}
-                className='w-8 h-8 object-contain'
-              />
-            </div>
-            <h3 className='text-sm font-semibold mb-1'>{card.title}</h3>
-            <p className='text-gray-300 text-xs'>{card.description}</p>
-          </div>
-        ))}
+        {cards.map((card, index) => {
+          // Determine initial animation direction based on card position
+          // Left cards come from left, right cards come from right
+          const getInitialPosition = () => {
+            if (card.position === 'top-left' || card.position === 'bottom-left') {
+              return { x: -300, y: 0, opacity: 0 };
+            } else {
+              return { x: 300, y: 0, opacity: 0 };
+            }
+          };
+
+          return (
+            <motion.div
+              key={card.id}
+              initial={getInitialPosition()}
+              animate={isInView ? { x: 0, y: 0, opacity: 1 } : getInitialPosition()}
+              transition={{
+                duration: 0.8,
+                delay: index * 0.15,
+                ease: [0.22, 1, 0.36, 1]
+              }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              className={`absolute bg-[#121212]/90 text-white rounded-xl shadow-lg backdrop-blur-md border border-white/10 flex flex-col ${card.position === 'top-left'
+                ? 'top-4 left-2 sm:top-8 sm:left-4 md:top-12 md:left-8 lg:top-20 lg:left-16 xl:left-36 shadow-lg shadow-green-100'
+                : card.position === 'top-right'
+                  ? 'top-4 right-2 sm:top-8 sm:right-4 md:top-12 md:right-8 lg:top-8 lg:right-16 xl:right-56 shadow-lg shadow-red-100'
+                  : card.position === 'bottom-left'
+                    ? 'bottom-4 left-2 sm:bottom-8 sm:left-4 md:bottom-12 md:left-8 lg:bottom-16 lg:left-20 xl:left-48 shadow-lg shadow-yellow-100'
+                    : 'bottom-4 right-2 sm:bottom-8 sm:right-4 md:bottom-12 md:right-8 lg:bottom-20 lg:right-20 xl:right-52 shadow-lg shadow-blue-100'
+                }`}
+              style={{
+                padding: 'clamp(12px, 2vw, 20px)',
+                width: 'clamp(280px, 30vw, 430px)',
+                height: 'clamp(160px, 18vw, 210px)',
+                maxWidth: '90vw'
+              }}
+            >
+              <div className='flex items-center justify-start mb-3 sm:mb-4 md:mb-6'>
+                <img
+                  src={card.image}
+                  alt={card.title}
+                  className='w-[53px] h-[53px] object-contain'
+                />
+              </div>
+              <h3 className='text-base sm:text-lg md:text-xl lg:text-[24px] font-[700] mb-2 sm:mb-2 md:mb-3'>{card.title}</h3>
+              <p className='text-xs sm:text-sm md:text-base lg:text-[16px] font-[400] text-gray-300'>{card.description}</p>
+            </motion.div>
+          );
+        })}
       </section>
     </div>
 

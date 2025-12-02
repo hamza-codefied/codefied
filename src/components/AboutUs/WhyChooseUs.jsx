@@ -33,58 +33,59 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section id='why-choose-us' className='bg-[#0c0c0c]/90 text-white py-20 px-4 md:px-12 lg:px-20'>
-      <div className='container m-auto px-8'>
-        <div className=''>
-        {/* Tag */}
-        <p className='text-sm text-[#d4575b] tracking-widest mb-2'>
-          WHY CHOOSE US
-        </p>
+    <section id='why-choose-us' className='bg-[#0C0C0C] text-white px-4 md:px-12 lg:px-20 pb-[80px] md:pb-[167px]'>
+      <div className='container m-auto px-4 md:px-8'>
+        <div className='w-[90%] mx-auto pt-[40px] md:pt-[84px]'>
+          {/* Tag */}
+          <p className='text-[#d4575b] tracking-widest text-[14px] md:text-[16px] font-[400] mb-[20px] md:mb-[28px]'>
+            WHY CHOOSE US
+          </p>
 
-        {/* Heading */}
-        <h2 className='text-3xl md:text-4xl font-semibold mb-4'>
-          Why <span className='text-[#d4575b]'>Codefied?</span>{' '}
-          <span className='italic font-normal'>Your Success</span>
-        </h2>
+          {/* Heading and Description Container */}
+          <div className='inline-block mb-[60px] md:mb-[100px]'>
+            {/* Heading */}
+            <h2 className='text-[32px] md:text-[54px] font-[600] mb-[8px] md:mb-[10px]'>
+              Why <span className='text-[#d4575b]'>Codefied?</span>{' '}
+              <span className='italic font-normal'>Your Success</span>
+            </h2>
 
-        {/* Paragraph */}
-        <p className='text-white mb-12 max-w-2xl'>
-          Partner with Codefied and experience a world where innovation meets
-          excellence, and your success is our mission.
-        </p>
-
-        {/* 2-Column Layout */}
-        <div className='grid md:grid-cols-2 gap-8'>
-          {/* Left Column */}
-          <div className='space-y-4'>
-            {items.map((item, index) => (
-              <div
-                key={index}
-                className={`flex justify-between items-center border-b pb-2 cursor-pointer transition-all duration-300 ${
-                  activeIndex === index
-                    ? 'border-[#d4575b]'
-                    : 'text-gray-300 border-white hover:text-white'
-                }`}
-                onClick={() => setActiveIndex(index)}
-              >
-                <h3 className='font-medium text-lg'>{item.title}</h3>
-                <ArrowRight
-                  className={`w-5 h-5 transition-transform ${
-                    activeIndex === index ? 'translate-x-1 text-[#d4575b]' : ''
-                  }`}
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Right Column */}
-          <div className='flex items-center justify-start w-full mx-auto '>
-            <p className='text-gray-300 text-lg leading-relaxed'>
-              {items[activeIndex].description}
+            {/* Paragraph - aligns with heading width */}
+            <p className='text-white text-[18px] md:text-[24px] font-[400]'>
+              Partner with Codefied and experience a world where innovation meets
+              excellence, and your success is our mission.
             </p>
           </div>
+
+          {/* 2-Column Layout */}
+          <div className='flex flex-col md:flex-row gap-[40px] md:gap-[74px]'>
+            {/* Left Column */}
+            <div className='space-y-4 w-full md:w-[530px]'>
+              {items.map((item, index) => (
+                <div
+                  key={index}
+                  className={`flex justify-between items-center border-b pb-2 cursor-pointer transition-all duration-300 ${activeIndex === index
+                    ? 'border-[#d4575b]'
+                    : 'text-gray-300 border-white hover:text-white'
+                    }`}
+                  onClick={() => setActiveIndex(index)}
+                >
+                  <h3 className='text-[20px] md:text-[32px] font-[600]'>{item.title}</h3>
+                  <ArrowRight
+                    className={`w-[20px] h-[20px] md:w-[25px] md:h-[25px] transition-transform ${activeIndex === index ? 'translate-x-1 text-[#d4575b]' : ''
+                      }`}
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Right Column */}
+            <div className='flex items-center justify-start flex-1'>
+              <p className='text-gray-300 text-[18px] md:text-[32px] font-[400] leading-relaxed'>
+                {items[activeIndex].description}
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
       </div>
     </section>
   );

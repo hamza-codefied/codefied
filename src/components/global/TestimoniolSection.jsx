@@ -12,14 +12,14 @@ export default function TestimonialsSection() {
     <div className='container m-auto px-8'>
       <section
         ref={ref}
-        className='w-full bg-white py-16 flex flex-col md:flex-row items-start justify-between gap-18 mt-5 sm:mt-10 mx-auto'
+        className='w-full bg-white py-16 flex flex-col md:flex-row items-start justify-between gap-18 mt-6 sm:mt-[160px] mx-auto'
       >
         {/* Left Side */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className='w-full'
+          className='w-full md:w-1/2'
         >
           <h2 className='text-3xl md:text-6xl font-bold mb-4 text-gray-900'>
             People are Saying <br /> About{' '}
@@ -76,9 +76,9 @@ export default function TestimonialsSection() {
           initial={{ opacity: 0, x: 50 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className='w-full md:justify-end flex'
+          className='w-full md:w-1/2 flex'
         >
-          <div className='bg-[#121212]/90 text-white rounded-2xl shadow-lg px-8 lg:px-18 py-8 w-full md:max-w-lg '>
+          <div className='bg-[#121212]/90 text-white rounded-2xl shadow-lg px-8 lg:px-18 py-8 w-full'>
             <div className='text-center mb-6'>
               <img
                 src={coins}

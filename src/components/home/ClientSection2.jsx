@@ -22,11 +22,11 @@ export const ClientSection2 = () => {
           className='flex items-center'
         >
           {seamlessClients.map((src, i) => (
-            <div key={i} className='flex justify-center items-center mx-2'>
+            <div key={i} className='flex justify-center items-center mx-2 w-[150px]'>
               <img
                 src={src}
                 alt={`Client ${i + 1}`}
-                className=' w-[100px] object-contain'
+                className='w-[150px] object-contain'
               />
             </div>
           ))}

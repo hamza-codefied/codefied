@@ -69,7 +69,7 @@ const categories = [
   },
 ];
 
-export const MegaMenu = ({ isOpen, onClose }) => {
+export const MegaMenu = ({ isOpen, onClose, onMouseEnter, onMouseLeave }) => {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -83,63 +83,77 @@ export const MegaMenu = ({ isOpen, onClose }) => {
   return (
     <AnimatePresence>
       {isOpen && (
-        <>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className='fixed left-0 right-0 bottom-0 top-[80px] z-20'
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+        >
           {/* Background overlay */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.5 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className='fixed inset-0 bg-black/30 z-10'
+            className='fixed left-0 right-0 bottom-0 top-[80px] bg-black/30 z-10'
             onClick={onClose}
           />
 
           {/* Mega menu */}
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
+            exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className='fixed inset-0 flex items-start top-[60px] justify-center z-30'
+            className='fixed left-0 right-0 flex items-start justify-center z-30'
+            style={{ top: '80px', maxHeight: 'calc(100vh - 80px)' }}
             ref={ref}
           >
-            <div className='w-full bg-white shadow-2xl border overflow-hidden'>
+            <div className='w-full max-w-full bg-white shadow-2xl border overflow-hidden max-h-[calc(100vh-80px)]'>
               <div className='flex flex-col md:flex-row w-full h-full'>
                 {/* Left column */}
                 <div
                   style={{
                     backgroundImage: `url(${partnerBg})`,
                   }}
-                  className='md:w-1/4 w-full flex flex-col justify-center items-center p-8 bg-cover bg-center bg-no-repeat relative'
+                  className='md:w-1/4 w-full flex flex-col justify-center items-center p-4 md:p-8 bg-cover bg-center bg-no-repeat relative'
                 >
-                  <div className='relative flex flex-col items-center text-center space-y-2'>
+                  <div className='relative flex flex-col items-center text-center space-y-2 w-full max-w-full px-4'>
                     <img
                       src={partnerImg}
                       alt='Partner with Codefied'
-                      className='w-[300px] h-auto'
+                      className='object-contain w-full max-w-[340px] h-auto'
+                      style={{ maxHeight: '300px' }}
                     />
-                    <Button className='w-full bg-[#d4575b]/80 hover:bg-[#d4575b] text-black rounded-md font-medium transition'>
-                      Discover Now{' '}
-                      <MdArrowCircleRight className='text-lg ml-2' />
+                    <Button
+                      className='bg-[#d4575b]/80 hover:bg-[#d4575b] text-black rounded-md transition flex items-center justify-center gap-[5px] w-full max-w-[340px]'
+                      style={{ height: '50px', fontSize: '14px', fontWeight: 500 }}
+                    >
+                      Discover Now
+                      <MdArrowCircleRight style={{ fontSize: '14px' }} />
                     </Button>
                   </div>
                 </div>
 
                 {/* Right column */}
-                <div className='md:w-3/4 w-full bg-white p-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-8 overflow-y-auto'>
+                <div className='md:w-3/4 w-full bg-white px-4 sm:px-6 md:px-[42px] py-8 md:py-[65px] grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 overflow-y-auto'>
                   {categories.map((category, index) => (
                     <div key={index}>
                       {/* Category Title (Main Route) */}
                       <Link
                         to={`/services/${category.slug}`}
                         onClick={onClose}
-                        className='font-semibold text-gray-900 w-fit text-[20px] mb-3 border-b-2 border-[#d4575b] pb-1 hover:text-[#d4575b] transition-colors block'
+                        className='text-gray-900 w-fit mb-3 border-b-2 border-[#d4575b] pb-1 hover:text-[#d4575b] transition-colors block'
+                        style={{ fontSize: '24px', fontWeight: 700 }}
                       >
                         {formatText(category.title)}
                       </Link>
 
                       {/* Sub Items */}
-                      <ul className='space-y-1'>
+                      <ul className='space-y-[13px]'>
                         {category.items.map((item, idx) => (
                           <li key={idx}>
                             <Link
@@ -148,9 +162,11 @@ export const MegaMenu = ({ isOpen, onClose }) => {
                                 .replace(/\s+/g, '-')
                                 .replace(/[^\w-]/g, '')}`}
                               onClick={onClose}
-                              className='text-gray-500 text-[13px] hover:text-[#d4575b] cursor-pointer transition-colors block'
+                              className='text-[16px] hover:text-[#d4575b] cursor-pointer transition-all duration-300 inline-block relative group'
+                              style={{ fontWeight: 400, color: '#828282' }}
                             >
                               {formatText(item)}
+                              <span className='absolute bottom-0 left-0 w-0 h-[1px] bg-black transition-all duration-300 group-hover:w-full'></span>
                             </Link>
                           </li>
                         ))}
@@ -161,7 +177,7 @@ export const MegaMenu = ({ isOpen, onClose }) => {
               </div>
             </div>
           </motion.div>
-        </>
+        </motion.div>
       )}
     </AnimatePresence>
   );

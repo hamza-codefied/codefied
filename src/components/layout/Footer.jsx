@@ -37,8 +37,8 @@ export const Footer = () => {
   };
 
   return (
-    <footer className='bg-white text-gray-700 container mx-auto px-8'>
-      <div className='w-full py-10'>
+    <footer className='bg-white text-gray-700 container mx-auto px-4 sm:px-6 md:px-8 overflow-x-hidden max-w-full'>
+      <div className='w-full max-w-full py-10'>
         {/* Top Section */}
         <div className='flex flex-col md:flex-row md:items-start md:justify-between pb-8 gap-2'>
           {/* Logo */}

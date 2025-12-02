@@ -61,24 +61,24 @@ export default function FAQSection() {
     setActiveIndex(index === activeIndex ? null : index);
   };
 
-const oddFaqs = filteredFaqs
-  .map((faq, originalIndex) => ({ faq, originalIndex }))
-  .filter((_, i) => i % 2 === 0); // odd positions: 0,2,4...
+  const oddFaqs = filteredFaqs
+    .map((faq, originalIndex) => ({ faq, originalIndex }))
+    .filter((_, i) => i % 2 === 0); // odd positions: 0,2,4...
 
-const evenFaqs = filteredFaqs
-  .map((faq, originalIndex) => ({ faq, originalIndex }))
-  .filter((_, i) => i % 2 === 1); // even positions: 1,3,5...
+  const evenFaqs = filteredFaqs
+    .map((faq, originalIndex) => ({ faq, originalIndex }))
+    .filter((_, i) => i % 2 === 1); // even positions: 1,3,5...
 
   return (
     <div className='container m-auto px-8'>
-      <section id='faqs' className='w-full py-16 bg-white'>
+      <section id='faqs' className='w-full bg-white mt-[150px] mb-[140px]'>
         <div className=''>
           {/* Heading */}
-          <div className='text-center mb-10'>
-            <h2 className='text-3xl md:text-4xl font-semibold'>
-              <span className='text-[#d4575b]'>Frequently</span> Asked Questions
+          <div className='text-center '>
+            <h2 class="text-[48px] font-semibold">
+              <span class="text-[#d4575b]">Frequently</span> Asked Questions
             </h2>
-            <p className='text-gray-400 mt-3 text-sm max-w-3xl mx-auto'>
+            <p class="text-gray-400 mt-[20px] mb-[20px]  text-[18px] font-normal max-w-4xl mx-auto">
               Got questions? We've got answers. Check out our frequently asked
               questions section to find valuable insights into our processes,
               pricing, and more. Transparency is at the core of our client
@@ -87,99 +87,101 @@ const evenFaqs = filteredFaqs
           </div>
 
           {/* Search bar */}
-          <div className='relative max-w-md mx-auto mb-12'>
-            <FiSearch className='absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-900' />
+          <div className='relative max-w-2xl mx-auto mb-[60px]'>
+            <FiSearch className='absolute top-1/2 left-4 transform -translate-y-1/2 text-[#262626]' />
             <input
               type='text'
               placeholder='Search'
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
-              className='w-full border border-black rounded-full py-2.5 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-[#d4575b] transition'
+              className='w-full border-2 border-[#262626] rounded-full py-2.5 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-[#d4575b] transition'
             />
           </div>
 
-{/* all FAQS */}
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+          {/* all FAQS */}
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-[50px]'>
             {/* FAQ grid */}
             <div className=''>
-              {oddFaqs.map(({ faq, originalIndex }) => (
+              {oddFaqs.map(({ faq, originalIndex }, index) => (
                 <div
                   key={originalIndex}
-                  className='border-b border-gray-800 py-8 cursor-pointer'
+                  className={`${index !== oddFaqs.length - 1 ? 'border-b border-gray-800' : ''} py-[34px] cursor-pointer`}
                 >
                   <div
                     onClick={() => toggleFAQ(originalIndex)}
-                    className='flex justify-between items-center w-full'
+                    className='flex items-start w-full gap-[30px]'
                   >
-                    <h3 className='text-sm w-full  font-medium text-gray-600 pr-3'>
-                      {faq.question}
-                    </h3>
-                    <div className='flex-shrink-0 bg-black text-white rounded-full p-1 flex items-center justify-center'>
+                    <div className='flex-1 flex flex-col'>
+                      <h3 className='text-[20px] font-semibold text-[#5D5D5D]'>
+                        {faq.question}
+                      </h3>
+                      {/* Answer Animation */}
+                      <AnimatePresence>
+                        {activeIndex === originalIndex && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3, ease: 'easeInOut' }}
+                          >
+                            <p className='text-[18px] font-normal text-[#8C8C8C] mt-3 leading-relaxed'>
+                              {faq.answer}
+                            </p>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                    <div className='flex-shrink-0 bg-black text-white rounded-full w-[52px] h-[52px] flex items-center justify-center'>
                       {activeIndex === originalIndex ? (
-                        <FiMinus className='text-lg' />
+                        <FiMinus className='text-[28px]' />
                       ) : (
-                        <FiPlus className='text-lg' />
+                        <FiPlus className='text-[28px]' />
                       )}
                     </div>
                   </div>
-
-                  {/* Answer Animation */}
-                  <AnimatePresence>
-                    {activeIndex === originalIndex && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3, ease: 'easeInOut' }}
-                      >
-                        <p className='text-gray-400 text-sm mt-3 leading-relaxed'>
-                          {faq.answer}
-                        </p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
                 </div>
               ))}
             </div>
 
             {/* FAQ grid 2 */}
             <div className=''>
-              {evenFaqs.map(({ faq, originalIndex }) => (
+              {evenFaqs.map(({ faq, originalIndex }, index) => (
                 <div
                   key={originalIndex}
-                  className='border-b border-gray-800 py-8 cursor-pointer'
+                  className={`${index !== evenFaqs.length - 1 ? 'border-b border-gray-800' : ''} py-[34px] cursor-pointer`}
                 >
                   <div
                     onClick={() => toggleFAQ(originalIndex)}
-                    className='flex justify-between items-center'
+                    className='flex items-start w-full gap-[40px]'
                   >
-                    <h3 className='text-sm w-full font-medium text-gray-600 pr-3'>
-                      {faq.question}
-                    </h3>
-                    <div className='flex-shrink-0 bg-black text-white rounded-full p-1 flex items-center justify-center'>
+                    <div className='flex-1 flex flex-col'>
+                      <h3 className='text-[20px] font-semibold text-[#5D5D5D]'>
+                        {faq.question}
+                      </h3>
+                      {/* Answer Animation */}
+                      <AnimatePresence>
+                        {activeIndex === originalIndex && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3, ease: 'easeInOut' }}
+                          >
+                            <p className='text-[18px] font-normal text-[#8C8C8C] mt-3 leading-relaxed'>
+                              {faq.answer}
+                            </p>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                    <div className='flex-shrink-0 bg-black text-white rounded-full w-[52px] h-[52px] flex items-center justify-center'>
                       {activeIndex === originalIndex ? (
-                        <FiMinus className='text-lg' />
+                        <FiMinus className='text-[28px]' />
                       ) : (
-                        <FiPlus className='text-lg' />
+                        <FiPlus className='text-[28px]' />
                       )}
                     </div>
                   </div>
-
-                  {/* Answer Animation */}
-                  <AnimatePresence>
-                    {activeIndex === originalIndex && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3, ease: 'easeInOut' }}
-                      >
-                        <p className='text-gray-400 text-sm mt-3 leading-relaxed'>
-                          {faq.answer}
-                        </p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
                 </div>
               ))}
             </div>
