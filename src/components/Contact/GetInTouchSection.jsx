@@ -73,17 +73,17 @@ const GetInTouchSection = () => {
 
   const info = [
     {
-      icon: <MdOutlinePhoneInTalk className='w-8 h-8 text-black' />,
+      icon: MdOutlinePhoneInTalk,
       label: 'PHONE',
       value: '03 5432 1234',
     },
     {
-      icon: <LiaFaxSolid className='w-8 h-8 text-black' />,
+      icon: LiaFaxSolid,
       label: 'FAX',
       value: '03 5432 1234',
     },
     {
-      icon: <FaEnvelopeOpenText className='w-6 h-6 text-black' />,
+      icon: FaEnvelopeOpenText,
       label: 'EMAIL',
       value: 'info@marcc.com.au',
       isLink: true,
@@ -92,15 +92,29 @@ const GetInTouchSection = () => {
 
   return (
     <div className='container m-auto px-8'>
-      <section id='contact-form' className='w-full mt-[-20px] py-10'>
+      <section id='contact-form' className='w-full mt-[53px] py-10 mb-[70px]'>
         <div className=' grid grid-cols-1 lg:grid-cols-2 gap-10'>
           {/* LEFT COLUMN */}
           <div className='flex flex-col justify-center'>
-            <h2 className='text-3xl md:text-4xl font-bold mb-4 text-gray-900'>
+            <h2
+              className='font-bold text-gray-900'
+              style={{
+                fontSize: 'clamp(32px, 5vw, 54px)',
+                fontWeight: 700,
+                marginBottom: 'clamp(15px, 2vw, 20px)'
+              }}
+            >
               Get in <span className='text-[#d4575b]'>Touch</span>
             </h2>
-            <p className='text-black w-full sm:w-[450px] mb-8'>
-              We’d love to hear from you. Fill out the form below and our team
+            <p
+              className='text-black w-full sm:w-[450px]'
+              style={{
+                fontSize: 'clamp(12px, 1.5vw, 14px)',
+                fontWeight: 400,
+                marginBottom: 'clamp(25px, 3.5vw, 40px)'
+              }}
+            >
+              We'd love to hear from you. Fill out the form below and our team
               will get back to you as soon as possible.
             </p>
 
@@ -124,38 +138,73 @@ const GetInTouchSection = () => {
 
               <button
                 type='submit'
-                className='w-full bg-[#d4575b]/80 hover:bg-[#d4575b] transition text-white font-semibold py-3 rounded-lg'
+                className='w-full transition text-white font-semibold py-3 rounded-lg'
+                style={{
+                  backgroundColor: '#D4575B'
+                }}
               >
                 Send
               </button>
             </form>
 
-            <div className='flex flex-wrap justify-center md:justify-start gap-8 md:gap-16 py-10'>
-              {info.map((item, idx) => (
-                <div
-                  key={idx}
-                  className='flex items-center space-x-3 min-w-[120px]'
-                >
-                  <div className='flex-shrink-0'>{item.icon}</div>
-                  <div className='flex flex-col'>
-                    <span className='text-xs font-semibold text-gray-800 tracking-wide'>
-                      {item.label}
-                    </span>
-                    {item.isLink ? (
-                      <a
-                        href={`mailto:${item.value}`}
-                        className='text-sm font-medium text-[#d4575b] hover:underline'
+            <div
+              className='flex flex-wrap justify-center md:justify-start gap-8 md:gap-16'
+              style={{
+                marginTop: 'clamp(40px, 5vw, 60px)'
+              }}
+            >
+              {info.map((item, idx) => {
+                const IconComponent = item.icon;
+                return (
+                  <div
+                    key={idx}
+                    className='flex items-center min-w-[120px]'
+                    style={{
+                      gap: '5px'
+                    }}
+                  >
+                    <div className='flex-shrink-0 text-black'>
+                      <IconComponent style={{ width: '28px', height: '28px' }} />
+                    </div>
+                    <div className='flex flex-col'>
+                      <span
+                        className='text-gray-800 tracking-wide'
+                        style={{
+                          fontSize: 'clamp(11px, 1.5vw, 13px)',
+                          fontWeight: 700
+                        }}
                       >
-                        {item.value}
-                      </a>
-                    ) : (
-                      <span className='text-sm font-medium text-[#d4575b]'>
-                        {item.value}
+                        {item.label}
                       </span>
-                    )}
+                      {item.isLink ? (
+                        <a
+                          href={`mailto:${item.value}`}
+                          className='hover:underline'
+                          style={{
+                            fontSize: 'clamp(11px, 1.5vw, 13px)',
+                            fontWeight: 700,
+                            color: '#D4575B',
+                            fontFamily: 'Arial, sans-serif'
+                          }}
+                        >
+                          {item.value}
+                        </a>
+                      ) : (
+                        <span
+                          style={{
+                            fontSize: 'clamp(11px, 1.5vw, 13px)',
+                            fontWeight: 700,
+                            color: '#D4575B',
+                            fontFamily: 'Arial, sans-serif'
+                          }}
+                        >
+                          {item.value}
+                        </span>
+                      )}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 

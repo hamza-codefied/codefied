@@ -42,16 +42,16 @@ const SmartBackOffice = () => {
   return (
     /* Container */
     <div className='container m-auto '>
-      <section ref={sectionRef} className='relative flex items-center justify-center py-32 sm:py-48 md:py-64 px-4 overflow-hidden mt-10 sm:mt-[200px] min-h-[600px] sm:min-h-[700px] md:min-h-[800px]'>
-        {/* Background Image */}
+      <section ref={sectionRef} className='relative flex flex-col lg:flex-row lg:items-center lg:justify-center py-16 sm:py-24 md:py-32 lg:py-64 px-4 overflow-hidden mt-10 sm:mt-[200px] min-h-0 lg:min-h-[800px]'>
+        {/* Background Image - Only show on large screens */}
         <img
           src={circle}
           alt='background circle'
-          className='absolute inset-0 w-full h-full object-contain opacity-90 pointer-events-none'
+          className='hidden lg:block absolute inset-0 w-full h-full object-contain opacity-90 pointer-events-none'
         />
 
         {/* Center Content */}
-        <div className='relative z-10 text-center max-w-2xl mx-auto'>
+        <div className='relative z-10 text-center max-w-2xl mx-auto mb-12 lg:mb-0'>
           <h2 className='text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 leading-snug text-center relative inline-block'>
             Behind Every Great Product <br />
             Is a Smarter{' '}
@@ -75,7 +75,7 @@ const SmartBackOffice = () => {
           </h2>
 
           <p className='text-gray-600 mb-2 text-sm md:text-base max-w-lg mx-auto'>
-            Codefied’s back-office solutions keep your business running smoothly
+            Codefied's back-office solutions keep your business running smoothly
             from data and operations to support and analytics so you can focus on
             growth.
           </p>
@@ -88,7 +88,41 @@ const SmartBackOffice = () => {
           </a>
         </div>
 
-        {/* Floating Cards */}
+        {/* Cards Grid for Mobile/Tablet */}
+        <div className='lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full max-w-4xl mx-auto relative z-10'>
+          {cards.map((card, index) => {
+            return (
+              <motion.div
+                key={card.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.1,
+                  ease: [0.22, 1, 0.36, 1]
+                }}
+                whileHover={{ y: -4, scale: 1.01 }}
+                className='bg-[#121212]/90 text-white rounded-xl shadow-lg backdrop-blur-md border border-white/10 flex flex-col w-full'
+                style={{
+                  padding: 'clamp(16px, 3vw, 24px)',
+                  minHeight: 'clamp(180px, 25vw, 220px)'
+                }}
+              >
+                <div className='flex items-center justify-start mb-3 sm:mb-4'>
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className='w-[53px] h-[53px] object-contain'
+                  />
+                </div>
+                <h3 className='text-lg sm:text-xl font-[700] mb-2'>{card.title}</h3>
+                <p className='text-sm sm:text-base font-[400] text-gray-300'>{card.description}</p>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Floating Cards for Large Screens */}
         {cards.map((card, index) => {
           // Determine initial animation direction based on card position
           // Left cards come from left, right cards come from right
@@ -111,13 +145,13 @@ const SmartBackOffice = () => {
                 ease: [0.22, 1, 0.36, 1]
               }}
               whileHover={{ y: -8, scale: 1.02 }}
-              className={`absolute bg-[#121212]/90 text-white rounded-xl shadow-lg backdrop-blur-md border border-white/10 flex flex-col ${card.position === 'top-left'
-                ? 'top-4 left-2 sm:top-8 sm:left-4 md:top-12 md:left-8 lg:top-20 lg:left-16 xl:left-36 shadow-lg shadow-green-100'
+              className={`hidden lg:flex absolute bg-[#121212]/90 text-white rounded-xl shadow-lg backdrop-blur-md border border-white/10 flex-col ${card.position === 'top-left'
+                ? 'top-20 left-16 xl:left-36 shadow-lg shadow-green-100'
                 : card.position === 'top-right'
-                  ? 'top-4 right-2 sm:top-8 sm:right-4 md:top-12 md:right-8 lg:top-8 lg:right-16 xl:right-56 shadow-lg shadow-red-100'
+                  ? 'top-8 right-16 xl:right-56 shadow-lg shadow-red-100'
                   : card.position === 'bottom-left'
-                    ? 'bottom-4 left-2 sm:bottom-8 sm:left-4 md:bottom-12 md:left-8 lg:bottom-16 lg:left-20 xl:left-48 shadow-lg shadow-yellow-100'
-                    : 'bottom-4 right-2 sm:bottom-8 sm:right-4 md:bottom-12 md:right-8 lg:bottom-20 lg:right-20 xl:right-52 shadow-lg shadow-blue-100'
+                    ? 'bottom-16 left-20 xl:left-48 shadow-lg shadow-yellow-100'
+                    : 'bottom-20 right-20 xl:right-52 shadow-lg shadow-blue-100'
                 }`}
               style={{
                 padding: 'clamp(12px, 2vw, 20px)',

@@ -50,8 +50,18 @@ export const Working = () => {
     const section1Element = document.getElementById('section1');
     const heroSubTextElement = document.querySelector('.heroSubText');
     const headingContainer = document.querySelector('.heading-container');
+    const rightSide = document.querySelector('.right-side-features');
 
     if (!section1Element || !heroSubTextElement || !headingContainer) return;
+
+    // Set section height to match right side for proper sticky behavior
+    const updateSectionHeight = () => {
+      if (rightSide && section1Element) {
+        const rightHeight = rightSide.offsetHeight;
+        // Set section min-height to right side height so sticky works properly
+        section1Element.style.minHeight = `${rightHeight}px`;
+      }
+    };
 
     let masterTL = null;
     let timeoutId = null;
@@ -146,8 +156,17 @@ export const Working = () => {
         '-=0.8'
       );
 
+      // Update section height after a delay to ensure right side is rendered
+      setTimeout(() => {
+        updateSectionHeight();
+        ScrollTrigger.refresh();
+      }, 200);
+
       ScrollTrigger.refresh();
     }, 100);
+
+    // Update height on resize
+    window.addEventListener('resize', updateSectionHeight);
 
     // Animate right content items
     revealRefs.current.forEach((el, index) => {
@@ -209,11 +228,13 @@ export const Working = () => {
     };
 
     window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', updateSectionHeight);
     ScrollTrigger.refresh();
 
     return () => {
       if (timeoutId) clearTimeout(timeoutId);
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', updateSectionHeight);
       if (masterTL) masterTL.kill();
       ScrollTrigger.getAll().forEach(trigger => {
         if (
@@ -326,11 +347,11 @@ export const Working = () => {
       <div
         id='section1'
         className={
-          'flex flex-col xl:flex-row xl:justify-between gap-8 xl:gap-0 min-h-screen xl:min-h-0'
+          'flex flex-col xl:flex-row xl:justify-between gap-8 xl:gap-0'
         }
       >
         {/* Left side - Heading and heroSubText */}
-        <div className={'flex flex-col w-full xl:w-[45%] gap-8'}>
+        <div className={'flex flex-col w-full xl:w-[45%] gap-8 xl:sticky xl:top-28 xl:h-fit'}>
           {/* Heading container - will animate from top to here */}
           <div className='heading-container' style={{ width: 'fit-content' }}>
             <h1

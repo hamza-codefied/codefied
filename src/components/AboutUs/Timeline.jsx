@@ -1,5 +1,9 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import hero_bg from '@/images/hero.png';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const timelineData = [
   {
@@ -29,6 +33,50 @@ const timelineData = [
 ];
 
 const Timeline = () => {
+  const timelineRef = useRef(null);
+  const itemRefs = useRef([]);
+
+  useEffect(() => {
+    if (!timelineRef.current) return;
+
+    const items = itemRefs.current.filter(Boolean);
+
+    items.forEach((item, index) => {
+      gsap.fromTo(
+        item,
+        {
+          opacity: 0,
+          y: 50,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      );
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => {
+        if (items.includes(trigger.vars?.trigger)) {
+          trigger.kill();
+        }
+      });
+    };
+  }, []);
+
+  const addToRefs = (el) => {
+    if (el && !itemRefs.current.includes(el)) {
+      itemRefs.current.push(el);
+    }
+  };
+
   return (
     <section
       id='our-journey'
@@ -49,7 +97,7 @@ const Timeline = () => {
         </div>
 
         {/* Timeline Container */}
-        <div className='relative mt-5 md:mt-16 max-w-6xl mx-auto'>
+        <div ref={timelineRef} className='relative mt-5 md:mt-16 max-w-6xl mx-auto'>
           {/* Center Line */}
           <div className='absolute left-1/2 transform -translate-x-1/2 h-full w-[3px] bg-[#3f3f3f]' />
 
@@ -59,41 +107,38 @@ const Timeline = () => {
               return (
                 <div
                   key={index}
-                  className={`relative flex flex-col md:flex-row items-start ${
-                    isLeft ? 'md:justify-center' : 'md:justify-center'
-                  }`}
+                  ref={addToRefs}
+                  className={`relative flex flex-col md:flex-row items-start ${isLeft ? 'md:justify-center' : 'md:justify-center'
+                    }`}
                 >
                   {/* Connector Dot */}
                   <div className='absolute left-1/2 transform -translate-x-1/2 bg-black w-7 h-7 rounded-full border-8 border-[#d4575b] z-10 shadow-md' />
 
                   {/* Horizontal Dotted Line */}
                   <div
-                    className={`hidden md:block absolute top-3.5 w-[400px] border-t-4 border-dotted border-black ${
-                      isLeft
-                        ? 'right-1/2 -translate-x-[8px]'
-                        : 'left-1/2 translate-x-[8px]'
-                    } z-0`}
+                    className={`hidden md:block absolute top-3.5 w-[400px] border-t-4 border-dotted border-black ${isLeft
+                      ? 'right-1/2 -translate-x-[8px]'
+                      : 'left-1/2 translate-x-[8px]'
+                      } z-0`}
                   />
 
                   <div>
                     {/* Year Label (centered near dot) */}
                     <span
-                      className={`hidden xl:block absolute text-black font-semibold text-sm md:text-base ${
-                        isLeft
-                          ? 'md:right-[52%] md:-translate-y-8'
-                          : 'md:left-[52%] md:-translate-y-8'
-                      }`}
+                      className={`hidden xl:block absolute text-black font-semibold text-sm md:text-base ${isLeft
+                        ? 'md:right-[52%] md:-translate-y-8'
+                        : 'md:left-[52%] md:-translate-y-8'
+                        }`}
                     >
                       {item.year}
                     </span>
 
                     {/* Card */}
                     <div
-                      className={`relative mt-10 w-full md:w-[45%] bg-white shadow-lg rounded-2xl p-4 border border-gray-100 ${
-                        isLeft
-                          ? 'md:mr-auto md:text-right'
-                          : 'md:ml-auto md:text-left '
-                      }`}
+                      className={`relative mt-10 w-full md:w-[45%] bg-white shadow-lg rounded-2xl p-4 border border-gray-100 ${isLeft
+                        ? 'md:mr-auto md:text-right'
+                        : 'md:ml-auto md:text-left '
+                        }`}
                     >
                       <h3 className='text-lg font-semibold text-gray-800 mb-2'>
                         {item.title}
