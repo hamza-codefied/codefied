@@ -12,7 +12,7 @@ export default function TestimonialsSection() {
     <div className='container m-auto px-8'>
       <section
         ref={ref}
-        className='w-full bg-white py-16 flex flex-col md:flex-row items-start justify-between gap-18 mt-6 sm:mt-[160px] mx-auto'
+        className='w-full bg-white flex flex-col md:flex-row items-start justify-between gap-18 mt-[180px]'
       >
         {/* Left Side */}
         <motion.div
