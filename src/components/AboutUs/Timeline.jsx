@@ -80,7 +80,7 @@ const Timeline = () => {
   return (
     <section
       id='our-journey'
-      className='relative bg-cover bg-center bg-no-repeat py-20 px-4 md:px-10 lg:px-20'
+      className='relative bg-cover bg-center bg-no-repeat py-32 px-4 md:px-10 lg:px-20 min-h-screen'
       style={{ backgroundImage: `url(${hero_bg})` }}
     >
       <div className='container m-auto px-8'>
@@ -97,11 +97,11 @@ const Timeline = () => {
         </div>
 
         {/* Timeline Container */}
-        <div ref={timelineRef} className='relative mt-5 md:mt-16 max-w-6xl mx-auto'>
+        <div ref={timelineRef} className='relative mt-5 md:mt-16 max-w-6xl mx-auto pb-32'>
           {/* Center Line */}
           <div className='absolute left-1/2 transform -translate-x-1/2 h-full w-[3px] bg-[#3f3f3f]' />
 
-          <div className='flex flex-col space-y-16'>
+          <div className='flex flex-col space-y-32 md:space-y-40'>
             {timelineData.map((item, index) => {
               const isLeft = index % 2 !== 0;
               return (
