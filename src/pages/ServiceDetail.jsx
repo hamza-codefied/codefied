@@ -198,44 +198,59 @@ export default function ServiceDetail() {
             const sectionRef = useRef(null);
             const { scrollYProgress } = useScroll({
               target: sectionRef,
-              offset: ["start 0.9", "end 0.1"]
+              offset: ["start 0.8", "end 0.2"] // Extended range for slower, smoother transitions
             });
 
             // For even sections: text left, image right
             // For odd sections: text right, image left (reversed layout)
-            // Responsive animation values based on screen size
+            // Responsive animation values based on screen size - more granular breakpoints
             const getAnimationDistance = () => {
               if (typeof window !== 'undefined') {
-                return window.innerWidth < 768 ? 100 : window.innerWidth < 1024 ? 200 : 400;
+                const width = window.innerWidth;
+                if (width < 640) return 80;      // Mobile: smaller distance
+                if (width < 768) return 120;     // Small tablet
+                if (width < 1024) return 200;    // Tablet
+                if (width < 1280) return 300;    // Small desktop
+                return 400;                       // Large desktop
               }
               return 400;
             };
             const animDistance = getAnimationDistance();
 
+            // Image: Fade in FIRST (slowly, NO sliding)
+            const imageOpacity = useTransform(
+              scrollYProgress,
+              [0, 0.3, 0.5, 0.75, 0.9, 1],
+              [0, 1, 1, 1, 1, 0]  // Fade in first (0-30%), stay visible longer, fade out at end
+            );
+
+            // Text: Slides in to center SLOWLY, STICKS at center LONGER (more time to read), then slides out SLOWLY
+            // Sequence: Image fades (0-30%) -> SLOW slide in to center (30-50%) -> STICK at center LONGER (50-75%) -> SLOW slide out (75-90%) -> Next section (90-100%)
             const textX = useTransform(
               scrollYProgress,
-              [0, 0.3, 0.5, 1],
+              [0, 0.3, 0.5, 0.75, 0.9, 1],
               idx % 2 === 0
-                ? [-animDistance, 0, 0, -animDistance]  // left section: in from left, stay centered, out to left
-                : [animDistance, 0, 0, animDistance]    // right section: in from right, stay centered, out to right
+                ? [-animDistance, -animDistance, 0, 0, 0, animDistance]  // SLOW slide in from left, STICK at 0 (center) LONGER, then SLOW slide out to right
+                : [animDistance, animDistance, 0, 0, 0, -animDistance]  // SLOW slide in from right, STICK at 0 (center) LONGER, then SLOW slide out to left
             );
             const textOpacity = useTransform(
               scrollYProgress,
-              [0, 0.2, 0.5, 0.8, 1],
-              [0, 1, 1, 0.5, 0]
+              [0, 0.3, 0.5, 0.75, 0.9, 1],
+              [0, 0, 1, 1, 1, 0]  // Visible when sliding in, stay visible longer, fade out at end
             );
 
-            const imageX = useTransform(
+            // Features: Slides from SAME side as text SLOWLY, STICKS at center LONGER, then slides out SLOWLY
+            const featuresX = useTransform(
               scrollYProgress,
-              [0, 0.3, 0.5, 1],
+              [0, 0.3, 0.5, 0.75, 0.9, 1],
               idx % 2 === 0
-                ? [animDistance, 0, 0, animDistance]    // right section: in from right, stay centered, out to right
-                : [-animDistance, 0, 0, -animDistance]  // left section: in from left, stay centered, out to left
+                ? [-animDistance, -animDistance, 0, 0, 0, animDistance]  // SLOW slide in from left (same as text), STICK at 0 (center) LONGER, then SLOW slide out to right
+                : [animDistance, animDistance, 0, 0, 0, -animDistance]  // SLOW slide in from right (same as text), STICK at 0 (center) LONGER, then SLOW slide out to left
             );
-            const imageOpacity = useTransform(
+            const featuresOpacity = useTransform(
               scrollYProgress,
-              [0, 0.2, 0.5, 0.8, 1],
-              [0, 1, 1, 0.5, 0]
+              [0, 0.3, 0.5, 0.75, 0.9, 1],
+              [0, 0, 1, 1, 1, 0]  // Visible when sliding in, stay visible longer, fade out at end
             );
 
             return (
@@ -286,11 +301,11 @@ export default function ServiceDetail() {
                     )}
                   </motion.div>
 
-                  {/* IMAGE */}
+                  {/* IMAGE - Only fade in/out, no movement */}
                   <motion.div
                     className='flex-1 w-full'
                     style={{
-                      x: imageX,
+                      x: 0, // No movement
                       opacity: imageOpacity,
                       marginLeft: 'clamp(0px, -2vw, -28px)'
                     }}
@@ -304,25 +319,19 @@ export default function ServiceDetail() {
                   </motion.div>
                 </section>
 
-                {/* FEATURE GRID */}
+                {/* FEATURE GRID - Slides after image fully shows */}
                 <div
                   className='mt-10 grid sm:grid-cols-2 gap-x-8 sm:gap-x-12 gap-y-6 sm:gap-y-8'
                   style={{ paddingLeft: 'clamp(0px, 2vw, 28px)' }}
                 >
                   {sec.features.map((f, i) => {
-                    // For even sections: left column (i%2===0) uses textX, right column uses imageX
-                    // For odd sections (reversed): left column (i%2===0) uses imageX, right column uses textX
-                    const isLeftColumn = i % 2 === 0;
-                    const isEvenSection = idx % 2 === 0;
-                    const shouldUseTextX = (isEvenSection && isLeftColumn) || (!isEvenSection && !isLeftColumn);
-
                     return (
                       <motion.div
                         key={i}
                         className='flex flex-col items-start'
                         style={{
-                          opacity: textOpacity,
-                          x: shouldUseTextX ? textX : imageX
+                          opacity: featuresOpacity,
+                          x: featuresX // Slide in after image fully shows
                         }}
                       >
                         <div className='flex items-start gap-3'>
@@ -352,8 +361,8 @@ export default function ServiceDetail() {
             );
           })}
         </div>
-        {/* Extra spacing before footer */}
-        <div className='h-[clamp(100px,20vw,500px)]'></div>
+        {/* Extra spacing before footer - exactly 140px */}
+        <div className='h-[140px]'></div>
       </div>
     </div>
   );

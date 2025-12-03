@@ -42,6 +42,7 @@ const Timeline = () => {
   const cardRefs = useRef([]);
   const dotRefs = useRef([]);
   const yearRefs = useRef([]);
+  const mobileYearRefs = useRef([]);
   const lineRefs = useRef([]);
 
   useEffect(() => {
@@ -51,6 +52,7 @@ const Timeline = () => {
     const cards = cardRefs.current.filter(Boolean);
     const dots = dotRefs.current.filter(Boolean);
     const years = yearRefs.current.filter(Boolean);
+    const mobileYears = mobileYearRefs.current.filter(Boolean);
     const lines = lineRefs.current.filter(Boolean);
 
     // Make heading and vertical line sticky together at top
@@ -90,7 +92,8 @@ const Timeline = () => {
       if (!card || !dot) return;
 
       // Set initial position - card comes from side, dot and year from bottom
-      gsap.set(card, {
+      const mobileYear = mobileYears[index];
+      gsap.set([card, mobileYear].filter(Boolean), {
         x: isLeft ? -300 : 300,
         y: 150,
         opacity: 0,
@@ -125,7 +128,7 @@ const Timeline = () => {
       });
 
       // Step 1: Animate card in from side, dot and year from bottom (faster)
-      tl.to(card, {
+      tl.to([card, mobileYear].filter(Boolean), {
         x: 0,
         y: 0,
         opacity: 1,
@@ -147,12 +150,12 @@ const Timeline = () => {
           ease: 'power2.out',
         }, '-=0.1') // Start slightly before animations complete
         // Step 3: Hold at center (shorter hold)
-        .to([card, dot, year, line], {
+        .to([card, dot, year, mobileYear, line].filter(Boolean), {
           duration: 0.1,
         })
         // Step 4: Move up and fade out when reaching top (all move together)
         // This happens earlier so next section can start showing
-        .to([card, dot, year, line], {
+        .to([card, dot, year, mobileYear, line].filter(Boolean), {
           y: -100,
           opacity: 0,
           scale: 0.9,
@@ -195,6 +198,12 @@ const Timeline = () => {
   const addYearToRefs = (el) => {
     if (el && !yearRefs.current.includes(el)) {
       yearRefs.current.push(el);
+    }
+  };
+
+  const addMobileYearToRefs = (el) => {
+    if (el && !mobileYearRefs.current.includes(el)) {
+      mobileYearRefs.current.push(el);
     }
   };
 
@@ -257,13 +266,20 @@ const Timeline = () => {
                   />
 
                   <div>
-                    {/* Year Label - moves with section */}
+                    {/* Year Label - Desktop: above dotted line, Mobile: below card */}
+                    {/* Desktop version - above dotted line */}
                     <span
                       ref={addYearToRefs}
                       className={`hidden xl:block absolute text-black font-semibold text-sm md:text-base ${isLeft
-                        ? 'md:right-[52%] md:-translate-y-8'
-                        : 'md:left-[52%] md:-translate-y-8'
+                        ? 'md:right-[41%]'
+                        : 'md:left-[41%]'
                         }`}
+                      style={{
+                        fontSize: '34px',
+                        fontWeight: 700,
+                        top: '4px',
+                        transform: 'translateY(-60px)' // Move up by gap (26px) + year height (~34px) = ~60px to create same gap as dotted line to card
+                      }}
                     >
                       {item.year}
                     </span>
@@ -271,18 +287,30 @@ const Timeline = () => {
                     {/* Card */}
                     <div
                       ref={addCardToRefs}
-                      className={`relative mt-10 w-full md:w-[45%] bg-white shadow-lg rounded-2xl p-4 border border-gray-100 ${isLeft
-                        ? 'md:mr-auto md:text-right'
-                        : 'md:ml-auto md:text-left '
+                      className={`relative mt-10 w-full md:w-[55%] bg-white shadow-lg rounded-2xl p-4 border border-gray-100 ${isLeft
+                        ? 'md:right-[8%] md:text-right'
+                        : 'md:left-[53%] md:text-left '
                         }`}
                     >
-                      <h3 className='text-lg font-semibold text-gray-800 mb-2'>
+                      <h3 className='text-gray-800 mb-2' style={{ fontSize: '22px', fontWeight: 500 }}>
                         {item.title}
                       </h3>
-                      <p className='text-gray-600 text-sm leading-relaxed'>
+                      <p className='text-gray-600 leading-relaxed' style={{ fontSize: '20px', fontWeight: 400 }}>
                         {item.description}
                       </p>
                     </div>
+
+                    {/* Year Label - Mobile: below card */}
+                    <span
+                      ref={addMobileYearToRefs}
+                      className={`xl:hidden block text-center mt-4 text-black ${isLeft ? '' : ''}`}
+                      style={{
+                        fontSize: '34px',
+                        fontWeight: 700,
+                      }}
+                    >
+                      {item.year}
+                    </span>
                   </div>
                 </div>
               );
