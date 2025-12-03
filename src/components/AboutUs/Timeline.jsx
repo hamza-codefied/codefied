@@ -34,37 +34,140 @@ const timelineData = [
 
 const Timeline = () => {
   const timelineRef = useRef(null);
+  const sectionRef = useRef(null);
+  const stickyContainerRef = useRef(null);
+  const verticalLineRef = useRef(null);
+  const headingRef = useRef(null);
   const itemRefs = useRef([]);
+  const cardRefs = useRef([]);
+  const dotRefs = useRef([]);
+  const yearRefs = useRef([]);
+  const lineRefs = useRef([]);
 
   useEffect(() => {
-    if (!timelineRef.current) return;
+    if (!timelineRef.current || !sectionRef.current) return;
 
     const items = itemRefs.current.filter(Boolean);
+    const cards = cardRefs.current.filter(Boolean);
+    const dots = dotRefs.current.filter(Boolean);
+    const years = yearRefs.current.filter(Boolean);
+    const lines = lineRefs.current.filter(Boolean);
 
-    items.forEach((item, index) => {
-      gsap.fromTo(
-        item,
-        {
-          opacity: 0,
-          y: 50,
+    // Make heading and vertical line sticky together at top
+    if (stickyContainerRef.current && sectionRef.current && timelineRef.current) {
+      // Set vertical line to extend through the timeline
+      const timelineHeight = timelineRef.current.offsetHeight;
+      const headingHeight = headingRef.current ? headingRef.current.offsetHeight : 0;
+
+      if (verticalLineRef.current) {
+        // Line should extend from below heading through the timeline
+        verticalLineRef.current.style.height = `${timelineHeight + headingHeight}px`;
+      }
+
+      // Pin the container that includes heading and vertical line
+      // Start pinning when heading reaches top of viewport
+      // This prevents blank space with just heading and line showing
+      ScrollTrigger.create({
+        trigger: headingRef.current || sectionRef.current,
+        start: 'top top', // Start pinning when heading reaches top
+        end: () => {
+          // End when section bottom reaches viewport bottom
+          return `bottom bottom`;
         },
-        {
-          opacity: 1,
+        pin: stickyContainerRef.current,
+        pinSpacing: true,
+      });
+    }
+
+    // Animate each timeline item (dots, years, cards)
+    items.forEach((item, index) => {
+      const isLeft = index % 2 !== 0;
+      const card = cards[index];
+      const dot = dots[index];
+      const year = years[index];
+      const line = lines[index];
+
+      if (!card || !dot) return;
+
+      // Set initial position - card comes from side, dot and year from bottom
+      gsap.set(card, {
+        x: isLeft ? -300 : 300,
+        y: 150,
+        opacity: 0,
+        scale: 0.8,
+      });
+
+      // Dot and year start from bottom (no horizontal movement, they stay on vertical line)
+      gsap.set([dot, year], {
+        y: 150,
+        opacity: 0,
+        scale: 0.8,
+        x: 0, // Stay centered on vertical line
+      });
+
+      // Set horizontal line to be hidden initially
+      if (line) {
+        gsap.set(line, {
+          opacity: 0,
+        });
+      }
+
+      // Create scroll-triggered animation timeline
+      // Adjust timing so when one section is hiding, next one shows
+      // End point is later to allow overlap with next section
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: item,
+          start: 'top 85%',
+          end: 'top 10%', // Extended end point for better overlap
+          scrub: 1,
+        },
+      });
+
+      // Step 1: Animate card in from side, dot and year from bottom (faster)
+      tl.to(card, {
+        x: 0,
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        duration: 0.4,
+        ease: 'power2.out',
+      })
+        .to([dot, year], {
           y: 0,
-          duration: 0.8,
+          opacity: 1,
+          scale: 1,
+          duration: 0.4,
           ease: 'power2.out',
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse',
-          },
-        }
-      );
+        }, '-=0.4') // Start at same time as card
+        // Step 2: When card reaches position, fade in horizontal line
+        .to(line, {
+          opacity: 1,
+          duration: 0.2,
+          ease: 'power2.out',
+        }, '-=0.1') // Start slightly before animations complete
+        // Step 3: Hold at center (shorter hold)
+        .to([card, dot, year, line], {
+          duration: 0.1,
+        })
+        // Step 4: Move up and fade out when reaching top (all move together)
+        // This happens earlier so next section can start showing
+        .to([card, dot, year, line], {
+          y: -100,
+          opacity: 0,
+          scale: 0.9,
+          duration: 0.3,
+          ease: 'power2.in',
+        });
     });
 
     return () => {
       ScrollTrigger.getAll().forEach(trigger => {
-        if (items.includes(trigger.vars?.trigger)) {
+        if (
+          items.includes(trigger.vars?.trigger) ||
+          trigger.vars?.trigger === timelineRef.current ||
+          trigger.vars?.trigger === sectionRef.current
+        ) {
           trigger.kill();
         }
       });
@@ -77,31 +180,61 @@ const Timeline = () => {
     }
   };
 
+  const addCardToRefs = (el) => {
+    if (el && !cardRefs.current.includes(el)) {
+      cardRefs.current.push(el);
+    }
+  };
+
+  const addDotToRefs = (el) => {
+    if (el && !dotRefs.current.includes(el)) {
+      dotRefs.current.push(el);
+    }
+  };
+
+  const addYearToRefs = (el) => {
+    if (el && !yearRefs.current.includes(el)) {
+      yearRefs.current.push(el);
+    }
+  };
+
+  const addLineToRefs = (el) => {
+    if (el && !lineRefs.current.includes(el)) {
+      lineRefs.current.push(el);
+    }
+  };
+
   return (
     <section
+      ref={sectionRef}
       id='our-journey'
       className='relative bg-cover bg-center bg-no-repeat py-32 px-4 md:px-10 lg:px-20 min-h-screen'
       style={{ backgroundImage: `url(${hero_bg})` }}
     >
       <div className='container m-auto px-8'>
-        <div className='max-w-6xl mx-auto text-center'>
-          {/* Tag */}
-          <span className='uppercase tracking-widest text-[#d4575b] text-sm font-semibold'>
-            Timeline
-          </span>
-
+        {/* Sticky Container - Heading and Vertical Line */}
+        <div ref={stickyContainerRef} className='relative max-w-6xl mx-auto'>
           {/* Heading */}
-          <h2 className='text-2xl md:text-3xl lg:text-4xl font-bold text-black mt-2'>
-            Our Journey Through <br /> Years
-          </h2>
+          <div ref={headingRef} className='text-center z-20 bg-transparent py-4'>
+            {/* Tag */}
+            <span className='uppercase tracking-widest text-[#d4575b] text-sm font-semibold'>
+              Timeline
+            </span>
+
+            {/* Heading */}
+            <h2 className='text-2xl md:text-3xl lg:text-4xl font-bold text-black mt-2'>
+              Our Journey Through <br /> Years
+            </h2>
+          </div>
+
+          {/* Vertical Line - starts below heading */}
+          <div ref={verticalLineRef} className='absolute left-1/2 transform -translate-x-1/2 w-[3px] bg-[#3f3f3f] top-full' />
         </div>
 
         {/* Timeline Container */}
-        <div ref={timelineRef} className='relative mt-5 md:mt-16 max-w-6xl mx-auto pb-32'>
-          {/* Center Line */}
-          <div className='absolute left-1/2 transform -translate-x-1/2 h-full w-[3px] bg-[#3f3f3f]' />
+        <div ref={timelineRef} className='relative mt-20 md:mt-32 max-w-6xl mx-auto pb-64 md:pb-96'>
 
-          <div className='flex flex-col space-y-32 md:space-y-40'>
+          <div className='flex flex-col space-y-56 md:space-y-80'>
             {timelineData.map((item, index) => {
               const isLeft = index % 2 !== 0;
               return (
@@ -111,11 +244,12 @@ const Timeline = () => {
                   className={`relative flex flex-col md:flex-row items-start ${isLeft ? 'md:justify-center' : 'md:justify-center'
                     }`}
                 >
-                  {/* Connector Dot */}
-                  <div className='absolute left-1/2 transform -translate-x-1/2 bg-black w-7 h-7 rounded-full border-8 border-[#d4575b] z-10 shadow-md' />
+                  {/* Connector Dot - moves with section */}
+                  <div ref={addDotToRefs} className='absolute left-1/2 transform -translate-x-1/2 bg-black w-7 h-7 rounded-full border-8 border-[#d4575b] z-10 shadow-md' />
 
                   {/* Horizontal Dotted Line */}
                   <div
+                    ref={addLineToRefs}
                     className={`hidden md:block absolute top-3.5 w-[400px] border-t-4 border-dotted border-black ${isLeft
                       ? 'right-1/2 -translate-x-[8px]'
                       : 'left-1/2 translate-x-[8px]'
@@ -123,8 +257,9 @@ const Timeline = () => {
                   />
 
                   <div>
-                    {/* Year Label (centered near dot) */}
+                    {/* Year Label - moves with section */}
                     <span
+                      ref={addYearToRefs}
                       className={`hidden xl:block absolute text-black font-semibold text-sm md:text-base ${isLeft
                         ? 'md:right-[52%] md:-translate-y-8'
                         : 'md:left-[52%] md:-translate-y-8'
@@ -135,6 +270,7 @@ const Timeline = () => {
 
                     {/* Card */}
                     <div
+                      ref={addCardToRefs}
                       className={`relative mt-10 w-full md:w-[45%] bg-white shadow-lg rounded-2xl p-4 border border-gray-100 ${isLeft
                         ? 'md:mr-auto md:text-right'
                         : 'md:ml-auto md:text-left '
