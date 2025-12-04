@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMinus, FiPlus, FiSearch } from 'react-icons/fi';
+import { formatText } from '@/utils/textFormatter';
 
 const faqs = [
   {
@@ -79,10 +80,7 @@ export default function FAQSection() {
               <span class="text-[#d4575b]">Frequently</span> Asked Questions
             </h2>
             <p class="text-gray-400 mt-[20px] mb-[20px]  text-[18px] font-normal max-w-4xl mx-auto">
-              Got questions? We've got answers. Check out our frequently asked
-              questions section to find valuable insights into our processes,
-              pricing, and more. Transparency is at the core of our client
-              interactions.
+              {formatText("Got questions? We've got answers. Check out our frequently asked questions section to find valuable insights into our processes, pricing, and more. Transparency is at the core of our client interactions.")}
             </p>
           </div>
 
@@ -113,7 +111,7 @@ export default function FAQSection() {
                   >
                     <div className='flex-1 flex flex-col'>
                       <h3 className='text-[20px] font-semibold text-[#5D5D5D]'>
-                        {faq.question}
+                        {formatText(faq.question)}
                       </h3>
                       {/* Answer Animation */}
                       <AnimatePresence>
@@ -125,7 +123,7 @@ export default function FAQSection() {
                             transition={{ duration: 0.3, ease: 'easeInOut' }}
                           >
                             <p className='text-[18px] font-normal text-[#8C8C8C] mt-3 leading-relaxed'>
-                              {faq.answer}
+                              {formatText(faq.answer)}
                             </p>
                           </motion.div>
                         )}
@@ -156,7 +154,7 @@ export default function FAQSection() {
                   >
                     <div className='flex-1 flex flex-col'>
                       <h3 className='text-[20px] font-semibold text-[#5D5D5D]'>
-                        {faq.question}
+                        {formatText(faq.question)}
                       </h3>
                       {/* Answer Animation */}
                       <AnimatePresence>
@@ -168,7 +166,7 @@ export default function FAQSection() {
                             transition={{ duration: 0.3, ease: 'easeInOut' }}
                           >
                             <p className='text-[18px] font-normal text-[#8C8C8C] mt-3 leading-relaxed'>
-                              {faq.answer}
+                              {formatText(faq.answer)}
                             </p>
                           </motion.div>
                         )}

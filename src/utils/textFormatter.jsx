@@ -1,8 +1,9 @@
 import React from 'react';
 
 /**
- * Formats text by wrapping special characters (/, -, ', (, ), <<, >>) in spans with Arial font
+ * Formats text by wrapping special characters in spans with Arial font
  * to prevent "demo" text from appearing when using Lufga font
+ * Handles: /, -, ', (, ), <, >, <<, >>, —, &, !, ?, _, and other special characters
  */
 export const formatText = (text) => {
   if (typeof text !== 'string') return text;
@@ -10,9 +11,9 @@ export const formatText = (text) => {
   const parts = [];
   let lastIndex = 0;
   
-  // Regex to match special characters: /, -, ', (, ), <, >, <<, >>
-  // Note: Match << and >> first (2 chars), then single < and >, then other single chars
-  const specialCharRegex = /(<<|>>|[/\-'()<>])/g;
+  // Regex to match special characters: /, -, ', (, ), <, >, <<, >>, —, &, !, ?, _, etc.
+  // Note: Match << and >> first (2 chars), then em dash, then other single chars
+  const specialCharRegex = /(<<|>>|—|[/\-'()<>&!?_,;:])/g;
   let match;
 
   while ((match = specialCharRegex.exec(text)) !== null) {

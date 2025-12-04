@@ -9,6 +9,7 @@ import products from '@/data/productData';
 
 import arrow from '@/images/arrow.png';
 import { Link } from 'react-router-dom';
+import { formatText } from '@/utils/textFormatter';
 
 // const products = [
 //   {
@@ -61,10 +62,10 @@ const FeaturedProducts = () => {
               >
                 <div className='flex flex-col items-start w-full'>
                   <h3 className='text-[24px] font-bold mb-2 text-black'>
-                    {product.title}
+                    {formatText(product.title)}
                   </h3>
                   <p className='text-[16px] font-normal text-black text-start mb-2'>
-                    {product.description}
+                    {formatText(product.description)}
                   </p>
                   <a
                     href="#"

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FiLoader } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
+import { formatText } from '@/utils/textFormatter';
 
 export const OurCapabilities = () => {
   const allCapabilities = [
@@ -75,7 +76,7 @@ export const OurCapabilities = () => {
               }}
               className='bg-[#D4575B] bg-opacity-80 text-white text-xs px-8 py-4 rounded-lg hover:scale-105 transition-transform duration-300'
             >
-              {capability}
+              {formatText(capability)}
             </motion.div>
           ))}
         </AnimatePresence>

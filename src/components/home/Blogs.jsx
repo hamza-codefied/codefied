@@ -15,6 +15,7 @@ import image3 from '@/images/news/3.png';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { formatText } from '@/utils/textFormatter';
 
 const Blog = [
   {
@@ -128,8 +129,7 @@ const Blogs = () => {
               {/* Right Side */}
               <div className='md:w-1/3'>
                 <p className='text-black text-xs mb-2 leading-relaxed'>
-                  We are web designers, developers, project managers, and
-                  digital solutions using the latest trends and technologies.
+                  {formatText("We are web designers, developers, project managers, and digital solutions using the latest trends and technologies.")}
                 </p>
 
                 {/* Arrows */}
@@ -172,10 +172,10 @@ const Blogs = () => {
                         </p>
                       </div>
                       <h3 className='text-base sm:text-lg text-start font-semibold mb-2 text-black line-clamp-2'>
-                        {product.title}
+                        {formatText(product.title)}
                       </h3>
                       <p className='text-xs text-start text-black mb-2 line-clamp-2 sm:line-clamp-3'>
-                        {product.description}
+                        {product.description && formatText(product.description)}
                       </p>
                       <div className='flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-2 sm:gap-0 mt-auto'>
                         <a

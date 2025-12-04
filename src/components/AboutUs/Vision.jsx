@@ -7,6 +7,31 @@ const Vision = () => {
 
   return (
     <div className='container m-auto px-8 mt-[185px]'>
+      <style>{`
+        @keyframes bounce-hover {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-8px);
+          }
+        }
+        @keyframes font-pulse {
+          0%, 100% {
+            letter-spacing: normal;
+          }
+          50% {
+            letter-spacing: 1px;
+          }
+        }
+        .btn-hover-bounce {
+          font-weight: 400;
+        }
+        .btn-hover-bounce:hover {
+          animation: bounce-hover 0.6s ease-in-out, font-pulse 0.6s ease-in-out;
+          font-weight: 600;
+        }
+      `}</style>
       <section id='vision-mission' className='w-full bg-white text-black '>
         <div className='text-start'>
           {/* Heading */}
@@ -68,9 +93,12 @@ const Vision = () => {
                     company, we pride ourselves on delivering exceptional quality
                     and value to our clients.
                   </p>
-                  <button className='bg-[#d4575b] hover:bg-[#ff6666] text-white text-[24px] font-[400] px-[34px] py-[24px] rounded-lg transition duration-300 flex items-center justify-center gap-[6px] mt-[30px]'>
+                  <button
+                    className='btn-hover-bounce border border-transparent text-sm lg:text-base text-white rounded-md py-3 px-6 bg-[#d4575b] transition-all duration-300 hover:bg-transparent hover:text-[#d4575b] hover:border-[#d4575b] hover:shadow-[0_15px_40px_rgba(212,87,91,0.5)] active:translate-y-0 flex items-center justify-center gap-[6px] mt-[30px] group'
+                    style={{ fontWeight: 400 }}
+                  >
                     Get Free Consultation
-                    <GoArrowUpRight className='text-white w-[30px] h-[30px]' />
+                    <GoArrowUpRight className='text-white group-hover:text-[#d4575b] w-[30px] h-[30px] transition-colors duration-300' />
                   </button>
                 </motion.div>
               ) : (
@@ -93,9 +121,12 @@ const Vision = () => {
                     passionate about leveraging technology to create innovative and
                     impactful solutions.
                   </p>
-                  <button className='bg-[#d4575b] hover:bg-[#ff6666] text-white text-[24px] font-[400] px-[34px] py-[24px] rounded-lg transition duration-300 flex items-center justify-center gap-[6px] mt-[30px]'>
+                  <button
+                    className='btn-hover-bounce border border-transparent text-sm lg:text-base text-white rounded-md py-3 px-6 bg-[#d4575b] transition-all duration-300 hover:bg-transparent hover:text-[#d4575b] hover:border-[#d4575b] hover:shadow-[0_15px_40px_rgba(212,87,91,0.5)] active:translate-y-0 flex items-center justify-center gap-[6px] mt-[30px] group'
+                    style={{ fontWeight: 400 }}
+                  >
                     Get Free Consultation
-                    <GoArrowUpRight className='text-white w-[30px] h-[30px]' />
+                    <GoArrowUpRight className='text-white group-hover:text-[#d4575b] w-[30px] h-[30px] transition-colors duration-300' />
                   </button>
                 </motion.div>
               )}

@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { GoArrowUpRight } from 'react-icons/go';
 import { motion, useInView } from 'framer-motion';
 import backoffice from '@/images/backoffice.png';
+import { formatText } from '@/utils/textFormatter';
 
 const SmartBackOffice = () => {
   const sectionRef = useRef(null);
@@ -160,9 +161,7 @@ const SmartBackOffice = () => {
           </h2>
 
           <p className='text-gray-600 mb-2 text-sm md:text-base max-w-lg mx-auto'>
-            Codefied's back-office solutions keep your business running smoothly
-            from data and operations to support and analytics so you can focus on
-            growth.
+            {formatText("Codefied's back-office solutions keep your business running smoothly from data and operations to support and analytics so you can focus on growth.")}
           </p>
           <a
             href='#'

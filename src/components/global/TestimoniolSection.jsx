@@ -4,6 +4,7 @@ import { Button } from '@components/ui/Button';
 import quote_icon from '@/images/quote_icon.png';
 import avatar from '@/images/avatar.png';
 import coins from '@/images/coins.png';
+import { formatText } from '@/utils/textFormatter';
 
 export default function TestimonialsSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
@@ -38,8 +39,7 @@ export default function TestimonialsSection() {
               fontWeight: 500
             }}
           >
-            Everything you need to accept payments and grow your money or manage
-            it anywhere on the planet.
+            {formatText("Everything you need to accept payments and grow your money or manage it anywhere on the planet.")}
           </p>
 
           <img
@@ -60,9 +60,7 @@ export default function TestimonialsSection() {
               fontWeight: 500
             }}
           >
-            I am very helped by this e-wallet application. My days are very easy
-            to use this app and it's very helpful in my life — even I can pay in
-            a short time.
+            {formatText("I am very helped by this e-wallet application. My days are very easy to use this app and it's very helpful in my life — even I can pay in a short time.")}
           </blockquote>
           <p className='mb-[40px]'>😍</p>
 

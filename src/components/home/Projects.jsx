@@ -3,6 +3,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import project from '@/images/project.png';
+import { formatText } from '@/utils/textFormatter';
 
 const ProjectsSection = () => {
   const navigate = useNavigate();
@@ -124,8 +125,7 @@ const ProjectsSection = () => {
           {/* Right Side */}
           <div className="w-full md:w-[350px]">
             <p className="text-black text-xs sm:text-sm md:text-base mb-4 sm:mb-[21px] leading-relaxed font-normal">
-              We are web designers, developers, project managers, and digital
-              solutions using the latest trends and technologies.
+              {formatText("We are web designers, developers, project managers, and digital solutions using the latest trends and technologies.")}
             </p>
             <div className="flex items-center justify-start md:justify-end pr-0 md:pr-5 font-semibold">
               <button

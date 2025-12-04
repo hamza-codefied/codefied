@@ -63,25 +63,35 @@ const WhyChooseUs = () => {
               {items.map((item, index) => (
                 <div
                   key={index}
-                  className={`flex justify-between items-center border-b pb-2 cursor-pointer transition-all duration-300 ${activeIndex === index
-                    ? 'border-[#d4575b]'
-                    : 'text-gray-300 border-white hover:text-white'
+                  className={`relative flex justify-between items-center border-b pb-2 cursor-pointer transition-all duration-300 ${activeIndex === index
+                    ? 'border-[#D4575B]'
+                    : 'text-gray-400 border-white hover:text-white hover:border-transparent group'
                     }`}
                   onClick={() => setActiveIndex(index)}
                 >
-                  <h3 className='text-[20px] md:text-[32px] font-[600]'>{item.title}</h3>
+                  <h3 className={`text-[20px] md:text-[32px] ${activeIndex === index ? 'font-[600]' : 'font-[500]'}`}>
+                    {item.title}
+                  </h3>
                   <ArrowRight
-                    className={`w-[20px] h-[20px] md:w-[25px] md:h-[25px] transition-transform ${activeIndex === index ? 'translate-x-1 text-[#d4575b]' : ''
+                    className={`w-[20px] h-[20px] md:w-[25px] md:h-[25px] transition-transform ${activeIndex === index ? 'translate-x-1 text-[#D4575B]' : ''
                       }`}
                   />
+                  {activeIndex !== index && (
+                    <span className='absolute bottom-0 left-0 w-0 h-[2px] bg-[#D4575B] transition-all duration-300 group-hover:w-full z-10' style={{ backgroundColor: '#D4575B' }}></span>
+                  )}
                 </div>
               ))}
             </div>
 
             {/* Right Column */}
             <div className='flex items-center justify-start flex-1'>
-              <p className='text-gray-300 text-[18px] md:text-[32px] font-[400] leading-relaxed'>
-                {items[activeIndex].description}
+              <p className='text-gray-300 text-[16px] md:text-[24px] font-[500] leading-relaxed'>
+                {items[activeIndex].description.split(/(top-notch|—)/).map((part, i) => {
+                  if (part === 'top-notch' || part === '—') {
+                    return <span key={i} style={{ fontFamily: 'Arial, sans-serif' }}>{part}</span>;
+                  }
+                  return <span key={i}>{part}</span>;
+                })}
               </p>
             </div>
           </div>

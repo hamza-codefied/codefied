@@ -3,6 +3,7 @@ import { IoIosArrowDroprightCircle } from 'react-icons/io';
 import gsap from 'gsap';
 import { useEffect, useRef } from 'react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { formatText } from '@/utils/textFormatter';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -359,8 +360,7 @@ export const Developerit = () => {
           {/* Hero Sub Text */}
           <div className={'heroSubText flex gap-y-3 text-2xl flex-col'}>
             <div>
-              From concept to launch, we cover the entire spectrum of digital
-              innovation.
+              {formatText("From concept to launch, we cover the entire spectrum of digital innovation.")}
             </div>
           </div>
           <a
@@ -380,8 +380,8 @@ export const Developerit = () => {
         >
           {features.map(({ title, desc }, index) => (
             <div ref={addToRefs} className='p-6 md:p-0 w-full' key={`${title}-${index}`}>
-              <h2 className={'text-xl md:text-2xl mb-2'}>{title}</h2>
-              <p className={'mb-4 text-sm md:text-base'}>{desc}</p>
+              <h2 className={'text-xl md:text-2xl mb-2'}>{formatText(title)}</h2>
+              <p className={'mb-4 text-sm md:text-base'}>{formatText(desc)}</p>
               <a
                 className={
                   'text-sm font-semibold text-[#d4575b] underline cursor-pointer flex items-center justify-start gap-2'
