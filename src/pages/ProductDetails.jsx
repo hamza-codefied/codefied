@@ -37,14 +37,14 @@ export default function ProductDetails() {
       className='min-h-screen bg-white'
     >
       {/* ✅ Hero Section */}
-      <section className='relative w-full h-[80vh] flex items-center justify-start overflow-hidden'>
+      <section className='relative w-full h-screen flex items-center justify-start overflow-hidden rounded-b-[50px]'>
         <img
           src={product.thumnailImage}
           alt={product.title}
-          className='absolute inset-0 w-full h-full object-cover'
+          className='absolute inset-0 w-full h-full object-cover rounded-b-[50px]'
         />
-        <div className='absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent' />
-        <div className='relative z-10 max-w-2xl pl-10 text-left text-white'>
+        <div className='absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent rounded-b-[50px]' />
+        <div className='relative z-10 max-w-2xl pl-10 pb-[160px] text-left text-white'>
           <h1 className='text-3xl sm:text-5xl font-extrabold mb-4 drop-shadow-lg'>
             {product.title}
           </h1>
@@ -55,7 +55,7 @@ export default function ProductDetails() {
       </section>
 
       {/* ✅ Features Section */}
-      <section className='w-full py-16 px-5 sm:px-10 lg:px-20 bg-gray-50'>
+      <section className='w-full mt-[160px] px-5 sm:px-10 lg:px-20 bg-gray-50'>
         <div className='max-w-7xl mx-auto space-y-28'>
           {product.features.map((feature, index) => (
             <motion.div
@@ -64,9 +64,8 @@ export default function ProductDetails() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: 'easeOut' }}
               viewport={{ once: true }}
-              className={`flex flex-col-reverse md:flex-row items-center gap-10 ${
-                index % 2 !== 0 ? 'md:flex-row-reverse' : ''
-              }`}
+              className={`flex flex-col-reverse md:flex-row items-center gap-10 ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''
+                }`}
             >
               {/* Image */}
               <div className='w-full md:w-1/2'>

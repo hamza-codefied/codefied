@@ -189,8 +189,7 @@ const SmartBackOffice = () => {
                 whileHover={{ y: -4, scale: 1.01 }}
                 className='bg-[#121212]/90 text-white rounded-xl shadow-lg backdrop-blur-md border border-white/10 flex flex-col w-full'
                 style={{
-                  padding: 'clamp(16px, 3vw, 24px)',
-                  minHeight: 'clamp(180px, 25vw, 220px)'
+                  padding: 'clamp(20px, 4vw, 32px)'
                 }}
               >
                 <div className='flex items-center justify-start mb-3 sm:mb-4'>
@@ -239,9 +238,8 @@ const SmartBackOffice = () => {
                     : 'bottom-20 right-20 xl:right-52 shadow-lg shadow-blue-100'
                 }`}
               style={{
-                padding: 'clamp(12px, 2vw, 20px)',
+                padding: 'clamp(20px, 3vw, 28px)',
                 width: 'clamp(280px, 30vw, 430px)',
-                height: 'clamp(160px, 18vw, 210px)',
                 maxWidth: '90vw'
               }}
             >
