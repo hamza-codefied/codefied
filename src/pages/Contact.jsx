@@ -11,8 +11,8 @@ import image3 from '@/images/news/3.png';
 
 export const Contact = () => {
 
-   const news = [image1, image2, image3];
-    const seamlessNews = [...news, ...news];
+  const news = [image1, image2, image3];
+  const seamlessNews = [...news, ...news];
 
   return (
     <div className='min-h-screen'>
@@ -20,35 +20,35 @@ export const Contact = () => {
         classNames={'h-[150px] md:h-[200px] lg:h-[350px]'}
         BannerText='Contact Us'
         bannerTextAdjust={{
-          fontSize: 'clamp(40px, 17vw, 600px)', // responsive font size
+          fontSize: 'clamp(40px, 22vw, 280px)', // responsive font size
           lineHeight: 1,
           transform: 'translateY(30%)', // cut half of the text
         }}
       />
       <GetInTouchSection />
       <ClientSection />
-     
-        <Marquee
-          gradient={true}
-          gradientWidth={60}
-          gradientColor={[36, 36, 36]}
-          speed={30}
-          pauseOnHover={true}
-          loop={0}
-          className='flex items-center '
-          // style={{display:"flex", gap:'32px'}}
-        >
-          {seamlessNews.map((src, i) => (
-            <div key={i} className='flex justify-center items-center'>
-              <img
-                src={src}
-                alt={`Client ${i + 1}`}
-                className='object-contain'
-              />
-            </div>
-          ))}
-        </Marquee>
-   
+
+      <Marquee
+        gradient={true}
+        gradientWidth={60}
+        gradientColor={[36, 36, 36]}
+        speed={30}
+        pauseOnHover={true}
+        loop={0}
+        className='flex items-center '
+      // style={{display:"flex", gap:'32px'}}
+      >
+        {seamlessNews.map((src, i) => (
+          <div key={i} className='flex justify-center items-center'>
+            <img
+              src={src}
+              alt={`Client ${i + 1}`}
+              className='object-contain'
+            />
+          </div>
+        ))}
+      </Marquee>
+
 
       <MapSection />
     </div>

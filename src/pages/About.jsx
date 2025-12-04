@@ -35,7 +35,7 @@ export const About = () => {
           </h1>
         }
         bannerTextAdjust={{
-          fontSize: 'clamp(40px, 20vw, 600px)', // responsive font size
+          fontSize: 'clamp(40px, 20vw, 350px)', // responsive font size
           lineHeight: 1,
           transform: 'translateY(30%)', // cut half of the text
         }}

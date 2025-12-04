@@ -24,7 +24,7 @@ export const Career = () => {
         }
         BannerText={'Careers'}
         bannerTextAdjust={{
-          fontSize: 'clamp(40px, 22vw, 600px)', // responsive font size
+          fontSize: 'clamp(40px, 22vw, 350px)', // responsive font size
           lineHeight: 1,
           transform: 'translateY(15%)', // cut half of the text
         }}
