@@ -127,26 +127,24 @@ export const Header = () => {
                 >
                   {/* === Services Mega Menu === */}
                   {item.megaMenu === true ? (
-                    <div
-                      className='relative'
-                      onMouseEnter={() => {
-                        if (megaMenuTimeoutRef.current) {
-                          clearTimeout(megaMenuTimeoutRef.current);
-                          megaMenuTimeoutRef.current = null;
-                        }
-                        setHoveredNavItem(item.name);
-                        setIsMegaMenuOpen(true);
-                        setIsProductMegaMenuOpen(false);
-                      }}
-                      onMouseLeave={() => {
-                        megaMenuTimeoutRef.current = setTimeout(() => {
-                          setHoveredNavItem(null);
-                          setIsMegaMenuOpen(false);
-                        }, 50);
-                      }}
-                    >
+                    <div className='relative'>
                       <button
                         type='button'
+                        onMouseEnter={() => {
+                          if (megaMenuTimeoutRef.current) {
+                            clearTimeout(megaMenuTimeoutRef.current);
+                            megaMenuTimeoutRef.current = null;
+                          }
+                          setHoveredNavItem(item.name);
+                          setIsMegaMenuOpen(true);
+                          setIsProductMegaMenuOpen(false);
+                        }}
+                        onMouseLeave={() => {
+                          megaMenuTimeoutRef.current = setTimeout(() => {
+                            setHoveredNavItem(null);
+                            setIsMegaMenuOpen(false);
+                          }, 300);
+                        }}
                         className={`px-3 py-2 text-[18px] font-medium flex items-center gap-1 transition-all duration-300 ${hoveredNavItem === item.name
                           ? 'text-[#d4575b]'
                           : 'text-black hover:text-[#d4575b]'
@@ -171,7 +169,15 @@ export const Header = () => {
                       </button>
                       {/* Invisible bridge to prevent flicker when moving mouse to overlay */}
                       {isMegaMenuOpen && (
-                        <div className='absolute left-0 right-0 top-full h-2 bg-transparent z-50' />
+                        <div 
+                          className='absolute left-[-20px] right-[-20px] top-full h-6 bg-transparent z-50'
+                          onMouseEnter={() => {
+                            if (megaMenuTimeoutRef.current) {
+                              clearTimeout(megaMenuTimeoutRef.current);
+                              megaMenuTimeoutRef.current = null;
+                            }
+                          }}
+                        />
                       )}
                       <MegaMenu
                         isOpen={isMegaMenuOpen}
@@ -195,32 +201,30 @@ export const Header = () => {
                           megaMenuTimeoutRef.current = setTimeout(() => {
                             setHoveredNavItem(null);
                             setIsMegaMenuOpen(false);
-                          }, 50);
+                          }, 300);
                         }}
                       />
                     </div>
                   ) : item.megaMenu === 'product' ? (
                     /* === Products Mega Menu === */
-                    <div
-                      className='relative'
-                      onMouseEnter={() => {
-                        if (productMegaMenuTimeoutRef.current) {
-                          clearTimeout(productMegaMenuTimeoutRef.current);
-                          productMegaMenuTimeoutRef.current = null;
-                        }
-                        setHoveredNavItem(item.name);
-                        setIsProductMegaMenuOpen(true);
-                        setIsMegaMenuOpen(false);
-                      }}
-                      onMouseLeave={() => {
-                        productMegaMenuTimeoutRef.current = setTimeout(() => {
-                          setHoveredNavItem(null);
-                          setIsProductMegaMenuOpen(false);
-                        }, 50);
-                      }}
-                    >
+                    <div className='relative'>
                       <button
                         type='button'
+                        onMouseEnter={() => {
+                          if (productMegaMenuTimeoutRef.current) {
+                            clearTimeout(productMegaMenuTimeoutRef.current);
+                            productMegaMenuTimeoutRef.current = null;
+                          }
+                          setHoveredNavItem(item.name);
+                          setIsProductMegaMenuOpen(true);
+                          setIsMegaMenuOpen(false);
+                        }}
+                        onMouseLeave={() => {
+                          productMegaMenuTimeoutRef.current = setTimeout(() => {
+                            setHoveredNavItem(null);
+                            setIsProductMegaMenuOpen(false);
+                          }, 300);
+                        }}
                         className={`px-3 py-2 text-[18px] font-medium flex items-center gap-1 transition-all duration-300 ${hoveredNavItem === item.name
                           ? 'text-[#d4575b]'
                           : 'text-black hover:text-[#d4575b]'
@@ -245,7 +249,15 @@ export const Header = () => {
                       </button>
                       {/* Invisible bridge to prevent flicker when moving mouse to overlay */}
                       {isProductMegaMenuOpen && (
-                        <div className='absolute left-0 right-0 top-full h-2 bg-transparent z-50' />
+                        <div 
+                          className='absolute left-[-20px] right-[-20px] top-full h-6 bg-transparent z-50'
+                          onMouseEnter={() => {
+                            if (productMegaMenuTimeoutRef.current) {
+                              clearTimeout(productMegaMenuTimeoutRef.current);
+                              productMegaMenuTimeoutRef.current = null;
+                            }
+                          }}
+                        />
                       )}
                       <ProductMegaMenu
                         isOpen={isProductMegaMenuOpen}
@@ -269,7 +281,7 @@ export const Header = () => {
                           productMegaMenuTimeoutRef.current = setTimeout(() => {
                             setHoveredNavItem(null);
                             setIsProductMegaMenuOpen(false);
-                          }, 50);
+                          }, 300);
                         }}
                       />
                     </div>
@@ -277,7 +289,20 @@ export const Header = () => {
                     /* === Normal Link === */
                     <Link
                       to={item.href}
-                      onMouseEnter={() => setHoveredNavItem(item.name)}
+                      onMouseEnter={() => {
+                        // Clear any pending mega menu timeouts when hovering over normal links
+                        if (megaMenuTimeoutRef.current) {
+                          clearTimeout(megaMenuTimeoutRef.current);
+                          megaMenuTimeoutRef.current = null;
+                        }
+                        if (productMegaMenuTimeoutRef.current) {
+                          clearTimeout(productMegaMenuTimeoutRef.current);
+                          productMegaMenuTimeoutRef.current = null;
+                        }
+                        setIsMegaMenuOpen(false);
+                        setIsProductMegaMenuOpen(false);
+                        setHoveredNavItem(item.name);
+                      }}
                       onMouseLeave={() => setHoveredNavItem(null)}
                       className={`px-3 py-2 text-[18px] font-medium mt-[30px] transition-all duration-300 ${hoveredNavItem === item.name || (isActive(item.href) && !isMegaMenuOpen && !isProductMegaMenuOpen && !hoveredNavItem)
                         ? 'text-[#d4575b]'

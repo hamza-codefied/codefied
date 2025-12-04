@@ -57,28 +57,29 @@ const FeaturedProducts = () => {
             {products.map(product => (
               <div
                 key={product.id}
-                className=' border bg-white/20 border-white/80 rounded-2xl px-5 py-5 flex flex-col items-start justify-start border-white hover:bg-white/20 transition-all duration-300'
+                className=' border bg-white/20 border-white/80 rounded-2xl px-5 py-5 flex flex-col items-start justify-between border-white hover:bg-white/20 transition-all duration-300 h-full'
               >
-                <h3 className='text-[24px] font-bold mb-2 text-black'>
-                  {product.title}
-                </h3>
-                <p className='text-[16px] font-normal text-black text-start mb-2'>
-                  {product.description}
-                </p>
-                <a
-                  href="#"
-                  className="text-black text-[16px] font-bold mb-[38px] flex items-center gap-[7px] underline"
-                >
-                  View Product
-                  <IoIosArrowDroprightCircle className="text-black" size={14} />
-                </a>
+                <div className='flex flex-col items-start w-full'>
+                  <h3 className='text-[24px] font-bold mb-2 text-black'>
+                    {product.title}
+                  </h3>
+                  <p className='text-[16px] font-normal text-black text-start mb-2'>
+                    {product.description}
+                  </p>
+                  <a
+                    href="#"
+                    className="text-black text-[16px] font-bold mb-6 flex items-center gap-[7px] underline"
+                  >
+                    View Product
+                    <IoIosArrowDroprightCircle className="text-black" size={14} />
+                  </a>
+                </div>
 
-
-                <div className='relative w-full overflow-hidden rounded-xl '>
+                <div className='relative w-full overflow-hidden rounded-xl mt-auto'>
                   <img
                     src={product.thumnailImage}
                     alt={product.title}
-                    className='w-full  object-cover inverted-radius h-[290px]'
+                    className='w-full object-cover inverted-radius h-[290px]'
                   />
 
                   <Link to={`/products/${product.slug}`}>

@@ -82,30 +82,27 @@ export const OurCapabilities = () => {
       </motion.div>
 
 
-      <div className='pt-[53px] flex items-center justify-center gap-4'>
-        {/* Loader – always visible, size 25×25, spins only when loading */}
-        <div className='w-[25px] h-[25px] flex items-center justify-center'>
-          <FiLoader
-            className='w-[25px] h-[25px] text-[#D4575B] transition-all duration-300'
-            style={{
-              animation: loading ? 'spin 1s linear infinite' : 'none',
-              opacity: loading ? 1 : 0.5,           // subtle when idle
-            }}
-          />
-        </div>
-
-        {/* Button – font size 18px, weight 300 */}
+      <div className='pt-[53px] flex justify-center'>
         <button
           onClick={handleToggle}
           disabled={loading}
-          className='
-      text-black text-[18px] font-light 
-      hover:scale-105 active:scale-100 
-      transition-transform duration-300 
-      disabled:cursor-not-allowed disabled:opacity-60
-    '
+          className='flex items-center justify-center gap-4 cursor-pointer disabled:cursor-not-allowed disabled:opacity-60 bg-transparent border-none outline-none'
         >
-          {isExpanded ? 'Load Less' : 'Load More'}
+          {/* Loader – always visible, size 25×25, spins only when loading */}
+          <div className='w-[25px] h-[25px] flex items-center justify-center pointer-events-none'>
+            <FiLoader
+              className='w-[25px] h-[25px] text-[#D4575B] transition-all duration-300'
+              style={{
+                animation: loading ? 'spin 1s linear infinite' : 'none',
+                opacity: loading ? 1 : 0.5,           // subtle when idle
+              }}
+            />
+          </div>
+
+          {/* Button Text – font size 18px, weight 300 */}
+          <span className='text-black text-[18px] font-light hover:scale-105 active:scale-100 transition-transform duration-300 pointer-events-none'>
+            {isExpanded ? 'Load Less' : 'Load More'}
+          </span>
         </button>
       </div>
     </section>
