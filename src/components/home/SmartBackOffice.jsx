@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import { GoArrowUpRight } from 'react-icons/go';
 import { motion, useInView } from 'framer-motion';
 import backoffice from '@/images/backoffice.png';
-import circle from '@/images/circle.png';
 
 const SmartBackOffice = () => {
   const sectionRef = useRef(null);
@@ -43,12 +42,98 @@ const SmartBackOffice = () => {
     /* Container */
     <div className='container m-auto '>
       <section ref={sectionRef} className='relative flex flex-col lg:flex-row lg:items-center lg:justify-center py-16 sm:py-24 md:py-32 lg:py-64 px-4 overflow-hidden mt-10 sm:mt-[200px] min-h-0 lg:min-h-[800px]'>
-        {/* Background Image - Only show on large screens */}
-        <img
-          src={circle}
-          alt='background circle'
-          className='hidden lg:block absolute inset-0 w-full h-full object-contain opacity-90 pointer-events-none'
-        />
+        {/* Animated Dotted Border Circle - Only show on large screens */}
+        <div className='hidden lg:flex absolute inset-0 w-full h-full items-center justify-center pointer-events-none'>
+          <svg
+            width="726"
+            height="726"
+            viewBox="0 0 726 726"
+            className="w-[726px] h-[726px]"
+            style={{ opacity: 0.6 }}
+          >
+            <defs>
+              <style>{`
+                @keyframes rotate {
+                  from {
+                    transform: rotate(0deg);
+                  }
+                  to {
+                    transform: rotate(360deg);
+                  }
+                }
+                .dot-group {
+                  animation: rotate 20s linear infinite;
+                  transform-origin: 363px 363px;
+                }
+                .dot-group-2 {
+                  animation: rotate 25s linear infinite reverse;
+                  transform-origin: 363px 363px;
+                }
+                .dot-group-3 {
+                  animation: rotate 30s linear infinite;
+                  transform-origin: 363px 363px;
+                }
+              `}</style>
+            </defs>
+            <g className="dot-group">
+              {Array.from({ length: 60 }).map((_, i) => {
+                const angle = (i * 360) / 60;
+                const radius = 339;
+                const x = 363 + radius * Math.cos((angle * Math.PI) / 180);
+                const y = 363 + radius * Math.sin((angle * Math.PI) / 180);
+                const dotSize = i % 4 === 0 ? 4 : i % 3 === 0 ? 3 : i % 2 === 0 ? 2.5 : 1.5;
+                return (
+                  <circle
+                    key={`dot-1-${i}`}
+                    cx={x}
+                    cy={y}
+                    r={dotSize}
+                    fill="#d4575b"
+                    opacity={0.7}
+                  />
+                );
+              })}
+            </g>
+            <g className="dot-group-2">
+              {Array.from({ length: 80 }).map((_, i) => {
+                const angle = (i * 360) / 80;
+                const radius = 303;
+                const x = 363 + radius * Math.cos((angle * Math.PI) / 180);
+                const y = 363 + radius * Math.sin((angle * Math.PI) / 180);
+                const dotSize = i % 5 === 0 ? 4 : i % 4 === 0 ? 3 : i % 2 === 0 ? 2.5 : 1.5;
+                return (
+                  <circle
+                    key={`dot-2-${i}`}
+                    cx={x}
+                    cy={y}
+                    r={dotSize}
+                    fill="#d4575b"
+                    opacity={0.5}
+                  />
+                );
+              })}
+            </g>
+            <g className="dot-group-3">
+              {Array.from({ length: 100 }).map((_, i) => {
+                const angle = (i * 360) / 100;
+                const radius = 266;
+                const x = 363 + radius * Math.cos((angle * Math.PI) / 180);
+                const y = 363 + radius * Math.sin((angle * Math.PI) / 180);
+                const dotSize = i % 6 === 0 ? 4 : i % 4 === 0 ? 3 : i % 3 === 0 ? 2.5 : 1.5;
+                return (
+                  <circle
+                    key={`dot-3-${i}`}
+                    cx={x}
+                    cy={y}
+                    r={dotSize}
+                    fill="#d4575b"
+                    opacity={0.4}
+                  />
+                );
+              })}
+            </g>
+          </svg>
+        </div>
 
         {/* Center Content */}
         <div className='relative z-10 text-center max-w-2xl mx-auto mb-12 lg:mb-0'>
