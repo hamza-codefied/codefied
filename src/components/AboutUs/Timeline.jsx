@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import hero_bg from '@/images/hero.png';
+import { formatText } from '@/utils/textFormatter';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -293,10 +294,10 @@ const Timeline = () => {
                         }`}
                     >
                       <h3 className='text-gray-800 mb-2' style={{ fontSize: '22px', fontWeight: 500 }}>
-                        {item.title}
+                        {formatText(item.title)}
                       </h3>
                       <p className='text-gray-600 leading-relaxed' style={{ fontSize: '20px', fontWeight: 400 }}>
-                        {item.description}
+                        {formatText(item.description)}
                       </p>
                     </div>
 

@@ -3,6 +3,7 @@ import { Button } from '@components/ui/Button';
 import aboutbg from '@/images/about_bg_2.png';
 import { IoIosArrowDroprightCircle } from 'react-icons/io';
 import { GoArrowUpRight } from 'react-icons/go';
+import { formatText } from '@/utils/textFormatter';
 
 const Team = () => {
   return (
@@ -49,10 +50,7 @@ const Team = () => {
               </h2>
 
               <p className='text-[16px] font-[400] leading-relaxed max-w-lg mx-auto md:mx-0 text-gray-300 mt-[42px]'>
-                Transform your ideas into powerful mobile applications with our
-                expert development team. We create high-quality, user-friendly apps
-                for both iOS and Android platforms, ensuring a seamless experience
-                for your users.
+                {formatText("Transform your ideas into powerful mobile applications with our expert development team. We create high-quality, user-friendly apps for both iOS and Android platforms, ensuring a seamless experience for your users.")}
               </p>
 
               <button

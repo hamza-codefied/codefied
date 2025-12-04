@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GoArrowUpRight } from 'react-icons/go';
+import { formatText } from '@/utils/textFormatter';
 
 const Vision = () => {
   const [activeTab, setActiveTab] = useState('vision');
@@ -42,10 +43,7 @@ const Vision = () => {
 
           {/* Paragraph */}
           <p className='text-[20px] font-[400] leading-relaxed mt-[18px]' style={{ color: '#828282' }}>
-            At Codefied Software Development Company, we are passionate about
-            leveraging technology to create innovative and impactful solutions.At
-            Codefied Software Development Company, we are passionate about
-            leveraging technology to create innovative and impactful solutions.
+            {formatText("At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions.At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions.")}
           </p>
 
           {/* Tabs */}
@@ -79,19 +77,7 @@ const Vision = () => {
                   className='border-l-2 border-[#d4575b] pl-6 py-4'
                 >
                   <p className='text-black text-[20px] font-[400] leading-relaxed'>
-                    At Codefied Software Development Company, we are passionate
-                    about leveraging technology to create innovative and impactful
-                    solutions. Our team of dedicated professionals specializes in
-                    developing cutting-edge mobile apps, web apps, and immersive
-                    AR/VR experiences. As a product and service-based company, we
-                    pride ourselves on delivering exceptional quality and value to
-                    our clients.At Codefied Software Development Company, we are
-                    passionate about leveraging technology to create innovative and
-                    impactful solutions. Our team of dedicated professionals
-                    specializes in developing cutting-edge mobile apps, web apps,
-                    and immersive AR/VR experiences. As a product and service-based
-                    company, we pride ourselves on delivering exceptional quality
-                    and value to our clients.
+                    {formatText("At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions. Our team of dedicated professionals specializes in developing cutting-edge mobile apps, web apps, and immersive AR/VR experiences. As a product and service-based company, we pride ourselves on delivering exceptional quality and value to our clients.At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions. Our team of dedicated professionals specializes in developing cutting-edge mobile apps, web apps, and immersive AR/VR experiences. As a product and service-based company, we pride ourselves on delivering exceptional quality and value to our clients.")}
                   </p>
                   <button
                     className='btn-hover-bounce border border-transparent text-sm lg:text-base text-white rounded-md py-3 px-6 bg-[#d4575b] transition-all duration-300 hover:bg-transparent hover:text-[#d4575b] hover:border-[#d4575b] hover:shadow-[0_15px_40px_rgba(212,87,91,0.5)] active:translate-y-0 flex items-center justify-center gap-[6px] mt-[30px] group'
@@ -111,15 +97,7 @@ const Vision = () => {
                   className='border-l-2 border-[#d4575b] pl-6 py-4'
                 >
                   <p className='text-black text-[20px] font-[400] leading-relaxed'>
-                    At Codefied Software Development Company, we are passionate
-                    about leveraging technology to create innovative and impactful
-                    solutions. Our team of dedicated professionals specializes in
-                    developing cutting-edge mobile apps, web apps, and immersive
-                    AR/VR experiences. As a product and service-based company, we
-                    pride ourselves on delivering exceptional quality and value to
-                    our clients.At Codefied Software Development Company, we are
-                    passionate about leveraging technology to create innovative and
-                    impactful solutions.
+                    {formatText("At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions. Our team of dedicated professionals specializes in developing cutting-edge mobile apps, web apps, and immersive AR/VR experiences. As a product and service-based company, we pride ourselves on delivering exceptional quality and value to our clients.At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions.")}
                   </p>
                   <button
                     className='btn-hover-bounce border border-transparent text-sm lg:text-base text-white rounded-md py-3 px-6 bg-[#d4575b] transition-all duration-300 hover:bg-transparent hover:text-[#d4575b] hover:border-[#d4575b] hover:shadow-[0_15px_40px_rgba(212,87,91,0.5)] active:translate-y-0 flex items-center justify-center gap-[6px] mt-[30px] group'

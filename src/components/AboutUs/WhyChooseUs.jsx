@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
+import { formatText } from '@/utils/textFormatter';
 
 const WhyChooseUs = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -51,8 +52,7 @@ const WhyChooseUs = () => {
 
             {/* Paragraph - aligns with heading width */}
             <p className='text-white text-[18px] md:text-[24px] font-[400]'>
-              Partner with Codefied and experience a world where innovation meets
-              excellence, and your success is our mission.
+              {formatText("Partner with Codefied and experience a world where innovation meets excellence, and your success is our mission.")}
             </p>
           </div>
 
@@ -70,7 +70,7 @@ const WhyChooseUs = () => {
                   onClick={() => setActiveIndex(index)}
                 >
                   <h3 className={`text-[20px] md:text-[32px] ${activeIndex === index ? 'font-[600]' : 'font-[500]'}`}>
-                    {item.title}
+                    {formatText(item.title)}
                   </h3>
                   <ArrowRight
                     className={`w-[20px] h-[20px] md:w-[25px] md:h-[25px] transition-transform ${activeIndex === index ? 'translate-x-1 text-[#D4575B]' : ''
@@ -86,12 +86,7 @@ const WhyChooseUs = () => {
             {/* Right Column */}
             <div className='flex items-center justify-start flex-1'>
               <p className='text-gray-300 text-[16px] md:text-[24px] font-[500] leading-relaxed'>
-                {items[activeIndex].description.split(/(top-notch|—)/).map((part, i) => {
-                  if (part === 'top-notch' || part === '—') {
-                    return <span key={i} style={{ fontFamily: 'Arial, sans-serif' }}>{part}</span>;
-                  }
-                  return <span key={i}>{part}</span>;
-                })}
+                {formatText(items[activeIndex].description)}
               </p>
             </div>
           </div>
