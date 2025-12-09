@@ -17,11 +17,11 @@ export const ProductMegaMenu = ({ isOpen, onClose, onMouseEnter, onMouseLeave })
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.3, ease: 'easeInOut' }}
-          className='fixed left-0 right-0 top-[80px] w-full bg-gradient-to-r from-[#f8fafc] via-[#fdf2f2] to-[#fff7f7] border-t border-gray-200 shadow-lg z-10'
+          className='fixed left-0 right-0 top-[80px] w-full bg-gradient-to-r from-[#f8fafc] via-[#fdf2f2] to-[#fff7f7] border-t border-gray-200 shadow-lg z-10 max-h-[calc(100vh-80px)] overflow-hidden flex flex-col'
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
         >
-          <div className='max-w-full mx-auto px-[56px] py-6' onClick={(e) => e.stopPropagation()}>
+          <div className='max-w-full mx-auto px-[56px] py-6 overflow-y-auto overflow-x-hidden max-h-[calc(100vh-80px)] md:max-h-none' onClick={(e) => e.stopPropagation()}>
             {/* Header Section */}
             <div className='flex justify-between items-start mb-10 pt-[70px]'>
               <div className='flex-1'>

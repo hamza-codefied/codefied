@@ -198,59 +198,56 @@ export default function ServiceDetail() {
             const sectionRef = useRef(null);
             const { scrollYProgress } = useScroll({
               target: sectionRef,
-              offset: ["start 0.8", "end 0.2"] // Extended range for slower, smoother transitions
+              offset: ["start 0.85", "end 0.15"] // Smoother, more gradual scroll range
             });
 
-            // For even sections: text left, image right
-            // For odd sections: text right, image left (reversed layout)
-            // Responsive animation values based on screen size - more granular breakpoints
+            // Reduced animation distance for smoother, less jarring movement
             const getAnimationDistance = () => {
               if (typeof window !== 'undefined') {
                 const width = window.innerWidth;
-                if (width < 640) return 80;      // Mobile: smaller distance
-                if (width < 768) return 120;     // Small tablet
-                if (width < 1024) return 200;    // Tablet
-                if (width < 1280) return 300;    // Small desktop
-                return 400;                       // Large desktop
+                if (width < 640) return 50;      // Mobile: smaller distance
+                if (width < 768) return 80;      // Small tablet
+                if (width < 1024) return 120;    // Tablet
+                if (width < 1280) return 150;    // Small desktop
+                return 180;                       // Large desktop
               }
-              return 400;
+              return 180;
             };
             const animDistance = getAnimationDistance();
 
-            // Image: Fade in FIRST (slowly, NO sliding)
+            // Image: Smooth fade in/out with gradual transitions
             const imageOpacity = useTransform(
               scrollYProgress,
-              [0, 0.3, 0.5, 0.75, 0.9, 1],
-              [0, 1, 1, 1, 1, 0]  // Fade in first (0-30%), stay visible longer, fade out at end
+              [0, 0.2, 0.3, 0.7, 0.8, 1],
+              [0, 0.3, 1, 1, 0.3, 0]  // Gradual fade in, stay visible longer, gradual fade out
             );
 
-            // Text: Slides in to center SLOWLY, STICKS at center LONGER (more time to read), then slides out SLOWLY
-            // Sequence: Image fades (0-30%) -> SLOW slide in to center (30-50%) -> STICK at center LONGER (50-75%) -> SLOW slide out (75-90%) -> Next section (90-100%)
+            // Text: Smooth slide with gradual easing
             const textX = useTransform(
               scrollYProgress,
-              [0, 0.3, 0.5, 0.75, 0.9, 1],
+              [0, 0.2, 0.4, 0.6, 0.8, 1],
               idx % 2 === 0
-                ? [-animDistance, -animDistance, 0, 0, 0, animDistance]  // SLOW slide in from left, STICK at 0 (center) LONGER, then SLOW slide out to right
-                : [animDistance, animDistance, 0, 0, 0, -animDistance]  // SLOW slide in from right, STICK at 0 (center) LONGER, then SLOW slide out to left
+                ? [-animDistance * 0.5, -animDistance * 0.3, 0, 0, animDistance * 0.3, animDistance * 0.5]  // Smooth gradual slide
+                : [animDistance * 0.5, animDistance * 0.3, 0, 0, -animDistance * 0.3, -animDistance * 0.5]  // Smooth gradual slide
             );
             const textOpacity = useTransform(
               scrollYProgress,
-              [0, 0.3, 0.5, 0.75, 0.9, 1],
-              [0, 0, 1, 1, 1, 0]  // Visible when sliding in, stay visible longer, fade out at end
+              [0, 0.15, 0.25, 0.75, 0.85, 1],
+              [0, 0.2, 1, 1, 0.2, 0]  // Gradual fade in/out
             );
 
-            // Features: Slides from SAME side as text SLOWLY, STICKS at center LONGER, then slides out SLOWLY
+            // Features: Smooth slide with slight delay for staggered effect
             const featuresX = useTransform(
               scrollYProgress,
-              [0, 0.3, 0.5, 0.75, 0.9, 1],
+              [0, 0.25, 0.45, 0.65, 0.85, 1],
               idx % 2 === 0
-                ? [-animDistance, -animDistance, 0, 0, 0, animDistance]  // SLOW slide in from left (same as text), STICK at 0 (center) LONGER, then SLOW slide out to right
-                : [animDistance, animDistance, 0, 0, 0, -animDistance]  // SLOW slide in from right (same as text), STICK at 0 (center) LONGER, then SLOW slide out to left
+                ? [-animDistance * 0.4, -animDistance * 0.2, 0, 0, animDistance * 0.2, animDistance * 0.4]  // Slightly delayed, smoother
+                : [animDistance * 0.4, animDistance * 0.2, 0, 0, -animDistance * 0.2, -animDistance * 0.4]  // Slightly delayed, smoother
             );
             const featuresOpacity = useTransform(
               scrollYProgress,
-              [0, 0.3, 0.5, 0.75, 0.9, 1],
-              [0, 0, 1, 1, 1, 0]  // Visible when sliding in, stay visible longer, fade out at end
+              [0, 0.2, 0.3, 0.7, 0.8, 1],
+              [0, 0.3, 1, 1, 0.3, 0]  // Gradual fade matching image
             );
 
             return (
@@ -268,7 +265,11 @@ export default function ServiceDetail() {
                   {/* LEFT TEXT AREA */}
                   <motion.div
                     className='flex-1 text-center md:text-left w-full'
-                    style={{ x: textX, opacity: textOpacity }}
+                    style={{ 
+                      x: textX, 
+                      opacity: textOpacity,
+                      transition: 'transform 0.3s ease-out, opacity 0.3s ease-out'
+                    }}
                   >
                     <h3
                       className='text-gray-900 mb-3'
@@ -301,15 +302,17 @@ export default function ServiceDetail() {
                     )}
                   </motion.div>
 
-                  {/* IMAGE - Only fade in/out, no movement */}
+                  {/* IMAGE - Smooth fade in/out */}
                   <motion.div
                     className='flex-1 w-full'
                     style={{
                       x: 0, // No movement
                       opacity: imageOpacity,
-                      marginLeft: 'clamp(0px, -2vw, -28px)'
+                      marginLeft: 'clamp(0px, -2vw, -28px)',
+                      transition: 'opacity 0.4s ease-out'
                     }}
                     whileHover={{ scale: 1.03 }}
+                    transition={{ duration: 0.3, ease: 'easeOut' }}
                   >
                     <img
                       src={sec.image}
@@ -331,7 +334,8 @@ export default function ServiceDetail() {
                         className='flex flex-col items-start'
                         style={{
                           opacity: featuresOpacity,
-                          x: featuresX // Slide in after image fully shows
+                          x: featuresX,
+                          transition: 'transform 0.3s ease-out, opacity 0.3s ease-out'
                         }}
                       >
                         <div className='flex items-start gap-3'>
@@ -361,8 +365,8 @@ export default function ServiceDetail() {
             );
           })}
         </div>
-        {/* Extra spacing before footer - exactly 140px */}
-        <div className='h-[140px]'></div>
+        {/* Extra spacing before footer */}
+        {/* <div className='h-[60px] sm:h-[80px]'></div> */}
       </div>
     </div>
   );

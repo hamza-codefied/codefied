@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@components/ui/Button';
 import logo from '@/images/logo.png';
@@ -19,9 +20,11 @@ export const Header = () => {
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
   const [isProductMegaMenuOpen, setIsProductMegaMenuOpen] = useState(false);
   const [hoveredNavItem, setHoveredNavItem] = useState(null);
+  const [isLocationDropdownOpen, setIsLocationDropdownOpen] = useState(false);
   const location = useLocation();
   const megaMenuTimeoutRef = useRef(null);
   const productMegaMenuTimeoutRef = useRef(null);
+  const locationDropdownRef = useRef(null);
 
   useEffect(() => {
     if (typeof document === "undefined") return;
@@ -74,6 +77,27 @@ export const Header = () => {
     };
   }, []);
 
+  // Close location dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        locationDropdownRef.current && 
+        !locationDropdownRef.current.contains(event.target) &&
+        !event.target.closest('[data-location-dropdown]')
+      ) {
+        setIsLocationDropdownOpen(false);
+      }
+    };
+
+    if (isLocationDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isLocationDropdownOpen]);
+
   const serviceDropdown = [
     { name: 'Web Development', href: '/services/web-development' },
     { name: 'UI/UX Design', href: '/services/ui-ux' },
@@ -105,8 +129,34 @@ export const Header = () => {
 
   const isActive = path => location.pathname === path;
 
+  // Get button position for portal positioning
+  const [buttonRect, setButtonRect] = useState(null);
+  const buttonRef = useRef(null);
+
+  useEffect(() => {
+    if (isLocationDropdownOpen && buttonRef.current) {
+      const updatePosition = () => {
+        const rect = buttonRef.current.getBoundingClientRect();
+        setButtonRect({
+          top: rect.bottom + 8,
+          right: window.innerWidth - rect.right,
+        });
+      };
+      updatePosition();
+      window.addEventListener('scroll', updatePosition);
+      window.addEventListener('resize', updatePosition);
+      return () => {
+        window.removeEventListener('scroll', updatePosition);
+        window.removeEventListener('resize', updatePosition);
+      };
+    }
+  }, [isLocationDropdownOpen]);
+
   return (
-    <header className='bg-white shadow-sm border-b relative z-50 h-[80px] overflow-x-hidden max-w-full'>
+    <>
+    <header className={`bg-white shadow-sm border-b relative z-50 h-[80px] max-w-full ${
+      isMegaMenuOpen || isProductMegaMenuOpen ? 'overflow-hidden' : 'overflow-x-hidden'
+    }`}>
       <div className='container h-full m-auto px-4 sm:px-6 md:px-8 max-w-full'>
         <div className='w-full flex justify-center h-full max-w-full'>
           <div className='flex justify-between items-center w-full max-w-full'>
@@ -359,9 +409,16 @@ export const Header = () => {
             </nav>
 
             {/* Desktop CTA */}
-            <div className='hidden lg:flex items-center space-x-2'>
-              <GoGlobe size={24} />
-              <FaArrowDownLong className='text-2xl' />
+            <div className='hidden lg:flex items-center space-x-2 relative' ref={locationDropdownRef}>
+              <button
+                ref={buttonRef}
+                onClick={() => setIsLocationDropdownOpen(!isLocationDropdownOpen)}
+                className='flex items-center space-x-2 hover:opacity-80 transition-opacity cursor-pointer'
+                aria-label='Select location'
+              >
+                <GoGlobe size={24} />
+                <FaArrowDownLong className='text-2xl' />
+              </button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -633,5 +690,47 @@ export const Header = () => {
       </div>
 
     </header>
+
+    {/* Location Dropdown Portal - Rendered outside header for proper z-index */}
+    {typeof document !== 'undefined' && isLocationDropdownOpen && buttonRect && createPortal(
+      <AnimatePresence>
+        <motion.div
+          data-location-dropdown
+          initial={{ opacity: 0, y: -10, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: -10, scale: 0.95 }}
+          transition={{ duration: 0.2, ease: 'easeOut' }}
+          className='fixed bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden min-w-[180px]'
+          style={{ 
+            top: `${buttonRect.top}px`,
+            right: `${buttonRect.right}px`,
+            zIndex: 9999
+          }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button
+            onClick={() => {
+              setIsLocationDropdownOpen(false);
+              // Handle Karachi selection
+            }}
+            className='w-full text-left px-4 py-3 hover:bg-gray-50 transition-colors text-black font-medium'
+          >
+            Karachi
+          </button>
+          <div className='border-t border-gray-200'></div>
+          <button
+            onClick={() => {
+              setIsLocationDropdownOpen(false);
+              // Handle Houston selection
+            }}
+            className='w-full text-left px-4 py-3 hover:bg-gray-50 transition-colors text-black font-medium'
+          >
+            Houston
+          </button>
+        </motion.div>
+      </AnimatePresence>,
+      document.body
+    )}
+  </>
   );
 };

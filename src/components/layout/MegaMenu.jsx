@@ -112,14 +112,14 @@ export const MegaMenu = ({ isOpen, onClose, onMouseEnter, onMouseLeave }) => {
             style={{ top: '80px', maxHeight: 'calc(100vh - 80px)' }}
             ref={ref}
           >
-            <div className='w-full max-w-full bg-white shadow-2xl border overflow-hidden max-h-[calc(100vh-80px)]'>
-              <div className='flex flex-col md:flex-row w-full h-full'>
+            <div className='w-full max-w-full bg-white shadow-2xl border overflow-hidden max-h-[calc(100vh-80px)] flex flex-col'>
+              <div className='flex flex-col md:flex-row w-full flex-1 min-h-0'>
                 {/* Left column */}
                 <div
                   style={{
                     backgroundImage: `url(${partnerBg})`,
                   }}
-                  className='md:w-1/4 w-full flex flex-col justify-center items-center p-4 md:p-8 bg-cover bg-center bg-no-repeat relative'
+                  className='md:w-1/4 w-full flex flex-col justify-center items-center p-4 md:p-8 bg-cover bg-center bg-no-repeat relative flex-shrink-0'
                 >
                   <div className='relative flex flex-col items-center text-center space-y-2 w-full max-w-full px-4'>
                     <img
@@ -139,7 +139,7 @@ export const MegaMenu = ({ isOpen, onClose, onMouseEnter, onMouseLeave }) => {
                 </div>
 
                 {/* Right column */}
-                <div className='md:w-3/4 w-full bg-white px-4 sm:px-6 md:px-[42px] py-8 md:py-[65px] grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 overflow-y-auto'>
+                <div className='md:w-3/4 w-full bg-white px-4 sm:px-6 md:px-[42px] py-8 md:py-[65px] grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 overflow-y-auto overflow-x-hidden max-h-[calc(100vh-80px)] md:max-h-none'>
                   {categories.map((category, index) => (
                     <div key={index}>
                       {/* Category Title (Main Route) */}

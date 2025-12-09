@@ -8,7 +8,7 @@ import { formatText } from '@/utils/textFormatter';
 
 export default function HeroSection() {
   return (
-    <div>
+    <div className='min-h-[calc(100vh-75px)] flex flex-col'>
       <style>{`
         @keyframes bounce-hover {
           0%, 100% {
@@ -35,7 +35,7 @@ export default function HeroSection() {
         }
       `}</style>
       <Section
-        classNames='relative bg-cover bg-center bg-no-repeat py-10 sm:py-[120px] h-[calc(100vh_-_25vh)] !mb-0 flex justify-center items-center'
+        classNames='relative bg-cover bg-center bg-no-repeat py-10 sm:py-16 md:py-20 lg:py-24 !mb-0 flex justify-center items-center flex-1'
         style={{ backgroundImage: `url(${herobg})` }}
       >
         <div className='container m-auto'>
@@ -58,7 +58,9 @@ export default function HeroSection() {
               </h1>
 
               <p className='text-sm md:text-base lg:text-1xl text-gray-600 w-full lg:w-[50%] mx-auto'>
-                {formatText("At codefied, we're not just building software; we're shaping the future with cutting-edge technology and unparalleled quality.")}
+                {formatText(
+                  "At codefied, we're not just building software; we're shaping the future with cutting-edge technology and unparalleled quality."
+                )}
               </p>
 
               <div>
