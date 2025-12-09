@@ -332,7 +332,10 @@ export const Developerit = () => {
   }, []);
 
   return (
-    <div id='developer-it' className='container m-auto px-8 pb-20 relative w-full'>
+    <div
+      id='developer-it'
+      className='container m-auto px-8 pb-20 relative w-full'
+    >
       {/* Spacer to push content down initially on xl screens */}
       <div className='h-[50vh] xl:block hidden'></div>
 
@@ -343,7 +346,11 @@ export const Developerit = () => {
         }
       >
         {/* Left side - Heading and heroSubText */}
-        <div className={'flex flex-col w-full xl:w-[45%] gap-8 xl:sticky xl:top-28 xl:h-fit'}>
+        <div
+          className={
+            'flex flex-col w-full xl:w-[45%] gap-8 xl:sticky xl:top-28 xl:h-fit'
+          }
+        >
           {/* Heading container - will animate from top to here */}
           <div className='heading-container' style={{ width: 'fit-content' }}>
             <h1
@@ -360,7 +367,9 @@ export const Developerit = () => {
           {/* Hero Sub Text */}
           <div className={'heroSubText flex gap-y-3 text-2xl flex-col'}>
             <div>
-              {formatText("From concept to launch, we cover the entire spectrum of digital innovation.")}
+              {formatText(
+                'From concept to launch, we cover the entire spectrum of digital innovation.'
+              )}
             </div>
           </div>
           <a
@@ -379,8 +388,14 @@ export const Developerit = () => {
           }
         >
           {features.map(({ title, desc }, index) => (
-            <div ref={addToRefs} className='p-6 md:p-0 w-full' key={`${title}-${index}`}>
-              <h2 className={'text-xl md:text-2xl mb-2'}>{formatText(title)}</h2>
+            <div
+              ref={addToRefs}
+              className='p-6 md:p-0 w-full'
+              key={`${title}-${index}`}
+            >
+              <h2 className={'text-xl md:text-2xl mb-2'}>
+                {formatText(title)}
+              </h2>
               <p className={'mb-4 text-sm md:text-base'}>{formatText(desc)}</p>
               <a
                 className={
