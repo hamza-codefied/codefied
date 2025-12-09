@@ -37,24 +37,26 @@ export const Footer = () => {
   };
 
   return (
-    <footer
-      className='bg-white text-gray-700 overflow-x-hidden max-w-full'
-      style={{
-        marginRight: 'clamp(0px, 10vw, 200px)',
-        marginLeft: 'clamp(0px, 10vw, 200px)',
-        marginTop: 'clamp(40px, 15vw, 200px)',
-      }}
-    >
-      <div className='container mx-auto px-4 sm:px-6 md:px-8 max-w-full flex flex-col justify-between' style={{ paddingTop: 'clamp(30px, 4vw, 40px)', paddingBottom: 'clamp(20px, 3vw, 30px)' }}>
+    <footer className='bg-white text-gray-700 overflow-x-hidden max-w-full'>
+      <div
+        className='container mx-auto px-4 sm:px-6 md:px-8 flex flex-col justify-between'
+        style={{
+          paddingTop: 'clamp(30px, 4vw, 40px)',
+          paddingBottom: 'clamp(20px, 3vw, 30px)',
+        }}
+      >
         {/* Top Section */}
-        <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-0' style={{ marginBottom: 'clamp(20px, 3vw, 30px)' }}>
+        <div
+          className='flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-0'
+          // style={{ marginBottom: 'clamp(20px, 3vw, 30px)' }}
+        >
           {/* Logo - Large C. */}
           <Link to='/' className='flex items-center'>
             <span
               className='font-bold text-black'
               style={{
                 fontSize: 'clamp(48px, 8vw, 72px)',
-                lineHeight: 1
+                lineHeight: 1,
               }}
             >
               C.
@@ -73,21 +75,30 @@ export const Footer = () => {
               <a
                 href='#'
                 className='p-3 bg-[#d4575b] text-white rounded-full hover:bg-[#b84549] transition-all duration-200 flex items-center justify-center'
-                style={{ width: 'clamp(40px, 5vw, 48px)', height: 'clamp(40px, 5vw, 48px)' }}
+                style={{
+                  width: 'clamp(40px, 5vw, 48px)',
+                  height: 'clamp(40px, 5vw, 48px)',
+                }}
               >
                 <FaLinkedin size={20} className='text-white' />
               </a>
               <a
                 href='#'
                 className='p-3 bg-[#d4575b] text-white rounded-full hover:bg-[#b84549] transition-all duration-200 flex items-center justify-center'
-                style={{ width: 'clamp(40px, 5vw, 48px)', height: 'clamp(40px, 5vw, 48px)' }}
+                style={{
+                  width: 'clamp(40px, 5vw, 48px)',
+                  height: 'clamp(40px, 5vw, 48px)',
+                }}
               >
                 <FaInstagramSquare size={20} className='text-white' />
               </a>
               <a
                 href='#'
                 className='p-3 bg-[#d4575b] text-white rounded-full hover:bg-[#b84549] transition-all duration-200 flex items-center justify-center'
-                style={{ width: 'clamp(40px, 5vw, 48px)', height: 'clamp(40px, 5vw, 48px)' }}
+                style={{
+                  width: 'clamp(40px, 5vw, 48px)',
+                  height: 'clamp(40px, 5vw, 48px)',
+                }}
               >
                 <FaTwitter size={20} className='text-white' />
               </a>
@@ -111,7 +122,7 @@ export const Footer = () => {
               style={{
                 fontSize: 'clamp(14px, 2vw, 18px)',
                 fontWeight: 600,
-                marginBottom: 'clamp(12px, 2vw, 24px)'
+                marginBottom: 'clamp(12px, 2vw, 24px)',
               }}
             >
               Home
@@ -171,7 +182,8 @@ export const Footer = () => {
                   className='relative hover:text-[#d4575b] transition-colors cursor-pointer text-left group'
                 >
                   <span className='relative'>
-                    FAQ<span style={{ fontFamily: 'Arial, sans-serif' }}>'</span>s
+                    FAQ
+                    <span style={{ fontFamily: 'Arial, sans-serif' }}>'</span>s
                     <span className='absolute bottom-0 left-0 w-0 h-[2px] bg-[#d4575b] transition-all duration-300 group-hover:w-full'></span>
                   </span>
                 </button>
@@ -186,7 +198,7 @@ export const Footer = () => {
               style={{
                 fontSize: 'clamp(14px, 2vw, 18px)',
                 fontWeight: 600,
-                marginBottom: 'clamp(12px, 2vw, 24px)'
+                marginBottom: 'clamp(12px, 2vw, 24px)',
               }}
             >
               About Us
@@ -240,7 +252,7 @@ export const Footer = () => {
               style={{
                 fontSize: 'clamp(14px, 2vw, 18px)',
                 fontWeight: 600,
-                marginBottom: 'clamp(12px, 2vw, 24px)'
+                marginBottom: 'clamp(12px, 2vw, 24px)',
               }}
             >
               Services
@@ -315,7 +327,7 @@ export const Footer = () => {
               style={{
                 fontSize: 'clamp(14px, 2vw, 18px)',
                 fontWeight: 600,
-                marginBottom: 'clamp(12px, 2vw, 24px)'
+                marginBottom: 'clamp(12px, 2vw, 24px)',
               }}
             >
               Careers
@@ -369,7 +381,7 @@ export const Footer = () => {
               style={{
                 fontSize: 'clamp(14px, 2vw, 18px)',
                 fontWeight: 600,
-                marginBottom: 'clamp(12px, 2vw, 24px)'
+                marginBottom: 'clamp(12px, 2vw, 24px)',
               }}
             >
               Blogs
@@ -379,7 +391,10 @@ export const Footer = () => {
               style={{ fontSize: 'clamp(14px, 2vw, 18px)', fontWeight: 400 }}
             >
               <li>
-                <Link to='/blogs' className='relative hover:text-[#d4575b] transition-colors group inline-block'>
+                <Link
+                  to='/blogs'
+                  className='relative hover:text-[#d4575b] transition-colors group inline-block'
+                >
                   <span className='relative'>
                     All Blogs
                     <span className='absolute bottom-0 left-0 w-0 h-[2px] bg-[#d4575b] transition-all duration-300 group-hover:w-full'></span>
@@ -396,7 +411,7 @@ export const Footer = () => {
               style={{
                 fontSize: 'clamp(14px, 2vw, 18px)',
                 fontWeight: 600,
-                marginBottom: 'clamp(12px, 2vw, 24px)'
+                marginBottom: 'clamp(12px, 2vw, 24px)',
               }}
             >
               Contact Us
@@ -425,7 +440,7 @@ export const Footer = () => {
           className='border-t border-gray-200 flex flex-col md:flex-row items-center justify-between text-gray-600'
           style={{
             paddingTop: 'clamp(16px, 2.5vw, 24px)',
-            fontSize: 'clamp(11px, 1.5vw, 14px)'
+            fontSize: 'clamp(11px, 1.5vw, 14px)',
           }}
         >
           <div>
