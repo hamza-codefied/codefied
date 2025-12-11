@@ -18,9 +18,9 @@ export const Contact = () => {
     <div className='min-h-screen'>
       <HeroSection
         classNames={'h-[150px] md:h-[200px] lg:h-[350px]'}
-        BannerText='Contact Us'
+        BannerText='Contact US'
         bannerTextAdjust={{
-          fontSize: 'clamp(40px, 22vw, 280px)', // responsive font size
+          fontSize: 'clamp(40px, 16vw, 300px)', // responsive font size
           lineHeight: 1,
           transform: 'translateY(30%)', // cut half of the text
         }}

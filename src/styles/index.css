@@ -44,18 +44,21 @@
   * {
     @apply border-gray-200;
   }
-  
+
   body {
     @apply bg-white text-gray-900;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
   }
-  
+
   html {
     scroll-behavior: smooth;
   }
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden !important;
   max-width: 100vw;
 }
@@ -64,43 +67,43 @@ html, body {
   .btn {
     @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
   }
-  
+
   .btn-primary {
     @apply bg-primary-600 text-white hover:bg-primary-700 active:bg-primary-800;
   }
-  
+
   .btn-secondary {
     @apply bg-secondary-100 text-secondary-900 hover:bg-secondary-200 active:bg-secondary-300;
   }
-  
+
   .btn-outline {
     @apply border border-primary-600 text-primary-600 hover:bg-primary-50 active:bg-primary-100;
   }
-  
+
   .btn-ghost {
     @apply text-secondary-600 hover:bg-secondary-100 hover:text-secondary-900 active:bg-secondary-200;
   }
-  
+
   .btn-sm {
     @apply h-8 px-3 text-xs;
   }
-  
+
   .btn-md {
     @apply h-10 px-4 py-2;
   }
-  
+
   .btn-lg {
     @apply h-12 px-8 text-base;
   }
-  
+
   .card {
     @apply rounded-lg border bg-white text-gray-900 shadow-sm;
   }
-  
+
   .input {
     @apply flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
   }
-  
+
   .label {
     @apply text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
   }
@@ -110,117 +113,115 @@ html, body {
   .text-balance {
     text-wrap: balance;
   }
-  
+
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  
+
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
 }
 
-
-
 @font-face {
-  font-family: "Lufga";
-  src: url("../font/Fontspring-DEMO-lufga-thin.otf");
+  font-family: 'Lufga';
+  src: url('../font/Fontspring-DEMO-lufga-thin.otf');
   font-weight: 100;
 }
 
 @font-face {
-  font-family: "Lufga";
-  src: url("../font/Fontspring-DEMO-lufga-extralight.otf");
+  font-family: 'Lufga';
+  src: url('../font/Fontspring-DEMO-lufga-extralight.otf');
   font-weight: 200;
 }
 
 @font-face {
-  font-family: "Lufga";
-  src: url("../font/Fontspring-DEMO-lufga-light.otf");
+  font-family: 'Lufga';
+  src: url('../font/Fontspring-DEMO-lufga-light.otf');
   font-weight: 300;
 }
 
 @font-face {
-  font-family: "Lufga";
-  src: url("../font/Fontspring-DEMO-lufga-regular.otf");
+  font-family: 'Lufga';
+  src: url('../font/Fontspring-DEMO-lufga-regular.otf');
   font-weight: 400;
 }
 
 @font-face {
-  font-family: "Lufga";
-  src: url("../font/Fontspring-DEMO-lufga-medium.otf");
+  font-family: 'Lufga';
+  src: url('../font/Fontspring-DEMO-lufga-medium.otf');
   font-weight: 500;
 }
 
 @font-face {
-  font-family: "Lufga";
-  src: url("../font/Fontspring-DEMO-lufga-semibold.otf");
+  font-family: 'Lufga';
+  src: url('../font/Fontspring-DEMO-lufga-semibold.otf');
   font-weight: 600;
 }
 
 @font-face {
-  font-family: "Lufga";
-  src: url("../font/Fontspring-DEMO-lufga-bold.otf");
+  font-family: 'Lufga';
+  src: url('../font/Fontspring-DEMO-lufga-bold.otf');
   font-weight: 700;
 }
 
 @font-face {
-  font-family: "Lufga";
-  src: url("../font/Fontspring-DEMO-lufga-extrabold.otf");
+  font-family: 'Lufga';
+  src: url('../font/Fontspring-DEMO-lufga-extrabold.otf');
   font-weight: 800;
 }
 
 @font-face {
-  font-family: "Lufga";
-  src: url("../font/Fontspring-DEMO-lufga-black.otf");
+  font-family: 'Lufga';
+  src: url('../font/Fontspring-DEMO-lufga-black.otf');
   font-weight: 900;
 }
 
 @font-face {
-  font-family: "Lufga";
-  src: url("../font/Fontspring-DEMO-lufga-italic.otf");
+  font-family: 'Lufga';
+  src: url('../font/Fontspring-DEMO-lufga-italic.otf');
   font-style: italic;
   font-weight: 400;
 }
 
 @font-face {
-  font-family: "Lufga";
-  src: url("../font/Fontspring-DEMO-lufga-mediumitalic.otf");
+  font-family: 'Lufga';
+  src: url('../font/Fontspring-DEMO-lufga-mediumitalic.otf');
   font-style: italic;
   font-weight: 500;
 }
 
 @font-face {
-  font-family: "Lufga";
-  src: url("../font/Fontspring-DEMO-lufga-semibolditalic.otf");
+  font-family: 'Lufga';
+  src: url('../font/Fontspring-DEMO-lufga-semibolditalic.otf');
   font-style: italic;
   font-weight: 600;
 }
 
 @font-face {
-  font-family: "Lufga";
-  src: url("../font/Fontspring-DEMO-lufga-bolditalic.otf");
+  font-family: 'Lufga';
+  src: url('../font/Fontspring-DEMO-lufga-bolditalic.otf');
   font-style: italic;
   font-weight: 700;
 }
 
 @font-face {
-  font-family: "Lufga";
-  src: url("../font/Fontspring-DEMO-lufga-extrabolditalic.otf");
+  font-family: 'Lufga';
+  src: url('../font/Fontspring-DEMO-lufga-extrabolditalic.otf');
   font-style: italic;
   font-weight: 800;
 }
 
 @font-face {
-  font-family: "Lufga";
-  src: url("../font/Fontspring-DEMO-lufga-blackitalic.otf");
+  font-family: 'Lufga';
+  src: url('../font/Fontspring-DEMO-lufga-blackitalic.otf');
   font-style: italic;
   font-weight: 900;
 }
 
-body{
-  font-family: "Lufga", "sans-serif";
+body {
+  font-family: 'Lufga', 'sans-serif';
 }
 
 /* HTML: <div class="inverted-radius"></div> */
@@ -229,20 +230,47 @@ body{
   --s: 35px; /* size of inner curve */
   --x: 55px; /* horizontal offset (no percentane) */
   --y: 55px; /* vertical offset (no percentage) */
-  
+
   /* width: 250px; */
   aspect-ratio: 1;
-  background: #3FB8AF;
+  background: #3fb8af;
   border-radius: var(--r);
-  --_m:/calc(2*var(--r)) calc(2*var(--r)) radial-gradient(#000 70%,#0000 72%);
-  --_g:conic-gradient(from 90deg at calc(100% - var(--r)) calc(100% - var(--r)),#0000 25%,#000 0);
-  --_d:(var(--s) + var(--r));
+  --_m: /calc(2 * var(--r)) calc(2 * var(--r))
+    radial-gradient(#000 70%, #0000 72%);
+  --_g: conic-gradient(
+    from 90deg at calc(100% - var(--r)) calc(100% - var(--r)),
+    #0000 25%,
+    #000 0
+  );
+  --_d: (var(--s) + var(--r));
   mask:
     calc(100% - var(--_d) - var(--x)) 100% var(--_m),
     100% calc(100% - var(--_d) - var(--y)) var(--_m),
-    radial-gradient(var(--s) at 100% 100%,#0000 99%,#000 calc(100% + 1px)) 
-     calc(-1*var(--r) - var(--x)) calc(-1*var(--r) - var(--y)),
-    var(--_g) calc(-1*var(--_d) - var(--x)) 0,
-    var(--_g) 0 calc(-1*var(--_d) - var(--y));
+    radial-gradient(var(--s) at 100% 100%, #0000 99%, #000 calc(100% + 1px))
+      calc(-1 * var(--r) - var(--x)) calc(-1 * var(--r) - var(--y)),
+    var(--_g) calc(-1 * var(--_d) - var(--x)) 0,
+    var(--_g) 0 calc(-1 * var(--_d) - var(--y));
   mask-repeat: no-repeat;
+}
+
+.required-input::after {
+  content: '*';
+  color: #d4575b;
+  position: absolute;
+  left: 65px; /* adjust if needed */
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: sans-serif; /* force system font instead of Lufga */
+  font-size: 16px;
+}
+
+.required-input2::after {
+  content: '*';
+  color: #d4575b;
+  position: absolute;
+  left: 133px; /* adjust if needed */
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: sans-serif; /* force system font instead of Lufga */
+  font-size: 16px;
 }

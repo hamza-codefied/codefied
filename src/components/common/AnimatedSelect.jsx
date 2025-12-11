@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { IoMdArrowDropdown } from 'react-icons/io';
 
 const AnimatedSelect = () => {
   const [open, setOpen] = useState(false);
@@ -39,7 +40,7 @@ const AnimatedSelect = () => {
             ? options.find(opt => opt.value === selected)?.label
             : 'How did you find us?'}
         </span>
-        <svg
+        {/* <svg
           xmlns='http://www.w3.org/2000/svg'
           className={`h-5 w-5 text-[#d4575b] transition-transform duration-300 ${
             open ? 'rotate-180' : ''
@@ -54,7 +55,12 @@ const AnimatedSelect = () => {
             strokeLinejoin='round'
             d='M19 9l-7 7-7-7'
           />
-        </svg>
+        </svg> */}
+        <IoMdArrowDropdown
+          className={`h-6 w-6 text-black transition-transform duration-300 ${
+            open ? 'rotate-180' : ''
+          }`}
+        />
       </button>
 
       {/* Dropdown Menu */}

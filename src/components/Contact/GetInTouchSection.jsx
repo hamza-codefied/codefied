@@ -38,11 +38,11 @@ const GetInTouchSection = () => {
       }
     }
   </style>
-  <div style="position: relative; width: 40px; height: 40px;">
+  <div style="position: relative; width: 50px; height: 60px;">
     <div style="
       position: absolute;
-      width: 40px;
-      height: 40px;
+      width: 60px;
+      height: 60px;
       background-color: #d4575b;
       border-radius: 50% 50% 50% 0;
       transform: rotate(-45deg);
@@ -55,8 +55,8 @@ const GetInTouchSection = () => {
     "></div>
     <div style="
       position: absolute;
-      width: 14px;
-      height: 14px;
+      width: 24px;
+      height: 24px;
       background-color: white;
       border-radius: 50%;
       left: 50%;
@@ -101,7 +101,7 @@ const GetInTouchSection = () => {
               style={{
                 fontSize: 'clamp(32px, 5vw, 54px)',
                 fontWeight: 700,
-                marginBottom: 'clamp(15px, 2vw, 20px)'
+                marginBottom: 'clamp(15px, 2vw, 20px)',
               }}
             >
               Get in <span className='text-[#d4575b]'>Touch</span>
@@ -111,7 +111,7 @@ const GetInTouchSection = () => {
               style={{
                 fontSize: 'clamp(12px, 1.5vw, 14px)',
                 fontWeight: 400,
-                marginBottom: 'clamp(25px, 3.5vw, 40px)'
+                marginBottom: 'clamp(25px, 3.5vw, 40px)',
               }}
             >
               We'd love to hear from you. Fill out the form below and our team
@@ -119,28 +119,34 @@ const GetInTouchSection = () => {
             </p>
 
             <form className='space-y-5'>
-              <input
-                type='text'
-                placeholder='Name'
-                className='w-full rounded-lg border border-gray-300 p-3 focus:ring-1 focus:ring-[#d4575b] focus:outline-none'
-              />
+              <div class='relative required-input'>
+                <input
+                  type='text'
+                  placeholder='Name'
+                  class='w-full rounded-lg border border-gray-300 p-3 focus:ring-1 focus:ring-[#d4575b] focus:outline-none'
+                />
+              </div>
               <input
                 type='email'
                 placeholder='Email'
                 className='w-full rounded-lg border border-gray-300 p-3 focus:ring-1 focus:ring-[#d4575b] focus:outline-none'
               />
-              <input
-                type='tel'
-                placeholder='Phone Number'
-                className='w-full rounded-lg border border-gray-300 p-3 focus:ring-1 focus:ring-[#d4575b] focus:outline-none'
-              />
+              <div class='relative required-input2'>
+                {' '}
+                <input
+                  type='tel'
+                  placeholder='Phone Number'
+                  className='w-full rounded-lg border border-gray-300 p-3 focus:ring-1 focus:ring-[#d4575b] focus:outline-none'
+                />
+              </div>
+
               <AnimatedSelect />
 
               <button
                 type='submit'
                 className='w-full transition text-white font-semibold py-3 rounded-lg'
                 style={{
-                  backgroundColor: '#D4575B'
+                  backgroundColor: '#D4575B',
                 }}
               >
                 Send
@@ -150,7 +156,7 @@ const GetInTouchSection = () => {
             <div
               className='flex flex-wrap justify-center md:justify-start gap-8 md:gap-16'
               style={{
-                marginTop: 'clamp(40px, 5vw, 60px)'
+                marginTop: 'clamp(40px, 5vw, 60px)',
               }}
             >
               {info.map((item, idx) => {
@@ -160,18 +166,20 @@ const GetInTouchSection = () => {
                     key={idx}
                     className='flex items-center min-w-[120px]'
                     style={{
-                      gap: '5px'
+                      gap: '5px',
                     }}
                   >
                     <div className='flex-shrink-0 text-black'>
-                      <IconComponent style={{ width: '28px', height: '28px' }} />
+                      <IconComponent
+                        style={{ width: '28px', height: '28px' }}
+                      />
                     </div>
                     <div className='flex flex-col'>
                       <span
                         className='text-gray-800 tracking-wide'
                         style={{
                           fontSize: 'clamp(11px, 1.5vw, 13px)',
-                          fontWeight: 700
+                          fontWeight: 700,
                         }}
                       >
                         {item.label}
@@ -184,7 +192,7 @@ const GetInTouchSection = () => {
                             fontSize: 'clamp(11px, 1.5vw, 13px)',
                             fontWeight: 700,
                             color: '#D4575B',
-                            fontFamily: 'Arial, sans-serif'
+                            fontFamily: 'Arial, sans-serif',
                           }}
                         >
                           {item.value}
@@ -195,7 +203,7 @@ const GetInTouchSection = () => {
                             fontSize: 'clamp(11px, 1.5vw, 13px)',
                             fontWeight: 700,
                             color: '#D4575B',
-                            fontFamily: 'Arial, sans-serif'
+                            fontFamily: 'Arial, sans-serif',
                           }}
                         >
                           {item.value}
