@@ -68,7 +68,7 @@ export default function AllProjectsSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -40 }}
             transition={{ duration: 0.6 }}
-            className='grid sm:grid-cols-2 2xl:grid-cols-3 gap-20'
+            className='grid lg:grid-cols-2 2xl:grid-cols-3 gap-20'
           >
             {projectData[activeTab]?.map(project => (
               <motion.div
@@ -76,13 +76,13 @@ export default function AllProjectsSection() {
                 whileHover={{ scale: 1.03 }}
                 transition={{ type: 'spring', stiffness: 200 }}
                 onClick={() => navigate(`/portfolio/${project.slug}`)}
-                className='rounded-2xl overflow-hidden hover:shadow-purple-500/20 transition-all cursor-pointer'
+                className='cursor-pointer'
               >
-                <div className='h-96 w-full overflow-hidden'>
+                <div className='h-[394px] w-full'>
                   <img
                     src={project.image}
                     alt={project.title}
-                    className='h-full w-full object-cover'
+                    className='h-full w-full object-cover rounded-[20px]'
                   />
                 </div>
                 <div className='flex items-center justify-between'>
