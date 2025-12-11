@@ -35,8 +35,8 @@ export default function AllProjectsSection() {
 
   return (
     <div className='container m-auto px-8'>
-      <section className='text-white py-5'>
-        <div className='text-center mb-12'>
+      <section className='text-white'>
+        <div className='text-center my-14'>
           {/* Tabs */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -86,14 +86,14 @@ export default function AllProjectsSection() {
                   />
                 </div>
                 <div className='flex items-center justify-between'>
-                  <div className='py-5 text-black space-y-1'>
-                    <h3 className='text-xs sm:text-md font-semibold'>{project.title}</h3>
-                    <p className='text-xs md:text-sm bg-black w-fit px-3 py-1 rounded-md text-gray-400'>
+                  <div className='py-5 text-black'>
+                    <h3 className='text-sm sm:text-md lg:text-[24px] font-medium mt-[37px]'>{project.title}</h3>
+                    <p className='text-xs md:text-sm lg:text-[20px] font-normal bg-[#262626] w-fit px-[14px] py-[10px] rounded-[8px] text-[#ffffff] mt-[12px]'>
                       {project.website}
                     </p>
                   </div>
-                  <div className='bg-black rounded-full p-2'>
-                    <GoArrowUpRight className='text-[#d4575b] text-5xl mt-[2px]' />
+                  <div className='bg-black rounded-full p-[17.778px]'>
+                    <GoArrowUpRight className='text-[#d4575b] text-5xl' />
                   </div>
                 </div>
               </motion.div>
