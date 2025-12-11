@@ -110,7 +110,7 @@ export default function ServiceDetail() {
     <div className='min-h-screen bg-white overflow-hidden'>
       {/* HERO SECTION */}
       <HeroSection
-        classNames={'h-[clamp(300px,50vh,500px)]'}
+        classNames={'h-[450px]'}
         BannerText={'Services'}
         BottomText={
           <motion.div
@@ -147,7 +147,7 @@ export default function ServiceDetail() {
           </motion.h1>
         }
         bannerTextAdjust={{
-          fontSize: 'clamp(40px, 20vw, 600px)', // responsive font size
+          fontSize: 'clamp(40px, 22vw, 600px)', // responsive font size
           lineHeight: 1,
           transform: 'translateY(30%)', // cut half of the text
         }}
@@ -162,29 +162,30 @@ export default function ServiceDetail() {
           className='max-w-6xl mx-auto px-4 sm:px-6 text-center mt-10 sm:mt-20'
         >
           <h2
-            className='bg-gradient-to-r from-[#d4575b] to-[#ff6b6b] bg-clip-text text-transparent'
-            style={{ fontSize: 'clamp(24px, 4.5vw, 45px)', fontWeight: 600 }}
+            className='text-black font-medium'
+            style={{ fontSize: 'clamp(24px, 4.5vw, 44px)', fontWeight: 600 }}
           >
             {formatText(service.title)}
           </h2>
           <h3
-            className='text-black '
+            className='text-black font-medium'
             style={{ fontSize: 'clamp(22px, 4.5vw, 44px)', fontWeight: 500 }}
           >
             {formatText(service.subtitle)}
           </h3>
         </motion.div>
       </div>
+
       {/* Description - Full Width */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
-        className='w-full text-center px-4 sm:px-6 md:px-8 lg:px-[210px]'
+        className='w-full text-center px-4 sm:px-6 md:px-8'
       >
         <p
-          className='text-gray-600 leading-relaxed'
-          style={{ fontSize: 'clamp(16px, 2.5vw, 24px)', fontWeight: 400, marginTop: 'clamp(20px, 3vw, 32px)' }}
+          className='text-black font-normal'
+          style={{ fontSize: 'clamp(16px, 2vw, 24px)', fontWeight: 400, marginTop: 'clamp(20px, 3vw, 32px)' }}
         >
           {formatText(service.description)}
         </p>
@@ -272,13 +273,13 @@ export default function ServiceDetail() {
                     }}
                   >
                     <h3
-                      className='text-gray-900 mb-3'
+                      className='text-black font-semibold mb-3'
                       style={{ fontSize: 'clamp(20px, 3.5vw, 34px)', fontWeight: 600 }}
                     >
                       {formatText(sec.title)}
                     </h3>
                     <p
-                      className='text-gray-600 mb-4'
+                      className='text-black font-normal mb-4'
                       style={{ fontSize: 'clamp(16px, 2.5vw, 24px)', fontWeight: 400 }}
                     >
                       {formatText(sec.description)}
@@ -324,8 +325,8 @@ export default function ServiceDetail() {
 
                 {/* FEATURE GRID - Slides after image fully shows */}
                 <div
-                  className='mt-10 grid sm:grid-cols-2 gap-x-8 sm:gap-x-12 gap-y-6 sm:gap-y-8'
-                  style={{ paddingLeft: 'clamp(0px, 2vw, 28px)' }}
+                  className='mt-10 grid sm:grid-cols-2 gap-x-8 sm:gap-x-14 gap-y-6 sm:gap-y-8'
+                  style={{ paddingLeft: 'clamp(0px, 2vw, 2px)' }}
                 >
                   {sec.features.map((f, i) => {
                     return (
@@ -344,13 +345,13 @@ export default function ServiceDetail() {
                           </span>
                           <div className='flex-1'>
                             <h4
-                              className='text-gray-900'
+                              className='text-black font-medium'
                               style={{ fontSize: 'clamp(18px, 2.5vw, 24px)', fontWeight: 500 }}
                             >
                               {formatText(f.title)}
                             </h4>
                             <p
-                              className='text-gray-600 leading-relaxed'
+                              className='text-black font-normal leading-relaxed'
                               style={{ fontSize: 'clamp(14px, 2vw, 16px)', fontWeight: 400, marginTop: '6px' }}
                             >
                               {formatText(f.description)}
