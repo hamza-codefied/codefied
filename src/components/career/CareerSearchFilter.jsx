@@ -103,7 +103,9 @@ const CareerSearchFilter = ({ filters, setFilters }) => {
             >
               <div className='flex items-center gap-2 sm:gap-3'>
                 <HiOutlineLocationMarker className='text-[#d4575b] w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0' />
-                <span className='text-left truncate'>{filters.location}</span>
+                <span className='text-left text-[16px] text-[#fff] font-medium'>
+                  {filters.location}
+                </span>
               </div>
               <IoIosArrowDown
                 className={`text-white w-4 h-4 transition-transform duration-200 flex-shrink-0 ${
@@ -137,7 +139,9 @@ const CareerSearchFilter = ({ filters, setFilters }) => {
             >
               <div className='flex items-center gap-2 sm:gap-3'>
                 <BsBarChart className='text-[#d4575b] w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0' />
-                <span className='text-left truncate'>{filters.jobLevel}</span>
+                <span className='text-left text-[16px] text-[#fff] font-medium truncate'>
+                  {filters.jobLevel}
+                </span>
               </div>
               <IoIosArrowDown
                 className={`text-white w-4 h-4 transition-transform duration-200 flex-shrink-0 ${
@@ -173,7 +177,9 @@ const CareerSearchFilter = ({ filters, setFilters }) => {
             >
               <div className='flex items-center gap-2 sm:gap-3'>
                 <FaBriefcase className='text-[#d4575b] w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0' />
-                <span className='text-left truncate'>{filters.department}</span>
+                <span className='text-left text-[16px] text-[#fff] font-medium truncate'>
+                  {filters.department}
+                </span>
               </div>
               <IoIosArrowDown
                 className={`text-white w-4 h-4 transition-transform duration-200 flex-shrink-0 ${

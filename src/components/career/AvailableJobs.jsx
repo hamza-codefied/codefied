@@ -150,7 +150,7 @@ const AvailableJobs = ({ filters }) => {
 
   return (
     <div id='available-jobs' className='container m-auto px-4 sm:px-6 md:px-8 py-8 md:py-12'>
-      <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-6 md:mb-8 text-center md:text-start'>
+      <h2 className='text-2xl sm:text-3xl md:text-[34px] font-medium text-black mb-6 md:mb-8 text-center md:text-start'>
         Available Jobs
       </h2>
 
@@ -168,23 +168,23 @@ const AvailableJobs = ({ filters }) => {
           {filteredJobs.map((job, index) => (
             <div
               key={`${job.id}-${filters.location}-${filters.jobLevel}-${filters.department}-${filters.searchQuery}`}
-              className={`border rounded-xl p-2 cursor-pointer transition-all duration-300 border-gray-200 bg-[#fafafa] hover:border-[#d4575b] hover:bg-red-100 job-item-enter`}
+              className={`w-full h-[131px] border rounded-xl p-2 cursor-pointer transition-all duration-300 border-gray-200 bg-[#fafafa] hover:border-[#d4575b] hover:bg-red-100 job-item-enter`}
               style={{
                 animationDelay: `${index * 0.1}s`,
                 opacity: isFiltering ? 0 : 1,
               }}
             >
-              <div className='flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6'>
+              <div className='h-full flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6'>
                 {/* Company Icon */}
-                <div className='bg-black rounded-lg w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center justify-center flex-shrink-0'>
-                  <span className='text-white text-lg sm:text-5xl font-semibold'>
+                <div className='bg-black rounded-lg w-12 h-12 sm:w-14 sm:h-14 md:w-[111px] md:h-[104px] flex items-center justify-center flex-shrink-0'>
+                  <span className='text-white text-lg sm:text-5xl md:text-[60px] font-semibold'>
                     {job.companyInitial}
                   </span>
                 </div>
 
                 {/* Job Title */}
                 <div className='flex flex-wrap items-center justify-between px-6 w-full gap-4'>
-                  <h3 className='text-lg sm:text-xl md:text-2xl text-black mb-3 mt-0 sm:mt-5 sm:mb-4 w-[250px]'>
+                  <h3 className='text-lg sm:text-xl md:text-2xl text-black font-regular mb-3 mt-0 sm:mt-5 sm:mb-4 w-[250px]'>
                     {job.title}
                   </h3>
 
@@ -196,7 +196,7 @@ const AvailableJobs = ({ filters }) => {
                         Location
                       </span>
                     </div>
-                    <span className='text-black text-sm sm:text-base'>
+                    <span className='text-black text-sm sm:text-[24px] font-normal'>
                       {job.location}
                     </span>
                   </div>
@@ -209,7 +209,7 @@ const AvailableJobs = ({ filters }) => {
                         Job Level
                       </span>
                     </div>
-                    <span className='text-black text-sm sm:text-base'>
+                    <span className='text-black text-sm sm:text-[24px] font-normal'>
                       {job.jobLevel}
                     </span>
                   </div>
@@ -222,7 +222,7 @@ const AvailableJobs = ({ filters }) => {
                         Department
                       </span>
                     </div>
-                    <span className='text-black text-sm sm:text-base'>
+                    <span className='text-black text-sm sm:text-[24px] font-normal'>
                       {job.department}
                     </span>
                   </div>
@@ -233,7 +233,7 @@ const AvailableJobs = ({ filters }) => {
                       e.stopPropagation();
                       handleApply(job.id);
                     }}
-                    className='bg-[#d4575b] hover:bg-[#c04a4e] text-white font-medium px-6 py-1.5 text-sm sm:text-sm transition-colors duration-200 whitespace-nowrap flex-shrink-0 w-full sm:w-auto rounded-full'
+                    className='bg-[#d4575b] hover:bg-[#c04a4e] text-white font-normal w-[147px] h-[51px] text-sm sm:text-base transition-colors duration-200 rounded-[50px] p-[10px]'
                   >
                     Apply
                   </button>

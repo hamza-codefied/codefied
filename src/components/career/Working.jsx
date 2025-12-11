@@ -351,7 +351,11 @@ export const Working = () => {
         }
       >
         {/* Left side - Heading and heroSubText */}
-        <div className={'flex flex-col w-full xl:w-[45%] gap-8 xl:sticky xl:top-28 xl:h-fit'}>
+        <div
+          className={
+            'flex flex-col w-full xl:w-[45%] gap-8 xl:sticky xl:top-28 xl:h-fit'
+          }
+        >
           {/* Heading container - will animate from top to here */}
           <div className='heading-container' style={{ width: 'fit-content' }}>
             <h1
@@ -392,13 +396,13 @@ export const Working = () => {
         >
           {features.map(({ title, desc }) => (
             <div ref={addToRefs} className='w-full' key={title}>
-              <h2 className={'text-xl md:text-2xl mb-2'}>{title}</h2>
-              <p className={'mb-4 text-sm md:text-base'}>{desc}</p>
-              <a
-                className={
-                  'text-sm font-semibold text-[#d4575b] underline cursor-pointer flex items-center justify-start gap-2'
-                }
-              >
+              <h2 className={'text-xl md:text-2xl text-black font-medium mb-2'}>
+                {title}
+              </h2>
+              <p className={'mb-4 text-sm md:text-base text-black font-normal'}>
+                {desc}
+              </p>
+              <a className='text-sm font-semibold text-[#d4575b] underline underline-offset-[6px] cursor-pointer flex items-center justify-start gap-2'>
                 Learn More
                 <IoIosArrowDroprightCircle className='text-black' />
               </a>
