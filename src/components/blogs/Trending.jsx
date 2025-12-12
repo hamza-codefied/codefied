@@ -23,29 +23,30 @@ const containerVariants = {
 const FeaturedSection = () => {
   return (
     <div className='container m-auto px-8'>
-      <section className='relative top-0 lg:top-[-50px] rounded-3xl text-white overflow-hidden' style={{ backgroundColor: '#0C0C0C' }}>
-        {/* Subtle gradient glow background */}
-        <div className='absolute inset-0 bg-gradient-to-tr from-[#d4575b]/20 via-transparent to-[#d4575b]/10 blur-3xl' />
-
+      <section className='relative mt-0 lg:mt-[-70px] h-auto xl:h-[447px] bg-[#0c0c0c] rounded-[24px] text-white overflow-hidden p-[50px]'>
         <motion.div
           variants={containerVariants}
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true, amount: 0.3 }}
-          className='relative z-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center'
-          style={{
-            gap: 'clamp(20px, 3vw, 38px)',
-            padding: 'clamp(30px, 5vw, 65px)'
-          }}
+          className='relative z-10 grid grid-cols-1 md:grid-cols-2 h-full gap-[38px]'
+          style={
+            {
+              // gap: 'clamp(20px, 3vw, 38px)',
+              // padding: 'clamp(30px, 5vw, 65px)'
+            }
+          }
         >
           {/* Left Column (Text) */}
           <motion.div
             variants={textVariants}
             className='text-center md:text-left'
-            style={{
-              maxWidth: 'clamp(100%, 50vw, 552px)',
-              width: '100%'
-            }}
+            style={
+              {
+                // maxWidth: 'clamp(100%, 50vw, 552px)',
+                // width: '100%',
+              }
+            }
           >
             <motion.span
               className='text-[#d4575b] block'
@@ -55,28 +56,28 @@ const FeaturedSection = () => {
               style={{
                 fontSize: 'clamp(18px, 2.5vw, 24px)',
                 fontWeight: 700,
-                marginBottom: 'clamp(15px, 2vw, 22px)'
+                // marginBottom: 'clamp(15px, 2vw, 22px)',
               }}
             >
               Trending Post
             </motion.span>
 
             <motion.h2
-              className='font-bold'
+              className='font-bold text-[44px] leading-[1.2] mt-5'
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: 'easeOut', delay: 0.4 }}
               style={{
-                fontSize: 'clamp(28px, 4vw, 44px)',
+                // fontSize: 'clamp(28px, 4vw, 44px)',
                 fontWeight: 700,
-                marginBottom: 'clamp(15px, 2vw, 20px)'
+                // marginBottom: 'clamp(15px, 2vw, 20px)',
               }}
             >
               New invoicing features to help you get paid faster
             </motion.h2>
 
             <motion.p
-              className='max-w-xl mx-auto md:mx-0'
+              className='max-w-xl mx-auto md:mx-0 mt-5 mb-[41px]'
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: 'easeOut', delay: 0.6 }}
@@ -84,7 +85,7 @@ const FeaturedSection = () => {
                 fontSize: 'clamp(14px, 1.8vw, 16px)',
                 fontWeight: 400,
                 color: '#828282',
-                marginBottom: 'clamp(25px, 3.5vw, 41px)'
+                // marginBottom: 'clamp(25px, 3.5vw, 21px)',
               }}
             >
               Over the past few months, we've added several new features to SaaS
@@ -99,7 +100,7 @@ const FeaturedSection = () => {
               transition={{ duration: 1, ease: 'easeOut', delay: 0.6 }}
               style={{
                 fontSize: 'clamp(14px, 1.8vw, 16px)',
-                fontWeight: 500
+                fontWeight: 500,
               }}
             >
               Rohail Naveed | November 8, 2021
@@ -109,18 +110,14 @@ const FeaturedSection = () => {
           {/* Right Column (Image) */}
           <motion.div
             variants={imageVariants}
-            className='flex justify-center md:justify-end relative'
-            style={{
-              width: '100%',
-              maxWidth: 'clamp(100%, 50vw, 552px)'
-            }}
+            className='flex justify-center md:justify-end relative w-full xl:w-[552px] h-[319px]'
+            style={
+              {
+                // width: '100%',
+                // maxWidth: 'clamp(100%, 50vw, 552px)'
+              }
+            }
           >
-            <motion.div
-              className='absolute inset-0 bg-gradient-to-t from-[#d4575b]/20 to-transparent rounded-2xl blur-2xl'
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 1.2, delay: 0.4 }}
-            />
             <motion.img
               src={blogImage}
               alt='Legal tech illustration'

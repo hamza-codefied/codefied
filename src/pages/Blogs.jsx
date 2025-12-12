@@ -11,9 +11,9 @@ export const Blogs = () => {
         classNames={'h-[100px] md:h-[200px] lg:h-[450px]'}
         BannerText={'Blogs'}
         bannerTextAdjust={{
-          fontSize: 'clamp(40px, 20vw, 600px)', // responsive font size
+          fontSize: 'clamp(40px, 22vw, 600px)', // responsive font size
           lineHeight: 1,
-          transform: 'translateY(15%)', // cut half of the text
+          // transform: 'translateY(%)', // cut half of the text
         }}
       />
       <FeaturedSection />

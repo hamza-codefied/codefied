@@ -21,9 +21,7 @@ const HeroBanner = ({
             absolute bottom-0 w-full text-black/10 font-extralight text-center
             whitespace-nowrap 
           '
-          style={
-            bannerTextAdjust
-          }
+          style={bannerTextAdjust}
         >
           {BannerText}
         </p>
@@ -31,21 +29,9 @@ const HeroBanner = ({
         {/*  */}
         {/* Foreground Text (HTML supported) */}
         <div className='py-28 px-8'>
-          {TopText && (
-            <div className=''>
-              {TopText}
-            </div>
-          )}
-          {MainText && (
-            <div className=''>
-              {MainText}
-            </div>
-          )}
-          {BottomText && (
-            <div className=''>
-              {BottomText}
-            </div>
-          )}
+          {TopText && <div className=''>{TopText}</div>}
+          {MainText && <div className=''>{MainText}</div>}
+          {BottomText && <div className=''>{BottomText}</div>}
         </div>
       </div>
     </div>

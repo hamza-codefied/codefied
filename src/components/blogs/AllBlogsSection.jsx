@@ -44,7 +44,7 @@ export default function AllBlogsSection() {
             style={{
               fontSize: 'clamp(32px, 5vw, 56px)',
               fontWeight: 700,
-              marginBottom: '30px'
+              marginBottom: '30px',
             }}
           >
             All Blogs
@@ -62,17 +62,18 @@ export default function AllBlogsSection() {
               <button
                 key={cat.id}
                 onClick={() => setActiveTab(cat.id)}
-                className={`rounded-full transition-all duration-300 ${activeTab === cat.id
-                  ? 'bg-black text-white shadow-lg scale-105'
-                  : 'bg-white text-black hover:bg-gray-100 hover:scale-105'
-                  }`}
+                className={`rounded-full transition-all duration-300 ${
+                  activeTab === cat.id
+                    ? 'bg-black text-white shadow-lg scale-105'
+                    : 'bg-white text-black hover:bg-gray-100 hover:scale-105'
+                }`}
                 style={{
                   fontSize: 'clamp(14px, 2vw, 18px)',
                   fontWeight: 500,
                   paddingTop: '12px',
                   paddingBottom: '12px',
                   paddingLeft: '22px',
-                  paddingRight: '22px'
+                  paddingRight: '22px',
                 }}
               >
                 {formatText(cat.label)}
@@ -111,25 +112,25 @@ export default function AllBlogsSection() {
                     className='font-bold'
                     style={{
                       fontSize: 'clamp(18px, 2.5vw, 24px)',
-                      fontWeight: 700
+                      fontWeight: 700,
                     }}
                   >
                     {formatText(blog.title)}
                   </h3>
                   <p
-                    className='text-gray-400 line-clamp-1'
+                    className='text-[#000] line-clamp-1'
                     style={{
                       fontSize: 'clamp(14px, 1.8vw, 16px)',
-                      fontWeight: 400
+                      fontWeight: 400,
                     }}
                   >
                     {formatText(blog.description)}
                   </p>
                   <p
-                    className='text-gray-400'
+                    className='text-[#000]'
                     style={{
                       fontSize: 'clamp(14px, 1.8vw, 16px)',
-                      fontWeight: 400
+                      fontWeight: 400,
                     }}
                   >
                     {blog.author} <span style={{ fontFamily: 'Arial' }}>|</span>{' '}
