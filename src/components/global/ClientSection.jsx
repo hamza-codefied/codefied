@@ -20,7 +20,7 @@ export const ClientSection = () => {
     speed: 4000,
     autoplay: true,
     autoplaySpeed: 0,
-    cssEase: "linear",
+    cssEase: 'linear',
     slidesToShow: 6,
     slidesToScroll: 1,
     pauseOnHover: false,
@@ -55,13 +55,17 @@ export const ClientSection = () => {
     <>
       <div className='h-[15vh] bg-[#242424] '>
         <div className='relative flex justify-center items-center'>
-          <div className='bg-black text-white text-xs w-fit mx-auto px-4 py-2 rounded-full absolute z-10 -top-[15px] h-[30px]' style={{ fontFamily: 'Arial, sans-serif' }}>
-            Trusted By <span style={{ fontFamily: 'Arial, sans-serif' }}>250+</span> Companies
+          <div
+            className='bg-black text-white text-xs w-fit mx-auto px-[25px] py-[15px] rounded-full absolute z-10 -top-[22px] h-[46px]'
+            style={{ fontFamily: 'Arial, sans-serif' }}
+          >
+            Trusted By{' '}
+            <span style={{ fontFamily: 'Arial, sans-serif' }}>250+</span>{' '}
+            Companies
           </div>
         </div>
         <div className='h-full flex items-center'>
           <section className='w-full'>
-
             <Marquee
               gradient={true}
               gradientWidth={60}
@@ -70,10 +74,13 @@ export const ClientSection = () => {
               pauseOnHover={true}
               loop={0}
               className='flex items-center '
-              style={{ display: "flex", gap: '32px' }}
+              style={{ display: 'flex', gap: '32px' }}
             >
               {seamlessClients.map((src, i) => (
-                <div key={i} className='flex justify-center items-center mx-10 gap-[32px]'>
+                <div
+                  key={i}
+                  className='flex justify-center items-center mx-10 gap-[32px]'
+                >
                   <img
                     src={src}
                     alt={`Client ${i + 1}`}

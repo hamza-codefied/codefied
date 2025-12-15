@@ -45,14 +45,17 @@ export const OurCapabilities = () => {
 
   return (
     // <section className='bg-white text-center py-6 px-6 overflow-hidden'>
-    <section className='bg-white text-center px-6 overflow-hidden' style={{ paddingTop: '134px', paddingBottom: '150px' }}>
+    <section
+      className='bg-white text-center px-6 overflow-hidden'
+      style={{ paddingTop: '134px', paddingBottom: '150px' }}
+    >
       {/* 🔴 Tag */}
       <div className='inline-block uppercase text-[#D4575B] text-[14px] font-normal mb-1'>
         Our Capabilities
       </div>
 
       {/* 🏷️ Heading */}
-      <h2 className="pt-[16px] mb-[53px] text-[54px] font-semibold text-black">
+      <h2 className='pt-[16px] mb-[53px] text-[54px] font-semibold text-black'>
         We can help you with...
       </h2>
 
@@ -60,7 +63,7 @@ export const OurCapabilities = () => {
       <motion.div
         layout
         transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-        className='flex flex-wrap justify-center gap-2 max-w-[1600px] mx-auto '
+        className='flex flex-wrap justify-center gap-3 max-w-[1600px] mx-auto '
       >
         <AnimatePresence>
           {allCapabilities.slice(0, visibleCount).map((capability, index) => (
@@ -73,15 +76,15 @@ export const OurCapabilities = () => {
               transition={{ duration: 0.3 }}
               style={{
                 letterSpacing: '1.5px',
+                padding: '11px 27.885px 12.19px 35.085px',
               }}
-              className='bg-[#D4575B] bg-opacity-80 text-white text-xs px-8 py-4 rounded-lg hover:scale-105 transition-transform duration-300'
+              className='bg-[#D4575B] text-white text-[17px] rounded-[8px] hover:scale-105 transition-transform duration-300'
             >
               {formatText(capability)}
             </motion.div>
           ))}
         </AnimatePresence>
       </motion.div>
-
 
       <div className='pt-[53px] flex justify-center'>
         <button
@@ -95,7 +98,7 @@ export const OurCapabilities = () => {
               className='w-[25px] h-[25px] text-[#D4575B] transition-all duration-300'
               style={{
                 animation: loading ? 'spin 1s linear infinite' : 'none',
-                opacity: loading ? 1 : 0.5,           // subtle when idle
+                opacity: loading ? 1 : 0.5, // subtle when idle
               }}
             />
           </div>

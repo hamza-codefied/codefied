@@ -76,17 +76,19 @@ export default function FAQSection() {
         <div className=''>
           {/* Heading */}
           <div className='text-center '>
-            <h2 class="text-[48px] font-semibold">
-              <span class="text-[#d4575b]">Frequently</span> Asked Questions
+            <h2 class='text-[48px] font-semibold'>
+              <span class='text-[#d4575b]'>Frequently</span> Asked Questions
             </h2>
-            <p class="text-gray-400 mt-[20px] mb-[20px]  text-[18px] font-normal max-w-4xl mx-auto">
-              {formatText("Got questions? We've got answers. Check out our frequently asked questions section to find valuable insights into our processes, pricing, and more. Transparency is at the core of our client interactions.")}
+            <p class='text-[#808080] mt-[20px] mb-[20px] text-[18px] font-normal max-w-4xl mx-auto'>
+              {formatText(
+                "Got questions? We've got answers. Check out our frequently asked questions section to find valuable insights into our processes, pricing, and more. Transparency is at the core of our client interactions."
+              )}
             </p>
           </div>
 
           {/* Search bar */}
           <div className='relative max-w-2xl mx-auto mb-[60px]'>
-            <FiSearch className='absolute top-1/2 left-4 transform -translate-y-1/2 text-[#262626]' />
+            <FiSearch className='absolute top-1/2 left-4 transform -translate-y-1/2 text-[#666]' />
             <input
               type='text'
               placeholder='Search'

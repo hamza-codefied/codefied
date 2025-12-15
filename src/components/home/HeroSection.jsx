@@ -41,7 +41,7 @@ export default function HeroSection() {
         <div className='container m-auto'>
           <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
             <div className='text-center flex space-y-[18px] flex-col'>
-              <h1 className='text-3xl md:text-4xl lg:text-6xl font-bold text-gray-900'>
+              <h1 className='text-3xl md:text-4xl lg:text-6xl xl:text-[90px] font-bold text-[#000]'>
                 <TypeAnimation
                   sequence={[
                     'Code.',
@@ -57,16 +57,16 @@ export default function HeroSection() {
                 />
               </h1>
 
-              <p className='text-sm md:text-base lg:text-1xl text-gray-600 w-full lg:w-[50%] mx-auto'>
+              <p className='text-sm md:text-base lg:text-[24px] text-[#2e2e2e] w-full lg:w-[70%] mx-auto lg:leading-[1.1]'>
                 {formatText(
                   "At codefied, we're not just building software; we're shaping the future with cutting-edge technology and unparalleled quality."
                 )}
               </p>
 
-              <div>
+              <div className='flex justify-center items-center pt-[20px]'>
                 <button
-                  className='btn-hover-bounce border border-transparent text-sm lg:text-base text-white rounded-md py-3 px-6 bg-[#d4575b] transition-all duration-300 hover:bg-transparent hover:text-[#d4575b] hover:border-[#d4575b] hover:shadow-[0_15px_40px_rgba(212,87,91,0.5)] active:translate-y-0'
-                  style={{ fontWeight: 400 }}
+                  className='btn-hover-bounce border border-transparent text-sm lg:text-[24px] font-medium text-white w-[370px] h-[81px] gap-[10px] flex items-center justify-center rounded-[10px] p-[10px] bg-[#d4575b] transition-all duration-300 hover:bg-transparent hover:text-[#d4575b] hover:border-[#d4575b] hover:shadow-[0_15px_40px_rgba(212,87,91,0.5)] active:translate-y-0'
+                  style={{ fontWeight: 500 }}
                 >
                   Get A Free Consultation
                 </button>

@@ -39,18 +39,17 @@ const FeaturedProducts = () => {
   return (
     <div className='container m-auto'>
       <section
-        id="products"
-        className="relative bg-cover bg-center bg-no-repeat text-black 
+        id='products'
+        className='relative bg-cover bg-center bg-no-repeat text-black 
              py-10 px-10                
-             rounded-3xl"
+             rounded-3xl'
         style={{ backgroundImage: `url(${featurebg})` }}
       >
         <div className='relative z-10 text-center '>
-          <h2 className='text-[42px] font-bold mb-2'>
-            Featured Products
-          </h2>
+          <h2 className='text-[42px] font-bold mb-2'>Featured Products</h2>
           <p className='text-[24px] font-normal mb-20 text-black'>
-            From concept to launch, we cover the entire spectrum of digital innovation.
+            From concept to launch, we cover the entire spectrum of digital
+            innovation.
           </p>
 
           {/* Product Cards */}
@@ -68,11 +67,14 @@ const FeaturedProducts = () => {
                     {formatText(product.description)}
                   </p>
                   <a
-                    href="#"
-                    className="text-black text-[16px] font-bold mb-6 flex items-center gap-[7px] underline"
+                    href='#'
+                    className='text-black text-[16px] font-medium mb-6 flex items-center gap-[7px] underline underline-offset-[6px]'
                   >
                     View Product
-                    <IoIosArrowDroprightCircle className="text-black" size={14} />
+                    <IoIosArrowDroprightCircle
+                      className='text-black'
+                      size={18}
+                    />
                   </a>
                 </div>
 

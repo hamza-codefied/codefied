@@ -334,7 +334,7 @@ export const Developerit = () => {
   return (
     <div
       id='developer-it'
-      className='container m-auto px-8 pb-20 relative w-full'
+      className='container m-auto px-8 pb-40 relative w-full'
     >
       {/* Spacer to push content down initially on xl screens */}
       <div className='h-[50vh] xl:block hidden'></div>
@@ -399,7 +399,7 @@ export const Developerit = () => {
               <p className={'mb-4 text-sm md:text-base'}>{formatText(desc)}</p>
               <a
                 className={
-                  'text-sm font-semibold text-[#d4575b] underline cursor-pointer flex items-center justify-start gap-2'
+                  'text-sm font-semibold text-[#d4575b] underline underline-offset-[6px] cursor-pointer flex items-center justify-start gap-2'
                 }
               >
                 Learn More
