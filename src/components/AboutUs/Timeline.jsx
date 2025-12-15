@@ -17,19 +17,19 @@ const timelineData = [
     year: '2016',
     title: 'First Major Milestone',
     description:
-      'We achieved our first major milestone by delivering enterprise-grade solutions that transformed client operations and user experiences.',
+      'At Codeified Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions. At Codeified Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions.',
   },
   {
     year: '2018',
     title: 'Global Expansion',
     description:
-      'Expanding globally, we built cross-functional teams that combined creativity and technology to serve clients around the world.',
+      'At Codeified Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions. At Codeified Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions.',
   },
   {
     year: '2020',
     title: 'Innovation Recognition',
     description:
-      'Our innovative approach earned industry recognition, positioning us as one of the most promising digital solution providers.',
+      'At Codeified Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions. At Codeified Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions.',
   },
 ];
 
@@ -57,10 +57,16 @@ const Timeline = () => {
     const lines = lineRefs.current.filter(Boolean);
 
     // Make heading and vertical line sticky together at top
-    if (stickyContainerRef.current && sectionRef.current && timelineRef.current) {
+    if (
+      stickyContainerRef.current &&
+      sectionRef.current &&
+      timelineRef.current
+    ) {
       // Set vertical line to extend through the timeline
       const timelineHeight = timelineRef.current.offsetHeight;
-      const headingHeight = headingRef.current ? headingRef.current.offsetHeight : 0;
+      const headingHeight = headingRef.current
+        ? headingRef.current.offsetHeight
+        : 0;
 
       if (verticalLineRef.current) {
         // Line should extend from below heading through the timeline
@@ -137,19 +143,27 @@ const Timeline = () => {
         duration: 0.4,
         ease: 'power2.out',
       })
-        .to([dot, year], {
-          y: 0,
-          opacity: 1,
-          scale: 1,
-          duration: 0.4,
-          ease: 'power2.out',
-        }, '-=0.4') // Start at same time as card
+        .to(
+          [dot, year],
+          {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 0.4,
+            ease: 'power2.out',
+          },
+          '-=0.4'
+        ) // Start at same time as card
         // Step 2: When card reaches position, fade in horizontal line
-        .to(line, {
-          opacity: 1,
-          duration: 0.2,
-          ease: 'power2.out',
-        }, '-=0.1') // Start slightly before animations complete
+        .to(
+          line,
+          {
+            opacity: 1,
+            duration: 0.2,
+            ease: 'power2.out',
+          },
+          '-=0.1'
+        ) // Start slightly before animations complete
         // Step 3: Hold at center (shorter hold)
         .to([card, dot, year, mobileYear, line].filter(Boolean), {
           duration: 0.1,
@@ -178,37 +192,37 @@ const Timeline = () => {
     };
   }, []);
 
-  const addToRefs = (el) => {
+  const addToRefs = el => {
     if (el && !itemRefs.current.includes(el)) {
       itemRefs.current.push(el);
     }
   };
 
-  const addCardToRefs = (el) => {
+  const addCardToRefs = el => {
     if (el && !cardRefs.current.includes(el)) {
       cardRefs.current.push(el);
     }
   };
 
-  const addDotToRefs = (el) => {
+  const addDotToRefs = el => {
     if (el && !dotRefs.current.includes(el)) {
       dotRefs.current.push(el);
     }
   };
 
-  const addYearToRefs = (el) => {
+  const addYearToRefs = el => {
     if (el && !yearRefs.current.includes(el)) {
       yearRefs.current.push(el);
     }
   };
 
-  const addMobileYearToRefs = (el) => {
+  const addMobileYearToRefs = el => {
     if (el && !mobileYearRefs.current.includes(el)) {
       mobileYearRefs.current.push(el);
     }
   };
 
-  const addLineToRefs = (el) => {
+  const addLineToRefs = el => {
     if (el && !lineRefs.current.includes(el)) {
       lineRefs.current.push(el);
     }
@@ -221,49 +235,77 @@ const Timeline = () => {
       className='relative bg-cover bg-center bg-no-repeat py-32 px-4 md:px-10 lg:px-20 min-h-screen'
       style={{ backgroundImage: `url(${hero_bg})` }}
     >
+      {/* Top fade overlay */}
+      <div
+        className='absolute top-0 left-0 right-0 h-16 pointer-events-none z-0'
+        style={{
+          background: 'linear-gradient(to bottom, white, transparent)',
+        }}
+      />
+
       <div className='container m-auto px-8'>
         {/* Sticky Container - Heading and Vertical Line */}
         <div ref={stickyContainerRef} className='relative max-w-6xl mx-auto'>
           {/* Heading */}
-          <div ref={headingRef} className='text-center z-20 bg-transparent py-4'>
+          <div
+            ref={headingRef}
+            className='text-center z-20 bg-transparent py-4'
+          >
             {/* Tag */}
-            <span className='uppercase tracking-widest text-[#d4575b] text-sm font-semibold'>
+            <span className='uppercase tracking-widest text-[#d4575b] text-[16px] font-normal'>
               Timeline
             </span>
 
             {/* Heading */}
-            <h2 className='text-2xl md:text-3xl lg:text-4xl font-bold text-black mt-2'>
+            <h2 className='text-2xl md:text-3xl lg:text-[54px] font-semibold text-black mt-2 lg:leading-[58px] tracking-[-0.81px]'>
               Our Journey Through <br /> Years
             </h2>
           </div>
 
           {/* Vertical Line - starts below heading */}
-          <div ref={verticalLineRef} className='absolute left-1/2 transform -translate-x-1/2 w-[3px] bg-[#3f3f3f] top-full' />
+          <div
+            ref={verticalLineRef}
+            className='absolute left-1/2 transform -translate-x-1/2 w-[3px] bg-[#3f3f3f] top-full'
+          />
         </div>
 
         {/* Timeline Container */}
-        <div ref={timelineRef} className='relative mt-20 md:mt-32 max-w-6xl mx-auto pb-64 md:pb-96'>
-
+        <div
+          ref={timelineRef}
+          className='relative mt-20 md:mt-32 max-w-6xl mx-auto pb-64 md:pb-96'
+        >
           <div className='flex flex-col space-y-56 md:space-y-80'>
             {timelineData.map((item, index) => {
               const isLeft = index % 2 !== 0;
+              const cardStyles = [
+                { borderColor: '#5AB1E8', borderWidth: '0px' },
+                { borderColor: '#FEC84B', borderWidth: '0px' },
+                { borderColor: '#D4575B', borderWidth: '0px' },
+                { borderColor: '#34C759', borderWidth: '0px' },
+              ];
+              const currentStyle = cardStyles[index] || cardStyles[0];
               return (
                 <div
                   key={index}
                   ref={addToRefs}
-                  className={`relative flex flex-col md:flex-row items-start ${isLeft ? 'md:justify-center' : 'md:justify-center'
-                    }`}
+                  className={`relative flex flex-col md:flex-row items-start ${
+                    isLeft ? 'md:justify-center' : 'md:justify-center'
+                  }`}
                 >
                   {/* Connector Dot - moves with section */}
-                  <div ref={addDotToRefs} className='absolute left-1/2 transform -translate-x-1/2 bg-black w-7 h-7 rounded-full border-8 border-[#d4575b] z-10 shadow-md' />
+                  <div
+                    ref={addDotToRefs}
+                    className='absolute left-1/2 transform -translate-x-1/2 bg-black w-7 h-7 rounded-full border-8 border-[#d4575b] z-10 shadow-md'
+                  />
 
                   {/* Horizontal Dotted Line */}
                   <div
                     ref={addLineToRefs}
-                    className={`hidden md:block absolute top-3.5 w-[400px] border-t-4 border-dotted border-black ${isLeft
-                      ? 'right-1/2 -translate-x-[8px]'
-                      : 'left-1/2 translate-x-[8px]'
-                      } z-0`}
+                    className={`hidden md:block absolute top-3.5 w-[564px] border-t-4 border-dotted border-black ${
+                      isLeft
+                        ? 'right-1/2 -translate-x-[8px]'
+                        : 'left-1/2 translate-x-[8px]'
+                    } z-0`}
                   />
 
                   <div>
@@ -271,15 +313,14 @@ const Timeline = () => {
                     {/* Desktop version - above dotted line */}
                     <span
                       ref={addYearToRefs}
-                      className={`hidden xl:block absolute text-black font-semibold text-sm md:text-base ${isLeft
-                        ? 'md:right-[41%]'
-                        : 'md:left-[41%]'
-                        }`}
+                      className={`hidden xl:block absolute text-black font-semibold text-sm md:text-base ${
+                        isLeft ? 'md:right-[41%]' : 'md:left-[41%]'
+                      }`}
                       style={{
                         fontSize: '34px',
                         fontWeight: 700,
                         top: '4px',
-                        transform: 'translateY(-60px)' // Move up by gap (26px) + year height (~34px) = ~60px to create same gap as dotted line to card
+                        transform: 'translateY(-60px)', // Move up by gap (26px) + year height (~34px) = ~60px to create same gap as dotted line to card
                       }}
                     >
                       {item.year}
@@ -288,15 +329,29 @@ const Timeline = () => {
                     {/* Card */}
                     <div
                       ref={addCardToRefs}
-                      className={`relative mt-10 w-full md:w-[55%] bg-white shadow-lg rounded-2xl p-4 border border-gray-100 ${isLeft
-                        ? 'md:right-[8%] md:text-right'
-                        : 'md:left-[53%] md:text-left '
-                        }`}
+                      className={`relative mt-10 w-full md:w-[564px] h-[267px] rounded-[20px] p-[20px] ${
+                        isLeft
+                          ? 'md:right-[53%] md:text-right'
+                          : 'md:left-[53%] md:text-left'
+                      }`}
+                      style={{
+                        border: `${currentStyle.borderWidth} solid ${currentStyle.borderColor}`,
+                        boxShadow: `0 0 20px ${currentStyle.borderColor}`,
+                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                        backdropFilter: 'blur(14px)',
+                        WebkitBackdropFilter: 'blur(14px)',
+                      }}
                     >
-                      <h3 className='text-gray-800 mb-2' style={{ fontSize: '22px', fontWeight: 500 }}>
+                      <h3
+                        className='text-[#000] tracking-[-0.132px] mb-2'
+                        style={{ fontSize: '20px', fontWeight: 500 }}
+                      >
                         {formatText(item.title)}
                       </h3>
-                      <p className='text-gray-600 leading-relaxed' style={{ fontSize: '20px', fontWeight: 400 }}>
+                      <p
+                        className='text-[#3f3f3f] tracking-[-0.12px] leading-relaxed'
+                        style={{ fontSize: '20px', fontWeight: 400 }}
+                      >
                         {formatText(item.description)}
                       </p>
                     </div>

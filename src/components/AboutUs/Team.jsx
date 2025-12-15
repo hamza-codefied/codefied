@@ -41,7 +41,10 @@ const Team = () => {
           <div className=' grid grid-cols-1 md:grid-cols-2 gap-12 items-center h-full'>
             {/* LEFT COLUMN */}
             <div className='flex flex-col justify-center text-center md:text-left'>
-              <h2 className='text-[30px] font-[700] leading-snug text-white max-w-[575px]' style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}>
+              <h2
+                className='text-[30px] font-[700] leading-snug text-white max-w-[575px]'
+                style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
+              >
                 We Work As One! <br />
                 <span className='text-white'>
                   Innovation Is Our Core, Creativity Is In Our DNA,
@@ -49,16 +52,21 @@ const Team = () => {
                 And Launching And Growing Brands Is Our Passion.
               </h2>
 
-              <p className='text-[16px] font-[400] leading-relaxed max-w-lg mx-auto md:mx-0 text-gray-300 mt-[42px]'>
-                {formatText("Transform your ideas into powerful mobile applications with our expert development team. We create high-quality, user-friendly apps for both iOS and Android platforms, ensuring a seamless experience for your users.")}
+              <p className='text-[16px] font-[400] leading-relaxed max-w-lg mx-auto md:mx-0 text-[#FFF] mt-[42px]'>
+                {formatText(
+                  'Transform your ideas into powerful mobile applications with our expert development team. We create high-quality, user-friendly apps for both iOS and Android platforms, ensuring a seamless experience for your users.'
+                )}
               </p>
 
               <button
-                className='btn-hover-bounce border border-transparent text-sm lg:text-base text-white rounded-md py-3 px-6 bg-[#d4575b] transition-all duration-300 hover:bg-transparent hover:text-[#d4575b] hover:border-[#d4575b] hover:shadow-[0_15px_40px_rgba(212,87,91,0.5)] active:translate-y-0 flex items-center justify-center gap-[10px] mt-[42px] group'
+                className='w-[341px] h-[67px] p-[10px] gap-[10px] rounded-[10px] btn-hover-bounce border border-transparent text-[20px] text-white bg-[#d4575b] transition-all duration-300 hover:bg-transparent hover:text-[#d4575b] hover:border-[#d4575b] hover:shadow-[0_15px_40px_rgba(212,87,91,0.5)] active:translate-y-0 flex items-center justify-center mt-[42px] group'
                 style={{ fontWeight: 400 }}
               >
                 Get A Free Consultation
-                <GoArrowUpRight className='text-white group-hover:text-[#d4575b] transition-colors duration-300' style={{ fontSize: '30px' }} />
+                <GoArrowUpRight
+                  className='text-white group-hover:text-[#d4575b] transition-colors duration-300'
+                  style={{ fontSize: '20px' }}
+                />
               </button>
             </div>
 
@@ -70,7 +78,7 @@ const Team = () => {
                   className='absolute left-[6px] w-[2px] bg-white/80 z-0'
                   style={{
                     top: '40px', // Center of first circle (w-4 h-4 = 16px, so center is 8px)
-                    height: 'calc(6 * 4.8rem)' // 6 gaps × 2rem (space-y-8) = distance from first to last circle center
+                    height: 'calc(6 * 4.8rem)', // 6 gaps × 2rem (space-y-8) = distance from first to last circle center
                   }}
                 ></div>
                 {[
@@ -82,11 +90,15 @@ const Team = () => {
                   'Customer Support',
                   'Back Office',
                 ].map((role, idx) => (
-                  <li key={idx} className='flex items-center space-x-4 relative z-10'>
+                  <li
+                    key={idx}
+                    className='flex items-center space-x-4 relative z-10'
+                  >
                     {/* Bullet */}
                     <div
-                      className={`w-4 h-4 rounded-full relative z-20 ${idx === 0 ? 'bg-white ' : 'bg-[#d4575b]'
-                        }`}
+                      className={`w-4 h-4 rounded-full relative z-20 ${
+                        idx === 0 ? 'bg-white ' : 'bg-[#d4575b]'
+                      }`}
                     ></div>
                     {/* Label */}
                     <span className='text-white text-[24px] font-[400]'>
@@ -98,7 +110,6 @@ const Team = () => {
             </div>
           </div>
         </div>
-
       </section>
     </>
   );
