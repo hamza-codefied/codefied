@@ -26,7 +26,7 @@ export default function TestimonialsSection() {
             className='font-semibold text-gray-900 mb-[12px]'
             style={{
               fontSize: 'clamp(28px, 4vw, 50px)',
-              fontWeight: 600
+              fontWeight: 600,
             }}
           >
             People are Saying <br /> About{' '}
@@ -36,10 +36,12 @@ export default function TestimonialsSection() {
             className='text-black w-full leading-relaxed mb-[42px]'
             style={{
               fontSize: 'clamp(14px, 2vw, 18px)',
-              fontWeight: 500
+              fontWeight: 500,
             }}
           >
-            {formatText("Everything you need to accept payments and grow your money or manage it anywhere on the planet.")}
+            {formatText(
+              'Everything you need to accept payments and grow your money or manage it anywhere on the planet.'
+            )}
           </p>
 
           <img
@@ -49,7 +51,7 @@ export default function TestimonialsSection() {
             style={{
               width: 'clamp(35px, 4vw, 45px)',
               height: 'clamp(30px, 3.5vw, 38px)',
-              objectFit: 'contain'
+              objectFit: 'contain',
             }}
           />
 
@@ -57,10 +59,12 @@ export default function TestimonialsSection() {
             className='text-black w-full mb-[12px]'
             style={{
               fontSize: 'clamp(14px, 2vw, 18px)',
-              fontWeight: 500
+              fontWeight: 500,
             }}
           >
-            {formatText("I am very helped by this e-wallet application. My days are very easy to use this app and it's very helpful in my life — even I can pay in a short time.")}
+            {formatText(
+              "I am very helped by this e-wallet application. My days are very easy to use this app and it's very helpful in my life — even I can pay in a short time."
+            )}
           </blockquote>
           <p className='mb-[40px]'>😍</p>
 
@@ -68,7 +72,7 @@ export default function TestimonialsSection() {
             className='text-[#D4575B] mb-[40px]'
             style={{
               fontSize: 'clamp(14px, 2vw, 18px)',
-              fontWeight: 500
+              fontWeight: 500,
             }}
           >
             Aria Zhenario
@@ -83,7 +87,7 @@ export default function TestimonialsSection() {
               style={{
                 width: 'clamp(50px, 6vw, 66px)',
                 height: 'clamp(50px, 6vw, 66px)',
-                objectFit: 'cover'
+                objectFit: 'cover',
               }}
             />
             <img
@@ -93,7 +97,7 @@ export default function TestimonialsSection() {
               style={{
                 width: 'clamp(50px, 6vw, 66px)',
                 height: 'clamp(50px, 6vw, 66px)',
-                objectFit: 'cover'
+                objectFit: 'cover',
               }}
             />
             <img
@@ -103,7 +107,7 @@ export default function TestimonialsSection() {
               style={{
                 width: 'clamp(50px, 6vw, 66px)',
                 height: 'clamp(50px, 6vw, 66px)',
-                objectFit: 'cover'
+                objectFit: 'cover',
               }}
             />
             <img
@@ -113,7 +117,7 @@ export default function TestimonialsSection() {
               style={{
                 width: 'clamp(50px, 6vw, 66px)',
                 height: 'clamp(50px, 6vw, 66px)',
-                objectFit: 'cover'
+                objectFit: 'cover',
               }}
             />
             <img
@@ -123,7 +127,7 @@ export default function TestimonialsSection() {
               style={{
                 width: 'clamp(50px, 6vw, 66px)',
                 height: 'clamp(50px, 6vw, 66px)',
-                objectFit: 'cover'
+                objectFit: 'cover',
               }}
             />
           </div>
@@ -140,10 +144,16 @@ export default function TestimonialsSection() {
             className='bg-[#121212] text-white rounded-2xl shadow-lg px-8 lg:px-18 w-full pb-8 h-full'
             style={{
               maxWidth: 'clamp(100%, 50vw, 612px)',
-              width: '100%'
+              width: '100%',
             }}
           >
-            <div className='text-center' style={{ paddingTop: 'clamp(20px, 3vw, 40px)', paddingBottom: 'clamp(5px, 1vw, 10px)' }}>
+            <div
+              className='text-center'
+              style={{
+                paddingTop: 'clamp(20px, 3vw, 40px)',
+                paddingBottom: 'clamp(5px, 1vw, 10px)',
+              }}
+            >
               <img
                 src={coins}
                 alt='Get Started Icon'
@@ -152,7 +162,7 @@ export default function TestimonialsSection() {
                   width: 'clamp(50px, 6vw, 72px)',
                   height: 'clamp(60px, 7vw, 86px)',
                   objectFit: 'contain',
-                  marginBottom: 'clamp(5px, 1vw, 10px)'
+                  marginBottom: 'clamp(5px, 1vw, 10px)',
                 }}
               />
               <h3
@@ -160,7 +170,7 @@ export default function TestimonialsSection() {
                 style={{
                   fontSize: 'clamp(20px, 3vw, 30px)',
                   fontWeight: 500,
-                  marginBottom: 'clamp(5px, 1vw, 10px)'
+                  marginBottom: 'clamp(5px, 1vw, 10px)',
                 }}
               >
                 Get Started
@@ -197,7 +207,7 @@ export default function TestimonialsSection() {
                   fontWeight: 600,
                   paddingTop: 'clamp(16px, 2vw, 22px)',
                   paddingBottom: 'clamp(16px, 2vw, 22px)',
-                  marginBottom: 'clamp(5px, 1vw, 10px)'
+                  marginBottom: 'clamp(5px, 1vw, 10px)',
                 }}
               >
                 Request Demo
@@ -207,7 +217,7 @@ export default function TestimonialsSection() {
                 className='text-end text-gray-400'
                 style={{
                   fontSize: 'clamp(12px, 1.5vw, 14px)',
-                  fontWeight: 500
+                  fontWeight: 500,
                 }}
               >
                 or{' '}
@@ -217,6 +227,7 @@ export default function TestimonialsSection() {
           </div>
         </motion.div>
       </section>
+      <div className='h-[60px] sm:h-[200px]'></div>
     </div>
   );
 }
