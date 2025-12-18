@@ -37,7 +37,7 @@ import { formatText } from '@/utils/textFormatter';
 
 const FeaturedProducts = () => {
   return (
-    <div className='container m-auto'>
+    <div className='container xl:px-0'>
       <section
         id='products'
         className='relative bg-cover bg-center bg-no-repeat text-black 
@@ -46,7 +46,7 @@ const FeaturedProducts = () => {
         style={{ backgroundImage: `url(${featurebg})` }}
       >
         <div className='relative z-10 text-center '>
-          <h2 className='text-[42px] font-bold mb-2'>Featured Products</h2>
+          <h2 className='text-[42px] font-bold'>Featured Products</h2>
           <p className='text-[24px] font-normal mb-20 text-black'>
             From concept to launch, we cover the entire spectrum of digital
             innovation.

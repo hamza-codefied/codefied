@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GoArrowUpRight } from 'react-icons/go';
 import { formatText } from '@/utils/textFormatter';
+import hero_bg from '@/images/hero.png';
 
 const Vision = () => {
   const [activeTab, setActiveTab] = useState('vision');
 
   return (
-    <div className='container m-auto px-8 mt-[185px]'>
+    <div className='w-full mt-[185px] relative'>
       <style>{`
         @keyframes bounce-hover {
           0%, 100% {
@@ -33,85 +34,125 @@ const Vision = () => {
           font-weight: 600;
         }
       `}</style>
-      <section id='vision-mission' className='w-full bg-white text-black '>
-        <div className='text-start'>
-          {/* Heading */}
-          <h2 className='text-[44px] font-[700]'>
-            Innovating Solutions , <br />
-            Empowering your success
-          </h2>
 
-          {/* Paragraph */}
-          <p className='text-[20px] font-[400] leading-relaxed mt-[18px]' style={{ color: '#828282' }}>
-            {formatText("At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions.At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions.")}
-          </p>
+      {/* Background Image with Gradient Overlay - Full Width */}
+      <div
+        className='absolute bottom-0 left-0 right-0 h-[150px] bg-cover bg-center bg-no-repeat pointer-events-none'
+        style={{
+          backgroundImage: `url(${hero_bg})`,
+          backgroundPosition: 'center bottom',
+        }}
+      >
+        {/* Gradient overlay - transitions from transparent at top to visible at bottom */}
+        <div
+          className='absolute inset-0'
+          style={{
+            background:
+              'linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.95) 100%)',
+          }}
+        />
+      </div>
 
-          {/* Tabs */}
-          <div className='flex justify-start items-center flex-wrap gap-4 mt-[44px]'>
-            {['vision', 'mission'].map(tab => (
-              <motion.button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className={`px-8 py-[10px] rounded-[10px] text-[20px] font-[400] transition-all duration-300 ${activeTab === tab
-                  ? 'bg-[#d4575b] text-white'
-                  : 'bg-transparent text-gray-500 hover:text-[#d4575b] hover:underline'
-                  }`}
-              >
-                {tab === 'vision' ? 'Our Vision' : 'Our Mission'}
-              </motion.button>
-            ))}
-          </div>
+      <div className='container m-auto xl:px-0'>
+        <section id='vision-mission' className='w-full text-black relative'>
+          <div className='text-start'>
+            {/* Heading */}
+            <h2
+              style={{ letterSpacing: '-0.246px' }}
+              className='text-[44px] leading-normal font-bold'
+            >
+              Innovating Solutions , <br />
+              Empowering your success
+            </h2>
 
-          {/* Tab Content */}
-          <div className='mt-8 relative min-h-[200px]'>
-            <AnimatePresence mode='wait'>
-              {activeTab === 'vision' ? (
-                <motion.div
-                  key='vision'
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 20 }}
-                  transition={{ duration: 0.3, ease: 'easeInOut' }}
-                  className='border-l-2 border-[#d4575b] pl-6 py-4'
-                >
-                  <p className='text-black text-[20px] font-[400] leading-relaxed'>
-                    {formatText("At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions. Our team of dedicated professionals specializes in developing cutting-edge mobile apps, web apps, and immersive AR/VR experiences. As a product and service-based company, we pride ourselves on delivering exceptional quality and value to our clients.At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions. Our team of dedicated professionals specializes in developing cutting-edge mobile apps, web apps, and immersive AR/VR experiences. As a product and service-based company, we pride ourselves on delivering exceptional quality and value to our clients.")}
-                  </p>
-                  <button
-                    className='btn-hover-bounce border border-transparent text-sm lg:text-base text-white rounded-md py-3 px-6 bg-[#d4575b] transition-all duration-300 hover:bg-transparent hover:text-[#d4575b] hover:border-[#d4575b] hover:shadow-[0_15px_40px_rgba(212,87,91,0.5)] active:translate-y-0 flex items-center justify-center gap-[6px] mt-[30px] group'
-                    style={{ fontWeight: 400 }}
-                  >
-                    Get Free Consultation
-                    <GoArrowUpRight className='text-white group-hover:text-[#d4575b] w-[30px] h-[30px] transition-colors duration-300' />
-                  </button>
-                </motion.div>
-              ) : (
-                <motion.div
-                  key='mission'
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 20 }}
-                  transition={{ duration: 0.3, ease: 'easeInOut' }}
-                  className='border-l-2 border-[#d4575b] pl-6 py-4'
-                >
-                  <p className='text-black text-[20px] font-[400] leading-relaxed'>
-                    {formatText("At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions. Our team of dedicated professionals specializes in developing cutting-edge mobile apps, web apps, and immersive AR/VR experiences. As a product and service-based company, we pride ourselves on delivering exceptional quality and value to our clients.At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions.")}
-                  </p>
-                  <button
-                    className='btn-hover-bounce border border-transparent text-sm lg:text-base text-white rounded-md py-3 px-6 bg-[#d4575b] transition-all duration-300 hover:bg-transparent hover:text-[#d4575b] hover:border-[#d4575b] hover:shadow-[0_15px_40px_rgba(212,87,91,0.5)] active:translate-y-0 flex items-center justify-center gap-[6px] mt-[30px] group'
-                    style={{ fontWeight: 400 }}
-                  >
-                    Get Free Consultation
-                    <GoArrowUpRight className='text-white group-hover:text-[#d4575b] w-[30px] h-[30px] transition-colors duration-300' />
-                  </button>
-                </motion.div>
+            {/* Paragraph */}
+            <p
+              className='text-[20px] font-normal leading-normal mt-[18px]'
+              style={{ color: '#828282', letterSpacing: '-0.12px' }}
+            >
+              {formatText(
+                'At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions.At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions.'
               )}
-            </AnimatePresence>
+            </p>
+
+            {/* Tabs */}
+            <div className='flex justify-start items-center flex-wrap gap-4 mt-[44px]'>
+              {['vision', 'mission'].map(tab => (
+                <motion.button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`px-8 py-[10px] rounded-[10px] text-[20px] font-[400] transition-all duration-300 ${
+                    activeTab === tab
+                      ? 'bg-[#d4575b] text-white'
+                      : 'bg-transparent text-[#000] hover:text-[#d4575b] hover:underline'
+                  }`}
+                >
+                  {tab === 'vision' ? 'Our Vision' : 'Our Mission'}
+                </motion.button>
+              ))}
+            </div>
+
+            {/* Tab Content */}
+            <div className='w-full mt-8 relative min-h-[200px]'>
+              <AnimatePresence mode='wait'>
+                {activeTab === 'vision' ? (
+                  <motion.div
+                    key='vision'
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 20 }}
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                    className='border-l-2 border-[#d4575b] pl-6 py-4 relative z-10'
+                  >
+                    <p
+                      style={{ letterSpacing: '-0.12px', lineHeight: '29px' }}
+                      className='text-black text-[20px] font-normal'
+                    >
+                      {formatText(
+                        'At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions. Our team of dedicated professionals specializes in developing cutting-edge mobile apps, web apps, and immersive AR/VR experiences. As a product and service-based company, we pride ourselves on delivering exceptional quality and value to our clients.At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions. Our team of dedicated professionals specializes in developing cutting-edge mobile apps, web apps, and immersive AR/VR experiences. As a product and service-based company, we pride ourselves on delivering exceptional quality and value to our clients.'
+                      )}
+                    </p>
+                    <button
+                      className='btn-hover-bounce border border-transparent text-sm lg:text-base text-white rounded-md py-3 px-6 bg-[#d4575b] transition-all duration-300 hover:bg-transparent hover:text-[#d4575b] hover:border-[#d4575b] hover:shadow-[0_15px_40px_rgba(212,87,91,0.5)] active:translate-y-0 flex items-center justify-center gap-[6px] mt-[30px] group relative z-10'
+                      style={{ fontWeight: 400 }}
+                    >
+                      Get Free Consultation
+                      <GoArrowUpRight className='text-white group-hover:text-[#d4575b] w-[30px] h-[30px] transition-colors duration-300' />
+                    </button>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key='mission'
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 20 }}
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                    className='border-l-2 border-[#d4575b] pl-6 py-4 relative z-10'
+                  >
+                    <p
+                      style={{ letterSpacing: '-0.12px', lineHeight: '29px' }}
+                      className='text-black text-[20px] font-normal'
+                    >
+                      {formatText(
+                        'At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions. Our team of dedicated professionals specializes in developing cutting-edge mobile apps, web apps, and immersive AR/VR experiences. As a product and service-based company, we pride ourselves on delivering exceptional quality and value to our clients.At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions.'
+                      )}
+                    </p>
+                    <button
+                      className='btn-hover-bounce border border-transparent text-sm lg:text-base text-white rounded-md py-3 px-6 bg-[#d4575b] transition-all duration-300 hover:bg-transparent hover:text-[#d4575b] hover:border-[#d4575b] hover:shadow-[0_15px_40px_rgba(212,87,91,0.5)] active:translate-y-0 flex items-center justify-center gap-[6px] mt-[30px] group relative z-10'
+                      style={{ fontWeight: 400 }}
+                    >
+                      Get Free Consultation
+                      <GoArrowUpRight className='text-white group-hover:text-[#d4575b] w-[30px] h-[30px] transition-colors duration-300' />
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 };

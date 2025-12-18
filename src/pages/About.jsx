@@ -13,10 +13,10 @@ export const About = () => {
   return (
     <div className='min-h-screen'>
       <HeroSection
-        classNames={'h-[360px]'}
+        classNames={'h-[380px]'}
         BannerText={'About Us'}
         TopText={
-          <h2 className='text-[24px] font-semibold mb-6 text-center relative inline-block'>
+          <h2 className='text-[24px] font-semibold mb-6 text-center relative inline-block left-24'>
             <span className='relative inline-block'>
               Codefied
               <img
@@ -29,15 +29,15 @@ export const About = () => {
           </h2>
         }
         MainText={
-          <h4 className='text-2xl md:text-4xl lg:text-[54px] font-bold text-[#000] lg:leading-[1.2]'>
+          <h4 className='text-2xl md:text-4xl lg:text-[54px] font-bold text-[#000] lg:leading-[1.2] relative left-24'>
             Software Development
             <br /> Company
           </h4>
         }
         bannerTextAdjust={{
-          fontSize: 'clamp(40px, 19vw, 350px)', // responsive font size
+          fontSize: 'clamp(40px, 20vw, 350px)', // responsive font size
           lineHeight: 1,
-          transform: 'translateY(30%)', // cut half of the text
+          transform: 'translateY(25%)', // cut half of the text
         }}
       />
       <Team />

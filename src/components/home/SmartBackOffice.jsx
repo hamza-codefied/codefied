@@ -41,7 +41,7 @@ const SmartBackOffice = () => {
 
   return (
     /* Container */
-    <div className='container m-auto '>
+    <div className='container xl:px-0 m-auto '>
       <section
         ref={sectionRef}
         className='relative flex flex-col lg:flex-row lg:items-center lg:justify-center py-16 sm:py-24 md:py-32 lg:py-64 px-4 overflow-hidden mt-10 sm:mt-[200px] min-h-0 lg:min-h-[800px]'
@@ -166,7 +166,7 @@ const SmartBackOffice = () => {
             </span>
           </h2>
 
-          <p className='text-gray-600 mb-2 text-sm md:text-base max-w-lg mx-auto'>
+          <p className='text-[#000] mb-2 text-sm md:text-base max-w-lg mx-auto'>
             {formatText(
               "Codefied's back-office solutions keep your business running smoothly from data and operations to support and analytics so you can focus on growth."
             )}
@@ -247,14 +247,14 @@ const SmartBackOffice = () => {
                 ease: [0.22, 1, 0.36, 1],
               }}
               whileHover={{ y: -8, scale: 1.02 }}
-              className={`hidden lg:flex absolute bg-[#121212]/90 text-white rounded-xl shadow-lg backdrop-blur-md border border-white/10 flex-col ${
+              className={`hidden lg:flex absolute bg-[#121212]/90 text-white rounded-xl shadow-lg backdrop-blur-md border border-white/10 flex-col h-[210px] ${
                 card.position === 'top-left'
-                  ? 'top-16 left-16 xl:left-16 shadow-lg shadow-green-100'
+                  ? 'top-10 left-16 xl:left-16 shadow-lg shadow-green-100'
                   : card.position === 'top-right'
-                    ? 'top-8 right-16 xl:right-56 shadow-lg shadow-red-100'
+                    ? 'top-2 right-16 xl:right-16 shadow-lg shadow-red-100'
                     : card.position === 'bottom-left'
-                      ? 'bottom-16 left-20 xl:left-42 shadow-lg shadow-yellow-100'
-                      : 'bottom-20 right-20 xl:right-52 shadow-lg shadow-blue-100'
+                      ? 'bottom-10 left-20 xl:left-42 shadow-lg shadow-yellow-100'
+                      : 'bottom-16 right-20 xl:right-16 shadow-lg shadow-blue-100'
               }`}
               style={{
                 padding: 'clamp(20px, 3vw, 28px)',
@@ -272,7 +272,7 @@ const SmartBackOffice = () => {
               <h3 className='text-base sm:text-lg md:text-xl lg:text-[24px] font-[700] mb-2 sm:mb-2 md:mb-3'>
                 {card.title}
               </h3>
-              <p className='text-xs sm:text-sm md:text-base lg:text-[16px] font-[400] text-gray-300'>
+              <p className='text-xs sm:text-sm md:text-base lg:text-[16px] font-normal text-[#FFF]'>
                 {card.description}
               </p>
             </motion.div>

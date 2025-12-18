@@ -40,9 +40,9 @@ const Counters = () => {
   return (
     <section
       ref={sectionRef}
-      className='relative bg-white pt-16 px-4 sm:px-8 pb-0 overflow-hidden'
+      className='container relative bg-white pt-[108px] xl:px-0 pb-0 overflow-hidden'
     >
-      <div className='max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-[14px] md:gap-8 text-center relative z-10'>
+      <div className='grid grid-cols-2 md:grid-cols-4 gap-[14px] md:gap-8 text-center relative z-10'>
         {counters.map((item, index) => {
           const counterRef = useRef(null);
           const counterInView = useInView(counterRef, {
@@ -59,7 +59,7 @@ const Counters = () => {
                 counterInView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }
               }
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className={`bg-transparent p-6 ${
+              className={`bg-transparent ${
                 index === 0 || index === 2
                   ? 'border-r-[2px] border-gray-300'
                   : index === 1

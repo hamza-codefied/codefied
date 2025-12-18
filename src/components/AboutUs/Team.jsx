@@ -34,25 +34,25 @@ const Team = () => {
         }
       `}</style>
       <section
-        className='relative bg-cover bg-center bg-no-repeat text-white h-[660px] flex items-center'
+        className='relative bg-cover bg-center bg-no-repeat text-white xl:h-[660px] flex items-center'
         style={{ backgroundImage: `url(${aboutbg})` }}
       >
-        <div className='container m-auto px-8 w-full'>
+        <div className='container m-auto xl:px-0 w-full'>
           <div className=' grid grid-cols-1 md:grid-cols-2 gap-12 items-center h-full'>
             {/* LEFT COLUMN */}
             <div className='flex flex-col justify-center text-center md:text-left'>
               <h2
-                className='text-[30px] font-[700] leading-snug text-white max-w-[575px]'
-                style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
+                className='text-[30px] font-[700] leading-normal text-white max-w-[575px]'
+                // style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
               >
-                We Work As One! <br />
+                We Work As One <br />
                 <span className='text-white'>
                   Innovation Is Our Core, Creativity Is In Our DNA,
                 </span>{' '}
                 And Launching And Growing Brands Is Our Passion.
               </h2>
 
-              <p className='text-[16px] font-[400] leading-relaxed max-w-lg mx-auto md:mx-0 text-[#FFF] mt-[42px]'>
+              <p className='text-[16px] font-normal leading-relaxed max-w-lg mx-auto md:mx-0 text-[#FFF] mt-[42px]'>
                 {formatText(
                   'Transform your ideas into powerful mobile applications with our expert development team. We create high-quality, user-friendly apps for both iOS and Android platforms, ensuring a seamless experience for your users.'
                 )}

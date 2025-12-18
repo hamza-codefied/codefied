@@ -53,7 +53,7 @@ export const ClientSection = () => {
 
   return (
     <>
-      <div className='h-[15vh] bg-[#242424] '>
+      <div className='bg-[#242424] h-[125px]'>
         <div className='relative flex justify-center items-center'>
           <div
             className='bg-black text-white text-xs w-fit mx-auto px-[25px] py-[15px] rounded-full absolute z-10 -top-[22px] h-[46px]'
@@ -73,18 +73,18 @@ export const ClientSection = () => {
               speed={30}
               pauseOnHover={true}
               loop={0}
-              className='flex items-center '
-              style={{ display: 'flex', gap: '32px' }}
+              className='flex items-center gap-[32px]'
+              // style={{ display: 'flex', gap: '32px', backgroundColor: 'red' }}
             >
               {seamlessClients.map((src, i) => (
                 <div
                   key={i}
-                  className='flex justify-center items-center mx-10 gap-[32px]'
+                  className='flex justify-center items-center mx-16'
                 >
                   <img
                     src={src}
                     alt={`Client ${i + 1}`}
-                    className='w-[100px] object-contain'
+                    className=''
                   />
                 </div>
               ))}

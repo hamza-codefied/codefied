@@ -55,8 +55,8 @@ export default function ProductDetails() {
       </section>
 
       {/* ✅ Features Section */}
-      <section className='w-full mt-[160px] px-5 sm:px-10 lg:px-20 bg-gray-50'>
-        <div className='max-w-7xl mx-auto space-y-28'>
+      <section className='container mt-[160px] xl:px-0'>
+        <div className='space-y-28'>
           {product.features.map((feature, index) => (
             <motion.div
               key={index}

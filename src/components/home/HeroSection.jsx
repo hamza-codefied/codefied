@@ -3,12 +3,12 @@ import React from 'react';
 import Section from '@layouts/Section';
 import { TypeAnimation } from 'react-type-animation';
 import herobg from '@/images/hero.png';
-import ClientSection from '../global/ClientSection';
+
 import { formatText } from '@/utils/textFormatter';
 
 export default function HeroSection() {
   return (
-    <div className='min-h-[calc(100vh-75px)] flex flex-col'>
+    <div className='min-h-[100vh] flex flex-col'>
       <style>{`
         @keyframes bounce-hover {
           0%, 100% {
@@ -38,7 +38,7 @@ export default function HeroSection() {
         classNames='relative bg-cover bg-center bg-no-repeat py-10 sm:py-16 md:py-20 lg:py-24 !mb-0 flex justify-center items-center flex-1'
         style={{ backgroundImage: `url(${herobg})` }}
       >
-        <div className='container m-auto'>
+        <div className='container xl:px-0 m-auto'>
           <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
             <div className='text-center flex space-y-[18px] flex-col'>
               <h1 className='text-3xl md:text-4xl lg:text-6xl xl:text-[90px] font-bold text-[#000]'>
@@ -75,7 +75,7 @@ export default function HeroSection() {
           </div>
         </div>
       </Section>
-      <ClientSection />
+    
     </div>
   );
 }

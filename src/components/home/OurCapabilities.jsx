@@ -46,7 +46,7 @@ export const OurCapabilities = () => {
   return (
     // <section className='bg-white text-center py-6 px-6 overflow-hidden'>
     <section
-      className='bg-white text-center px-6 overflow-hidden'
+      className='container text-center xl:px-0 overflow-hidden'
       style={{ paddingTop: '134px', paddingBottom: '150px' }}
     >
       {/* 🔴 Tag */}

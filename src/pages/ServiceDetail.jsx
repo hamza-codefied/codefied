@@ -153,7 +153,7 @@ export default function ServiceDetail() {
         }}
       />
 
-      <div className='container m-auto px-4 sm:px-6 md:px-8'>
+      <div className='container m-auto xl:px-0'>
         {/* INTRO SECTION */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -191,7 +191,7 @@ export default function ServiceDetail() {
         </p>
       </motion.div>
 
-      <div className='container m-auto px-4 sm:px-6 md:px-8'>
+      <div className='container m-auto xl:px-0'>
 
         {/* SECTIONS */}
         <div className='mt-[clamp(40px,10vw,122px)] space-y-[clamp(40px,15vw,128px)]'>

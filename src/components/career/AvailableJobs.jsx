@@ -149,7 +149,7 @@ const AvailableJobs = ({ filters }) => {
   }, [filters, allJobs]);
 
   return (
-    <div id='available-jobs' className='container m-auto px-4 sm:px-6 md:px-8 py-8 md:py-12'>
+    <div id='available-jobs' className='container m-auto xl:px-0 py-8 md:py-12'>
       <h2 className='text-2xl sm:text-3xl md:text-[34px] font-medium text-black mb-6 md:mb-8 text-center md:text-start'>
         Available Jobs
       </h2>
@@ -168,7 +168,7 @@ const AvailableJobs = ({ filters }) => {
           {filteredJobs.map((job, index) => (
             <div
               key={`${job.id}-${filters.location}-${filters.jobLevel}-${filters.department}-${filters.searchQuery}`}
-              className={`w-full h-[131px] border rounded-xl p-2 cursor-pointer transition-all duration-300 border-gray-200 bg-[#fafafa] hover:border-[#d4575b] hover:bg-red-100 job-item-enter`}
+              className={`w-full xl:h-[131px] border rounded-xl p-2 cursor-pointer transition-all duration-300 border-gray-200 bg-[#fafafa] hover:border-[#d4575b] hover:bg-red-100 job-item-enter`}
               style={{
                 animationDelay: `${index * 0.1}s`,
                 opacity: isFiltering ? 0 : 1,

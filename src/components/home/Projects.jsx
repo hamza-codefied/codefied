@@ -103,10 +103,10 @@ const ProjectsSection = () => {
   };
 
   return (
-    <div className='container m-auto'>
+    <div className='container xl:px-0 m-auto'>
       <section
         id='projects'
-        className='mt-0 sm:mt-10 pt-5 sm:pt-[200px] bg-white px-4 sm:px-6 md:px-8'
+        className='mt-0 sm:mt-10 pt-5 sm:pt-[200px] bg-white'
         style={{ overflowX: 'hidden' }}
       >
         {/* Tag */}
@@ -158,7 +158,7 @@ const ProjectsSection = () => {
           className='flex items-center justify-center mb-8 sm:mb-10 md:mb-20 px-4 sm:px-6 md:px-0'
         >
           <motion.div
-            className='relative w-full max-w-full sm:max-w-[600px] md:max-w-[800px] lg:max-w-[1000px] xl:max-w-[1258px] cursor-grab active:cursor-grabbing p-4 sm:p-6 md:p-0'
+            className='relative w-full max-w-full sm:max-w-[600px] md:max-w-[800px] lg:max-w-[1006px] cursor-grab active:cursor-grabbing p-4 sm:p-6 md:p-0'
             style={{ perspective: '2000px', aspectRatio: '1006/569' }}
             drag='x'
             dragConstraints={{ left: 0, right: 0 }}
@@ -224,7 +224,7 @@ const ProjectsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.5 }}
-          className='flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0 mb-6 sm:mb-8 md:mb-12 mx-auto w-full max-w-full sm:max-w-[600px] md:max-w-[800px] lg:max-w-[1000px] xl:max-w-[1258px] px-4 sm:px-6 md:px-0'
+          className='flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0 mb-6 sm:mb-8 md:mb-12 mx-auto w-full max-w-full sm:max-w-[600px] md:max-w-[800px] lg:max-w-[1006px] px-4 sm:px-6 md:px-0'
         >
           <motion.div
             key={currentIndex}
@@ -234,13 +234,13 @@ const ProjectsSection = () => {
             className='flex-1'
           >
             <motion.p
-              className='text-lg sm:text-xl md:text-2xl lg:text-[28px] font-semibold text-black mb-1 sm:mb-2'
+              className='text-lg sm:text-xl md:text-2xl lg:text-[24px] font-semibold text-black mb-1 sm:mb-2'
               layoutId='title'
             >
               {projects[currentIndex].title}
             </motion.p>
             <motion.p
-              className='text-xs sm:text-sm md:text-base lg:text-[18px] font-light text-[#828282] break-all sm:break-normal'
+              className='text-xs sm:text-sm md:text-base lg:text-[24px] font-light text-[#000] break-all sm:break-normal'
               layoutId='link'
             >
               {projects[currentIndex].link}
@@ -257,7 +257,7 @@ const ProjectsSection = () => {
               }}
               whileTap={{ scale: 0.9 }}
               onClick={handlePrev}
-              className='bg-white border-2 border-black rounded-full transition-all duration-300 shadow-lg hover:shadow-xl group w-[48px] h-[48px] sm:w-[52px] sm:h-[52px] md:w-[60px] md:h-[60px] lg:w-[68px] lg:h-[68px] flex items-center justify-center p-2 sm:p-3 md:p-4 lg:p-5'
+              className='bg-white border-2 border-black rounded-full transition-all duration-300 shadow-lg hover:shadow-xl group w-[48px] h-[48px] sm:w-[52px] sm:h-[52px] md:w-[60px] md:h-[60px] lg:w-[68px] lg:h-[64px] flex items-center justify-center p-2 sm:p-3 md:p-4 lg:p-5'
             >
               <svg
                 className='w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 transition-all group-hover:stroke-white group-hover:-translate-x-1'
@@ -283,7 +283,7 @@ const ProjectsSection = () => {
               }}
               whileTap={{ scale: 0.9 }}
               onClick={handleNext}
-              className='bg-white border-2 border-black rounded-full transition-all duration-300 shadow-lg hover:shadow-xl group w-[48px] h-[48px] sm:w-[52px] sm:h-[52px] md:w-[60px] md:h-[60px] lg:w-[68px] lg:h-[68px] flex items-center justify-center p-2 sm:p-3 md:p-4 lg:p-5'
+              className='bg-white border-2 border-black rounded-full transition-all duration-300 shadow-lg hover:shadow-xl group w-[48px] h-[48px] sm:w-[52px] sm:h-[52px] md:w-[60px] md:h-[60px] lg:w-[68px] lg:h-[64px] flex items-center justify-center p-2 sm:p-3 md:p-4 lg:p-5'
             >
               <svg
                 className='w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 transition-all group-hover:stroke-white group-hover:translate-x-1'

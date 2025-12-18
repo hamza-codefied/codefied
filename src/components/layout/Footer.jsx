@@ -37,9 +37,9 @@ export const Footer = () => {
   };
 
   return (
-    <footer className='bg-white text-gray-700 overflow-x-hidden max-w-full'>
+    <footer className='bg-white overflow-x-hidden w-full'>
       <div
-        className='container mx-auto px-4 sm:px-6 md:px-8 flex flex-col justify-between'
+        className='container mx-auto xl:px-0 flex flex-col justify-between'
         style={{
           paddingTop: 'clamp(30px, 4vw, 40px)',
           paddingBottom: 'clamp(20px, 3vw, 30px)',
@@ -66,7 +66,7 @@ export const Footer = () => {
           {/* Social Media */}
           <div className='flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4'>
             <span
-              className='text-gray-700 font-medium'
+              className='text-[#000] font-medium'
               style={{ fontSize: 'clamp(12px, 1.8vw, 16px)' }}
             >
               Follow Us On Social Media

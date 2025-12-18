@@ -10,10 +10,10 @@ export default function TestimonialsSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
   return (
-    <div className='container m-auto px-8'>
+    <>
       <section
         ref={ref}
-        className='w-full bg-white flex flex-col md:flex-row items-stretch justify-center gap-[60px] md:gap-[80px] lg:gap-[100px] mt-[60px] md:mt-[100px] lg:mt-[180px]'
+        className='container m-auto xl:px-0 flex flex-col md:flex-row items-stretch justify-between mt-[60px] md:mt-[100px] lg:mt-[220px] gap-5 lg:gap-0'
       >
         {/* Left Side */}
         <motion.div
@@ -22,13 +22,7 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.8 }}
           className='w-full md:w-1/2 max-w-[466px]'
         >
-          <h2
-            className='font-semibold text-gray-900 mb-[12px]'
-            style={{
-              fontSize: 'clamp(28px, 4vw, 50px)',
-              fontWeight: 600,
-            }}
-          >
+          <h2 className='font-semibold text-[50px] leading-normal text-[#000] mb-[12px]'>
             People are Saying <br /> About{' '}
             <span className='text-[#d4575b]'>Codefied</span>
           </h2>
@@ -37,6 +31,7 @@ export default function TestimonialsSection() {
             style={{
               fontSize: 'clamp(14px, 2vw, 18px)',
               fontWeight: 500,
+              lineHeight: '30px',
             }}
           >
             {formatText(
@@ -60,6 +55,7 @@ export default function TestimonialsSection() {
             style={{
               fontSize: 'clamp(14px, 2vw, 18px)',
               fontWeight: 500,
+              lineHeight: '30px',
             }}
           >
             {formatText(
@@ -141,7 +137,7 @@ export default function TestimonialsSection() {
           className='w-full md:w-1/2 flex items-stretch'
         >
           <div
-            className='bg-[#121212] text-white rounded-2xl shadow-lg px-8 lg:px-18 w-full pb-8 h-full'
+            className='bg-[#121212] text-white rounded-2xl shadow-lg px-8 lg:px-18 w-full pb-8 h-[588px]'
             style={{
               maxWidth: 'clamp(100%, 50vw, 612px)',
               width: '100%',
@@ -185,7 +181,7 @@ export default function TestimonialsSection() {
                 <input
                   type='email'
                   placeholder='Enter your email'
-                  className='w-full p-3 rounded-lg text-gray-900 focus:outline-none'
+                  className='w-full p-3 rounded-lg text-gray-900 focus:outline-none h-[50px]'
                 />
               </div>
 
@@ -195,13 +191,13 @@ export default function TestimonialsSection() {
                 </label>
                 <textarea
                   placeholder='What are you say?'
-                  className='w-full p-3 rounded-lg text-gray-900 focus:outline-none'
+                  className='w-full p-3 rounded-lg text-gray-900 focus:outline-none min-h-[80px]'
                   rows={3}
                 />
               </div>
 
               <Button
-                className='w-full bg-[#d4575b]/80 hover:bg-[#d4575b] text-white rounded-lg transition-all'
+                className='w-full bg-[#d4575b] text-white rounded-lg transition-all h-[60px]'
                 style={{
                   fontSize: 'clamp(14px, 1.5vw, 16px)',
                   fontWeight: 600,
@@ -227,7 +223,7 @@ export default function TestimonialsSection() {
           </div>
         </motion.div>
       </section>
-      <div className='h-[60px] sm:h-[200px]'></div>
-    </div>
+      <div className='h-[60px] sm:h-[250px]'></div>
+    </>
   );
 }

@@ -16,6 +16,7 @@ import Blogs from '@/components/home/Blogs';
 import FAQSection from '@/components/home/Faq';
 import ClientSection2 from '@/components/home/ClientSection2';
 import TestimonialsSection from '@/components/global/TestimoniolSection';
+import ClientSection from '@/components/global/ClientSection';
 
 export const Home = () => {
   const structuredData = [
@@ -35,6 +36,7 @@ export const Home = () => {
 
       <div className='min-h-screen'>
         <HeroSection />
+        <ClientSection />
         <OurCapabilities />
         <Developerit />
         <FeaturedProducts />

@@ -65,7 +65,7 @@ const CareerSearchFilter = ({ filters, setFilters }) => {
   };
 
   return (
-    <div id='search-jobs' className='container m-auto px-8'>
+    <div id='search-jobs' className='container m-auto xl:px-0'>
       <div className='bg-[#2a2a2a] rounded-lg lg:rounded-full p-3 flex flex-col lg:flex-row gap-3 md:gap-4 items-stretch lg:items-center'>
         {/* Search Input with Button Inside */}
         <div className='flex-1 relative'>

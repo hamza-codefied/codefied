@@ -154,12 +154,12 @@ export const Header = () => {
 
   return (
     <>
-    <header className={`bg-white shadow-sm border-b relative z-50 h-[80px] max-w-full ${
+    <header className={`container relative z-50 h-[80px] xl:px-0 ${
       isMegaMenuOpen || isProductMegaMenuOpen ? 'overflow-hidden' : 'overflow-x-hidden'
     }`}>
-      <div className='container h-full m-auto px-4 sm:px-6 md:px-8 w-full'>
-        <div className='w-full flex justify-center h-full max-w-full'>
-          <div className='flex justify-between items-center w-full max-w-full'>
+     
+        <div className='w-full flex justify-center h-full'>
+          <div className='flex justify-between items-center w-full'>
             {/* Logo */}
             <div className='flex-shrink-0'>
               <Link to='/' className='flex items-center'>
@@ -687,8 +687,7 @@ export const Header = () => {
             )}
           </AnimatePresence>
         </div>
-      </div>
-
+   
     </header>
 
     {/* Location Dropdown Portal - Rendered outside header for proper z-index */}

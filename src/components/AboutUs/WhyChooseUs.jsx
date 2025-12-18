@@ -36,10 +36,10 @@ const WhyChooseUs = () => {
   return (
     <section
       id='why-choose-us'
-      className='bg-[#0C0C0C] text-white px-4 md:px-12 lg:px-20 pb-[80px] md:pb-[167px]'
+      className='bg-[#0C0C0C] text-white pb-[80px] md:pb-[167px]'
     >
-      <div className='container m-auto px-4 md:px-8'>
-        <div className='w-[90%] mx-auto pt-[40px] md:pt-[84px]'>
+      <div className='container m-auto xl:px-0'>
+        <div className='w-[100%] mx-auto pt-[40px] md:pt-[84px]'>
           {/* Tag */}
           <p className='text-[#d4575b] tracking-widest text-[14px] md:text-[16px] font-[400] mb-[20px] md:mb-[28px]'>
             WHY CHOOSE US
@@ -54,7 +54,7 @@ const WhyChooseUs = () => {
             </h2>
 
             {/* Paragraph - aligns with heading width */}
-            <p className='text-white text-[18px] md:text-[24px] font-[400] w-full md:w-[80%]'>
+            <p className='text-white text-[18px] md:text-[24px] font-[400] w-full md:w-[80%] leading-normal tracking-[-0.36px]'>
               {formatText(
                 'Partner with Codefied and experience a world where innovation meets excellence, and your success is our mission.'
               )}
@@ -99,7 +99,7 @@ const WhyChooseUs = () => {
 
             {/* Right Column */}
             <div className='flex items-center justify-start flex-1'>
-              <p className='text-[#FFF] text-[16px] md:text-[24px] font-normal tracking-[-0.48px]'>
+              <p className='text-[#FFF] text-[16px] md:text-[24px] font-normal leading-normal tracking-[-0.48px]'>
                 {formatText(items[activeIndex].description)}
               </p>
             </div>

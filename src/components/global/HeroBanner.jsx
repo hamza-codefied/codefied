@@ -14,7 +14,7 @@ const HeroBanner = ({
       className={`relative bg-cover bg-center bg-no-repeat overflow-hidden ${classNames}`}
       style={{ backgroundImage: `url(${bg})` }}
     >
-      <div className='container m-auto w-full h-full relative'>
+      <div className='container px-0 m-auto w-full h-full relative'>
         {/* Banner Text */}
         <p
           className='

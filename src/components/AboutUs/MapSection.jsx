@@ -5,7 +5,7 @@ import usaFlag from '@/images/usaflag.png';
 
 const MapSection = () => {
   return (
-    <section className='relative pt-[60px] md:pt-[100px] lg:pt-[180px] '>
+    <section className='container relative pt-[60px] md:pt-[100px] lg:pt-[180px] px-0'>
       <style>{`
         @keyframes pulse-glow {
           0%, 100% {
@@ -114,7 +114,7 @@ const MapSection = () => {
         // }
       `}</style>
       {/* Map Image */}
-      <div className='max-w-7xl flex items-center justify-center mx-auto px-4 relative'>
+      <div className='flex items-center justify-center mx-auto relative'>
         <div
           className='relative w-full max-w-[1222px]'
           style={{ aspectRatio: '1222 / 636' }}

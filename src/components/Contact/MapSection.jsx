@@ -114,7 +114,7 @@ const MapSection = () => {
         // }
       `}</style>
       {/* Map Image */}
-      <div className='max-w-7xl flex items-center justify-center mx-auto px-4 relative'>
+      <div className='container flex items-center justify-center mx-auto xl:px-0 relative'>
         <div
           className='relative w-full max-w-[1222px]'
           style={{ aspectRatio: '1222 / 636' }}

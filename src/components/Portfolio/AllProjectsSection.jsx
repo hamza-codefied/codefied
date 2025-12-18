@@ -34,7 +34,7 @@ export default function AllProjectsSection() {
   }, []);
 
   return (
-    <div className='container m-auto px-8'>
+    <div className='container m-auto xl:px-0'>
       <section className='text-white'>
         <div className='text-center my-14'>
           {/* Tabs */}
@@ -42,13 +42,13 @@ export default function AllProjectsSection() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className='flex flex-col md:flex-row flex-wrap justify-center gap-3 w-fit px-5 py-2 rounded-2xl md:rounded-full border-2 mx-auto md:mx-0'
+            className='flex flex-col md:flex-row justify-between w-fit px-[8px] py-[6px] border-2 mx-auto md:mx-0 xl:h-[59px] xl:rounded-[48px]'
           >
             {categories.map(cat => (
               <button
                 key={cat.id}
                 onClick={() => setActiveTab(cat.id)}
-                className={`px-5 py-2 rounded-full font-medium text-sm transition-all duration-300 ${
+                className={`px-[22px] py-[12px] rounded-[40px] font-medium text-[18px] transition-all duration-300 ${
                   activeTab === cat.id
                     ? 'bg-black text-white shadow-lg scale-105'
                     : 'bg-white hover:bg-gray-100 text-black'
@@ -87,7 +87,9 @@ export default function AllProjectsSection() {
                 </div>
                 <div className='flex items-center justify-between'>
                   <div className='py-5 text-black'>
-                    <h3 className='text-sm sm:text-md lg:text-[24px] font-medium mt-[37px]'>{project.title}</h3>
+                    <h3 className='text-sm sm:text-md lg:text-[24px] font-medium mt-[37px]'>
+                      {project.title}
+                    </h3>
                     <p className='text-xs md:text-sm lg:text-[20px] font-normal bg-[#262626] w-fit px-[14px] py-[10px] rounded-[8px] text-[#ffffff] mt-[12px]'>
                       {project.website}
                     </p>

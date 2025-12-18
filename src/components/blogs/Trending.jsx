@@ -22,7 +22,7 @@ const containerVariants = {
 
 const FeaturedSection = () => {
   return (
-    <div className='container m-auto px-8'>
+    <div className='container xl:px-0 m-auto'>
       <section className='relative mt-0 lg:mt-[-70px] h-auto xl:h-[447px] bg-[#0c0c0c] rounded-[24px] text-white overflow-hidden p-[50px]'>
         <motion.div
           variants={containerVariants}

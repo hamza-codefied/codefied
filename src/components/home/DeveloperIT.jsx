@@ -334,10 +334,10 @@ export const Developerit = () => {
   return (
     <div
       id='developer-it'
-      className='container m-auto px-8 pb-40 relative w-full'
+      className='container xl:px-0 pb-40 relative w-full'
     >
       {/* Spacer to push content down initially on xl screens */}
-      <div className='h-[50vh] xl:block hidden'></div>
+      <div className='h-[40vh] xl:block hidden'></div>
 
       <div
         id='section1'
@@ -393,10 +393,10 @@ export const Developerit = () => {
               className='p-6 md:p-0 w-full'
               key={`${title}-${index}`}
             >
-              <h2 className={'text-xl md:text-2xl mb-2'}>
+              <h2 className={'text-xl md:text-2xl text-[#000] font-medium mb-2'}>
                 {formatText(title)}
               </h2>
-              <p className={'mb-4 text-sm md:text-base'}>{formatText(desc)}</p>
+              <p className={'mb-4 text-sm md:text-base text-[#000] font-normal'}>{formatText(desc)}</p>
               <a
                 className={
                   'text-sm font-semibold text-[#d4575b] underline underline-offset-[6px] cursor-pointer flex items-center justify-start gap-2'

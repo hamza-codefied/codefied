@@ -9,8 +9,8 @@ const categories = [
   { id: 'saas', label: 'SaaS' },
   { id: 'webdev', label: 'Web Dev' },
   { id: 'appdev', label: 'App Dev' },
-  { id: 'arvr', label: 'AR ／ VR' },
-  { id: 'uiux', label: 'UI ／ UX' },
+  { id: 'arvr', label: 'AR／VR' },
+  { id: 'uiux', label: 'UI／UX' },
   { id: 'gamedev', label: 'Game Dev' },
 ];
 
@@ -33,7 +33,7 @@ export default function AllBlogsSection() {
   }, []);
 
   return (
-    <div className='container m-auto px-8'>
+    <div className='container xl:px-0 m-auto'>
       <section className='text-white mt-[136px]'>
         <div className='text-center' style={{ marginBottom: '64px' }}>
           <motion.h2
@@ -55,26 +55,18 @@ export default function AllBlogsSection() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className='flex flex-col md:flex-row flex-wrap justify-center w-fit mx-auto px-2 py-1 rounded-2xl md:rounded-full border-2'
-            style={{ gap: '10px' }}
+            className='flex flex-col md:flex-row justify-between mx-auto xl:rounded-[48px] border-2 w-fit xl:h-[59px]'
+            style={{ gap: '10px', padding: '6px 8px' }}
           >
             {categories.map(cat => (
               <button
                 key={cat.id}
                 onClick={() => setActiveTab(cat.id)}
-                className={`rounded-full transition-all duration-300 ${
+                className={`flex items-center justify-center rounded-[40px] transition-all duration-300 text-[18px] leading-normal font-medium px-[22px] py-[12px] ${
                   activeTab === cat.id
                     ? 'bg-black text-white shadow-lg scale-105'
                     : 'bg-white text-black hover:bg-gray-100 hover:scale-105'
                 }`}
-                style={{
-                  fontSize: 'clamp(14px, 2vw, 18px)',
-                  fontWeight: 500,
-                  paddingTop: '12px',
-                  paddingBottom: '12px',
-                  paddingLeft: '22px',
-                  paddingRight: '22px',
-                }}
               >
                 {formatText(cat.label)}
               </button>
@@ -90,7 +82,7 @@ export default function AllBlogsSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -40 }}
             transition={{ duration: 0.6 }}
-            className='grid gap-8 sm:grid-cols-2 lg:grid-cols-3'
+            className='grid sm:grid-cols-2 lg:grid-cols-3 gap-[32px]'
           >
             {blogData[activeTab]?.map(blog => (
               <motion.div
@@ -98,25 +90,26 @@ export default function AllBlogsSection() {
                 whileHover={{ scale: 1.03 }}
                 transition={{ type: 'spring', stiffness: 200 }}
                 onClick={() => navigate(`/blogs/${blog.slug}`)}
-                className='rounded-2xl overflow-hidden hover:shadow-purple-500/20 transition-all cursor-pointer'
+                className='hover:shadow-purple-500/20 transition-all cursor-pointer'
               >
-                <div className='h-56 w-full overflow-hidden rounded-2xl'>
+                <div className='h-[256px] rounded-[16px]'>
                   <img
                     src={blog.image}
                     alt={blog.title}
-                    className='h-full w-full object-cover hover:scale-110 transition-transform duration-700 rounded-2xl'
+                    className='h-full w-full object-cover hover:scale-110 transition-transform duration-700 rounded-[16px]'
                   />
                 </div>
                 <div className='py-5 text-black space-y-3'>
-                  <h3
+                  <h4
                     className='font-bold'
                     style={{
                       fontSize: 'clamp(18px, 2.5vw, 24px)',
                       fontWeight: 700,
+                      lineHeight: '33.6px',
                     }}
                   >
                     {formatText(blog.title)}
-                  </h3>
+                  </h4>
                   <p
                     className='text-[#000] line-clamp-1'
                     style={{

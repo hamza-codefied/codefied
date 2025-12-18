@@ -71,7 +71,7 @@ export default function FAQSection() {
     .filter((_, i) => i % 2 === 1); // even positions: 1,3,5...
 
   return (
-    <div className='container m-auto px-8'>
+    <div className='container m-auto xl:px-0'>
       <section id='faqs' className='w-full bg-white mt-[150px] mb-[140px]'>
         <div className=''>
           {/* Heading */}

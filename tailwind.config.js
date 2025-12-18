@@ -5,8 +5,35 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '1rem', // 16px padding on mobile (responsive)
+        sm: '1.5rem', // 24px padding on small screens
+        md: '2rem', // 32px padding on medium screens
+        lg: '3rem', // 48px padding on large screens
+        xl: '6.25rem', // 100px padding on xl screens and above
+        '2xl': '6.25rem', // 100px padding on 2xl screens
+      },
+      screens: {
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
+        '2xl': '1600px',
+      },
+    },
     extend: {
+      maxWidth: {
+        'container-sm': '640px',
+        'container-md': '768px',
+        'container-lg': '1024px',
+        'container-xl': '1280px',
+        'container-2xl': '1536px',
+        'container-3xl': '1728px', // Wider option
+        'container-4xl': '1920px', // Even wider
+        'container-custom': '1600px', // Your custom width
+      },
       colors: {
         primary: {
           50: '#eff6ff',

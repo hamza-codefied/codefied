@@ -106,7 +106,7 @@ const Blogs = () => {
         className='relative mt-10 bg-cover bg-center bg-no-repeat text-black py-20'
         style={{ backgroundImage: `url(${blogbg})` }}
       >
-        <div className='container m-auto px-8'>
+        <div className='container m-auto xl:px-0'>
           <div className='relative z-10 text-center'>
             {/* Tag */}
             <div className='sm:text-start mb-2'>
@@ -116,7 +116,7 @@ const Blogs = () => {
             </div>
 
             {/* Heading + Paragraph Row */}
-            <div className='flex flex-col md:flex-row items-start justify-between gap-8 mb-4'>
+            <div className='flex flex-col md:flex-row items-start justify-between gap-8 mb-14'>
               {/* Left Side */}
               <div className='md:w-2/3 flex items-center'>
                 <h4 className='text-[48px] font-bold mb-4 relative inline-block text-start'>
@@ -138,13 +138,13 @@ const Blogs = () => {
                 <div className='flex items-center justify-end gap-4'>
                   <button
                     onClick={() => sliderRef.current?.slickPrev()}
-                    className='w-10 h-10 flex items-center justify-center border border-gray-300 rounded-full hover:bg-[#d4575b] hover:text-white transition-all duration-300'
+                    className='w-[68px] h-[64px] flex items-center justify-center border border-gray-300 rounded-full hover:bg-[#d4575b] hover:text-white transition-all duration-300'
                   >
                     <ArrowLeftOutlined />
                   </button>
                   <button
                     onClick={() => sliderRef.current?.slickNext()}
-                    className='w-10 h-10 flex items-center justify-center border border-gray-300 rounded-full hover:bg-[#d4575b] hover:text-white transition-all duration-300'
+                    className='w-[68px] h-[64px] flex items-center justify-center border border-gray-300 rounded-full hover:bg-[#d4575b] hover:text-white transition-all duration-300'
                   >
                     <ArrowRightOutlined />
                   </button>
@@ -156,14 +156,14 @@ const Blogs = () => {
             <div className='blog-slider'>
               <Slider ref={sliderRef} {...sliderSettings}>
                 {Blog.map((product, index) => (
-                  <div key={`${product.id}-${index}`} className='px-2 sm:px-4'>
-                    <div className='bg-transparent border border-white/20 rounded-2xl p-3 sm:p-4 md:p-3 flex flex-col items-start justify-start border-white hover:bg-white/80 transition-all duration-300 h-full'>
+                  <div key={`${product.id}-${index}`} className='flex justify-center items-center w-full'>
+                    <div className='bg-transparent border border-white/20 rounded-2xl p-3 sm:p-4 md:p-5 flex flex-col items-start justify-start border-white hover:bg-white/80 transition-all duration-300 h-[518px] w-[370px]'>
                       <img
                         src={product.image}
                         alt={product.title}
-                        className='object-contain mb-3 sm:mb-4 w-full h-[252px]'
+                        className='object-contain mb-3 sm:mb-[32px] w-full h-[252px]'
                       />
-                      <div className='flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-2 sm:gap-0 mb-4 sm:mb-5'>
+                      <div className='flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-2 sm:gap-0 mb-4 sm:mb-[32px]'>
                         <p className='text-xs flex items-center gap-2 text-black'>
                           <FaUser className='text-[#d4575b] flex-shrink-0' />
                           <span className='truncate'>By: {product.by}</span>
@@ -173,13 +173,14 @@ const Blogs = () => {
                           <span>{product.comments} Comments</span>
                         </p>
                       </div>
-                      <h3 className='text-base sm:text-lg text-start font-semibold mb-2 text-black line-clamp-2'>
+                      <h3
+                        style={{ lineHeight: '31.2px' }}
+                        className='text-base sm:text-[24px] text-start font-semibold mb-[32px] text-[#000]'
+                      >
                         {formatText(product.title)}
                       </h3>
-                      <p className='text-xs text-start text-black mb-2 line-clamp-2 sm:line-clamp-3'>
-                        {product.description && formatText(product.description)}
-                      </p>
-                      <div className='flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-2 sm:gap-0 mt-auto'>
+
+                      <div className='flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-2 sm:gap-0'>
                         <a
                           href='#'
                           className='text-[#d4575b] text-xs flex items-center gap-1 font-medium hover:underline'

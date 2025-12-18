@@ -243,9 +243,9 @@ const Timeline = () => {
         }}
       />
 
-      <div className='container m-auto px-8'>
+      <div className='container m-auto px-0'>
         {/* Sticky Container - Heading and Vertical Line */}
-        <div ref={stickyContainerRef} className='relative max-w-6xl mx-auto'>
+        <div ref={stickyContainerRef} className='relative mx-auto'>
           {/* Heading */}
           <div
             ref={headingRef}

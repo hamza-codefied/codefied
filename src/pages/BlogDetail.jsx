@@ -41,7 +41,7 @@ const BlogDetail = () => {
         }}
       >
         {/* Centered Black Div */}
-        <div className='container m-auto px-4 sm:px-6 md:px-8'>
+        <div className='container m-auto xl:px-0'>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -89,7 +89,7 @@ const BlogDetail = () => {
       </section>
 
       {/* Main Content */}
-      <div className='container m-auto px-4 sm:px-6 md:px-8 py-8 md:py-12'>
+      <div className='container m-auto xl:px-0 py-8 md:py-12'>
         {/* Back Button */}
         <button
           onClick={() => navigate('/blogs')}
@@ -184,7 +184,7 @@ const BlogDetail = () => {
             backgroundRepeat: 'no-repeat',
           }}
         >
-          <div className='container m-auto px-4 sm:px-6 md:px-8'>
+          <div className='container m-auto xl:px-0'>
             <h3 className='text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-6 md:mb-8'>
               Similar Blogs
             </h3>
