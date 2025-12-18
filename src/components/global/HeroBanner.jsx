@@ -14,7 +14,7 @@ const HeroBanner = ({
       className={`relative bg-cover bg-center bg-no-repeat overflow-hidden ${classNames}`}
       style={{ backgroundImage: `url(${bg})` }}
     >
-      <div className='container px-0 m-auto w-full h-full relative'>
+      <div className='container xl:px-0 m-auto w-full h-full relative'>
         {/* Banner Text */}
         <p
           className='
@@ -28,7 +28,7 @@ const HeroBanner = ({
 
         {/*  */}
         {/* Foreground Text (HTML supported) */}
-        <div className='py-28 px-8'>
+        <div className='py-28 xl:px-0'>
           {TopText && <div className=''>{TopText}</div>}
           {MainText && <div className=''>{MainText}</div>}
           {BottomText && <div className=''>{BottomText}</div>}
