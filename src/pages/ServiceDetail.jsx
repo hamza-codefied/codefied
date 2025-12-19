@@ -141,7 +141,11 @@ export default function ServiceDetail() {
             initial='hidden'
             animate='visible'
             className='capitalize tracking-tight'
-            style={{ fontSize: 'clamp(28px, 5vw, 54px)', fontWeight: 700, paddingTop: '0px' }}
+            style={{
+              fontSize: 'clamp(28px, 5vw, 54px)',
+              fontWeight: 700,
+              paddingTop: '0px',
+            }}
           >
             {formatText(service.title)}
           </motion.h1>
@@ -159,11 +163,11 @@ export default function ServiceDetail() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className='max-w-6xl mx-auto px-4 sm:px-6 text-center mt-10 sm:mt-20'
+          className='text-center mt-10 sm:mt-20'
         >
           <h2
             className='text-black font-medium'
-            style={{ fontSize: 'clamp(24px, 4.5vw, 44px)', fontWeight: 600 }}
+            style={{ fontSize: 'clamp(24px, 4.5vw, 44px)', fontWeight: 500 }}
           >
             {formatText(service.title)}
           </h2>
@@ -181,36 +185,40 @@ export default function ServiceDetail() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
-        className='w-full text-center px-4 sm:px-6 md:px-8'
+        className='container m-auto xl:px-0 text-center'
       >
         <p
-          className='text-black font-normal'
-          style={{ fontSize: 'clamp(16px, 2vw, 24px)', fontWeight: 400, marginTop: 'clamp(20px, 3vw, 32px)' }}
+          className='text-black font-normal leading-normal'
+          style={{
+            fontSize: 'clamp(16px, 2vw, 24px)',
+            fontWeight: 400,
+            marginTop: 'clamp(20px, 3vw, 32px)',
+            
+          }}
         >
           {formatText(service.description)}
         </p>
       </motion.div>
 
       <div className='container m-auto xl:px-0'>
-
         {/* SECTIONS */}
         <div className='mt-[clamp(40px,10vw,122px)] space-y-[clamp(40px,15vw,128px)]'>
           {service.sections.map((sec, idx) => {
             const sectionRef = useRef(null);
             const { scrollYProgress } = useScroll({
               target: sectionRef,
-              offset: ["start 0.85", "end 0.15"] // Smoother, more gradual scroll range
+              offset: ['start 0.85', 'end 0.15'], // Smoother, more gradual scroll range
             });
 
             // Reduced animation distance for smoother, less jarring movement
             const getAnimationDistance = () => {
               if (typeof window !== 'undefined') {
                 const width = window.innerWidth;
-                if (width < 640) return 50;      // Mobile: smaller distance
-                if (width < 768) return 80;      // Small tablet
-                if (width < 1024) return 120;    // Tablet
-                if (width < 1280) return 150;    // Small desktop
-                return 180;                       // Large desktop
+                if (width < 640) return 50; // Mobile: smaller distance
+                if (width < 768) return 80; // Small tablet
+                if (width < 1024) return 120; // Tablet
+                if (width < 1280) return 150; // Small desktop
+                return 180; // Large desktop
               }
               return 180;
             };
@@ -220,7 +228,7 @@ export default function ServiceDetail() {
             const imageOpacity = useTransform(
               scrollYProgress,
               [0, 0.2, 0.3, 0.7, 0.8, 1],
-              [0, 0.3, 1, 1, 0.3, 0]  // Gradual fade in, stay visible longer, gradual fade out
+              [0, 0.3, 1, 1, 0.3, 0] // Gradual fade in, stay visible longer, gradual fade out
             );
 
             // Text: Smooth slide with gradual easing
@@ -228,13 +236,27 @@ export default function ServiceDetail() {
               scrollYProgress,
               [0, 0.2, 0.4, 0.6, 0.8, 1],
               idx % 2 === 0
-                ? [-animDistance * 0.5, -animDistance * 0.3, 0, 0, animDistance * 0.3, animDistance * 0.5]  // Smooth gradual slide
-                : [animDistance * 0.5, animDistance * 0.3, 0, 0, -animDistance * 0.3, -animDistance * 0.5]  // Smooth gradual slide
+                ? [
+                    -animDistance * 0.5,
+                    -animDistance * 0.3,
+                    0,
+                    0,
+                    animDistance * 0.3,
+                    animDistance * 0.5,
+                  ] // Smooth gradual slide
+                : [
+                    animDistance * 0.5,
+                    animDistance * 0.3,
+                    0,
+                    0,
+                    -animDistance * 0.3,
+                    -animDistance * 0.5,
+                  ] // Smooth gradual slide
             );
             const textOpacity = useTransform(
               scrollYProgress,
               [0, 0.15, 0.25, 0.75, 0.85, 1],
-              [0, 0.2, 1, 1, 0.2, 0]  // Gradual fade in/out
+              [0, 0.2, 1, 1, 0.2, 0] // Gradual fade in/out
             );
 
             // Features: Smooth slide with slight delay for staggered effect
@@ -242,13 +264,27 @@ export default function ServiceDetail() {
               scrollYProgress,
               [0, 0.25, 0.45, 0.65, 0.85, 1],
               idx % 2 === 0
-                ? [-animDistance * 0.4, -animDistance * 0.2, 0, 0, animDistance * 0.2, animDistance * 0.4]  // Slightly delayed, smoother
-                : [animDistance * 0.4, animDistance * 0.2, 0, 0, -animDistance * 0.2, -animDistance * 0.4]  // Slightly delayed, smoother
+                ? [
+                    -animDistance * 0.4,
+                    -animDistance * 0.2,
+                    0,
+                    0,
+                    animDistance * 0.2,
+                    animDistance * 0.4,
+                  ] // Slightly delayed, smoother
+                : [
+                    animDistance * 0.4,
+                    animDistance * 0.2,
+                    0,
+                    0,
+                    -animDistance * 0.2,
+                    -animDistance * 0.4,
+                  ] // Slightly delayed, smoother
             );
             const featuresOpacity = useTransform(
               scrollYProgress,
               [0, 0.2, 0.3, 0.7, 0.8, 1],
-              [0, 0.3, 1, 1, 0.3, 0]  // Gradual fade matching image
+              [0, 0.3, 1, 1, 0.3, 0] // Gradual fade matching image
             );
 
             return (
@@ -259,28 +295,36 @@ export default function ServiceDetail() {
               >
                 <section
                   id={sec.id}
-                  className={`flex flex-col md:flex-row ${idx % 2 === 0 ? '' : 'md:flex-row-reverse'
-                    } items-center`}
+                  className={`flex flex-col md:flex-row ${
+                    idx % 2 === 0 ? '' : 'md:flex-row-reverse'
+                  } items-center`}
                   style={{ gap: 'clamp(30px, 8vw, 110px)' }}
                 >
                   {/* LEFT TEXT AREA */}
                   <motion.div
                     className='flex-1 text-center md:text-left w-full'
-                    style={{ 
-                      x: textX, 
+                    style={{
+                      x: textX,
                       opacity: textOpacity,
-                      transition: 'transform 0.3s ease-out, opacity 0.3s ease-out'
+                      transition:
+                        'transform 0.3s ease-out, opacity 0.3s ease-out',
                     }}
                   >
                     <h3
-                      className='text-black font-semibold mb-3'
-                      style={{ fontSize: 'clamp(20px, 3.5vw, 34px)', fontWeight: 600 }}
+                      className='text-black font-semibold mb-3 leading-normal'
+                      style={{
+                        fontSize: 'clamp(20px, 3.5vw, 34px)',
+                        fontWeight: 600,
+                      }}
                     >
                       {formatText(sec.title)}
                     </h3>
                     <p
-                      className='text-black font-normal mb-4'
-                      style={{ fontSize: 'clamp(16px, 2.5vw, 24px)', fontWeight: 400 }}
+                      className='text-black font-normal mb-4 leading-normal'
+                      style={{
+                        fontSize: 'clamp(16px, 2.5vw, 24px)',
+                        fontWeight: 400,
+                      }}
                     >
                       {formatText(sec.description)}
                     </p>
@@ -294,7 +338,7 @@ export default function ServiceDetail() {
                           height: 'clamp(50px, 6vw, 67px)',
                           gap: '10px',
                           fontSize: 'clamp(16px, 2vw, 20px)',
-                          fontWeight: 500
+                          fontWeight: 500,
                         }}
                       >
                         {sec.badge}
@@ -310,7 +354,7 @@ export default function ServiceDetail() {
                       x: 0, // No movement
                       opacity: imageOpacity,
                       marginLeft: 'clamp(0px, -2vw, -28px)',
-                      transition: 'opacity 0.4s ease-out'
+                      transition: 'opacity 0.4s ease-out',
                     }}
                     whileHover={{ scale: 1.03 }}
                     transition={{ duration: 0.3, ease: 'easeOut' }}
@@ -336,27 +380,35 @@ export default function ServiceDetail() {
                         style={{
                           opacity: featuresOpacity,
                           x: featuresX,
-                          transition: 'transform 0.3s ease-out, opacity 0.3s ease-out'
+                          transition:
+                            'transform 0.3s ease-out, opacity 0.3s ease-out',
                         }}
                       >
                         <div className='flex items-start gap-3'>
                           <span className='text-[#d4575b] text-lg flex-shrink-0 mt-1'>
-                            <FaArrowRightLong />
+                            <FaArrowRightLong size={25} />
                           </span>
-                          <div className='flex-1'>
-                            <h4
-                              className='text-black font-medium'
-                              style={{ fontSize: 'clamp(18px, 2.5vw, 24px)', fontWeight: 500 }}
-                            >
-                              {formatText(f.title)}
-                            </h4>
-                            <p
-                              className='text-black font-normal leading-relaxed'
-                              style={{ fontSize: 'clamp(14px, 2vw, 16px)', fontWeight: 400, marginTop: '6px' }}
-                            >
-                              {formatText(f.description)}
-                            </p>
-                          </div>
+                          <h4
+                            className='text-black font-medium'
+                            style={{
+                              fontSize: 'clamp(18px, 2.5vw, 24px)',
+                              fontWeight: 500,
+                            }}
+                          >
+                            {formatText(f.title)}
+                          </h4>
+                        </div>
+                        <div className='flex-1'>
+                          <p
+                            className='text-black font-normal leading-relaxed'
+                            style={{
+                              fontSize: 'clamp(14px, 2vw, 16px)',
+                              fontWeight: 400,
+                              marginTop: '6px',
+                            }}
+                          >
+                            {formatText(f.description)}
+                          </p>
                         </div>
                       </motion.div>
                     );
@@ -367,7 +419,7 @@ export default function ServiceDetail() {
           })}
         </div>
         {/* Extra spacing before footer */}
-        {/* <div className='h-[60px] sm:h-[80px]'></div> */}
+        <div className='h-[60px] sm:h-[150px]'></div>
       </div>
     </div>
   );
