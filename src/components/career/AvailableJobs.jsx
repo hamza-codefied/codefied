@@ -176,7 +176,7 @@ const AvailableJobs = ({ filters }) => {
             >
               <div className='h-full flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6'>
                 {/* Company Icon */}
-                <div className='bg-black rounded-lg w-12 h-12 sm:w-14 sm:h-14 md:w-[111px] md:h-[104px] flex items-center justify-center flex-shrink-0'>
+                <div className='bg-black rounded-[22px] w-12 h-12 sm:w-14 sm:h-14 md:w-[111px] md:h-[104px] flex items-center justify-center flex-shrink-0'>
                   <span className='text-white text-lg sm:text-5xl md:text-[60px] font-semibold'>
                     {job.companyInitial}
                   </span>

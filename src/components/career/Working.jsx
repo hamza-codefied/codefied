@@ -381,7 +381,7 @@ export const Working = () => {
 
           {/* Hero Sub Text */}
           <div
-            className={'heroSubText flex gap-y-3 text-lg sm:text-2xl flex-col'}
+            className={'heroSubText flex gap-y-3 text-lg sm:text-2xl flex-col text-[#000]'}
           >
             <div>
               From concept to launch, we cover the entire spectrum of digital
