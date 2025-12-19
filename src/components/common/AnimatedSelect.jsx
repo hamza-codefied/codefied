@@ -29,7 +29,7 @@ const AnimatedSelect = () => {
       <button
         type='button'
         onClick={() => setOpen(prev => !prev)}
-        className={`w-full flex justify-between items-center rounded-xl border border-gray-200  p-3 px-4 text-gray-400 font-medium shadow-sm transition-all duration-200 ${
+        className={`w-full flex justify-between items-center rounded-xl border border-gray-200  p-3 px-4 text-[#828282] font-normal shadow-sm transition-all duration-200 ${
           open
             ? 'border-[#d4575b] ring-2 ring-[#d4575b]/40'
             : 'hover:border-[#d4575b]/50'

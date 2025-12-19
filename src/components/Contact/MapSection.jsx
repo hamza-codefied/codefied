@@ -5,7 +5,7 @@ import usaFlag from '@/images/usaflag.png';
 
 const MapSection = () => {
   return (
-    <section className='relative pt-[60px] md:pt-[100px]'>
+    <section className='relative pt-[60px] md:pt-[158px] pb-[60px] lg:pb-[230px]'>
       <style>{`
         @keyframes pulse-glow {
           0%, 100% {

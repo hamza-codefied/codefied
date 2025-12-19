@@ -4,9 +4,39 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import AnimatedSelect from '../common/AnimatedSelect';
 import { Mail, Phone } from 'lucide-react';
 import { FaX } from 'react-icons/fa6';
-import { MdOutlinePhoneInTalk } from 'react-icons/md';
+import { LiaPhoneVolumeSolid } from 'react-icons/lia';
 import { LiaFaxSolid } from 'react-icons/lia';
-import { FaEnvelopeOpenText } from 'react-icons/fa';
+// Custom Email Icon SVG Component
+const EmailIcon = ({ style }) => (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    width='25'
+    height='23'
+    viewBox='0 0 25 23'
+    fill='none'
+    style={style}
+  >
+    <path
+      d='M6.20455 0V1.97124L0 6.01065V22.75H24.8182V6.01065L18.6136 1.97124V0H6.20455ZM8.27273 2.06818H16.5455V10.0178L12.4091 12.6999L8.27273 10.0178V2.06818ZM9.30682 4.13636V6.20455H15.5114V4.13636H9.30682ZM6.20455 4.4272V8.66051L2.9407 6.56001L6.20455 4.4272ZM18.6136 4.4272L21.8775 6.56001L18.6136 8.66051V4.4272ZM9.30682 7.23864V9.30682H15.5114V7.23864H9.30682ZM2.06818 8.46662L12.4091 15.1559L22.75 8.46662V20.6818H2.06818V8.46662Z'
+      fill='black'
+    />
+  </svg>
+);
+
+const FaxIcon = ({ style }) => (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    width='28'
+    height='28'
+    viewBox='0 0 28 28'
+    fill='none'
+  >
+    <path
+      d='M10.0625 1.64062V6.5625H8.09375V4.59375H2.1875V22.3125H4.15625V23.2969C4.15625 24.0967 4.44336 24.7837 5.01758 25.3579C5.6123 25.9526 6.30957 26.25 7.10938 26.25C7.90918 26.25 8.59619 25.9526 9.17041 25.3579C9.76514 24.7837 10.0625 24.0967 10.0625 23.2969V22.3125H25.8125V6.5625H21.875V1.64062H10.0625ZM12.0312 3.60938H19.9062V8.53125H12.0312V3.60938ZM4.15625 6.5625H6.125V20.3438H4.15625V6.5625ZM8.09375 8.53125H10.0625V10.5H21.875V8.53125H23.8438V20.3438H8.09375V8.53125ZM11.0469 12.4688V14.4375H13.0156V12.4688H11.0469ZM14.9844 12.4688V14.4375H16.9531V12.4688H14.9844ZM18.9219 12.4688V14.4375H20.8906V12.4688H18.9219ZM11.0469 16.4062V18.375H13.0156V16.4062H11.0469ZM14.9844 16.4062V18.375H16.9531V16.4062H14.9844ZM18.9219 16.4062V18.375H20.8906V16.4062H18.9219ZM6.125 22.3125H8.09375V23.2969C8.09375 23.5635 7.99121 23.7993 7.78613 24.0044C7.60156 24.189 7.37598 24.2812 7.10938 24.2812C6.84277 24.2812 6.60693 24.189 6.40186 24.0044C6.21729 23.7993 6.125 23.5635 6.125 23.2969V22.3125Z'
+      fill='black'
+    />
+  </svg>
+);
 
 const GetInTouchSection = () => {
   const mapContainer = useRef(null);
@@ -73,17 +103,17 @@ const GetInTouchSection = () => {
 
   const info = [
     {
-      icon: MdOutlinePhoneInTalk,
+      icon: LiaPhoneVolumeSolid,
       label: 'PHONE',
       value: '03 5432 1234',
     },
     {
-      icon: LiaFaxSolid,
+      icon: FaxIcon,
       label: 'FAX',
       value: '03 5432 1234',
     },
     {
-      icon: FaEnvelopeOpenText,
+      icon: EmailIcon,
       label: 'EMAIL',
       value: 'info@marcc.com.au',
       isLink: true,
@@ -123,20 +153,20 @@ const GetInTouchSection = () => {
                 <input
                   type='text'
                   placeholder='Name'
-                  class='w-full rounded-lg border border-gray-300 p-3 focus:ring-1 focus:ring-[#d4575b] focus:outline-none'
+                  class='w-full rounded-lg border border-gray-300 p-3 focus:ring-1 focus:ring-[#d4575b] focus:outline-none placeholder-[#828282] placeholder:font-normal'
                 />
               </div>
               <input
                 type='email'
                 placeholder='Email'
-                className='w-full rounded-lg border border-gray-300 p-3 focus:ring-1 focus:ring-[#d4575b] focus:outline-none'
+                className='w-full rounded-lg border border-gray-300 p-3 focus:ring-1 focus:ring-[#d4575b] focus:outline-none placeholder-[#828282] placeholder:font-normal'
               />
               <div class='relative required-input2'>
                 {' '}
                 <input
                   type='tel'
                   placeholder='Phone Number'
-                  className='w-full rounded-lg border border-gray-300 p-3 focus:ring-1 focus:ring-[#d4575b] focus:outline-none'
+                  className='w-full rounded-lg border border-gray-300 p-3 focus:ring-1 focus:ring-[#d4575b] focus:outline-none placeholder-[#828282] placeholder:font-normal'
                 />
               </div>
 
@@ -166,7 +196,7 @@ const GetInTouchSection = () => {
                     key={idx}
                     className='flex items-center min-w-[120px]'
                     style={{
-                      gap: '5px',
+                      gap: '15px',
                     }}
                   >
                     <div className='flex-shrink-0 text-black'>
@@ -219,7 +249,7 @@ const GetInTouchSection = () => {
           {/* RIGHT COLUMN (MAP) */}
           <div
             ref={mapContainer}
-            className='w-full h-[530px] rounded-2xl overflow-hidden shadow-md'
+            className='xl:h-[700px] lg:w-[645] overflow-hidden'
           ></div>
         </div>
       </section>
