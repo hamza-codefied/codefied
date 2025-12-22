@@ -83,7 +83,7 @@ const Blogs = () => {
     arrows: false,
     responsive: [
       {
-        breakpoint: 1024, // Below lg screens (medium/tablet screens)
+        breakpoint: 1440, // Below lg screens (medium/tablet screens)
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -156,7 +156,10 @@ const Blogs = () => {
             <div className='blog-slider'>
               <Slider ref={sliderRef} {...sliderSettings}>
                 {Blog.map((product, index) => (
-                  <div key={`${product.id}-${index}`} className='flex justify-center items-center w-full'>
+                  <div
+                    key={`${product.id}-${index}`}
+                    className='flex justify-center items-center w-full'
+                  >
                     <div className='bg-transparent border border-white/20 rounded-2xl p-3 sm:p-4 md:p-5 flex flex-col items-start justify-start border-white hover:bg-white/80 transition-all duration-300 h-[518px] w-[370px]'>
                       <img
                         src={product.image}
