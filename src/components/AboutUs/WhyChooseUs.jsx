@@ -62,9 +62,9 @@ const WhyChooseUs = () => {
           </div>
 
           {/* 2-Column Layout */}
-          <div className='flex flex-col md:flex-row gap-[40px] md:gap-[74px]'>
+          <div className='flex flex-col lg:flex-row gap-[40px] lg:gap-[74px]'>
             {/* Left Column */}
-            <div className='space-y-4 w-full md:w-[530px]'>
+            <div className='space-y-4 w-full lg:w-[530px]'>
               {items.map((item, index) => (
                 <div
                   key={index}

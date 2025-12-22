@@ -301,7 +301,7 @@ const Timeline = () => {
                   {/* Horizontal Dotted Line */}
                   <div
                     ref={addLineToRefs}
-                    className={`hidden md:block absolute top-3.5 w-[564px] border-t-4 border-dotted border-black ${
+                    className={`hidden lg:block absolute top-3.5 w-[564px] border-t-4 border-dotted border-black ${
                       isLeft
                         ? 'right-1/2 -translate-x-[8px]'
                         : 'left-1/2 translate-x-[8px]'
@@ -329,10 +329,10 @@ const Timeline = () => {
                     {/* Card */}
                     <div
                       ref={addCardToRefs}
-                      className={`relative mt-10 w-full md:w-[564px] lg:h-[267px] rounded-[20px] p-[20px] ${
+                      className={`relative mt-10 w-full lg:w-[564px] lg:h-[267px] rounded-[20px] p-[20px] ${
                         isLeft
-                          ? 'md:right-[53%] md:text-right'
-                          : 'md:left-[53%] md:text-left'
+                          ? 'lg:right-[53%] lg:text-right'
+                          : 'lg:left-[53%] lg:text-left'
                       }`}
                       style={{
                         border: `${currentStyle.borderWidth} solid ${currentStyle.borderColor}`,
