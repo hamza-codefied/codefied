@@ -334,7 +334,7 @@ export const Developerit = () => {
   return (
     <div
       id='developer-it'
-      className='container xl:px-0 pb-40 relative w-full'
+      className='container xl:px-0 pb-10 md:pb-20 lg:pb-40 relative w-full'
     >
       {/* Spacer to push content down initially on xl screens */}
       <div className='h-[40vh] xl:block hidden'></div>
@@ -384,13 +384,13 @@ export const Developerit = () => {
         {/* Right side - Features */}
         <div
           className={
-            'flex flex-col p-6 md:p-0 gap-y-12 xl:items-end w-full xl:w-[50%]'
+            'flex flex-col p-0 gap-y-12 xl:items-end w-full xl:w-[50%]'
           }
         >
           {features.map(({ title, desc }, index) => (
             <div
               ref={addToRefs}
-              className='p-6 md:p-0 w-full'
+              className='p-0 w-full'
               key={`${title}-${index}`}
             >
               <h2 className={'text-xl md:text-2xl text-[#000] font-medium mb-2'}>

@@ -78,7 +78,7 @@ export const OurCapabilities = () => {
                 letterSpacing: '1.5px',
                 padding: '11px 27.885px 12.19px 35.085px',
               }}
-              className='bg-[#D4575B] text-white text-[17px] rounded-[8px] hover:scale-105 transition-transform duration-300'
+              className='bg-[#D4575B] text-white text-[14px] sm:text-[17px] rounded-[8px] hover:scale-105 transition-transform duration-300'
             >
               {formatText(capability)}
             </motion.div>
