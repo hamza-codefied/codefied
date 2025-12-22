@@ -1,6 +1,7 @@
 import AllProjectsSection from '@/components/Portfolio/AllProjectsSection';
 import HeroSection from '@/components/global/HeroBanner';
 import TestimonialsSection from '@/components/global/TestimoniolSection';
+import herobg from '@/images/hero.png';
 
 export const Portfolio = () => {
   return (
@@ -21,7 +22,10 @@ export const Portfolio = () => {
             </h2>
           }
           MainText={
-            <h1 style={{ lineHeight: '1.2' }} className='text-2xl md:text-4xl lg:text-[54px] font-bold text-black'>
+            <h1
+              style={{ lineHeight: '1.2' }}
+              className='text-2xl md:text-4xl lg:text-[54px] font-bold text-black'
+            >
               Some Of Our Favourite
               <br /> Projects
             </h1>
@@ -33,7 +37,16 @@ export const Portfolio = () => {
           }}
         />
         <AllProjectsSection />
-        <TestimonialsSection />
+        <div
+          style={{
+            backgroundImage: `url(${herobg})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          <TestimonialsSection />
+        </div>
       </div>
     </>
   );

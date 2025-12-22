@@ -13,7 +13,7 @@ export default function TestimonialsSection() {
     <>
       <section
         ref={ref}
-        className='container m-auto xl:px-0 flex flex-col md:flex-row items-stretch justify-between mt-[60px] md:mt-[100px] lg:mt-[220px] gap-5 lg:gap-0'
+        className='container m-auto xl:px-0 flex flex-col md:flex-row items-stretch justify-between pt-[60px] md:pt-[100px] lg:pt-[120px] mt-10 gap-5 lg:gap-0'
       >
         {/* Left Side */}
         <motion.div
