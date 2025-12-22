@@ -43,9 +43,20 @@ export const Portfolio = () => {
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
+            marginTop: '100px',
           }}
+          className='relative'
         >
-          <TestimonialsSection />
+          {/* Gradient fade overlay at bottom */}
+          <div
+            className='absolute bottom-0 left-0 right-0 h-32 pointer-events-none'
+            style={{
+              background: 'linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.3) 40%, rgba(255,255,255,0.7) 70%, rgba(255,255,255,0.95) 100%)',
+            }}
+          />
+          <div className='relative z-10'>
+            <TestimonialsSection />
+          </div>
         </div>
       </div>
     </>
