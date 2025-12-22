@@ -55,7 +55,7 @@ export default function AllBlogsSection() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className='flex flex-col md:flex-row justify-between mx-auto xl:rounded-[48px] border-2 w-fit xl:h-[59px]'
+            className='flex flex-col md:flex-row justify-between mx-auto md:rounded-[48px] md:border-2 w-fit xl:h-[59px]'
             style={{ gap: '10px', padding: '6px 8px' }}
           >
             {categories.map(cat => (

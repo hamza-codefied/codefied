@@ -42,7 +42,7 @@ export default function AllProjectsSection() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className='flex flex-col md:flex-row justify-between w-fit px-[8px] py-[6px] border-2 mx-auto md:mx-0 xl:h-[59px] xl:rounded-[48px]'
+            className='flex flex-col md:flex-row justify-between w-fit px-[8px] py-[6px] md:border-2 mx-auto md:mx-0 xl:h-[59px] md:rounded-[48px]'
           >
             {categories.map(cat => (
               <button

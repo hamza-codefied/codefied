@@ -44,7 +44,7 @@ const SmartBackOffice = () => {
     <div className='container xl:px-0 m-auto '>
       <section
         ref={sectionRef}
-        className='relative flex flex-col lg:flex-row lg:items-center lg:justify-center py-16 sm:py-24 md:py-32 lg:py-64 px-4 overflow-hidden mt-10 sm:mt-[200px] min-h-0 lg:min-h-[800px]'
+        className='relative flex flex-col lg:flex-row lg:items-center lg:justify-center py-2 lg:py-64 px-4 overflow-hidden mt-10 xl:mt-[200px] min-h-0 lg:min-h-[800px]'
       >
         {/* Animated Dotted Border Circle - Only show on large screens */}
         <div className='hidden lg:flex absolute inset-0 w-full h-full items-center justify-center pointer-events-none'>

@@ -106,7 +106,7 @@ const ProjectsSection = () => {
     <div className='container xl:px-0 m-auto'>
       <section
         id='projects'
-        className='mt-0 sm:mt-10 pt-5 sm:pt-[200px] bg-white'
+        className='mt-10 pt-5 sm:pt-[200px] bg-white'
         style={{ overflowX: 'hidden' }}
       >
         {/* Tag */}
@@ -121,8 +121,8 @@ const ProjectsSection = () => {
           {/* Left Side */}
           <div className='w-full md:w-2/3'>
             <h2 className='text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 relative inline-block'>
-              Make creativity your <br /> competitive edge
-              <span className='block w-[150px] sm:w-[180px] md:w-[200px] h-[1px] bg-gray-500 mt-2 sm:mt-3 md:mt-5 rounded-full'></span>
+              Make creativity your <br className='hidden md:block' /> competitive edge
+              <span className='block md:w-[200px] h-[1px] bg-gray-500 mt-2 sm:mt-3 md:mt-5 rounded-full'></span>
             </h2>
           </div>
 

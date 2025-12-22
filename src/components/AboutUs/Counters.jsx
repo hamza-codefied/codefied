@@ -40,7 +40,7 @@ const Counters = () => {
   return (
     <section
       ref={sectionRef}
-      className='container relative bg-white pt-[108px] xl:px-0 pb-0 overflow-hidden'
+      className='container relative bg-white pt-10 lg:pt-[108px] xl:px-0 pb-0 overflow-hidden'
     >
       <div className='grid grid-cols-2 md:grid-cols-4 gap-[14px] md:gap-8 text-center relative z-10'>
         {counters.map((item, index) => {

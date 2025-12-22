@@ -13,7 +13,7 @@ export default function TestimonialsSection() {
     <>
       <section
         ref={ref}
-        className='container m-auto xl:px-0 flex flex-col md:flex-row items-stretch justify-between pt-[60px] md:pt-[100px] lg:pt-[120px] mt-10 gap-5 lg:gap-0'
+        className='container m-auto xl:px-0 flex flex-col md:flex-row items-stretch justify-between pt-[30px] md:pt-[70px] lg:pt-[120px] mt-10 gap-5 lg:gap-0'
       >
         {/* Left Side */}
         <motion.div
@@ -22,8 +22,8 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.8 }}
           className='w-full md:w-1/2 max-w-[466px]'
         >
-          <h2 className='font-semibold text-[50px] leading-normal text-[#000] mb-[12px]'>
-            People are Saying <br /> About{' '}
+          <h2 className='font-semibold text-[35px] md:text-[50px] leading-normal text-[#000] mb-[12px]'>
+            People are Saying <br className='hidden md:block' /> About{' '}
             <span className='text-[#d4575b]'>Codefied</span>
           </h2>
           <p

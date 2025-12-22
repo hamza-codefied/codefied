@@ -2,11 +2,35 @@ import React from 'react';
 import map from '@/images/newMap.png';
 import pakistanFlag from '@/images/pakflag.png';
 import usaFlag from '@/images/usaflag.png';
+import herobg from '@/images/hero.png';
 
 const MapSection = () => {
   return (
-    <section className='relative pt-[60px] md:pt-[158px] pb-[60px] lg:pb-[230px]'>
-      <style>{`
+    <div
+      style={{
+        backgroundImage: `url(${herobg})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+      className='w-full relative'
+    >
+      {/* Top fade overlay */}
+      <div
+        className='absolute top-0 left-0 right-0 h-32 pointer-events-none z-0'
+        style={{
+          background: 'linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 30%, rgba(255,255,255,0.3) 60%, transparent 100%)',
+        }}
+      />
+      {/* Bottom fade overlay */}
+      <div
+        className='absolute bottom-0 left-0 right-0 h-32 pointer-events-none z-0'
+        style={{
+          background: 'linear-gradient(to top, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 30%, rgba(255,255,255,0.3) 60%, transparent 100%)',
+        }}
+      />
+      <section className='container relative pt-[60px] md:pt-[100px] lg:pt-[140px] pb-[60px] lg:px-0 z-10'>
+        <style>{`
         @keyframes pulse-glow {
           0%, 100% {
             opacity: 1;
@@ -113,93 +137,94 @@ const MapSection = () => {
         //   flex-shrink: 0;
         // }
       `}</style>
-      {/* Map Image */}
-      <div className='container flex items-center justify-center mx-auto xl:px-0 relative'>
-        <div
-          className='relative w-full max-w-[1222px]'
-          style={{ aspectRatio: '1222 / 636' }}
-        >
-          <img
-            src={map}
-            alt='Global Office Map'
-            className='w-full h-full object-contain'
-            style={{
-              maxHeight: '636px',
-            }}
-          />
-
-          {/* Houston, USA - Now at Karachi's old position */}
-          {/* Label - positioned above the dot */}
+        {/* Map Image */}
+        <div className='flex items-center justify-center mx-auto relative'>
           <div
-            className='location-label'
-            style={{
-              top: 'calc(58% - 110px)',
-              left: '68.5%',
-              transform: 'translateX(-50%)',
-            }}
+            className='relative w-full max-w-[1222px]'
+            style={{ aspectRatio: '1222 / 636' }}
           >
-            {/* USA Flag */}
-            <img src={usaFlag} alt='USA Flag' className='' />
-            <span>Houston, USA</span>
+            <img
+              src={map}
+              alt='Global Office Map'
+              className='w-full h-full object-contain'
+              style={{
+                maxHeight: '636px',
+              }}
+            />
+
+            {/* Houston, USA - Now at Karachi's old position */}
+            {/* Label - positioned above the dot */}
+            <div
+              className='location-label'
+              style={{
+                top: 'calc(58% - 110px)',
+                left: '68.5%',
+                transform: 'translateX(-50%)',
+              }}
+            >
+              {/* USA Flag */}
+              <img src={usaFlag} alt='USA Flag' className='' />
+              <span>Houston, USA</span>
+            </div>
+
+            {/* Dotted Line for Houston - from label to dot */}
+            <div
+              className='dotted-line'
+              style={{
+                top: 'calc(58% - 80px)',
+                left: '68.7%',
+                height: '80px',
+              }}
+            />
+
+            {/* Houston Pointer - at Karachi's old position */}
+            <div
+              className='location-pin location-pin-blue bg-[#00BBCA]'
+              style={{
+                top: '58%',
+                left: '68%',
+              }}
+              title='Houston, USA'
+            />
+
+            {/* Karachi, Pakistan - Now at Houston's old position */}
+            {/* Label - positioned above the dot */}
+            <div
+              className='location-label'
+              style={{
+                top: 'calc(42% - 110px)',
+                left: '22%',
+                transform: 'translateX(-50%)',
+              }}
+            >
+              {/* Pakistan Flag */}
+              <img src={pakistanFlag} alt='Pakistan Flag' className='' />
+              <span>Karachi, Pakistan</span>
+            </div>
+
+            {/* Dotted Line for Karachi - from label to dot */}
+            <div
+              className='dotted-line'
+              style={{
+                top: 'calc(42% - 80px)',
+                left: '22.7%',
+                height: '80px',
+              }}
+            />
+
+            {/* Karachi Pointer - at Houston's old position */}
+            <div
+              className='location-pin bg-[#d4575b]'
+              style={{
+                top: '42%',
+                left: '22%',
+              }}
+              title='Karachi, Pakistan'
+            />
           </div>
-
-          {/* Dotted Line for Houston - from label to dot */}
-          <div
-            className='dotted-line'
-            style={{
-              top: 'calc(58% - 80px)',
-              left: '68.7%',
-              height: '80px',
-            }}
-          />
-
-          {/* Houston Pointer - at Karachi's old position */}
-          <div
-            className='location-pin location-pin-blue bg-[#00BBCA]'
-            style={{
-              top: '58%',
-              left: '68%',
-            }}
-            title='Houston, USA'
-          />
-
-          {/* Karachi, Pakistan - Now at Houston's old position */}
-          {/* Label - positioned above the dot */}
-          <div
-            className='location-label'
-            style={{
-              top: 'calc(42% - 110px)',
-              left: '22%',
-              transform: 'translateX(-50%)',
-            }}
-          >
-            {/* Pakistan Flag */}
-            <img src={pakistanFlag} alt='Pakistan Flag' className='' />
-            <span>Karachi, Pakistan</span>
-          </div>
-
-          {/* Dotted Line for Karachi - from label to dot */}
-          <div
-            className='dotted-line'
-            style={{
-              top: 'calc(42% - 80px)',
-              left: '22.7%',
-              height: '80px',
-            }}
-          />
-
-          {/* Karachi Pointer - at Houston's old position */}
-          <div
-            className='location-pin bg-[#d4575b]'
-            style={{
-              top: '42%',
-              left: '22%',
-            }}
-            title='Karachi, Pakistan'
-          />
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 

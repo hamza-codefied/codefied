@@ -110,7 +110,7 @@ export default function ServiceDetail() {
     <div className='min-h-screen bg-white overflow-hidden'>
       {/* HERO SECTION */}
       <HeroSection
-        classNames={'h-[450px]'}
+        classNames={'h-[200px] md:h-[320px] lg:h-[450px]'}
         BannerText={'Services'}
         BottomText={
           <motion.div
@@ -193,7 +193,6 @@ export default function ServiceDetail() {
             fontSize: 'clamp(16px, 2vw, 24px)',
             fontWeight: 400,
             marginTop: 'clamp(20px, 3vw, 32px)',
-            
           }}
         >
           {formatText(service.description)}
@@ -330,20 +329,22 @@ export default function ServiceDetail() {
                     </p>
 
                     {sec.badge && (
-                      <motion.span
-                        whileHover={{ scale: 1.05 }}
-                        className='flex items-center justify-center bg-[#d4575b]/90 text-white rounded-md shadow-md cursor-pointer transition-all duration-300 w-full sm:w-auto'
-                        style={{
-                          width: 'clamp(280px, 30vw, 340px)',
-                          height: 'clamp(50px, 6vw, 67px)',
-                          gap: '10px',
-                          fontSize: 'clamp(16px, 2vw, 20px)',
-                          fontWeight: 500,
-                        }}
-                      >
-                        {sec.badge}
-                        <GoArrowUpRight className='text-white' size={20} />
-                      </motion.span>
+                      <div className='flex justify-center md:justify-start'>
+                        <motion.span
+                          whileHover={{ scale: 1.05 }}
+                          className='flex items-center justify-center bg-[#d4575b] text-white rounded-md shadow-md cursor-pointer transition-all duration-300 w-full sm:w-auto'
+                          style={{
+                            width: 'clamp(280px, 30vw, 340px)',
+                            height: 'clamp(50px, 6vw, 67px)',
+                            gap: '10px',
+                            fontSize: 'clamp(16px, 2vw, 20px)',
+                            fontWeight: 500,
+                          }}
+                        >
+                          {sec.badge}
+                          <GoArrowUpRight className='text-white' size={20} />
+                        </motion.span>
+                      </div>
                     )}
                   </motion.div>
 

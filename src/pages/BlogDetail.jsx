@@ -5,6 +5,7 @@ import { FiArrowLeft } from 'react-icons/fi';
 import shadeImage from '@/images/blogdetailshade.png';
 import TestimonialsSection from '@/components/global/TestimoniolSection';
 import { formatText } from '@/utils/textFormatter';
+import herobg from '@/images/hero.png';
 
 const BlogDetail = () => {
   const { slug } = useParams();
@@ -176,7 +177,7 @@ const BlogDetail = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.9 }}
-          className='w-full py-12 md:py-16'
+          className='w-full py-12 md:py-16 relative'
           style={{
             backgroundImage: `url(${shadeImage})`,
             backgroundSize: 'cover',
@@ -184,7 +185,15 @@ const BlogDetail = () => {
             backgroundRepeat: 'no-repeat',
           }}
         >
-          <div className='container m-auto xl:px-0'>
+          {/* Bottom fade overlay */}
+          <div
+            className='absolute bottom-0 left-0 right-0 h-40 pointer-events-none z-0'
+            style={{
+              background:
+                'linear-gradient(to top, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 30%, rgba(255,255,255,0.3) 60%, transparent 100%)',
+            }}
+          />
+          <div className='container m-auto xl:px-0 relative z-10'>
             <h3 className='text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-6 md:mb-8'>
               Similar Blogs
             </h3>
@@ -220,10 +229,9 @@ const BlogDetail = () => {
               ))}
             </div>
           </div>
+          <TestimonialsSection />
         </motion.section>
       )}
-
-      <TestimonialsSection />
     </div>
   );
 };

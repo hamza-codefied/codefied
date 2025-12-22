@@ -8,7 +8,7 @@ const Vision = () => {
   const [activeTab, setActiveTab] = useState('vision');
 
   return (
-    <div className='w-full mt-[185px] relative'>
+    <div className='w-full mt-10 lg:mt-[185px] container m-auto xl:px-0 relative'>
       <style>{`
         @keyframes bounce-hover {
           0%, 100% {
@@ -53,7 +53,7 @@ const Vision = () => {
         />
       </div>
 
-      <div className='container m-auto xl:px-0'>
+      <div className=''>
         <section id='vision-mission' className='w-full text-black relative'>
           <div className='text-start'>
             {/* Heading */}

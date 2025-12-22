@@ -39,7 +39,7 @@ export default function HeroSection() {
         style={{ backgroundImage: `url(${herobg})` }}
       >
         <div className='container xl:px-0 m-auto'>
-          <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className=''>
             <div className='text-center flex space-y-[18px] flex-col'>
               <h1 className='text-3xl md:text-4xl lg:text-6xl xl:text-[90px] font-bold text-[#000]'>
                 <TypeAnimation

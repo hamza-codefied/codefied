@@ -7,6 +7,7 @@ import AvailableJobs from '@/components/career/AvailableJobs';
 import Developerit from '@/components/home/DeveloperIT';
 import Working from '@/components/career/Working';
 import CounterSection from '@/components/career/CounterSection';
+import herobg from '@/images/hero.png';
 
 export const Career = () => {
   const [filters, setFilters] = useState({
@@ -31,7 +32,7 @@ export const Career = () => {
       />
 
       {/* Search and Filter Component */}
-      <div className='lg:-mt-8 relative z-10'>
+      <div className='mt-0 lg:-mt-8 relative z-10'>
         <CareerSearchFilter filters={filters} setFilters={setFilters} />
       </div>
 
@@ -42,7 +43,33 @@ export const Career = () => {
 
       <Working />
       <CounterSection />
-      <TestimonialsSection />
+      <div
+        style={{
+          backgroundImage: `url(${herobg})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+        className='w-full relative'
+      >
+        {/* Top fade overlay */}
+        <div
+          className='absolute top-0 left-0 right-0 h-12 pointer-events-none z-0'
+          style={{
+            background: 'linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, transparent 100%, transparent 100%, transparent 100%)',
+          }}
+        />
+        {/* Bottom fade overlay */}
+        <div
+          className='absolute bottom-0 left-0 right-0 h-40 pointer-events-none z-0'
+          style={{
+            background: 'linear-gradient(to top, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 30%, transparent 100%, transparent 100%)',
+          }}
+        />
+        <div className='relative z-10'>
+          <TestimonialsSection />
+        </div>
+      </div>
     </div>
   );
 };

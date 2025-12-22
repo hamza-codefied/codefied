@@ -122,7 +122,7 @@ const GetInTouchSection = () => {
 
   return (
     <div className='container m-auto xl:px-0'>
-      <section id='contact-form' className='w-full mt-[53px] py-10 mb-[70px]'>
+      <section id='contact-form' className='w-full mt-10 md:mt-[53px] py-2 md:py-10 mb-[70px]'>
         <div className=' grid grid-cols-1 lg:grid-cols-2 gap-10'>
           {/* LEFT COLUMN */}
           <div className='flex flex-col justify-center'>
@@ -249,7 +249,7 @@ const GetInTouchSection = () => {
           {/* RIGHT COLUMN (MAP) */}
           <div
             ref={mapContainer}
-            className='xl:h-[700px] lg:w-[645] overflow-hidden'
+            className='xl:h-[700px] lg:w-[645px] overflow-hidden'
           ></div>
         </div>
       </section>

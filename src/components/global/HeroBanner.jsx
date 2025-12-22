@@ -28,7 +28,7 @@ const HeroBanner = ({
 
         {/*  */}
         {/* Foreground Text (HTML supported) */}
-        <div className='py-28 xl:px-0'>
+        <div className='py-12 md:py-16 lg:py-28 xl:px-0'>
           {TopText && <div className=''>{TopText}</div>}
           {MainText && <div className=''>{MainText}</div>}
           {BottomText && <div className=''>{BottomText}</div>}

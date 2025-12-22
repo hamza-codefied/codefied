@@ -329,7 +329,7 @@ const Timeline = () => {
                     {/* Card */}
                     <div
                       ref={addCardToRefs}
-                      className={`relative mt-10 w-full md:w-[564px] h-[267px] rounded-[20px] p-[20px] ${
+                      className={`relative mt-10 w-full md:w-[564px] lg:h-[267px] rounded-[20px] p-[20px] ${
                         isLeft
                           ? 'md:right-[53%] md:text-right'
                           : 'md:left-[53%] md:text-left'

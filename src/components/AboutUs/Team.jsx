@@ -34,7 +34,7 @@ const Team = () => {
         }
       `}</style>
       <section
-        className='relative bg-cover bg-center bg-no-repeat text-white xl:h-[660px] flex items-center'
+        className='relative bg-cover bg-center bg-no-repeat text-white xl:h-[660px] py-5 md:py-0 flex items-center'
         style={{ backgroundImage: `url(${aboutbg})` }}
       >
         <div className='container m-auto xl:px-0 w-full'>
@@ -58,16 +58,18 @@ const Team = () => {
                 )}
               </p>
 
-              <button
-                className='w-[341px] h-[67px] p-[10px] gap-[10px] rounded-[10px] btn-hover-bounce border border-transparent text-[20px] text-white bg-[#d4575b] transition-all duration-300 hover:bg-transparent hover:text-[#d4575b] hover:border-[#d4575b] hover:shadow-[0_15px_40px_rgba(212,87,91,0.5)] active:translate-y-0 flex items-center justify-center mt-[42px] group'
-                style={{ fontWeight: 400 }}
-              >
-                Get A Free Consultation
-                <GoArrowUpRight
-                  className='text-white group-hover:text-[#d4575b] transition-colors duration-300'
-                  style={{ fontSize: '20px' }}
-                />
-              </button>
+              <div className='flex justify-center md:justify-start'>
+                <button
+                  className='w-[341px] h-[67px] p-[10px] gap-[10px] rounded-[10px] btn-hover-bounce border border-transparent text-[20px] text-white bg-[#d4575b] transition-all duration-300 hover:bg-transparent hover:text-[#d4575b] hover:border-[#d4575b] hover:shadow-[0_15px_40px_rgba(212,87,91,0.5)] active:translate-y-0 flex items-center justify-center mt-[42px] group'
+                  style={{ fontWeight: 400 }}
+                >
+                  Get A Free Consultation
+                  <GoArrowUpRight
+                    className='text-white group-hover:text-[#d4575b] transition-colors duration-300'
+                    style={{ fontSize: '20px' }}
+                  />
+                </button>
+              </div>
             </div>
 
             {/* RIGHT COLUMN */}

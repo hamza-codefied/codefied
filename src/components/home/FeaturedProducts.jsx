@@ -41,13 +41,13 @@ const FeaturedProducts = () => {
       <section
         id='products'
         className='relative bg-cover bg-center bg-no-repeat text-black 
-             py-10 px-10                
+             py-10 px-2 md:px-10                
              rounded-3xl'
         style={{ backgroundImage: `url(${featurebg})` }}
       >
         <div className='relative z-10 text-center '>
-          <h2 className='text-[42px] font-bold'>Featured Products</h2>
-          <p className='text-[24px] font-normal mb-20 text-black'>
+          <h2 className='text-[30px] md:text-[42px] font-bold'>Featured Products</h2>
+          <p className='text-[16px] md:text-[24px] font-normal mb-10 lg:mb-20 text-black'>
             From concept to launch, we cover the entire spectrum of digital
             innovation.
           </p>

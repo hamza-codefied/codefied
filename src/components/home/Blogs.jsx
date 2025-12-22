@@ -103,7 +103,7 @@ const Blogs = () => {
     <div className='w-full'>
       <section
         id='blogs'
-        className='relative mt-10 bg-cover bg-center bg-no-repeat text-black py-20'
+        className='relative mt-10 bg-cover bg-center bg-no-repeat text-black py-10 md:py-20'
         style={{ backgroundImage: `url(${blogbg})` }}
       >
         <div className='container m-auto xl:px-0'>
@@ -119,7 +119,7 @@ const Blogs = () => {
             <div className='flex flex-col md:flex-row items-start justify-between gap-8 mb-14'>
               {/* Left Side */}
               <div className='md:w-2/3 flex items-center'>
-                <h4 className='text-[48px] font-bold mb-4 relative inline-block text-start'>
+                <h4 className='text-[30px] md:text-[48px] font-bold mb-4 relative inline-block text-start'>
                   Read Our Latest News <span>{formatText('&')}</span> <br />{' '}
                   Blogs Get Every Updates
                   <span className='block lg:w-40 h-[1px] bg-gray-500 mt-3 rounded-full'></span>

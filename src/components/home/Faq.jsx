@@ -72,11 +72,11 @@ export default function FAQSection() {
 
   return (
     <div className='container m-auto xl:px-0'>
-      <section id='faqs' className='w-full bg-white mt-[150px] mb-[140px]'>
+      <section id='faqs' className='w-full bg-white mt-10 md:mt-[150px] mb-10 md:mb-[140px]'>
         <div className=''>
           {/* Heading */}
           <div className='text-center '>
-            <h2 class='text-[48px] font-semibold'>
+            <h2 class='text-[30px] md:text-[48px] font-semibold'>
               <span class='text-[#d4575b]'>Frequently</span> Asked Questions
             </h2>
             <p class='text-[#808080] mt-[20px] mb-[20px] text-[18px] font-normal max-w-4xl mx-auto'>
