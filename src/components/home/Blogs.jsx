@@ -106,7 +106,7 @@ const Blogs = () => {
         className='relative mt-10 bg-cover bg-center bg-no-repeat text-black py-10 md:py-20'
         style={{ backgroundImage: `url(${blogbg})` }}
       >
-        <div className='container m-auto xl:px-0'>
+        <div className='container m-auto xl-custom:px-0'>
           <div className='relative z-10 text-center'>
             {/* Tag */}
             <div className='sm:text-start mb-2'>
@@ -119,16 +119,16 @@ const Blogs = () => {
             <div className='flex flex-col md:flex-row items-start justify-between gap-8 mb-14'>
               {/* Left Side */}
               <div className='md:w-2/3 flex items-center'>
-                <h4 className='text-[30px] md:text-[48px] font-bold mb-4 relative inline-block text-start'>
-                  Read Our Latest News <span>{formatText('&')}</span> <br />{' '}
+                <h4 className='text-[30px] lg:text-[48px] font-bold mb-4 relative inline-block text-start'>
+                  Read Our Latest News <span>{formatText('&')}</span> <br className='hidden lg:block' />{' '}
                   Blogs Get Every Updates
-                  <span className='block lg:w-40 h-[1px] bg-gray-500 mt-3 rounded-full'></span>
+                  <span className='block w-40 h-[1px] bg-gray-500 mt-3 rounded-full'></span>
                 </h4>
               </div>
 
               {/* Right Side */}
               <div className='md:w-1/3'>
-                <p className='text-black text-start text-[16px] mb-2 leading-relaxed'>
+                <p className='text-black text-start text-sm md:text-[16px] mb-2 leading-relaxed'>
                   {formatText(
                     'We are web designers, developers, project managers, and digital solutions using the latest trends and technologies.'
                   )}
@@ -160,7 +160,7 @@ const Blogs = () => {
                     key={`${product.id}-${index}`}
                     className='flex justify-center items-center w-full'
                   >
-                    <div className='bg-transparent border border-white/20 rounded-2xl p-3 sm:p-4 md:p-5 flex flex-col items-start justify-start border-white hover:bg-white/80 transition-all duration-300 h-[518px] w-[370px]'>
+                    <div className='bg-transparent border border-white/20 rounded-2xl p-3 sm:p-4 md:p-5 flex flex-col items-start justify-start border-white h-[518px] w-[370px]'>
                       <img
                         src={product.image}
                         alt={product.title}
@@ -214,7 +214,7 @@ const Blogs = () => {
       >
         {seamlessNews.map((src, i) => (
           <div key={i} className='flex justify-center items-center'>
-            <img src={src} alt={`Client ${i + 1}`} className='object-contain' />
+            <img src={src} alt={`Client ${i + 1}`} className='object-contain w-[400px] h-[400px] md:w-full md:h-full' />
           </div>
         ))}
       </Marquee>

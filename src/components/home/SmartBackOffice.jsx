@@ -41,7 +41,7 @@ const SmartBackOffice = () => {
 
   return (
     /* Container */
-    <div className='container xl:px-0 m-auto '>
+    <div className='container xl-custom:px-0 m-auto '>
       <section
         ref={sectionRef}
         className='relative flex flex-col lg:flex-row lg:items-center lg:justify-center py-2 lg:py-64 px-4 overflow-hidden mt-10 xl:mt-[200px] min-h-0 lg:min-h-[800px]'
@@ -144,8 +144,8 @@ const SmartBackOffice = () => {
 
         {/* Center Content */}
         <div className='relative z-10 text-center max-w-2xl mx-auto mb-12 lg:mb-0'>
-          <h2 className='text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 leading-snug text-center relative inline-block'>
-            Behind Every Great Product <br />
+          <h2 className='text-3xl lg:text-4xl font-bold mb-4 leading-snug text-center relative inline-block'>
+            Behind Every Great Product <br className='hidden md:block' />
             Is a Smarter{' '}
             <span className='relative inline-block'>
               Back Office
@@ -247,7 +247,7 @@ const SmartBackOffice = () => {
                 ease: [0.22, 1, 0.36, 1],
               }}
               whileHover={{ y: -8, scale: 1.02 }}
-              className={`hidden lg:flex absolute bg-[#121212]/90 text-white rounded-xl shadow-lg backdrop-blur-md border border-white/10 flex-col h-[210px] ${
+              className={`hidden lg:flex absolute bg-[#121212]/90 text-white rounded-xl shadow-lg backdrop-blur-md border border-white/10 flex-col min-h-[210px] ${
                 card.position === 'top-left'
                   ? 'top-10 left-16 xl:left-16 shadow-lg shadow-green-100'
                   : card.position === 'top-right'

@@ -38,7 +38,7 @@ const WhyChooseUs = () => {
       id='why-choose-us'
       className='bg-[#0C0C0C] text-white pb-[80px] md:pb-[167px]'
     >
-      <div className='container m-auto xl:px-0'>
+      <div className='container m-auto xl-custom:px-0'>
         <div className='w-[100%] mx-auto pt-[40px] md:pt-[84px]'>
           {/* Tag */}
           <p className='text-[#d4575b] tracking-widest text-[14px] md:text-[16px] font-[400] mb-[20px] md:mb-[28px]'>
@@ -46,15 +46,15 @@ const WhyChooseUs = () => {
           </p>
 
           {/* Heading and Description Container */}
-          <div className='inline-block mb-[60px] md:mb-[100px]'>
+          <div className='inline-block mb-[60px] lg:mb-[100px]'>
             {/* Heading */}
-            <h2 className='text-[32px] md:text-[54px] font-[600] mb-[8px] md:mb-[10px]'>
+            <h2 className='text-[30px] lg:text-[54px] font-[600] mb-[8px] md:mb-[10px]'>
               Why <span className='text-[#d4575b]'>Codefied?</span>{' '}
               <span className='italic font-normal'>Your Success</span>
             </h2>
 
             {/* Paragraph - aligns with heading width */}
-            <p className='text-white text-[18px] md:text-[24px] font-[400] w-full md:w-[80%] leading-normal tracking-[-0.36px]'>
+            <p className='text-white text-base lg:text-[24px] font-normal w-full md:w-[80%] leading-normal tracking-[-0.36px]'>
               {formatText(
                 'Partner with Codefied and experience a world where innovation meets excellence, and your success is our mission.'
               )}
@@ -76,7 +76,7 @@ const WhyChooseUs = () => {
                   onClick={() => setActiveIndex(index)}
                 >
                   <h3
-                    className={`text-[20px] md:text-[32px] ${activeIndex === index ? 'font-[600]' : 'font-[600]'}`}
+                    className={`text-[16px] lg:text-[32px] ${activeIndex === index ? 'font-[600]' : 'font-[600]'}`}
                   >
                     {formatText(item.title)}
                   </h3>
@@ -99,7 +99,7 @@ const WhyChooseUs = () => {
 
             {/* Right Column */}
             <div className='flex items-center justify-start flex-1'>
-              <p className='text-[#FFF] text-[16px] md:text-[24px] font-normal leading-normal tracking-[-0.48px]'>
+              <p className='text-[#FFF] text-[16px] lg:text-[24px] font-normal leading-normal tracking-[-0.48px]'>
                 {formatText(items[activeIndex].description)}
               </p>
             </div>

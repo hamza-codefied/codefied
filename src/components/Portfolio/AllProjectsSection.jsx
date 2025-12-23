@@ -34,7 +34,7 @@ export default function AllProjectsSection() {
   }, []);
 
   return (
-    <div className='container m-auto xl:px-0'>
+    <div className='container m-auto xl-custom:px-0'>
       <section className='text-white'>
         <div className='text-center my-14'>
           {/* Tabs */}
@@ -94,7 +94,7 @@ export default function AllProjectsSection() {
                       {project.website}
                     </p>
                   </div>
-                  <div className='bg-black rounded-full p-[17.778px]'>
+                  <div className='bg-black rounded-full p-[10px] lg:p-[17.778px]'>
                     <GoArrowUpRight className='text-[#d4575b] text-5xl' />
                   </div>
                 </div>

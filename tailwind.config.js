@@ -24,6 +24,9 @@ export default {
       },
     },
     extend: {
+      screens: {
+        'xl-custom': '1440px', // Custom breakpoint for 1440px
+      },
       maxWidth: {
         'container-sm': '640px',
         'container-md': '768px',

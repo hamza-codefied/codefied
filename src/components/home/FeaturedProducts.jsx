@@ -37,38 +37,38 @@ import { formatText } from '@/utils/textFormatter';
 
 const FeaturedProducts = () => {
   return (
-    <div className='container xl:px-0'>
+    <div className='container xl-custom:px-0'>
       <section
         id='products'
         className='relative bg-cover bg-center bg-no-repeat text-black 
-             py-10 px-2 md:px-10                
+             py-4 lg:py-10 px-4 lg:px-10                
              rounded-3xl'
         style={{ backgroundImage: `url(${featurebg})` }}
       >
         <div className='relative z-10 text-center '>
-          <h2 className='text-[30px] md:text-[42px] font-bold'>Featured Products</h2>
-          <p className='text-[16px] md:text-[24px] font-normal mb-10 lg:mb-20 text-black'>
+          <h2 className='text-[30px] lg:text-[42px] font-bold'>Featured Products</h2>
+          <p className='text-base lg:text-[24px] font-normal mb-10 lg:mb-20 text-black'>
             From concept to launch, we cover the entire spectrum of digital
             innovation.
           </p>
 
           {/* Product Cards */}
-          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8  '>
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8  '>
             {products.map(product => (
               <div
                 key={product.id}
-                className=' border bg-white/20 border-white/80 rounded-2xl px-5 py-5 flex flex-col items-start justify-between border-white hover:bg-white/20 transition-all duration-300 h-full'
+                className=' border bg-white/20 border-white/80 rounded-2xl p-2 lg:p-5 flex flex-col items-start justify-between border-white hover:bg-white/20 transition-all duration-300 h-full'
               >
                 <div className='flex flex-col items-start w-full'>
-                  <h3 className='text-[24px] font-bold mb-2 text-black'>
+                  <h3 className='text-[20px] lg:text-[24px] font-bold mb-2 text-black'>
                     {formatText(product.title)}
                   </h3>
-                  <p className='text-[16px] font-normal text-black text-start mb-2'>
+                  <p className='text-sm lg:text-[16px] font-normal text-black text-start mb-2'>
                     {formatText(product.description)}
                   </p>
                   <a
                     href='#'
-                    className='text-black text-[16px] font-medium mb-6 flex items-center gap-[7px] underline underline-offset-[6px]'
+                    className='text-black text-sm lg:text-[16px] font-medium mb-6 flex items-center gap-[7px] underline underline-offset-[6px]'
                   >
                     View Product
                     <IoIosArrowDroprightCircle
@@ -86,7 +86,7 @@ const FeaturedProducts = () => {
                   />
 
                   <Link to={`/products/${product.slug}`}>
-                    <div className='absolute right-0 bottom-0 w-[90px] h-[90px] flex items-center justify-center z-20'>
+                    <div className='absolute right-0 bottom-0 w-[50px] h-[50px] md:w-[70px] md:h-[70px] lg:w-[90px] lg:h-[90px] flex items-center justify-center z-20'>
                       <img src={arrow} alt='arrow icon' />
                     </div>
                   </Link>

@@ -22,31 +22,19 @@ const containerVariants = {
 
 const FeaturedSection = () => {
   return (
-    <div className='container xl:px-0 m-auto'>
-      <section className='relative mt-0 lg:mt-[-70px] h-auto xl:h-[447px] bg-[#0c0c0c] rounded-[24px] text-white overflow-hidden p-[50px]'>
+    <div className='container xl-custom:px-0 m-auto'>
+      <section className='relative mt-0 lg:mt-[-70px] h-auto xl:h-[447px] bg-[#0c0c0c] rounded-[24px] text-white overflow-hidden p-[20px] lg:p-[50px]'>
         <motion.div
           variants={containerVariants}
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true, amount: 0.3 }}
           className='relative z-10 grid grid-cols-1 md:grid-cols-2 h-full gap-[38px]'
-          style={
-            {
-              // gap: 'clamp(20px, 3vw, 38px)',
-              // padding: 'clamp(30px, 5vw, 65px)'
-            }
-          }
         >
           {/* Left Column (Text) */}
           <motion.div
             variants={textVariants}
             className='text-center md:text-left'
-            style={
-              {
-                // maxWidth: 'clamp(100%, 50vw, 552px)',
-                // width: '100%',
-              }
-            }
           >
             <motion.span
               className='text-[#d4575b] block'
@@ -63,30 +51,19 @@ const FeaturedSection = () => {
             </motion.span>
 
             <motion.h2
-              className='font-bold text-[44px] leading-[1.2] mt-5'
+              className='font-bold text-[30px] lg:text-[44px] lg:leading-[1.2] mt-5'
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: 'easeOut', delay: 0.4 }}
-              style={{
-                // fontSize: 'clamp(28px, 4vw, 44px)',
-                fontWeight: 700,
-                // marginBottom: 'clamp(15px, 2vw, 20px)',
-              }}
             >
               New invoicing features to help you get paid faster
             </motion.h2>
 
             <motion.p
-              className='max-w-xl mx-auto md:mx-0 mt-5 mb-[41px]'
+              className='max-w-xl mx-auto md:mx-0 mt-5 mb-[41px] text-[16px] font-normal text-[#828282]'
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: 'easeOut', delay: 0.6 }}
-              style={{
-                fontSize: 'clamp(14px, 1.8vw, 16px)',
-                fontWeight: 400,
-                color: '#828282',
-                // marginBottom: 'clamp(25px, 3.5vw, 21px)',
-              }}
             >
               Over the past few months, we've added several new features to SaaS
               Invoicing to help any business get paid faster and streamline
@@ -110,7 +87,7 @@ const FeaturedSection = () => {
           {/* Right Column (Image) */}
           <motion.div
             variants={imageVariants}
-            className='flex justify-center md:justify-end relative w-full xl:w-[552px] h-[319px]'
+            className='flex justify-center md:justify-end relative w-full 2xl:w-[552px] h-[319px]'
             style={
               {
                 // width: '100%',

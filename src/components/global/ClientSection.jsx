@@ -53,7 +53,7 @@ export const ClientSection = () => {
 
   return (
     <>
-      <div className='bg-[#242424] h-[125px]'>
+      <div className='bg-[#242424] h-[100px] md:h-[125px]'>
         <div className='relative flex justify-center items-center'>
           <div
             className='bg-black text-white text-xs w-fit mx-auto px-[25px] py-[15px] rounded-full absolute z-10 -top-[22px] h-[46px]'

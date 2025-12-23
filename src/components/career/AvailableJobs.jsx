@@ -149,8 +149,8 @@ const AvailableJobs = ({ filters }) => {
   }, [filters, allJobs]);
 
   return (
-    <div id='available-jobs' className='container m-auto xl:px-0 py-8 md:py-12'>
-      <h2 className='text-2xl sm:text-3xl md:text-[34px] font-medium text-black mb-6 md:mb-8 text-center md:text-start'>
+    <div id='available-jobs' className='container m-auto xl-custom:px-0 py-8 md:py-12'>
+      <h2 className='text-2xl sm:text-3xl lg:text-[34px] font-medium text-black mb-6 md:mb-8 text-center md:text-start'>
         Available Jobs
       </h2>
 
@@ -176,15 +176,15 @@ const AvailableJobs = ({ filters }) => {
             >
               <div className='h-full flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6'>
                 {/* Company Icon */}
-                <div className='bg-black rounded-[22px] w-12 h-12 sm:w-14 sm:h-14 md:w-[111px] md:h-[104px] flex items-center justify-center flex-shrink-0'>
-                  <span className='text-white text-lg sm:text-5xl md:text-[60px] font-semibold'>
+                <div className='bg-black rounded-[22px] w-12 h-12 sm:w-14 sm:h-14 md:w-[80px] md:h-[80px] lg:w-[111px] lg:h-[104px] flex items-center justify-center flex-shrink-0'>
+                  <span className='text-white text-lg sm:text-5xl lg:text-[60px] font-semibold'>
                     {job.companyInitial}
                   </span>
                 </div>
 
                 {/* Job Title */}
                 <div className='flex flex-wrap items-center justify-between px-6 w-full gap-4'>
-                  <h3 className='text-lg sm:text-xl md:text-2xl text-black font-regular mb-3 mt-0 sm:mt-5 sm:mb-4 w-[250px]'>
+                  <h3 className='text-lg sm:text-xl lg:text-2xl text-black font-regular mb-3 mt-0 sm:mt-5 sm:mb-4 w-[250px]'>
                     {job.title}
                   </h3>
 
@@ -196,7 +196,7 @@ const AvailableJobs = ({ filters }) => {
                         Location
                       </span>
                     </div>
-                    <span className='text-black text-sm sm:text-[24px] font-normal'>
+                    <span className='text-black text-sm lg:text-[24px] font-normal'>
                       {job.location}
                     </span>
                   </div>
@@ -209,7 +209,7 @@ const AvailableJobs = ({ filters }) => {
                         Job Level
                       </span>
                     </div>
-                    <span className='text-black text-sm sm:text-[24px] font-normal'>
+                    <span className='text-black text-sm lg:text-[24px] font-normal'>
                       {job.jobLevel}
                     </span>
                   </div>
@@ -222,7 +222,7 @@ const AvailableJobs = ({ filters }) => {
                         Department
                       </span>
                     </div>
-                    <span className='text-black text-sm sm:text-[24px] font-normal'>
+                    <span className='text-black text-sm lg:text-[24px] font-normal'>
                       {job.department}
                     </span>
                   </div>
@@ -233,7 +233,7 @@ const AvailableJobs = ({ filters }) => {
                       e.stopPropagation();
                       handleApply(job.id);
                     }}
-                    className='bg-[#d4575b] hover:bg-[#c04a4e] text-white font-normal w-[147px] h-[51px] text-sm sm:text-base transition-colors duration-200 rounded-[50px] p-[10px]'
+                    className='bg-[#d4575b] hover:bg-[#c04a4e] text-white font-normal w-[100px] h-[40px] lg:w-[147px] lg:h-[51px] text-sm sm:text-base transition-colors duration-200 rounded-[50px] p-[8px] md:p-[10px]'
                   >
                     Apply
                   </button>

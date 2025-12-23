@@ -301,7 +301,7 @@ const Timeline = () => {
                   {/* Horizontal Dotted Line */}
                   <div
                     ref={addLineToRefs}
-                    className={`hidden lg:block absolute top-3.5 w-[564px] border-t-4 border-dotted border-black ${
+                    className={`hidden xl:block absolute top-3.5 w-[564px] border-t-4 border-dotted border-black ${
                       isLeft
                         ? 'right-1/2 -translate-x-[8px]'
                         : 'left-1/2 translate-x-[8px]'
@@ -331,8 +331,8 @@ const Timeline = () => {
                       ref={addCardToRefs}
                       className={`relative mt-10 w-full lg:w-[564px] lg:h-[267px] rounded-[20px] p-[20px] ${
                         isLeft
-                          ? 'lg:right-[53%] lg:text-right'
-                          : 'lg:left-[53%] lg:text-left'
+                          ? 'xl:right-[53%] xl:text-right'
+                          : 'xl:left-[53%] xl:text-left'
                       }`}
                       style={{
                         border: `${currentStyle.borderWidth} solid ${currentStyle.borderColor}`,
@@ -342,16 +342,10 @@ const Timeline = () => {
                         WebkitBackdropFilter: 'blur(14px)',
                       }}
                     >
-                      <h3
-                        className='text-[#000] tracking-[-0.132px] mb-2'
-                        style={{ fontSize: '20px', fontWeight: 500 }}
-                      >
+                      <h3 className='text-[#000] tracking-[-0.132px] mb-2 text-[20px] font-medium'>
                         {formatText(item.title)}
                       </h3>
-                      <p
-                        className='text-[#3f3f3f] tracking-[-0.12px] leading-relaxed'
-                        style={{ fontSize: '20px', fontWeight: 400 }}
-                      >
+                      <p className='text-[#3f3f3f] tracking-[-0.12px] leading-relaxed text-[16px] lg:text-[20px] font-normal'>
                         {formatText(item.description)}
                       </p>
                     </div>
@@ -359,11 +353,7 @@ const Timeline = () => {
                     {/* Year Label - Mobile: below card */}
                     <span
                       ref={addMobileYearToRefs}
-                      className={`xl:hidden block text-center mt-4 text-black ${isLeft ? '' : ''}`}
-                      style={{
-                        fontSize: '34px',
-                        fontWeight: 700,
-                      }}
+                      className={`xl:hidden block text-center mt-4 text-[24px] lg:text-[34px] font-bold text-black ${isLeft ? '' : ''}`}
                     >
                       {item.year}
                     </span>

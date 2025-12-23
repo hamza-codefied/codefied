@@ -8,7 +8,7 @@ const Vision = () => {
   const [activeTab, setActiveTab] = useState('vision');
 
   return (
-    <div className='w-full mt-10 lg:mt-[185px] container m-auto xl:px-0 relative'>
+    <div className='w-full mt-10 lg:mt-[185px] container m-auto xl-custom:px-0 relative'>
       <style>{`
         @keyframes bounce-hover {
           0%, 100% {
@@ -59,15 +59,15 @@ const Vision = () => {
             {/* Heading */}
             <h2
               style={{ letterSpacing: '-0.246px' }}
-              className='text-[44px] leading-normal font-bold'
+              className='text-[30px] lg:text-[44px] leading-normal font-bold'
             >
-              Innovating Solutions , <br />
+              Innovating Solutions , <br className='hidden lg:block' />
               Empowering your success
             </h2>
 
             {/* Paragraph */}
             <p
-              className='text-[20px] font-normal leading-normal mt-[18px]'
+              className='text-[16px] lg:text-[20px] font-normal leading-normal mt-[18px]'
               style={{ color: '#828282', letterSpacing: '-0.12px' }}
             >
               {formatText(
@@ -83,7 +83,7 @@ const Vision = () => {
                   onClick={() => setActiveTab(tab)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`px-8 py-[10px] rounded-[10px] text-[20px] font-[400] transition-all duration-300 ${
+                  className={`px-8 py-[10px] rounded-[10px] text-[16px] lg:text-[20px] font-normal transition-all duration-300 ${
                     activeTab === tab
                       ? 'bg-[#d4575b] text-white'
                       : 'bg-transparent text-[#000] hover:text-[#d4575b] hover:underline'
@@ -95,7 +95,7 @@ const Vision = () => {
             </div>
 
             {/* Tab Content */}
-            <div className='w-full mt-8 relative min-h-[200px]'>
+            <div className='w-full mt-8 relative'>
               <AnimatePresence mode='wait'>
                 {activeTab === 'vision' ? (
                   <motion.div
@@ -108,7 +108,7 @@ const Vision = () => {
                   >
                     <p
                       style={{ letterSpacing: '-0.12px', lineHeight: '29px' }}
-                      className='text-black text-[20px] font-normal'
+                      className='text-black text-[16px] lg:text-[20px] font-normal'
                     >
                       {formatText(
                         'At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions. Our team of dedicated professionals specializes in developing cutting-edge mobile apps, web apps, and immersive AR/VR experiences. As a product and service-based company, we pride ourselves on delivering exceptional quality and value to our clients.At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions. Our team of dedicated professionals specializes in developing cutting-edge mobile apps, web apps, and immersive AR/VR experiences. As a product and service-based company, we pride ourselves on delivering exceptional quality and value to our clients.'
@@ -133,7 +133,7 @@ const Vision = () => {
                   >
                     <p
                       style={{ letterSpacing: '-0.12px', lineHeight: '29px' }}
-                      className='text-black text-[20px] font-normal'
+                      className='text-black text-[16px] lg:text-[20px] font-normal'
                     >
                       {formatText(
                         'At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions. Our team of dedicated professionals specializes in developing cutting-edge mobile apps, web apps, and immersive AR/VR experiences. As a product and service-based company, we pride ourselves on delivering exceptional quality and value to our clients.At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions.'

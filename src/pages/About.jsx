@@ -17,7 +17,7 @@ export const About = () => {
         classNames={'h-[200px] md:h-[320px] lg:h-[380px]'}
         BannerText={'About Us'}
         TopText={
-          <h2 className='text-[24px] font-semibold mb-6 text-center relative inline-block lg:left-24'>
+          <h2 className='text-[24px] font-semibold mb-6 text-center relative inline-block'>
             <span className='relative inline-block'>
               Codefied
               <img
@@ -30,7 +30,7 @@ export const About = () => {
           </h2>
         }
         MainText={
-          <h4 className='text-2xl md:text-4xl lg:text-[54px] font-bold text-[#000] lg:leading-[1.2] relative lg:left-24'>
+          <h4 className='text-2xl md:text-4xl lg:text-[54px] font-bold text-[#000] lg:leading-[1.2] relative '>
             Software Development
             <br /> Company
           </h4>

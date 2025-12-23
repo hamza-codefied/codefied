@@ -33,7 +33,7 @@ export default function AllBlogsSection() {
   }, []);
 
   return (
-    <div className='container xl:px-0 m-auto'>
+    <div className='container xl-custom:px-0 m-auto'>
       <section className='text-white mt-[136px]'>
         <div className='text-center' style={{ marginBottom: '64px' }}>
           <motion.h2
@@ -55,14 +55,13 @@ export default function AllBlogsSection() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className='flex flex-col md:flex-row justify-between mx-auto md:rounded-[48px] md:border-2 w-fit xl:h-[59px]'
-            style={{ gap: '10px', padding: '6px 8px' }}
+            className='flex flex-col md:flex-row justify-between mx-auto md:rounded-[48px] md:border-2 w-fit xl:h-[59px] px-[6px] py-[4px] md:px-[8px] md:py-[6px] gap-[5px] md:gap-[10px]'
           >
             {categories.map(cat => (
               <button
                 key={cat.id}
                 onClick={() => setActiveTab(cat.id)}
-                className={`flex items-center justify-center rounded-[40px] transition-all duration-300 text-[18px] leading-normal font-medium px-[22px] py-[12px] ${
+                className={`flex items-center justify-center rounded-[40px] transition-all duration-300 text-[16px] lg:text-[18px] leading-normal font-medium px-[16px] py-[8px] md:px-[22px] md:py-[12px] ${
                   activeTab === cat.id
                     ? 'bg-black text-white shadow-lg scale-105'
                     : 'bg-white text-black hover:bg-gray-100 hover:scale-105'

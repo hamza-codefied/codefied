@@ -40,7 +40,7 @@ const Counters = () => {
   return (
     <section
       ref={sectionRef}
-      className='container relative bg-white pt-10 md:pt-20 lg:pt-[108px] xl:px-0 pb-0 overflow-hidden'
+      className='container relative bg-white pt-10 md:pt-20 lg:pt-[108px] xl-custom:px-0 pb-0 overflow-hidden'
     >
       <div className='grid grid-cols-2 md:grid-cols-4 gap-[14px] md:gap-8 text-center relative z-10'>
         {counters.map((item, index) => {
@@ -68,11 +68,11 @@ const Counters = () => {
               }`}
             >
               <h3
-                className={`font-medium ${item.color}`}
+                className={`font-medium text-[40px] lg:text-[86px] ${item.color}`}
                 style={{
                   // fontFamily: 'Arial, sans-serif',
                   marginBottom: '4px',
-                  fontSize: 'clamp(40px, 8vw, 86px)',
+                 
                   lineHeight: '1',
                   maxHeight: '133px',
                   display: 'flex',

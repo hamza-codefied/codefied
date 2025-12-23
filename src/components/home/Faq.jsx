@@ -71,15 +71,15 @@ export default function FAQSection() {
     .filter((_, i) => i % 2 === 1); // even positions: 1,3,5...
 
   return (
-    <div className='container m-auto xl:px-0'>
-      <section id='faqs' className='w-full bg-white mt-10 md:mt-[150px] mb-10 md:mb-[140px]'>
+    <div className='container m-auto xl-custom:px-0'>
+      <section id='faqs' className='w-full bg-white sm:mt-[60px] md:mt-[100px] xl:mt-[150px] mb-10 md:mb-[140px]'>
         <div className=''>
           {/* Heading */}
           <div className='text-center '>
-            <h2 class='text-[30px] md:text-[48px] font-semibold'>
+            <h2 class='text-[30px] lg:text-[48px] font-semibold'>
               <span class='text-[#d4575b]'>Frequently</span> Asked Questions
             </h2>
-            <p class='text-[#808080] mt-[20px] mb-[20px] text-[18px] font-normal max-w-4xl mx-auto'>
+            <p class='text-[#808080] mt-[20px] mb-[20px] text-sm lg:text-[18px] font-normal max-w-4xl mx-auto'>
               {formatText(
                 "Got questions? We've got answers. Check out our frequently asked questions section to find valuable insights into our processes, pricing, and more. Transparency is at the core of our client interactions."
               )}
@@ -87,7 +87,7 @@ export default function FAQSection() {
           </div>
 
           {/* Search bar */}
-          <div className='relative max-w-2xl mx-auto mb-[60px]'>
+          <div className='relative max-w-2xl mx-auto md:mb-[30px] lg:mb-[60px]'>
             <FiSearch className='absolute top-1/2 left-4 transform -translate-y-1/2 text-[#666]' />
             <input
               type='text'
@@ -99,7 +99,7 @@ export default function FAQSection() {
           </div>
 
           {/* all FAQS */}
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-[50px]'>
+          <div className='grid grid-cols-1 lg:grid-cols-2 lg:gap-[50px]'>
             {/* FAQ grid */}
             <div className=''>
               {oddFaqs.map(({ faq, originalIndex }, index) => (
@@ -112,7 +112,7 @@ export default function FAQSection() {
                     className='flex items-start w-full gap-[30px]'
                   >
                     <div className='flex-1 flex flex-col'>
-                      <h3 className='text-[20px] font-semibold text-[#5D5D5D]'>
+                      <h3 className='text-sm lg:text-[20px] font-semibold text-[#5D5D5D]'>
                         {formatText(faq.question)}
                       </h3>
                       {/* Answer Animation */}
@@ -124,18 +124,18 @@ export default function FAQSection() {
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.3, ease: 'easeInOut' }}
                           >
-                            <p className='text-[18px] font-normal text-[#8C8C8C] mt-3 leading-relaxed'>
+                            <p className='text-sm lg:text-[18px] font-normal text-[#8C8C8C] mt-3 leading-relaxed'>
                               {formatText(faq.answer)}
                             </p>
                           </motion.div>
                         )}
                       </AnimatePresence>
                     </div>
-                    <div className='flex-shrink-0 bg-black text-white rounded-full w-[52px] h-[52px] flex items-center justify-center'>
+                    <div className='flex-shrink-0 bg-black text-white rounded-full w-[40px] h-[40px] lg:w-[52px] lg:h-[52px] flex items-center justify-center'>
                       {activeIndex === originalIndex ? (
-                        <FiMinus className='text-[28px]' />
+                        <FiMinus className='text-[20px] lg:text-[28px]' />
                       ) : (
-                        <FiPlus className='text-[28px]' />
+                        <FiPlus className='text-[20px] lg:text-[28px]' />
                       )}
                     </div>
                   </div>
@@ -155,7 +155,7 @@ export default function FAQSection() {
                     className='flex items-start w-full gap-[40px]'
                   >
                     <div className='flex-1 flex flex-col'>
-                      <h3 className='text-[20px] font-semibold text-[#5D5D5D]'>
+                      <h3 className='text-sm lg:text-[20px] font-semibold text-[#5D5D5D]'>
                         {formatText(faq.question)}
                       </h3>
                       {/* Answer Animation */}
@@ -167,18 +167,18 @@ export default function FAQSection() {
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.3, ease: 'easeInOut' }}
                           >
-                            <p className='text-[18px] font-normal text-[#8C8C8C] mt-3 leading-relaxed'>
+                            <p className='text-sm lg:text-[18px] font-normal text-[#8C8C8C] mt-3 leading-relaxed'>
                               {formatText(faq.answer)}
                             </p>
                           </motion.div>
                         )}
                       </AnimatePresence>
                     </div>
-                    <div className='flex-shrink-0 bg-black text-white rounded-full w-[52px] h-[52px] flex items-center justify-center'>
+                    <div className='flex-shrink-0 bg-black text-white rounded-full w-[40px] h-[40px] lg:w-[52px] lg:h-[52px] flex items-center justify-center'>
                       {activeIndex === originalIndex ? (
-                        <FiMinus className='text-[28px]' />
+                        <FiMinus className='text-[20px] lg:text-[28px]' />
                       ) : (
-                        <FiPlus className='text-[28px]' />
+                        <FiPlus className='text-[20px] lg:text-[28px]' />
                       )}
                     </div>
                   </div>

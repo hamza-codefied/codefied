@@ -103,7 +103,7 @@ const ProjectsSection = () => {
   };
 
   return (
-    <div className='container xl:px-0 m-auto'>
+    <div className='container xl-custom:px-0 m-auto'>
       <section
         id='projects'
         className='mt-10 pt-5 sm:pt-[200px] bg-white'
@@ -120,15 +120,15 @@ const ProjectsSection = () => {
         <div className='flex flex-col md:flex-row items-start justify-between gap-6 sm:gap-8 mt-4 sm:mt-5 mb-8 sm:mb-16 md:mb-[108px]'>
           {/* Left Side */}
           <div className='w-full md:w-2/3'>
-            <h2 className='text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 relative inline-block'>
+            <h2 className='text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 relative inline-block'>
               Make creativity your <br className='hidden md:block' /> competitive edge
-              <span className='block md:w-[200px] h-[1px] bg-gray-500 mt-2 sm:mt-3 md:mt-5 rounded-full'></span>
+              <span className='block w-[200px] h-[1px] bg-gray-500 mt-2 sm:mt-3 md:mt-5 rounded-full'></span>
             </h2>
           </div>
 
           {/* Right Side */}
           <div className='w-full md:w-[350px]'>
-            <p className='text-black text-xs sm:text-sm md:text-base mb-4 sm:mb-[21px] leading-relaxed font-normal'>
+            <p className='text-black text-sm md:text-base mb-4 sm:mb-[21px] leading-relaxed font-normal'>
               {formatText(
                 'We are web designers, developers, project managers, and digital solutions using the latest trends and technologies.'
               )}

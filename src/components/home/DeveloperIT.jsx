@@ -334,7 +334,7 @@ export const Developerit = () => {
   return (
     <div
       id='developer-it'
-      className='container xl:px-0 pb-10 md:pb-20 lg:pb-40 relative w-full'
+      className='container xl-custom:px-0 pb-10 md:pb-20 lg:pb-40 relative w-full'
     >
       {/* Spacer to push content down initially on xl screens */}
       <div className='h-[40vh] xl:block hidden'></div>
@@ -355,7 +355,7 @@ export const Developerit = () => {
           <div className='heading-container' style={{ width: 'fit-content' }}>
             <h1
               ref={text}
-              className='text-4xl md:text-5xl xl:text-6xl font-semibold'
+              className='text-[30px] lg:text-5xl xl:text-6xl font-semibold'
               style={{ width: 'fit-content', display: 'inline-block' }}
             >
               Developer
@@ -365,7 +365,7 @@ export const Developerit = () => {
           </div>
 
           {/* Hero Sub Text */}
-          <div className={'heroSubText flex gap-y-3 text-2xl flex-col'}>
+          <div className={'heroSubText flex gap-y-3 text-base lg:text-2xl flex-col'}>
             <div>
               {formatText(
                 'From concept to launch, we cover the entire spectrum of digital innovation.'
@@ -374,9 +374,9 @@ export const Developerit = () => {
           </div>
           <a
             href='#'
-            className='text-sm font-semibold text-[#d4575b] flex items-center justify-start gap-2 cursor-pointer'
+            className='font-semibold text-[#d4575b] flex items-center justify-start gap-2 cursor-pointer'
           >
-            <p className='text-2xl'>Get Free Consultation</p>
+            <p className='text-base lg:text-2xl'>Get Free Consultation</p>
             <GoArrowUpRight size={30} className='text-black mt-[2px]' />
           </a>
         </div>

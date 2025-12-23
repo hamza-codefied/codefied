@@ -157,7 +157,7 @@ export default function ServiceDetail() {
         }}
       />
 
-      <div className='container m-auto xl:px-0'>
+      <div className='container m-auto xl-custom:px-0'>
         {/* INTRO SECTION */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -185,7 +185,7 @@ export default function ServiceDetail() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
-        className='container m-auto xl:px-0 text-center'
+        className='container m-auto xl-custom:px-0 text-center'
       >
         <p
           className='text-black font-normal leading-normal'
@@ -199,7 +199,7 @@ export default function ServiceDetail() {
         </p>
       </motion.div>
 
-      <div className='container m-auto xl:px-0'>
+      <div className='container m-auto xl-custom:px-0'>
         {/* SECTIONS */}
         <div className='mt-[clamp(40px,10vw,122px)] space-y-[clamp(40px,15vw,128px)]'>
           {service.sections.map((sec, idx) => {

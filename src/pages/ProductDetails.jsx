@@ -34,10 +34,10 @@ export default function ProductDetails() {
       initial={{ opacity: 0, y: 6 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45 }}
-      className='min-h-screen bg-white'
+      className='min-h-screen bg-white pb-[80px]'
     >
       {/* ✅ Hero Section */}
-      <section className='relative w-full h-[100vh] flex items-center justify-start overflow-hidden'>
+      <section className='relative w-full h-[50vh] lg:h-[100vh] flex items-center justify-start overflow-hidden'>
         <img
           src={product.thumnailImage}
           alt={product.title}
@@ -55,8 +55,8 @@ export default function ProductDetails() {
       </section>
 
       {/* ✅ Features Section */}
-      <section className='container mt-[160px] xl:px-0'>
-        <div className='space-y-28'>
+      <section className='container mt-[80px] lg:mt-[160px] xl-custom:px-0'>
+        <div className='space-y-[40px] lg:space-y-28'>
           {product.features.map((feature, index) => (
             <motion.div
               key={index}

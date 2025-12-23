@@ -46,7 +46,7 @@ const PortfolioDetail = () => {
           backgroundRepeat: 'no-repeat',
         }}
       >
-        <div className='container m-auto xl:px-0'>
+        <div className='container m-auto xl-custom:px-0'>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -97,7 +97,7 @@ const PortfolioDetail = () => {
       </section>
 
       {/* Main Content */}
-      <div className='container m-auto xl:px-0 py-8 md:py-12'>
+      <div className='container m-auto xl-custom:px-0 py-8 md:py-12'>
         {/* Back Button */}
         <button
           onClick={() => navigate('/portfolio')}
@@ -218,7 +218,7 @@ const PortfolioDetail = () => {
           backgroundRepeat: 'no-repeat',
         }}
       >
-        <div className='container m-auto xl:px-0 xl:h-[310px] flex items-center justify-center'>
+        <div className='container m-auto xl-custom:px-0 xl:h-[310px] flex items-center justify-center'>
           <div className='text-center'>
             <h2 className='text-3xl sm:text-[44px] font-medium text-black mb-6 md:mb-8'>
               The Problem
@@ -238,7 +238,7 @@ const PortfolioDetail = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           className='w-full py-12 md:py-16 mb-12 md:mb-16 bg-white'
         >
-          <div className='container m-auto xl:px-0'>
+          <div className='container m-auto xl-custom:px-0'>
             {/* Title */}
             <h2 className='text-3xl sm:text-4xl md:text-[44px] font-medium text-black mb-4 md:mb-6'>
               The Codefied Solution

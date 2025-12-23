@@ -39,7 +39,7 @@ export const Footer = () => {
   return (
     <footer className='bg-white overflow-x-hidden w-full'>
       <div
-        className='container mx-auto xl:px-0 flex flex-col justify-between'
+        className='container mx-auto xl-custom:px-0 flex flex-col justify-between'
         style={{
           paddingTop: 'clamp(30px, 4vw, 40px)',
           paddingBottom: 'clamp(20px, 3vw, 30px)',

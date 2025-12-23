@@ -42,7 +42,7 @@ const BlogDetail = () => {
         }}
       >
         {/* Centered Black Div */}
-        <div className='container m-auto xl:px-0'>
+        <div className='container m-auto xl-custom:px-0'>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -90,7 +90,7 @@ const BlogDetail = () => {
       </section>
 
       {/* Main Content */}
-      <div className='container m-auto xl:px-0 py-8 md:py-12'>
+      <div className='container m-auto xl-custom:px-0 py-8 md:py-12'>
         {/* Back Button */}
         <button
           onClick={() => navigate('/blogs')}
@@ -193,7 +193,7 @@ const BlogDetail = () => {
                 'linear-gradient(to top, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 30%, rgba(255,255,255,0.3) 60%, transparent 100%)',
             }}
           />
-          <div className='container m-auto xl:px-0 relative z-10'>
+          <div className='container m-auto xl-custom:px-0 relative z-10'>
             <h3 className='text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-6 md:mb-8'>
               Similar Blogs
             </h3>
