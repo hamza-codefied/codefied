@@ -41,7 +41,7 @@ export default function HeroSection() {
         <div className='container xl-custom:px-0 m-auto'>
           <div className=''>
             <div className='text-center flex space-y-[18px] flex-col'>
-              <h1 className='text-3xl md:text-4xl lg:text-6xl xl:text-[90px] font-bold text-[#000]'>
+              <h1 className='text-3xl md:text-4xl lg:text-5xl xl:text-[90px] font-bold text-[#000]'>
                 <TypeAnimation
                   sequence={[
                     'Code.',

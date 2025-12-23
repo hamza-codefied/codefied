@@ -202,7 +202,7 @@ export const Header = () => {
                     >
                       <button
                         type='button'
-                        className={`px-3 py-2 text-[18px] font-medium flex items-center gap-1 transition-all duration-300 cursor-pointer ${hoveredNavItem === item.name || isMegaMenuOpen
+                        className={`text-[18px] font-medium flex items-center gap-1 transition-all duration-300 cursor-pointer ${hoveredNavItem === item.name || isMegaMenuOpen
                           ? 'text-[#d4575b]'
                           : 'text-black hover:text-[#d4575b]'
                           }`}
@@ -277,7 +277,7 @@ export const Header = () => {
                     >
                       <button
                         type='button'
-                        className={`px-3 py-2 text-[18px] font-medium flex items-center gap-1 transition-all duration-300 cursor-pointer ${hoveredNavItem === item.name || isProductMegaMenuOpen
+                        className={`text-[18px] font-medium flex items-center gap-1 transition-all duration-300 cursor-pointer ${hoveredNavItem === item.name || isProductMegaMenuOpen
                           ? 'text-[#d4575b]'
                           : 'text-black hover:text-[#d4575b]'
                           }`}
