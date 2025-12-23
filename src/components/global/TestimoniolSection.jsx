@@ -22,7 +22,7 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.8 }}
           className='w-full lg:w-1/2 max-w-[466px]'
         >
-          <h2 className='font-semibold text-[30px] md:text-[40px] lg:text-[50px] leading-normal text-[#000] mb-[12px]'>
+          <h2 className='font-semibold text-[24px] sm:text-[30px] md:text-[40px] lg:text-[50px] leading-normal text-[#000] mb-[12px]'>
             People are Saying <br className='hidden lg:block' /> About{' '}
             <span className='text-[#d4575b]'>Codefied</span>
           </h2>

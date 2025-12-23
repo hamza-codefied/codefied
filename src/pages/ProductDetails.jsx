@@ -37,18 +37,18 @@ export default function ProductDetails() {
       className='min-h-screen bg-white pb-[80px]'
     >
       {/* ✅ Hero Section */}
-      <section className='relative w-full h-[50vh] lg:h-[100vh] flex items-center justify-start overflow-hidden'>
+      <section className='relative w-full h-[30vh] md:h-[50vh] lg:h-[70vh] xl:h-[100vh] flex items-center justify-start overflow-hidden'>
         <img
           src={product.thumnailImage}
           alt={product.title}
           className='absolute inset-0 w-full h-[100vh] object-cover'
         />
         <div className='absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent' />
-        <div className='relative z-10 max-w-2xl pl-10 pb-[160px] text-left text-white'>
+        <div className='relative z-10 container m-auto xl-custom:px-0 text-left text-white'>
           <h1 className='text-3xl sm:text-5xl font-extrabold mb-4 drop-shadow-lg'>
             {product.title}
           </h1>
-          <p className='text-base sm:text-lg leading-relaxed drop-shadow-md'>
+          <p className='text-base sm:text-lg leading-relaxed drop-shadow-md max-w-3xl'>
             {product.description}
           </p>
         </div>
@@ -80,15 +80,15 @@ export default function ProductDetails() {
 
               {/* Content */}
               <div className='w-full md:w-1/2 text-center md:text-left'>
-                <h3 className='text-2xl sm:text-3xl font-bold text-gray-900 mb-4'>
+                <h3 className='text-xl sm:text-3xl font-bold text-gray-900 mb-4'>
                   {feature.title}
                 </h3>
-                <p className='text-gray-600 text-base sm:text-lg leading-relaxed mb-6'>
+                <p className='text-gray-600 text-[14px] sm:text-base md:text-lg leading-relaxed mb-6'>
                   {feature.description}
                 </p>
                 <Link
                   to={feature.button.href}
-                  className='inline-flex items-center gap-2 px-5 py-2.5 bg-[#d4575b] text-white rounded-lg font-medium hover:bg-[#b43e45] transition-all duration-300 shadow-md'
+                  className='inline-flex items-center gap-2 px-3 sm:px-5 py-1.5 sm:py-2.5 bg-[#d4575b] text-white rounded-lg font-medium hover:bg-[#b43e45] transition-all duration-300 shadow-md'
                 >
                   {feature.button.label}
                   <GoArrowUpRight className='text-white text-lg mt-[2px]' />

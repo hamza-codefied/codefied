@@ -43,7 +43,7 @@ export const Contact = () => {
             <img
               src={src}
               alt={`Client ${i + 1}`}
-              className='object-contain'
+              className='object-contain w-[400px] lg:w-full lg:h-full'
             />
           </div>
         ))}

@@ -51,7 +51,7 @@ const FeaturedSection = () => {
             </motion.span>
 
             <motion.h2
-              className='font-bold text-[30px] lg:text-[44px] lg:leading-[1.2] mt-5'
+              className='font-bold text-[20px] sm:text-[24px] md:text-[30px] lg:text-[44px] lg:leading-[1.2] mt-2 md:mt-5'
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: 'easeOut', delay: 0.4 }}
@@ -60,7 +60,7 @@ const FeaturedSection = () => {
             </motion.h2>
 
             <motion.p
-              className='max-w-xl mx-auto md:mx-0 mt-5 mb-[41px] text-[16px] font-normal text-[#828282]'
+              className='max-w-xl mx-auto md:mx-0 mt-2 md:mt-5 mb-4 md:mb-[41px] sm:text-[14px] md:text-[16px] font-normal text-[#828282]'
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: 'easeOut', delay: 0.6 }}

@@ -36,22 +36,30 @@ const Vision = () => {
       `}</style>
 
       {/* Background Image with Gradient Overlay - Full Width */}
-      <div
-        className='absolute bottom-0 left-0 right-0 h-[150px] bg-cover bg-center bg-no-repeat pointer-events-none'
+      {/* <div
+        className='absolute bottom-0 left-0 right-0 h-[250px] bg-cover bg-center bg-no-repeat pointer-events-none'
         style={{
           backgroundImage: `url(${hero_bg})`,
           backgroundPosition: 'center bottom',
         }}
       >
-        {/* Gradient overlay - transitions from transparent at top to visible at bottom */}
+       
         <div
-          className='absolute inset-0'
+          className='absolute top-0 left-0 right-0 h-[80px] pointer-events-none'
           style={{
             background:
-              'linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.95) 100%)',
+              'linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 30%, rgba(255,255,255,0.3) 60%, transparent 100%)',
           }}
         />
-      </div>
+ 
+        <div
+          className='absolute bottom-0 left-0 right-0 h-[80px] pointer-events-none'
+          style={{
+            background:
+              'linear-gradient(to top, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 30%, rgba(255,255,255,0.3) 60%, transparent 100%)',
+          }}
+        />
+      </div> */}
 
       <div className=''>
         <section id='vision-mission' className='w-full text-black relative'>
@@ -59,7 +67,7 @@ const Vision = () => {
             {/* Heading */}
             <h2
               style={{ letterSpacing: '-0.246px' }}
-              className='text-[30px] lg:text-[44px] leading-normal font-bold'
+              className='text-[20px] sm:text-[24px] md:text-[30px] lg:text-[44px] leading-normal font-bold'
             >
               Innovating Solutions , <br className='hidden lg:block' />
               Empowering your success
@@ -67,7 +75,7 @@ const Vision = () => {
 
             {/* Paragraph */}
             <p
-              className='text-[16px] lg:text-[20px] font-normal leading-normal mt-[18px]'
+              className='text-[14px] sm:text-[16px] lg:text-[20px] font-normal leading-normal mt-[18px]'
               style={{ color: '#828282', letterSpacing: '-0.12px' }}
             >
               {formatText(
@@ -108,7 +116,7 @@ const Vision = () => {
                   >
                     <p
                       style={{ letterSpacing: '-0.12px', lineHeight: '29px' }}
-                      className='text-black text-[16px] lg:text-[20px] font-normal'
+                      className='text-black text-[14px] sm:text-[16px] lg:text-[20px] font-normal'
                     >
                       {formatText(
                         'At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions. Our team of dedicated professionals specializes in developing cutting-edge mobile apps, web apps, and immersive AR/VR experiences. As a product and service-based company, we pride ourselves on delivering exceptional quality and value to our clients.At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions. Our team of dedicated professionals specializes in developing cutting-edge mobile apps, web apps, and immersive AR/VR experiences. As a product and service-based company, we pride ourselves on delivering exceptional quality and value to our clients.'
@@ -119,7 +127,7 @@ const Vision = () => {
                       style={{ fontWeight: 400 }}
                     >
                       Get Free Consultation
-                      <GoArrowUpRight className='text-white group-hover:text-[#d4575b] w-[30px] h-[30px] transition-colors duration-300' />
+                      <GoArrowUpRight className='text-white group-hover:text-[#d4575b] w-[20px] h-[20px] md:w-[30px] md:h-[30px] transition-colors duration-300' />
                     </button>
                   </motion.div>
                 ) : (
@@ -133,7 +141,7 @@ const Vision = () => {
                   >
                     <p
                       style={{ letterSpacing: '-0.12px', lineHeight: '29px' }}
-                      className='text-black text-[16px] lg:text-[20px] font-normal'
+                      className='text-black text-[14px] sm:text-[16px] lg:text-[20px] font-normal'
                     >
                       {formatText(
                         'At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions. Our team of dedicated professionals specializes in developing cutting-edge mobile apps, web apps, and immersive AR/VR experiences. As a product and service-based company, we pride ourselves on delivering exceptional quality and value to our clients.At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions.'
@@ -144,7 +152,7 @@ const Vision = () => {
                       style={{ fontWeight: 400 }}
                     >
                       Get Free Consultation
-                      <GoArrowUpRight className='text-white group-hover:text-[#d4575b] w-[30px] h-[30px] transition-colors duration-300' />
+                      <GoArrowUpRight className='text-white group-hover:text-[#d4575b] w-[20px] h-[20px] md:w-[30px] md:h-[30px] transition-colors duration-300' />
                     </button>
                   </motion.div>
                 )}

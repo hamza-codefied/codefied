@@ -348,14 +348,14 @@ export const Developerit = () => {
         {/* Left side - Heading and heroSubText */}
         <div
           className={
-            'flex flex-col w-full xl:w-[45%] gap-8 xl:sticky xl:top-28 xl:h-fit'
+            'flex flex-col w-full xl:w-[45%] gap-4 md:gap-8 xl:sticky xl:top-28 xl:h-fit'
           }
         >
           {/* Heading container - will animate from top to here */}
           <div className='heading-container' style={{ width: 'fit-content' }}>
             <h1
               ref={text}
-              className='text-[30px] lg:text-5xl xl:text-6xl font-semibold'
+              className='text-[24px] sm:text-[30px] lg:text-5xl xl:text-6xl font-semibold'
               style={{ width: 'fit-content', display: 'inline-block' }}
             >
               Developer
@@ -377,7 +377,7 @@ export const Developerit = () => {
             className='font-semibold text-[#d4575b] flex items-center justify-start gap-2 cursor-pointer'
           >
             <p className='text-base lg:text-2xl'>Get Free Consultation</p>
-            <GoArrowUpRight size={30} className='text-black mt-[2px]' />
+            <GoArrowUpRight className='text-black mt-[2px] lg:w-[30px] lg:h-[30px]' />
           </a>
         </div>
 

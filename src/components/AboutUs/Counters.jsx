@@ -68,7 +68,7 @@ const Counters = () => {
               }`}
             >
               <h3
-                className={`font-medium text-[40px] lg:text-[86px] ${item.color}`}
+                className={`font-medium text-[30px] md:text-[40px] lg:text-[86px] ${item.color}`}
                 style={{
                   // fontFamily: 'Arial, sans-serif',
                   marginBottom: '4px',

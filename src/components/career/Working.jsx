@@ -353,14 +353,14 @@ export const Working = () => {
         {/* Left side - Heading and heroSubText */}
         <div
           className={
-            'flex flex-col w-full xl:w-[45%] gap-8 xl:sticky xl:top-28 xl:h-fit'
+            'flex flex-col w-full xl:w-[45%] gap-4 md:gap-8 xl:sticky xl:top-28 xl:h-fit'
           }
         >
           {/* Heading container - will animate from top to here */}
           <div className='heading-container' style={{ width: 'fit-content' }}>
             <h1
               ref={text}
-              className='text-[30px] lg:text-5xl font-semibold'
+              className='text-[24px] sm:text-[30px] lg:text-5xl font-semibold'
               style={{ width: 'fit-content', display: 'inline-block' }}
             >
               <span style={{ color: '#000000' }}>Working</span>{' '}
@@ -381,7 +381,7 @@ export const Working = () => {
 
           {/* Hero Sub Text */}
           <div
-            className={'heroSubText flex gap-y-3 text-base lg:text-2xl flex-col text-[#000]'}
+            className={'heroSubText flex gap-y-2 md:gap-y-3 text-[14px] sm:text-base lg:text-2xl flex-col text-[#000]'}
           >
             <div>
               From concept to launch, we cover the entire spectrum of digital
@@ -396,10 +396,10 @@ export const Working = () => {
         >
           {features.map(({ title, desc }) => (
             <div ref={addToRefs} className='w-full' key={title}>
-              <h2 className={'text-xl lg:text-2xl text-black font-medium mb-2'}>
+              <h2 className={'text-[18px] sm:text-xl lg:text-2xl text-black font-medium mb-2'}>
                 {title}
               </h2>
-              <p className={'mb-4 text-sm lg:text-base text-black font-normal'}>
+              <p className={'mb-4 text-[14px] sm:text-sm lg:text-base text-black font-normal'}>
                 {desc}
               </p>
               <a className='text-sm font-semibold text-[#d4575b] underline underline-offset-[6px] cursor-pointer flex items-center justify-start gap-2'>

@@ -61,19 +61,19 @@ const BlogDetail = () => {
             {/* Content Section */}
             <div className='pt-5 text-white'>
               {/* Blog Label */}
-              <div className='mb-4'>
+              <div className='mb-2 sm:mb-4'>
                 <span className='text-sm md:text-base font-medium text-[#d4575b]'>
                   Blog
                 </span>
               </div>
 
               {/* Blog Title */}
-              <h1 className='text-2xl sm:text-3xl md:text-4xl font-semibold mb-5'>
+              <h1 className='text-xl sm:text-2xl md:text-4xl font-semibold mb-2 md:mb-5'>
                 {formatText(blog.title)}
               </h1>
 
               {/* Description */}
-              <p className='text-sm sm:text-base text-gray-600 mb-5 leading-relaxed'>
+              <p className='text-sm sm:text-base text-gray-600 mb-2 md:mb-5 leading-relaxed'>
                 {formatText(blog.intro)}
               </p>
 
@@ -105,7 +105,7 @@ const BlogDetail = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className='text-3xl sm:text-4xl font-semibold text-black mb-6 md:mb-8'
+          className='text-xl sm:text-2xl md:text-4xl font-semibold text-black mb-3 md:mb-8'
         >
           {formatText(blog.title)}
         </motion.h1>
@@ -115,13 +115,13 @@ const BlogDetail = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className='text-base sm:text-lg text-gray-700 mb-8 md:mb-12 leading-relaxed'
+          className='text-[14px] sm:text-base md:text-lg text-gray-700 mb-4 md:mb-12 leading-relaxed'
         >
           {formatText(blog.content.introduction)}
         </motion.p>
 
         {/* Content Sections */}
-        <div className='space-y-8 md:space-y-12 mb-12 md:mb-16'>
+        <div className='space-y-4 sm:space-y-8 md:space-y-12 mb-8 sm:mb-12 md:mb-16'>
           {blog.content.sections.map((section, index) => (
             <motion.div
               key={section.number}
@@ -132,7 +132,7 @@ const BlogDetail = () => {
             >
               <div className='flex gap-2 mb-4'>
                 <div
-                  className='text-2xl font-bold text-black flex-shrink-0'
+                  className='text-[20px] sm:text-2xl font-bold text-black flex-shrink-0'
                   style={{ fontFamily: 'Arial, sans-serif' }}
                 >
                   {section.number}.
@@ -141,7 +141,7 @@ const BlogDetail = () => {
                   {section.title}
                 </h2>
               </div>
-              <p className='text-base sm:text-lg text-gray-700'>
+              <p className='text-[14px] sm:text-base md:text-lg text-gray-700'>
                 {section.description}
               </p>
             </motion.div>
@@ -214,13 +214,13 @@ const BlogDetail = () => {
                     />
                   </div>
                   <div className='pt-3'>
-                    <h4 className='text-lg md:text-xl font-semibold text-black mb-2 line-clamp-2'>
+                    <h4 className='text-[18px] sm:text-lg md:text-xl font-semibold text-black mb-2 line-clamp-2'>
                       {formatText(similarBlog.title)}
                     </h4>
-                    <p className='text-sm md:text-base text-gray-600 mb-3 line-clamp-2'>
+                    <p className='text-[14px] sm:text-sm md:text-base text-gray-600 mb-2 sm:mb-3 line-clamp-2'>
                       {formatText(similarBlog.description)}
                     </p>
-                    <p className='text-sm text-gray-400'>
+                    <p className='text-[14px] sm:text-sm text-gray-400'>
                       {blog.author}{' '}
                       <span style={{ fontFamily: 'Arial' }}>|</span> {blog.date}
                     </p>

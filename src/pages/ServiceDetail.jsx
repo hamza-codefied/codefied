@@ -110,7 +110,7 @@ export default function ServiceDetail() {
     <div className='min-h-screen bg-white overflow-hidden'>
       {/* HERO SECTION */}
       <HeroSection
-        classNames={'h-[200px] md:h-[320px] lg:h-[450px]'}
+        classNames={'h-[170px] md:h-[320px] lg:h-[450px]'}
         BannerText={'Services'}
         BottomText={
           <motion.div
@@ -165,16 +165,10 @@ export default function ServiceDetail() {
           transition={{ duration: 0.7, ease: 'easeOut' }}
           className='text-center mt-10 sm:mt-20'
         >
-          <h2
-            className='text-black font-medium'
-            style={{ fontSize: 'clamp(24px, 4.5vw, 44px)', fontWeight: 500 }}
-          >
+          <h2 className='text-black font-medium text-[20px] sm:text-[30px] md:text-[40px] lg:text-[44px]'>
             {formatText(service.title)}
           </h2>
-          <h3
-            className='text-black font-medium'
-            style={{ fontSize: 'clamp(22px, 4.5vw, 44px)', fontWeight: 500 }}
-          >
+          <h3 className='text-black font-medium text-[20px] sm:text-[30px] md:text-[40px] lg:text-[44px]'>
             {formatText(service.subtitle)}
           </h3>
         </motion.div>
@@ -188,10 +182,8 @@ export default function ServiceDetail() {
         className='container m-auto xl-custom:px-0 text-center'
       >
         <p
-          className='text-black font-normal leading-normal'
+          className='text-black font-normal leading-normal text-[14px] sm:text-[16px] md:text-[18px] lg:text-[24px]'
           style={{
-            fontSize: 'clamp(16px, 2vw, 24px)',
-            fontWeight: 400,
             marginTop: 'clamp(20px, 3vw, 32px)',
           }}
         >
@@ -309,22 +301,10 @@ export default function ServiceDetail() {
                         'transform 0.3s ease-out, opacity 0.3s ease-out',
                     }}
                   >
-                    <h3
-                      className='text-black font-semibold mb-3 leading-normal'
-                      style={{
-                        fontSize: 'clamp(20px, 3.5vw, 34px)',
-                        fontWeight: 600,
-                      }}
-                    >
+                    <h3 className='text-black font-semibold mb-3 leading-normal text-[18px] sm:text-[24px] md:text-[30px] lg:text-[34px]'>
                       {formatText(sec.title)}
                     </h3>
-                    <p
-                      className='text-black font-normal mb-4 leading-normal'
-                      style={{
-                        fontSize: 'clamp(16px, 2.5vw, 24px)',
-                        fontWeight: 400,
-                      }}
-                    >
+                    <p className='text-black font-normal mb-4 leading-normal text-[14px] sm:text-[16px] md:text-[18px] lg:text-[24px]'>
                       {formatText(sec.description)}
                     </p>
 
@@ -389,22 +369,14 @@ export default function ServiceDetail() {
                           <span className='text-[#d4575b] text-lg flex-shrink-0 mt-1'>
                             <FaArrowRightLong size={25} />
                           </span>
-                          <h4
-                            className='text-black font-medium'
-                            style={{
-                              fontSize: 'clamp(18px, 2.5vw, 24px)',
-                              fontWeight: 500,
-                            }}
-                          >
+                          <h4 className='text-black font-medium text-[16px] sm:text-[22px] md:text-[24px]'>
                             {formatText(f.title)}
                           </h4>
                         </div>
                         <div className='flex-1'>
                           <p
-                            className='text-black font-normal leading-relaxed'
+                            className='text-black font-normal leading-relaxed text-[14px] sm:text-[16px]'
                             style={{
-                              fontSize: 'clamp(14px, 2vw, 16px)',
-                              fontWeight: 400,
                               marginTop: '6px',
                             }}
                           >

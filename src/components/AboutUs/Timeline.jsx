@@ -257,7 +257,7 @@ const Timeline = () => {
             </span>
 
             {/* Heading */}
-            <h2 className='text-2xl md:text-3xl lg:text-[54px] font-semibold text-black mt-2 lg:leading-[58px] tracking-[-0.81px]'>
+            <h2 className='text-xl md:text-3xl lg:text-[54px] font-semibold text-black mt-2 lg:leading-[58px] tracking-[-0.81px]'>
               Our Journey Through <br /> Years
             </h2>
           </div>
@@ -329,7 +329,7 @@ const Timeline = () => {
                     {/* Card */}
                     <div
                       ref={addCardToRefs}
-                      className={`relative mt-10 w-full lg:w-[564px] lg:h-[267px] rounded-[20px] p-[20px] ${
+                      className={`relative mt-10 w-full md:w-[400px] lg:w-[564px] lg:h-[267px] rounded-[20px] p-[20px] ${
                         isLeft
                           ? 'xl:right-[53%] xl:text-right'
                           : 'xl:left-[53%] xl:text-left'
@@ -342,21 +342,21 @@ const Timeline = () => {
                         WebkitBackdropFilter: 'blur(14px)',
                       }}
                     >
-                      <h3 className='text-[#000] tracking-[-0.132px] mb-2 text-[20px] font-medium'>
+                      <h3 className='text-[#000] tracking-[-0.132px] mb-2 text-[18px] sm:text-[20px] font-medium'>
                         {formatText(item.title)}
                       </h3>
-                      <p className='text-[#3f3f3f] tracking-[-0.12px] leading-relaxed text-[16px] lg:text-[20px] font-normal'>
+                      <p className='text-[#3f3f3f] tracking-[-0.12px] leading-relaxed text-[14px] sm:text-[16px] lg:text-[20px] font-normal'>
                         {formatText(item.description)}
                       </p>
                     </div>
 
                     {/* Year Label - Mobile: below card */}
-                    <span
+                    {/* <span
                       ref={addMobileYearToRefs}
                       className={`xl:hidden block text-center mt-4 text-[24px] lg:text-[34px] font-bold text-black ${isLeft ? '' : ''}`}
                     >
                       {item.year}
-                    </span>
+                    </span> */}
                   </div>
                 </div>
               );

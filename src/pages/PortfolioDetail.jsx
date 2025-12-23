@@ -38,7 +38,7 @@ const PortfolioDetail = () => {
     <div className='min-h-screen'>
       {/* Hero Section with Background Image */}
       <section
-        className='relative w-full flex items-center justify-center h-[100px] sm:h-[180px] lg:h-[250px] xl:h-[388px]'
+        className='relative w-full flex items-center justify-center h-[150px] sm:h-[180px] lg:h-[250px] xl:h-[388px]'
         style={{
           backgroundImage: `url(${shadeImage})`,
           backgroundSize: 'cover',
@@ -54,7 +54,7 @@ const PortfolioDetail = () => {
             className='text-center'
           >
             {/* Project Title */}
-            <h1 className='text-3xl sm:text-4xl text-start md:text-5xl lg:text-[60px] font-semibold mb-4 md:mb-6'>
+            <h1 className='text-2xl sm:text-4xl text-start md:text-5xl lg:text-[60px] font-semibold mb-4 md:mb-6'>
               {project.title.split(' ').map((word, index, words) => {
                 // Apply gradient to second word (index 1) and last word
                 const isSecondWord = index === 1;
@@ -89,7 +89,7 @@ const PortfolioDetail = () => {
             </h1>
 
             {/* Subtitle */}
-            <p className='text-start text-base sm:text-lg md:text-xl lg:text-[34px] text-[#000]'>
+            <p className='text-start text-[14px] sm:text-base md:text-lg lg:text-xl xl:text-[34px] text-[#000]'>
               {formatText(project.subtitle)}
             </p>
           </motion.div>
@@ -115,13 +115,13 @@ const PortfolioDetail = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className='mb-12 md:mb-16'
           >
-            <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mb-8 md:mb-12'>
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 md:gap-12 mb-8 md:mb-12'>
               {/* Left Side - Text Content with Project Image */}
-              <div className='space-y-6'>
-                <h2 className='text-3xl sm:text-[44px] font-medium text-black'>
+              <div className='space-y-2 sm:space-y-6'>
+                <h2 className='text-2xl sm:text-3xl md:text-[44px] font-medium text-black'>
                   About Project
                 </h2>
-                <p className='text-base sm:text-lg lg:text-2xl text-[#000] leading-normal capitalize'>
+                <p className='text-[14px] sm:text-base md:text-lg lg:text-2xl text-[#000] leading-normal capitalize'>
                   {formatText(project.aboutProject)}
                 </p>
               </div>
@@ -220,10 +220,10 @@ const PortfolioDetail = () => {
       >
         <div className='container m-auto xl-custom:px-0 xl:h-[310px] flex items-center justify-center'>
           <div className='text-center'>
-            <h2 className='text-3xl sm:text-[44px] font-medium text-black mb-6 md:mb-8'>
+            <h2 className='text-2xl sm:text-3xl md:text-[44px] font-medium text-black mb-6 md:mb-8'>
               The Problem
             </h2>
-            <p className='text-base sm:text-lg lg:text-[24px] text-[#000] font-normal leading-normal capitalize'>
+            <p className='text-[14px] sm:text-base md:text-lg lg:text-[24px] text-[#000] font-normal leading-normal capitalize'>
               {formatText(project.theProblem)}
             </p>
           </div>
@@ -240,12 +240,12 @@ const PortfolioDetail = () => {
         >
           <div className='container m-auto xl-custom:px-0'>
             {/* Title */}
-            <h2 className='text-3xl sm:text-4xl md:text-[44px] font-medium text-black mb-4 md:mb-6'>
+            <h2 className='text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-medium text-black mb-4 md:mb-6'>
               The Codefied Solution
             </h2>
 
             {/* Intro Paragraph */}
-            <p className='text-base sm:text-lg md:text-[24px] text-[#000] mb-8 md:mb-12'>
+            <p className='text-[14px] sm:text-base md:text-lg lg:text-[24px] text-[#000] mb-8 md:mb-12'>
               {formatText(project.codefiedSolution.intro)}
             </p>
 
@@ -262,7 +262,7 @@ const PortfolioDetail = () => {
               </div>
 
               {/* Right Side - Solutions */}
-              <div className='space-y-4 flex flex-col justify-center h-full'>
+              <div className='space-y-2 sm:space-y-4 flex flex-col justify-center h-full'>
                 {project.codefiedSolution.solutions.map((solution, index) => {
                   // Icon mapping
                   const getIcon = () => {
@@ -297,10 +297,10 @@ const PortfolioDetail = () => {
 
                       {/* Content */}
                       <div className='flex-1'>
-                        <h3 className='text-xl sm:text-[27px] font-semibold text-black mb-2 md:mb-3'>
+                        <h3 className='text-[18px] sm:text-xl md:text-[27px] font-semibold text-black mb-2 md:mb-3'>
                           {formatText(solution.title)}
                         </h3>
-                        <p className='text-sm sm:text-base font-normal text-[#000] leading-normal'>
+                        <p className='text-[14px] sm:text-base md:text-lg font-normal text-[#000] leading-normal'>
                           {formatText(solution.description)}
                         </p>
                       </div>
@@ -336,13 +336,13 @@ const PortfolioDetail = () => {
             background: 'radial-gradient(ellipse at center, transparent 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.2) 100%)',
           }}
         />
-        <h2 className='text-3xl sm:text-4xl md:text-[44px] font-medium text-black mb-6 md:mb-12 text-center relative z-10'>
+        <h2 className='text-2xl sm:text-4xl md:text-[44px] font-medium text-black mb-6 md:mb-12 text-center relative z-10'>
           Technology Used
         </h2>
         <div className='relative z-10'>
           <ClientSection2 />
         </div>
-        <div className='py-10 relative z-10'>
+        <div className='py-2 sm:py-5 md:py-10 relative z-10'>
           <TestimonialsSection />
         </div>
       </div>

@@ -12,9 +12,10 @@ import Marquee from 'react-fast-marquee';
 import image1 from '@/images/news/1.png';
 import image2 from '@/images/news/2.png';
 import image3 from '@/images/news/3.png';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
 import { formatText } from '@/utils/textFormatter';
 
 const Blog = [
@@ -72,32 +73,7 @@ const news = [image1, image2, image3];
 const seamlessNews = [...news, ...news];
 
 const Blogs = () => {
-  const sliderRef = useRef(null);
-
-  const sliderSettings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    arrows: false,
-    responsive: [
-      {
-        breakpoint: 1440, // Below lg screens (medium/tablet screens)
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 640, // Below sm screens (mobile screens)
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+  const swiperRef = useRef(null);
 
   return (
     <div className='w-full'>
@@ -119,9 +95,9 @@ const Blogs = () => {
             <div className='flex flex-col md:flex-row items-start justify-between gap-8 mb-14'>
               {/* Left Side */}
               <div className='md:w-2/3 flex items-center'>
-                <h4 className='text-[30px] lg:text-[48px] font-bold mb-4 relative inline-block text-start'>
-                  Read Our Latest News <span>{formatText('&')}</span> <br className='hidden lg:block' />{' '}
-                  Blogs Get Every Updates
+                <h4 className='text-[24px] sm:text-[30px] lg:text-[48px] font-bold mb-2 md:mb-4 relative inline-block text-start'>
+                  Read Our Latest News <span>{formatText('&')}</span>{' '}
+                  <br className='hidden lg:block' /> Blogs Get Every Updates
                   <span className='block w-40 h-[1px] bg-gray-500 mt-3 rounded-full'></span>
                 </h4>
               </div>
@@ -137,14 +113,14 @@ const Blogs = () => {
                 {/* Arrows */}
                 <div className='flex items-center justify-end gap-4'>
                   <button
-                    onClick={() => sliderRef.current?.slickPrev()}
-                    className='w-[68px] h-[64px] flex items-center justify-center border border-gray-300 rounded-full hover:bg-[#d4575b] hover:text-white transition-all duration-300'
+                    onClick={() => swiperRef.current?.slidePrev()}
+                    className='w-[32px] h-[32px] md:w-[48px] md:h-[48px] lg:w-[68px] lg:h-[64px] flex items-center justify-center border border-gray-300 rounded-full hover:bg-[#d4575b] hover:text-white transition-all duration-300'
                   >
                     <ArrowLeftOutlined />
                   </button>
                   <button
-                    onClick={() => sliderRef.current?.slickNext()}
-                    className='w-[68px] h-[64px] flex items-center justify-center border border-gray-300 rounded-full hover:bg-[#d4575b] hover:text-white transition-all duration-300'
+                    onClick={() => swiperRef.current?.slideNext()}
+                    className='w-[32px] h-[32px] md:w-[48px] md:h-[48px] lg:w-[68px] lg:h-[64px] flex items-center justify-center border border-gray-300 rounded-full hover:bg-[#d4575b] hover:text-white transition-all duration-300'
                   >
                     <ArrowRightOutlined />
                   </button>
@@ -154,49 +130,70 @@ const Blogs = () => {
 
             {/* Product Cards Slider */}
             <div className='blog-slider'>
-              <Slider ref={sliderRef} {...sliderSettings}>
+              <Swiper
+                onSwiper={swiper => {
+                  swiperRef.current = swiper;
+                }}
+                modules={[Navigation]}
+                spaceBetween={24}
+                slidesPerView={1}
+                breakpoints={{
+                  640: {
+                    slidesPerView: 2,
+                    spaceBetween: 24,
+                  },
+                  1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 24,
+                  },
+                }}
+                loop={true}
+                speed={500}
+                className='w-full'
+              >
                 {Blog.map((product, index) => (
-                  <div
-                    key={`${product.id}-${index}`}
-                    className='flex justify-center items-center w-full'
-                  >
-                    <div className='bg-transparent border border-white/20 rounded-2xl p-3 sm:p-4 md:p-5 flex flex-col items-start justify-start border-white h-[518px] w-[370px]'>
-                      <img
-                        src={product.image}
-                        alt={product.title}
-                        className='object-contain mb-3 sm:mb-[32px] w-full h-[252px]'
-                      />
-                      <div className='flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-2 sm:gap-0 mb-4 sm:mb-[32px]'>
-                        <p className='text-xs flex items-center gap-2 text-black'>
-                          <FaUser className='text-[#d4575b] flex-shrink-0' />
-                          <span className='truncate'>By: {product.by}</span>
-                        </p>
-                        <p className='text-xs flex items-center gap-2 text-black'>
-                          <TbMessageCircleFilled className='text-[#d4575b] flex-shrink-0' />
-                          <span>{product.comments} Comments</span>
-                        </p>
-                      </div>
-                      <h3
-                        style={{ lineHeight: '31.2px' }}
-                        className='text-base sm:text-[24px] text-start font-semibold mb-[32px] text-[#000]'
-                      >
-                        {formatText(product.title)}
-                      </h3>
-
-                      <div className='flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-2 sm:gap-0'>
-                        <a
-                          href='#'
-                          className='text-[#d4575b] text-xs flex items-center gap-1 font-medium hover:underline'
+                  <SwiperSlide key={`${product.id}-${index}`}>
+                    <div className='flex justify-center items-center w-full'>
+                      <div className='bg-transparent border border-white/20 rounded-2xl p-3 sm:p-4 md:p-5 flex flex-col items-start justify-start border-white h-[518px] w-[370px]'>
+                        <img
+                          src={product.image}
+                          alt={product.title}
+                          className='object-contain mb-3 sm:mb-[32px] w-full h-[252px]'
+                        />
+                        <div className='flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-2 sm:gap-0 mb-4 sm:mb-[32px]'>
+                          <p className='text-xs flex items-center gap-2 text-black'>
+                            <FaUser className='text-[#d4575b] flex-shrink-0' />
+                            <span className='truncate'>By: {product.by}</span>
+                          </p>
+                          <p className='text-xs flex items-center gap-2 text-black'>
+                            <TbMessageCircleFilled className='text-[#d4575b] flex-shrink-0' />
+                            <span>{product.comments} Comments</span>
+                          </p>
+                        </div>
+                        <h3
+                          style={{ lineHeight: '31.2px' }}
+                          className='text-base sm:text-[24px] text-start font-semibold mb-[32px] text-[#000]'
                         >
-                          Read More
-                          <GoArrowUpRight className='mt-[2px]' />
-                        </a>
-                        <p className='text-xs text-gray-500'>{product.date}</p>
+                          {formatText(product.title)}
+                        </h3>
+
+                        <div className='flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-2 sm:gap-0'>
+                          <a
+                            href='#'
+                            className='text-[#d4575b] text-xs flex items-center gap-1 font-medium hover:underline'
+                          >
+                            Read More
+                            <GoArrowUpRight className='mt-[2px]' />
+                          </a>
+                          <p className='text-xs text-gray-500'>
+                            {product.date}
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </SwiperSlide>
                 ))}
-              </Slider>
+              </Swiper>
             </div>
           </div>
         </div>
@@ -214,7 +211,11 @@ const Blogs = () => {
       >
         {seamlessNews.map((src, i) => (
           <div key={i} className='flex justify-center items-center'>
-            <img src={src} alt={`Client ${i + 1}`} className='object-contain w-[400px] h-[400px] md:w-full md:h-full' />
+            <img
+              src={src}
+              alt={`Client ${i + 1}`}
+              className='object-contain w-[400px] h-[400px] lg:w-full lg:h-full'
+            />
           </div>
         ))}
       </Marquee>

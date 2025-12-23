@@ -48,13 +48,13 @@ const WhyChooseUs = () => {
           {/* Heading and Description Container */}
           <div className='inline-block mb-[60px] lg:mb-[100px]'>
             {/* Heading */}
-            <h2 className='text-[30px] lg:text-[54px] font-[600] mb-[8px] md:mb-[10px]'>
+            <h2 className='text-[24px] sm:text-[30px] lg:text-[54px] font-[600] mb-[8px] md:mb-[10px]'>
               Why <span className='text-[#d4575b]'>Codefied?</span>{' '}
               <span className='italic font-normal'>Your Success</span>
             </h2>
 
             {/* Paragraph - aligns with heading width */}
-            <p className='text-white text-base lg:text-[24px] font-normal w-full md:w-[80%] leading-normal tracking-[-0.36px]'>
+            <p className='text-white text-[14px] sm:text-base lg:text-[24px] font-normal w-full md:w-[80%] leading-normal tracking-[-0.36px]'>
               {formatText(
                 'Partner with Codefied and experience a world where innovation meets excellence, and your success is our mission.'
               )}
@@ -62,7 +62,7 @@ const WhyChooseUs = () => {
           </div>
 
           {/* 2-Column Layout */}
-          <div className='flex flex-col lg:flex-row gap-[40px] lg:gap-[74px]'>
+          <div className='flex flex-col lg:flex-row gap-[20px] md:gap-[40px] lg:gap-[74px]'>
             {/* Left Column */}
             <div className='space-y-4 w-full lg:w-[530px]'>
               {items.map((item, index) => (
@@ -76,7 +76,7 @@ const WhyChooseUs = () => {
                   onClick={() => setActiveIndex(index)}
                 >
                   <h3
-                    className={`text-[16px] lg:text-[32px] ${activeIndex === index ? 'font-[600]' : 'font-[600]'}`}
+                    className={`text-[14px] sm:text-[16px] lg:text-[32px] ${activeIndex === index ? 'font-[600]' : 'font-[600]'}`}
                   >
                     {formatText(item.title)}
                   </h3>
@@ -99,7 +99,7 @@ const WhyChooseUs = () => {
 
             {/* Right Column */}
             <div className='flex items-center justify-start flex-1'>
-              <p className='text-[#FFF] text-[16px] lg:text-[24px] font-normal leading-normal tracking-[-0.48px]'>
+              <p className='text-[#FFF] text-[14px] sm:text-[16px] lg:text-[24px] font-normal leading-normal tracking-[-0.48px]'>
                 {formatText(items[activeIndex].description)}
               </p>
             </div>

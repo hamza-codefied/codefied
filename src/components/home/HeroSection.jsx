@@ -8,7 +8,7 @@ import { formatText } from '@/utils/textFormatter';
 
 export default function HeroSection() {
   return (
-    <div className='min-h-[50vh] lg:min-h-[100vh] flex flex-col'>
+    <div className='min-h-[40vh] md:min-h-[50vh] lg:min-h-[100vh] flex flex-col'>
       <style>{`
         @keyframes bounce-hover {
           0%, 100% {
@@ -41,7 +41,7 @@ export default function HeroSection() {
         <div className='container xl-custom:px-0 m-auto'>
           <div className=''>
             <div className='text-center flex space-y-[18px] flex-col'>
-              <h1 className='text-3xl md:text-4xl lg:text-5xl xl:text-[90px] font-bold text-[#000]'>
+              <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[90px] font-bold text-[#000]'>
                 <TypeAnimation
                   sequence={[
                     'Code.',
@@ -63,9 +63,9 @@ export default function HeroSection() {
                 )}
               </p>
 
-              <div className='flex justify-center items-center pt-[20px]'>
+              <div className='flex justify-center items-center pt-[10px] md:pt-[20px]'>
                 <button
-                  className='btn-hover-bounce border border-transparent text-sm lg:text-[24px] font-medium text-white w-[200px] h-[50px] lg:w-[370px] lg:h-[81px] gap-[10px] flex items-center justify-center rounded-[10px] p-[10px] bg-[#d4575b] transition-all duration-300 hover:bg-transparent hover:text-[#d4575b] hover:border-[#d4575b] hover:shadow-[0_15px_40px_rgba(212,87,91,0.5)] active:translate-y-0'
+                  className='btn-hover-bounce border border-transparent text-sm lg:text-[24px] font-medium text-white w-[190px] h-[40px] md:w-[200px] md:h-[50px] lg:w-[370px] lg:h-[81px] gap-[10px] flex items-center justify-center rounded-[10px] p-[10px] bg-[#d4575b] transition-all duration-300 hover:bg-transparent hover:text-[#d4575b] hover:border-[#d4575b] hover:shadow-[0_15px_40px_rgba(212,87,91,0.5)] active:translate-y-0'
                   style={{ fontWeight: 500 }}
                 >
                   Get A Free Consultation

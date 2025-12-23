@@ -32,7 +32,7 @@ export const Career = () => {
       />
 
       {/* Search and Filter Component */}
-      <div className='mt-0 lg:-mt-8 relative z-10'>
+      <div className='-mt-2 md:-mt-4 lg:-mt-8 relative z-10'>
         <CareerSearchFilter filters={filters} setFilters={setFilters} />
       </div>
 

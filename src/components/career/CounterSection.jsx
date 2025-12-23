@@ -114,7 +114,7 @@ const CounterSection = () => {
     <section
       id='success-count'
       ref={sectionRef}
-      className='relative w-full py-16 md:py-24 lg:py-32 xl:py-40 2xl:py-56 overflow-hidden'
+      className='relative w-full py-10 md:py-16 lg:py-32 xl:py-40 2xl:py-56 overflow-hidden'
       style={{
         backgroundImage: `url(${counterBg})`,
         backgroundSize: 'cover',
@@ -134,7 +134,7 @@ const CounterSection = () => {
           </h2>
 
           {/* Counters Grid */}
-          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-12'>
+          <div className='grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-12'>
             {stats.map((stat, index) => (
               <div
                 key={index}

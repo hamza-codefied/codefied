@@ -122,18 +122,14 @@ const GetInTouchSection = () => {
 
   return (
     <div className='container m-auto xl-custom:px-0'>
-      <section id='contact-form' className='w-full mt-10 md:mt-[53px] py-2 md:py-10 mb-[70px]'>
+      <section
+        id='contact-form'
+        className='w-full mt-5 sm:mt-10 md:mt-[53px] py-2 md:py-10 mb-[70px]'
+      >
         <div className=' grid grid-cols-1 lg:grid-cols-2 gap-10'>
           {/* LEFT COLUMN */}
           <div className='flex flex-col justify-center'>
-            <h2
-              className='font-bold text-gray-900'
-              style={{
-                fontSize: 'clamp(32px, 5vw, 54px)',
-                fontWeight: 700,
-                marginBottom: 'clamp(15px, 2vw, 20px)',
-              }}
-            >
+            <h2 className='font-bold text-gray-900 text-[24px] sm:text-[30px] md:text-[40px] lg:text-[54px] mb-2 md:mb-5'>
               Get in <span className='text-[#d4575b]'>Touch</span>
             </h2>
             <p
@@ -148,7 +144,7 @@ const GetInTouchSection = () => {
               will get back to you as soon as possible.
             </p>
 
-            <form className='space-y-5'>
+            <form className='space-y-2 sm:space-y-5'>
               <div class='relative required-input'>
                 <input
                   type='text'

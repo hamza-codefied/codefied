@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaArrowRightLong } from 'react-icons/fa6';
+import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import project from '@/images/project.png';
@@ -120,7 +121,7 @@ const ProjectsSection = () => {
         <div className='flex flex-col md:flex-row items-start justify-between gap-6 sm:gap-8 mt-4 sm:mt-5 mb-8 sm:mb-16 md:mb-[108px]'>
           {/* Left Side */}
           <div className='w-full md:w-2/3'>
-            <h2 className='text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 relative inline-block'>
+            <h2 className='text-[24px] sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 relative inline-block'>
               Make creativity your <br className='hidden md:block' /> competitive edge
               <span className='block w-[200px] h-[1px] bg-gray-500 mt-2 sm:mt-3 md:mt-5 rounded-full'></span>
             </h2>
@@ -247,58 +248,19 @@ const ProjectsSection = () => {
             </motion.p>
           </motion.div>
 
-          <div className='flex gap-2 sm:gap-3 md:gap-4'>
-            <motion.button
-              whileHover={{
-                scale: 1.1,
-                rotate: -5,
-                backgroundColor: '#D4575B',
-                borderColor: 'transparent',
-              }}
-              whileTap={{ scale: 0.9 }}
+          <div className='flex items-center justify-end gap-4'>
+            <button
               onClick={handlePrev}
-              className='bg-white border-2 border-black rounded-full transition-all duration-300 shadow-lg hover:shadow-xl group w-[48px] h-[48px] sm:w-[52px] sm:h-[52px] md:w-[60px] md:h-[60px] lg:w-[68px] lg:h-[64px] flex items-center justify-center p-2 sm:p-3 md:p-4 lg:p-5'
+              className='w-[32px] h-[32px] md:w-[48px] md:h-[48px] lg:w-[68px] lg:h-[64px] flex items-center justify-center border border-gray-300 rounded-full hover:bg-[#d4575b] hover:text-white transition-all duration-300'
             >
-              <svg
-                className='w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 transition-all group-hover:stroke-white group-hover:-translate-x-1'
-                fill='none'
-                viewBox='0 0 24 24'
-                stroke='black'
-                strokeWidth={2.5}
-              >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  d='M15 19l-7-7 7-7'
-                />
-              </svg>
-            </motion.button>
-
-            <motion.button
-              whileHover={{
-                scale: 1.1,
-                rotate: 5,
-                backgroundColor: '#D4575B',
-                borderColor: 'transparent',
-              }}
-              whileTap={{ scale: 0.9 }}
+              <ArrowLeftOutlined />
+            </button>
+            <button
               onClick={handleNext}
-              className='bg-white border-2 border-black rounded-full transition-all duration-300 shadow-lg hover:shadow-xl group w-[48px] h-[48px] sm:w-[52px] sm:h-[52px] md:w-[60px] md:h-[60px] lg:w-[68px] lg:h-[64px] flex items-center justify-center p-2 sm:p-3 md:p-4 lg:p-5'
+              className='w-[32px] h-[32px] md:w-[48px] md:h-[48px] lg:w-[68px] lg:h-[64px] flex items-center justify-center border border-gray-300 rounded-full hover:bg-[#d4575b] hover:text-white transition-all duration-300'
             >
-              <svg
-                className='w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 transition-all group-hover:stroke-white group-hover:translate-x-1'
-                fill='none'
-                viewBox='0 0 24 24'
-                stroke='black'
-                strokeWidth={2.5}
-              >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  d='M9 5l7 7-7 7'
-                />
-              </svg>
-            </motion.button>
+              <ArrowRightOutlined />
+            </button>
           </div>
         </motion.div>
       </section>

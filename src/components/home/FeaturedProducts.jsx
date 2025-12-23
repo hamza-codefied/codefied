@@ -46,21 +46,21 @@ const FeaturedProducts = () => {
         style={{ backgroundImage: `url(${featurebg})` }}
       >
         <div className='relative z-10 text-center '>
-          <h2 className='text-[30px] lg:text-[42px] font-bold'>Featured Products</h2>
+          <h2 className='text-[24px] sm:text-[30px] lg:text-[42px] font-bold'>Featured Products</h2>
           <p className='text-base lg:text-[24px] font-normal mb-10 lg:mb-20 text-black'>
             From concept to launch, we cover the entire spectrum of digital
             innovation.
           </p>
 
           {/* Product Cards */}
-          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8  '>
+          <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-8  '>
             {products.map(product => (
               <div
                 key={product.id}
-                className=' border bg-white/20 border-white/80 rounded-2xl p-2 lg:p-5 flex flex-col items-start justify-between border-white hover:bg-white/20 transition-all duration-300 h-full'
+                className=' border bg-white/20 border-white/80 rounded-2xl p-3 md:p-4 lg:p-5 flex flex-col items-start justify-between border-white hover:bg-white/20 transition-all duration-300 h-full'
               >
                 <div className='flex flex-col items-start w-full'>
-                  <h3 className='text-[20px] lg:text-[24px] font-bold mb-2 text-black'>
+                  <h3 className='text-[18px] lg:text-[24px] font-bold mb-2 text-black'>
                     {formatText(product.title)}
                   </h3>
                   <p className='text-sm lg:text-[16px] font-normal text-black text-start mb-2'>
@@ -82,7 +82,7 @@ const FeaturedProducts = () => {
                   <img
                     src={product.thumnailImage}
                     alt={product.title}
-                    className='w-full object-cover inverted-radius h-[290px]'
+                    className='w-full object-cover inverted-radius h-[150px] md:h-[200px] lg:h-[290px]'
                   />
 
                   <Link to={`/products/${product.slug}`}>

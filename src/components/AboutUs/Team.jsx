@@ -41,13 +41,13 @@ const Team = () => {
           <div className=' grid grid-cols-1 md:grid-cols-2 gap-12 items-center h-full'>
             {/* LEFT COLUMN */}
             <div className='flex flex-col justify-center text-center md:text-left'>
-              <h2 className='text-[24px] lg::text-[30px] font-bold leading-normal text-white max-w-[575px]'>
+              <h2 className='text-[20px] md:text-[24px] lg:text-[30px] font-bold leading-normal text-white max-w-[575px]'>
                 We Work As One <br className='hidden lg:block' />
                 Innovation Is Our Core, Creativity Is In Our DNA, And Launching
                 And Growing Brands Is Our Passion.
               </h2>
 
-              <p className='text-[16px] font-normal leading-relaxed max-w-lg mx-auto md:mx-0 text-[#FFF] mt-[20px] md:mt-[42px]'>
+              <p className='text-[14px] md:text-[16px] font-normal leading-relaxed max-w-lg mx-auto md:mx-0 text-[#FFF] mt-[20px] md:mt-[42px]'>
                 {formatText(
                   'Transform your ideas into powerful mobile applications with our expert development team. We create high-quality, user-friendly apps for both iOS and Android platforms, ensuring a seamless experience for your users.'
                 )}

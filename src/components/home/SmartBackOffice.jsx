@@ -144,8 +144,8 @@ const SmartBackOffice = () => {
 
         {/* Center Content */}
         <div className='relative z-10 text-center max-w-2xl mx-auto mb-12 lg:mb-0'>
-          <h2 className='text-3xl lg:text-4xl font-bold mb-4 leading-snug text-center relative inline-block'>
-            Behind Every Great Product <br className='hidden md:block' />
+          <h2 className='text-[24px] sm:text-3xl lg:text-4xl font-bold mb-4 leading-snug text-center relative inline-block'>
+            Behind Every Great Product <br className='hidden lg:block' />
             Is a Smarter{' '}
             <span className='relative inline-block'>
               Back Office

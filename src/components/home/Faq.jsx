@@ -76,7 +76,7 @@ export default function FAQSection() {
         <div className=''>
           {/* Heading */}
           <div className='text-center '>
-            <h2 class='text-[30px] lg:text-[48px] font-semibold'>
+            <h2 class='text-[24px] sm:text-[30px] lg:text-[48px] font-semibold'>
               <span class='text-[#d4575b]'>Frequently</span> Asked Questions
             </h2>
             <p class='text-[#808080] mt-[20px] mb-[20px] text-sm lg:text-[18px] font-normal max-w-4xl mx-auto'>
@@ -100,12 +100,12 @@ export default function FAQSection() {
 
           {/* all FAQS */}
           <div className='grid grid-cols-1 lg:grid-cols-2 lg:gap-[50px]'>
-            {/* FAQ grid */}
+            {/* FAQ grid 1*/}
             <div className=''>
               {oddFaqs.map(({ faq, originalIndex }, index) => (
                 <div
                   key={originalIndex}
-                  className={`${index !== oddFaqs.length - 1 ? 'border-b border-gray-800' : ''} py-[34px] cursor-pointer`}
+                  className={`border-b border-gray-800 ${index === oddFaqs.length - 1 ? 'lg:border-b-0' : ''} py-[34px] cursor-pointer`}
                 >
                   <div
                     onClick={() => toggleFAQ(originalIndex)}

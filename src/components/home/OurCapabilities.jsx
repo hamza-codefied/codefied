@@ -54,7 +54,7 @@ export const OurCapabilities = () => {
       </div>
 
       {/* 🏷️ Heading */}
-      <h2 className='pt-[16px] mb-[20px] md:mb-[53px] text-[30px] lg:text-[54px] font-semibold text-black'>
+      <h2 className='pt-[16px] mb-[20px] md:mb-[53px] text-[24px] sm:text-[30px] lg:text-[54px] font-semibold text-black'>
         We can help you with...
       </h2>
 
@@ -81,7 +81,7 @@ export const OurCapabilities = () => {
         </AnimatePresence>
       </motion.div>
 
-      <div className='pt-[53px] flex justify-center'>
+      <div className='pt-[30px] md:pt-[53px] flex justify-center'>
         <button
           onClick={handleToggle}
           disabled={loading}
