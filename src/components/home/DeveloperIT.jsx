@@ -348,7 +348,7 @@ export const Developerit = () => {
         {/* Left side - Heading and heroSubText */}
         <div
           className={
-            'flex flex-col w-full xl:w-[45%] gap-2 sm:gap-4 md:gap-8 xl:sticky xl:top-28 xl:h-fit'
+            'flex flex-col w-full xl:w-[45%] gap-2 sm:gap-4 md:gap-8 xl:sticky xl:top-[50%] xl:h-fit'
           }
         >
           {/* Heading container - will animate from top to here */}
