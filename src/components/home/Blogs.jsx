@@ -79,7 +79,7 @@ const Blogs = () => {
     <div className='w-full'>
       <section
         id='blogs'
-        className='relative mt-10 bg-cover bg-center bg-no-repeat text-black py-10 md:py-20'
+        className='relative mt-10 bg-cover bg-center bg-no-repeat text-black py-5 md:py-10 lg:py-20'
         style={{ backgroundImage: `url(${blogbg})` }}
       >
         <div className='container m-auto xl-custom:px-0'>
@@ -214,7 +214,7 @@ const Blogs = () => {
             <img
               src={src}
               alt={`Client ${i + 1}`}
-              className='object-contain w-[400px] h-[400px] lg:w-full lg:h-full'
+              className='object-contain w-[400px] lg:w-full lg:h-full'
             />
           </div>
         ))}

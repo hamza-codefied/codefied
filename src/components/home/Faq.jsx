@@ -72,14 +72,14 @@ export default function FAQSection() {
 
   return (
     <div className='container m-auto xl-custom:px-0'>
-      <section id='faqs' className='w-full bg-white sm:mt-[60px] md:mt-[100px] xl:mt-[150px] mb-10 md:mb-[140px]'>
+      <section id='faqs' className='w-full bg-white mt-5 sm:mt-[60px] md:mt-[100px] xl:mt-[150px] mb-10 md:mb-[140px]'>
         <div className=''>
           {/* Heading */}
           <div className='text-center '>
             <h2 class='text-[24px] sm:text-[30px] lg:text-[48px] font-semibold'>
               <span class='text-[#d4575b]'>Frequently</span> Asked Questions
             </h2>
-            <p class='text-[#808080] mt-[20px] mb-[20px] text-sm lg:text-[18px] font-normal max-w-4xl mx-auto'>
+            <p class='text-[#808080] mt-2 md:mt-[20px] mb-[20px] text-sm lg:text-[18px] font-normal max-w-4xl mx-auto'>
               {formatText(
                 "Got questions? We've got answers. Check out our frequently asked questions section to find valuable insights into our processes, pricing, and more. Transparency is at the core of our client interactions."
               )}
