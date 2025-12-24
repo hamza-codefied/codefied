@@ -53,10 +53,10 @@ export const ClientSection = () => {
 
   return (
     <>
-      <div className='bg-[#242424] h-[75px] md:h-[90px] lg:h-[125px]'>
+      <div className='bg-[#242424] h-[60px] sm:h-[75px] md:h-[90px] lg:h-[125px]'>
         <div className='relative flex justify-center items-center'>
           <div
-            className='bg-black text-white text-xs w-fit mx-auto px-[15px] py-[10px] lg:px-[25px] lg:py-[15px] rounded-full absolute z-10 -top-[22px] h-[36px] lg:h-[46px]'
+            className='bg-black text-white text-xs w-fit mx-auto px-[10px] sm:px-[15px] py-[5px] sm:py-[10px] lg:px-[25px] lg:py-[15px] rounded-full absolute z-10 -top-[22px] h-[30px] sm:h-[36px] lg:h-[46px]'
             style={{ fontFamily: 'Arial, sans-serif' }}
           >
             Trusted By{' '}
