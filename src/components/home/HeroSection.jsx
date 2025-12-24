@@ -34,9 +34,26 @@ export default function HeroSection() {
             font-weight: 500;
           }
         }
-        .btn-hover-bounce:hover {
+        .btn-wrapper {
+          padding: 8px;
+          margin: -8px;
+          display: inline-block;
+        }
+        .btn-hover-bounce {
+          position: relative;
+          will-change: transform;
+          backface-visibility: hidden;
+          transform: translateZ(0);
+        }
+        .btn-wrapper:hover .btn-hover-bounce {
           animation: bounce-hover 0.6s ease-in-out, font-pulse 0.6s ease-in-out;
           font-weight: 600;
+        }
+        .btn-wrapper:hover .btn-hover-bounce {
+          background-color: transparent;
+          color: #d4575b;
+          border-color: #d4575b;
+          box-shadow: 0 15px 40px rgba(212,87,91,0.5);
         }
       `}</style>
       <Section
@@ -69,11 +86,13 @@ export default function HeroSection() {
               </p>
 
               <div className='flex justify-center items-center pt-[10px] md:pt-[20px]'>
-                <button
-                  className='btn-hover-bounce border border-transparent text-sm lg:text-[24px] font-normal md:font-medium text-white w-[190px] h-[40px] md:w-[200px] md:h-[50px] lg:w-[370px] lg:h-[81px] gap-[10px] flex items-center justify-center rounded-[10px] p-[10px] bg-[#d4575b] transition-all duration-300 hover:bg-transparent hover:text-[#d4575b] hover:border-[#d4575b] hover:shadow-[0_15px_40px_rgba(212,87,91,0.5)] active:translate-y-0'
-                >
-                  Get A Free Consultation
-                </button>
+                <div className='btn-wrapper'>
+                  <button
+                    className='btn-hover-bounce border border-transparent text-sm lg:text-[24px] font-normal md:font-medium text-white w-[190px] h-[40px] md:w-[200px] md:h-[50px] lg:w-[370px] lg:h-[81px] gap-[10px] flex items-center justify-center rounded-[10px] p-[10px] bg-[#d4575b] transition-all duration-300 active:translate-y-0 relative'
+                  >
+                    Get A Free Consultation
+                  </button>
+                </div>
               </div>
             </div>
           </div>

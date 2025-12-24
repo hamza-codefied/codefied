@@ -131,7 +131,7 @@ export default function FAQSection() {
                         )}
                       </AnimatePresence>
                     </div>
-                    <div className='flex-shrink-0 bg-black text-white rounded-full w-[40px] h-[40px] lg:w-[52px] lg:h-[52px] flex items-center justify-center'>
+                    <div className='flex-shrink-0 bg-black text-white rounded-full w-[30px] h-[30px] md:w-[40px] md:h-[40px] lg:w-[52px] lg:h-[52px] flex items-center justify-center'>
                       {activeIndex === originalIndex ? (
                         <FiMinus className='text-[20px] lg:text-[28px]' />
                       ) : (
@@ -174,7 +174,7 @@ export default function FAQSection() {
                         )}
                       </AnimatePresence>
                     </div>
-                    <div className='flex-shrink-0 bg-black text-white rounded-full w-[40px] h-[40px] lg:w-[52px] lg:h-[52px] flex items-center justify-center'>
+                    <div className='flex-shrink-0 bg-black text-white rounded-full w-[30px] h-[30px] md:w-[40px] md:h-[40px] lg:w-[52px] lg:h-[52px] flex items-center justify-center'>
                       {activeIndex === originalIndex ? (
                         <FiMinus className='text-[20px] lg:text-[28px]' />
                       ) : (

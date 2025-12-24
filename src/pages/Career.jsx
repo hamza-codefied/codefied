@@ -21,7 +21,7 @@ export const Career = () => {
     <div className='min-h-screen'>
       <HeroSection
         classNames={
-          'h-[100px] sm:h-[150px] md:h-[200px] lg:h-[250px] xl:h-[350px]'
+          'h-[130px] sm:h-[150px] md:h-[200px] lg:h-[250px] xl:h-[350px]'
         }
         BannerText={'Careers'}
         bannerTextAdjust={{

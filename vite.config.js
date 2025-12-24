@@ -70,6 +70,9 @@ export default defineConfig({
       brotliSize: true,
     }),
   ],
+  optimizeDeps: {
+    include: ['swiper/react', 'swiper/modules'],
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

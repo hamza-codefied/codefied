@@ -13,7 +13,7 @@ const MapSection = () => {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
-      className='w-full relative'
+      className='w-full relative mt-10 md:mt-0'
     >
       {/* Top fade overlay */}
       <div
@@ -65,12 +65,24 @@ const MapSection = () => {
         }
         .location-pin {
           position: absolute;
-          width: 20px;
-          height: 20px;
+          width: 12px;
+          height: 12px;
           border-radius: 50%;
           z-index: 10;
           cursor: pointer;
           animation: pulse-glow 2s ease-in-out infinite, blink 2s ease-in-out infinite;
+        }
+        @media (min-width: 768px) {
+          .location-pin {
+            width: 16px;
+            height: 16px;
+          }
+        }
+        @media (min-width: 1024px) {
+          .location-pin {
+            width: 20px;
+            height: 20px;
+          }
         }
         .location-pin-blue {
           animation: pulse-glow-blue 2s ease-in-out infinite, blink 2s ease-in-out infinite;
@@ -81,13 +93,25 @@ const MapSection = () => {
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          width: 10px;
-          height: 10px;
+          width: 6px;
+          height: 6px;
           background: black;
           border-radius: 50%;
           z-index: 2;
           opacity: 1 !important;
           animation: none !important;
+        }
+        @media (min-width: 768px) {
+          .location-pin::before {
+            width: 8px;
+            height: 8px;
+          }
+        }
+        @media (min-width: 1024px) {
+          .location-pin::before {
+            width: 10px;
+            height: 10px;
+          }
         }
         .location-pin::after {
           content: '';
@@ -95,12 +119,24 @@ const MapSection = () => {
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          width: 24px;
-          height: 24px;
+          width: 16px;
+          height: 16px;
           border-radius: 50%;
           background: inherit;
           opacity: 0.3;
           animation: pulse-ring 2s ease-in-out infinite;
+        }
+        @media (min-width: 768px) {
+          .location-pin::after {
+            width: 20px;
+            height: 20px;
+          }
+        }
+        @media (min-width: 1024px) {
+          .location-pin::after {
+            width: 24px;
+            height: 24px;
+          }
         }
         @keyframes pulse-ring {
           0% {
@@ -116,19 +152,101 @@ const MapSection = () => {
           position: absolute;
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: 4px;
           background: transparent;
           padding: 0;
-          font-size: 14px;
+          font-size: 10px;
           font-weight: 700;
           color: #1f2937;
           z-index: 10;
           white-space: nowrap;
         }
+        .location-label img {
+          width: 12px;
+          height: auto;
+        }
+        @media (min-width: 768px) {
+          .location-label {
+            gap: 6px;
+            font-size: 12px;
+          }
+          .location-label img {
+            width: 16px;
+          }
+        }
+        @media (min-width: 1024px) {
+          .location-label {
+            gap: 8px;
+            font-size: 14px;
+          }
+          .location-label img {
+            width: 20px;
+          }
+        }
         .dotted-line {
           position: absolute;
-          border-left: 2px dashed #000;
+          border-left: 1px dashed #000;
           z-index: 9;
+        }
+        .dotted-line-houston {
+          top: calc(58% - 50px);
+          left: 68.7%;
+          height: 50px;
+        }
+        .dotted-line-karachi {
+          top: calc(42% - 50px);
+          left: 22.7%;
+          height: 50px;
+        }
+        @media (min-width: 768px) {
+          .dotted-line {
+            border-left-width: 1.5px;
+          }
+          .dotted-line-houston {
+            top: calc(58% - 70px);
+            height: 70px;
+          }
+          .dotted-line-karachi {
+            top: calc(42% - 70px);
+            height: 70px;
+          }
+        }
+        @media (min-width: 1024px) {
+          .dotted-line {
+            border-left-width: 2px;
+          }
+          .dotted-line-houston {
+            top: calc(58% - 80px);
+            height: 80px;
+          }
+          .dotted-line-karachi {
+            top: calc(42% - 80px);
+            height: 80px;
+          }
+        }
+        .location-label-houston {
+          top: calc(58% - 60px);
+          left: 68.5%;
+        }
+        .location-label-karachi {
+          top: calc(42% - 60px);
+          left: 22%;
+        }
+        @media (min-width: 768px) {
+          .location-label-houston {
+            top: calc(58% - 90px);
+          }
+          .location-label-karachi {
+            top: calc(42% - 90px);
+          }
+        }
+        @media (min-width: 1024px) {
+          .location-label-houston {
+            top: calc(58% - 110px);
+          }
+          .location-label-karachi {
+            top: calc(42% - 110px);
+          }
         }
         // .flag-icon {
         //   width: 20px;
@@ -155,10 +273,8 @@ const MapSection = () => {
             {/* Houston, USA - Now at Karachi's old position */}
             {/* Label - positioned above the dot */}
             <div
-              className='location-label'
+              className='location-label location-label-houston'
               style={{
-                top: 'calc(58% - 110px)',
-                left: '68.5%',
                 transform: 'translateX(-50%)',
               }}
             >
@@ -168,14 +284,7 @@ const MapSection = () => {
             </div>
 
             {/* Dotted Line for Houston - from label to dot */}
-            <div
-              className='dotted-line'
-              style={{
-                top: 'calc(58% - 80px)',
-                left: '68.7%',
-                height: '80px',
-              }}
-            />
+            <div className='dotted-line dotted-line-houston' />
 
             {/* Houston Pointer - at Karachi's old position */}
             <div
@@ -190,10 +299,8 @@ const MapSection = () => {
             {/* Karachi, Pakistan - Now at Houston's old position */}
             {/* Label - positioned above the dot */}
             <div
-              className='location-label'
+              className='location-label location-label-karachi'
               style={{
-                top: 'calc(42% - 110px)',
-                left: '22%',
                 transform: 'translateX(-50%)',
               }}
             >
@@ -203,14 +310,7 @@ const MapSection = () => {
             </div>
 
             {/* Dotted Line for Karachi - from label to dot */}
-            <div
-              className='dotted-line'
-              style={{
-                top: 'calc(42% - 80px)',
-                left: '22.7%',
-                height: '80px',
-              }}
-            />
+            <div className='dotted-line dotted-line-karachi' />
 
             {/* Karachi Pointer - at Houston's old position */}
             <div

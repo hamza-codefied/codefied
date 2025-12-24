@@ -122,7 +122,8 @@ const ProjectsSection = () => {
           {/* Left Side */}
           <div className='w-full md:w-2/3'>
             <h2 className='text-[24px] sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 relative inline-block'>
-              Make creativity your <br className='hidden md:block' /> competitive edge
+              Make creativity your <br className='hidden md:block' />{' '}
+              competitive edge
               <span className='block w-[200px] h-[1px] bg-gray-500 mt-2 sm:mt-3 md:mt-5 rounded-full'></span>
             </h2>
           </div>
@@ -159,7 +160,7 @@ const ProjectsSection = () => {
           className='flex items-center justify-center mb-8 sm:mb-10 md:mb-20 px-4 sm:px-6 md:px-0'
         >
           <motion.div
-            className='relative w-full max-w-full sm:max-w-[600px] md:max-w-[800px] lg:max-w-[1006px] cursor-grab active:cursor-grabbing p-4 sm:p-6 md:p-0'
+            className='relative w-full max-w-full sm:max-w-[600px] md:max-w-[800px] lg:max-w-[1006px] p-4 sm:p-6 md:p-0'
             style={{ perspective: '2000px', aspectRatio: '1006/569' }}
             drag='x'
             dragConstraints={{ left: 0, right: 0 }}

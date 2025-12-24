@@ -82,7 +82,7 @@ const FeaturedProducts = () => {
                   <img
                     src={product.thumnailImage}
                     alt={product.title}
-                    className='w-full object-cover inverted-radius h-[150px] md:h-[200px] lg:h-[290px]'
+                    className='w-full object-cover inverted-radius h-[170px] md:h-[200px] lg:h-[290px]'
                   />
 
                   <Link to={`/products/${product.slug}`}>

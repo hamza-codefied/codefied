@@ -108,7 +108,7 @@ export const Footer = () => {
 
         {/* Links Grid */}
         <div
-          className='flex flex-wrap justify-between border-t border-gray-200'
+          className='flex flex-wrap justify-between mt-2 md:mt-0 border-t border-gray-200'
           style={{
             paddingTop: 'clamp(20px, 3vw, 30px)',
             marginBottom: 'clamp(20px, 3vw, 30px)',
