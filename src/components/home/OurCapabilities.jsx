@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { FiLoader } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
 import { formatText } from '@/utils/textFormatter';
@@ -29,6 +29,12 @@ export const OurCapabilities = () => {
   const [visibleCount, setVisibleCount] = useState(initialCount);
   const [loading, setLoading] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const firstRowRef = useRef(null);
+  const secondRowRef = useRef(null);
+  const autoScrollIntervalRef = useRef(null);
+  const isUserScrollingRef = useRef(false);
+  const firstRowDirectionRef = useRef(1); // 1 for right, -1 for left
+  const secondRowDirectionRef = useRef(1);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -40,6 +46,91 @@ export const OurCapabilities = () => {
     
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  // Auto-scroll functionality for mobile
+  useEffect(() => {
+    if (!isMobile) return;
+
+    const scrollStep = 100; // Pixels to scroll each step
+    const pauseDuration = 100; // 0.8 seconds pause
+    const scrollDuration = 300; // 0.6 seconds to scroll
+
+    let firstRowInterval = null;
+    let secondRowInterval = null;
+    let isRunning = true;
+
+    const scrollRow = (rowRef, directionRef) => {
+      if (!rowRef.current || isUserScrollingRef.current || !isRunning) return;
+      
+      const maxScroll = rowRef.current.scrollWidth - rowRef.current.clientWidth;
+      const currentScroll = rowRef.current.scrollLeft;
+      const direction = directionRef.current;
+      
+      // Check if scrollable
+      if (maxScroll <= 0) return;
+      
+      // If reached end, reverse direction
+      if (direction === 1 && currentScroll >= maxScroll - 5) {
+        directionRef.current = -1; // Change to left direction
+        return;
+      }
+
+      // If reached start, reverse direction
+      if (direction === -1 && currentScroll <= 5) {
+        directionRef.current = 1; // Change to right direction
+        return;
+      }
+
+      // Scroll based on direction
+      const targetScroll = direction === 1 
+        ? Math.min(currentScroll + scrollStep, maxScroll)
+        : Math.max(currentScroll - scrollStep, 0);
+      
+      if (rowRef.current) {
+        rowRef.current.scrollTo({ 
+          left: targetScroll, 
+          behavior: 'smooth' 
+        });
+      }
+    };
+
+    // Start auto-scroll after initial delay
+    const startDelay = setTimeout(() => {
+      if (isMobile && !isUserScrollingRef.current) {
+        // First row auto-scroll
+        firstRowInterval = setInterval(() => {
+          if (!isUserScrollingRef.current && isRunning) {
+            scrollRow(firstRowRef, firstRowDirectionRef);
+          }
+        }, pauseDuration + scrollDuration);
+
+        // Second row auto-scroll (slightly offset)
+        secondRowInterval = setInterval(() => {
+          if (!isUserScrollingRef.current && isRunning) {
+            scrollRow(secondRowRef, secondRowDirectionRef);
+          }
+        }, pauseDuration + scrollDuration);
+      }
+    }, 800);
+
+    return () => {
+      isRunning = false;
+      clearTimeout(startDelay);
+      if (firstRowInterval) clearInterval(firstRowInterval);
+      if (secondRowInterval) clearInterval(secondRowInterval);
+    };
+  }, [isMobile]);
+
+  // Handle manual scroll - pause auto-scroll temporarily
+  const handleScroll = () => {
+    isUserScrollingRef.current = true;
+    
+    // Resume auto-scroll after user stops scrolling
+    clearTimeout(autoScrollIntervalRef.current);
+    autoScrollIntervalRef.current = setTimeout(() => {
+      isUserScrollingRef.current = false;
+    }, 3000); // Resume after 3 seconds of no user interaction
+  };
 
   const handleToggle = () => {
     setLoading(true);
@@ -87,6 +178,8 @@ export const OurCapabilities = () => {
       <div className='md:hidden space-y-2'>
         {/* First Row */}
         <div 
+          ref={firstRowRef}
+          onScroll={() => handleScroll(firstRowRef)}
           className='overflow-x-auto -mx-4 px-4 scrollbar-hide'
           style={{
             scrollbarWidth: 'none',
@@ -118,6 +211,8 @@ export const OurCapabilities = () => {
 
         {/* Second Row */}
         <div 
+          ref={secondRowRef}
+          onScroll={() => handleScroll(secondRowRef)}
           className='overflow-x-auto -mx-4 px-4 scrollbar-hide'
           style={{
             scrollbarWidth: 'none',

@@ -342,13 +342,13 @@ export const Developerit = () => {
       <div
         id='section1'
         className={
-          'flex flex-col xl:flex-row justify-between gap-8 xl:gap-0 min-h-screen xl:min-h-0'
+          'flex flex-col xl:flex-row justify-between gap-2 sm:gap-4 md:gap-8 xl:gap-0 min-h-screen xl:min-h-0'
         }
       >
         {/* Left side - Heading and heroSubText */}
         <div
           className={
-            'flex flex-col w-full xl:w-[45%] gap-4 md:gap-8 xl:sticky xl:top-28 xl:h-fit'
+            'flex flex-col w-full xl:w-[45%] gap-2 sm:gap-4 md:gap-8 xl:sticky xl:top-28 xl:h-fit'
           }
         >
           {/* Heading container - will animate from top to here */}
@@ -365,7 +365,7 @@ export const Developerit = () => {
           </div>
 
           {/* Hero Sub Text */}
-          <div className={'heroSubText flex gap-y-3 text-base lg:text-2xl flex-col'}>
+          <div className={'heroSubText flex gap-y-3 text-[14px] sm:text-base lg:text-2xl flex-col'}>
             <div>
               {formatText(
                 'From concept to launch, we cover the entire spectrum of digital innovation.'
@@ -384,7 +384,7 @@ export const Developerit = () => {
         {/* Right side - Features */}
         <div
           className={
-            'flex flex-col p-0 gap-y-12 xl:items-end w-full xl:w-[50%]'
+            'flex flex-col p-0 gap-y-4 sm:gap-y-8 md:gap-y-12 xl:items-end w-full xl:w-[50%]'
           }
         >
           {features.map(({ title, desc }, index) => (
@@ -393,10 +393,10 @@ export const Developerit = () => {
               className='p-0 w-full'
               key={`${title}-${index}`}
             >
-              <h2 className={'text-xl md:text-2xl text-[#000] font-medium mb-2'}>
+              <h2 className={'text-[18px] sm:text-xl md:text-2xl text-[#000] font-medium mb-2'}>
                 {formatText(title)}
               </h2>
-              <p className={'mb-4 text-sm md:text-base text-[#000] font-normal'}>{formatText(desc)}</p>
+              <p className={'mb-4 text-[14px] sm:text-sm md:text-base text-[#000] font-normal'}>{formatText(desc)}</p>
               <a
                 className={
                   'text-sm font-semibold text-[#d4575b] underline underline-offset-[6px] cursor-pointer flex items-center justify-start gap-2'
