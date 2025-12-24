@@ -232,7 +232,7 @@ const Timeline = () => {
     <section
       ref={sectionRef}
       id='our-journey'
-      className='relative bg-cover bg-center bg-no-repeat py-32 px-4 md:px-10 lg:px-20 min-h-screen'
+      className='relative bg-cover bg-center bg-no-repeat py-32 px-4 md:px-10 lg:px-20 min-h-screen overflow-hidden'
       style={{ backgroundImage: `url(${hero_bg})` }}
     >
       {/* Top fade overlay */}

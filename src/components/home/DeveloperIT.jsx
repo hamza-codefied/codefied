@@ -33,6 +33,10 @@ export const Developerit = () => {
       title: 'Augmented Reality',
       desc: 'Enhance the real world with our Augmented Reality solutions. AR overlays digital content onto the physical environment, providing interactive and immersive experiences that captivate users.',
     },
+    {
+      title: 'Mobile App Development',
+      desc: 'Transform your ideas into powerful mobile applications with our expert development team. We create high quality, user friendly apps for both iOS and Android platforms, ensuring a seamless experience for your users.',
+    },
   ];
 
   const textChangingContainer = useRef(null);
@@ -111,38 +115,50 @@ export const Developerit = () => {
         y: 50,
       });
 
-      // Create reversible timeline with scrub
+      // Set right content items to hidden initially
+      revealRefs.current.forEach(el => {
+        if (el) {
+          gsap.set(el, {
+            autoAlpha: 0,
+            y: 50,
+            opacity: 0,
+          });
+        }
+      });
+
+      // Create reversible timeline with scrub - slower and smoother
       masterTL = gsap.timeline({
         scrollTrigger: {
           trigger: section1Element,
-          start: 'top 80%',
-          end: 'top 20%',
-          scrub: 1,
+          start: 'top 90%',
+          end: 'top 10%',
+          scrub: 2, // Higher value = smoother animation
           markers: false,
           invalidateOnRefresh: true,
         },
       });
 
-      // Animate: heading moves from center to left and from top to default position
+      // Animate: heading moves from center to left and from top to default position - SLOWLY
+      const headingDuration = 3; // Increased duration for slower, smoother movement
       masterTL.to(
         headingContainer,
         {
           x: 0, // Move to default left position
           y: 0, // Move to default vertical position
           scale: 1,
-          duration: 1.5,
-          ease: 'power2.inOut',
+          duration: headingDuration,
+          ease: 'power1.inOut', // Softer easing for smoother movement
         },
         0
       );
 
-      // Animate: text-align from center to left
+      // Animate: text-align from center to left - SLOWLY
       masterTL.to(
         text.current,
         {
           textAlign: 'left',
-          duration: 1.5,
-          ease: 'power2.inOut',
+          duration: headingDuration,
+          ease: 'power1.inOut', // Softer easing for smoother movement
         },
         0
       );
@@ -156,39 +172,52 @@ export const Developerit = () => {
           duration: 1,
           ease: 'power2.out',
         },
-        '-=0.8'
+        headingDuration - 0.5 // Start near the end of heading animation
       );
 
       ScrollTrigger.refresh();
     }, 100);
 
-    // Animate right content items
-    revealRefs.current.forEach((el, index) => {
-      if (!el) return;
+    // Animate right content items with individual ScrollTriggers
+    // Each feature appears one by one as you scroll, ONLY AFTER heading reaches its position
+    // Heading animation ends at 'top 10%', so features start after that
+    setTimeout(() => {
+      if (!section1Element) return;
 
-      gsap.fromTo(
-        el,
-        {
-          autoAlpha: 0,
-          y: 50,
-          opacity: 0,
-        },
-        {
-          duration: 0.8,
-          autoAlpha: 1,
-          opacity: 1,
-          y: 0,
-          ease: 'power2.out',
-          scrollTrigger: {
-            id: `section-${index + 1}`,
-            trigger: el,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse',
-            invalidateOnRefresh: true,
+      revealRefs.current.forEach((el, index) => {
+        if (!el) return;
+
+        // Only first feature starts from center (50% of viewport)
+        // Rest of the features start from their natural position (85%)
+        const startPercent = index === 0 ? 50 : 85 - (index * 5); // First at 50% (center), rest at 85%, 80%, 75%, etc.
+
+        gsap.fromTo(
+          el,
+          {
+            autoAlpha: 0,
+            opacity: 0,
+            y: 50, // Start from bottom
           },
-        }
-      );
-    });
+          {
+            autoAlpha: 1,
+            opacity: 1,
+            y: 0, // Animate to top
+            duration: 1.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: el, // Each feature is its own trigger
+              start: `top ${startPercent}%`, // First feature at center (50%), rest at natural position
+              end: `top ${startPercent - 20}%`, // Animation range
+              toggleActions: 'play none none reverse',
+              // Only animate after section has scrolled past heading animation area
+              // Heading animation ends when section top reaches 10% of viewport
+              // So features will naturally trigger after that as user scrolls
+              invalidateOnRefresh: true,
+            },
+          }
+        );
+      });
+    }, 200);
 
     // Handle window resize
     const handleResize = () => {
@@ -216,6 +245,16 @@ export const Developerit = () => {
           display: 'inline-block',
         });
         gsap.set('.heroSubText', { opacity: 1, y: 0 });
+        // Reset right content items
+        revealRefs.current.forEach(el => {
+          if (el) {
+            gsap.set(el, {
+              autoAlpha: 1,
+              opacity: 1,
+              y: 0,
+            });
+          }
+        });
       } else {
         ScrollTrigger.refresh();
       }
@@ -334,7 +373,7 @@ export const Developerit = () => {
   return (
     <div
       id='developer-it'
-      className='container xl-custom:px-0 pb-10 md:pb-20 lg:pb-40 relative w-full'
+      className='container xl-custom:px-0 pb-10 md:pb-20 lg:pb-20 relative w-full'
     >
       {/* Spacer to push content down initially on xl screens */}
       <div className='h-[40vh] xl:block hidden'></div>
@@ -342,13 +381,13 @@ export const Developerit = () => {
       <div
         id='section1'
         className={
-          'flex flex-col xl:flex-row justify-between gap-2 sm:gap-4 md:gap-8 xl:gap-0 min-h-screen xl:min-h-0'
+          'flex flex-col xl:flex-row justify-between gap-2 sm:gap-4 md:gap-8 xl:gap-0 min-h-screen xl:min-h-fit'
         }
       >
         {/* Left side - Heading and heroSubText */}
         <div
           className={
-            'flex flex-col w-full xl:w-[45%] gap-2 sm:gap-4 md:gap-8 xl:sticky xl:top-[50%] xl:h-fit'
+            'flex flex-col w-full xl:w-[45%] gap-2 sm:gap-4 md:gap-8 xl:sticky xl:top-[25%] xl:h-fit'
           }
         >
           {/* Heading container - will animate from top to here */}
@@ -365,7 +404,11 @@ export const Developerit = () => {
           </div>
 
           {/* Hero Sub Text */}
-          <div className={'heroSubText flex gap-y-3 text-[14px] sm:text-base lg:text-2xl flex-col'}>
+          <div
+            className={
+              'heroSubText flex gap-y-3 text-[14px] sm:text-base lg:text-2xl flex-col'
+            }
+          >
             <div>
               {formatText(
                 'From concept to launch, we cover the entire spectrum of digital innovation.'
@@ -393,10 +436,20 @@ export const Developerit = () => {
               className='p-0 w-full'
               key={`${title}-${index}`}
             >
-              <h2 className={'text-[18px] sm:text-xl md:text-2xl text-[#000] font-medium mb-2'}>
+              <h2
+                className={
+                  'text-[18px] sm:text-xl md:text-2xl text-[#000] font-medium mb-2'
+                }
+              >
                 {formatText(title)}
               </h2>
-              <p className={'mb-4 text-[14px] sm:text-sm md:text-base text-[#000] font-normal'}>{formatText(desc)}</p>
+              <p
+                className={
+                  'mb-4 text-[14px] sm:text-sm md:text-base text-[#000] font-normal'
+                }
+              >
+                {formatText(desc)}
+              </p>
               <a
                 className={
                   'text-sm font-semibold text-[#d4575b] underline underline-offset-[6px] cursor-pointer flex items-center justify-start gap-2'

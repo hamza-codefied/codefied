@@ -34,7 +34,7 @@ const Team = () => {
         }
       `}</style>
       <section
-        className='relative bg-cover bg-center bg-no-repeat text-white xl:h-[660px] py-5 xl:py-0 flex items-center'
+        className='relative bg-cover bg-center bg-no-repeat text-white xl:h-[660px] py-5 xl:py-0 flex items-center overflow-hidden'
         style={{ backgroundImage: `url(${aboutbg})` }}
       >
         <div className='container m-auto xl-custom:px-0 w-full'>

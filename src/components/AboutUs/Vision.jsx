@@ -8,7 +8,7 @@ const Vision = () => {
   const [activeTab, setActiveTab] = useState('vision');
 
   return (
-    <div className='w-full mt-10 lg:mt-[185px] container m-auto xl-custom:px-0 relative'>
+    <div className='w-full mt-10 lg:mt-[185px] container m-auto xl-custom:px-0 relative overflow-hidden'>
       <style>{`
         @keyframes bounce-hover {
           0%, 100% {

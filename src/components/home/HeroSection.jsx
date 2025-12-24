@@ -29,6 +29,11 @@ export default function HeroSection() {
         .btn-hover-bounce {
           font-weight: 400;
         }
+        @media (min-width: 768px) {
+          .btn-hover-bounce {
+            font-weight: 500;
+          }
+        }
         .btn-hover-bounce:hover {
           animation: bounce-hover 0.6s ease-in-out, font-pulse 0.6s ease-in-out;
           font-weight: 600;
@@ -65,8 +70,7 @@ export default function HeroSection() {
 
               <div className='flex justify-center items-center pt-[10px] md:pt-[20px]'>
                 <button
-                  className='btn-hover-bounce border border-transparent text-sm lg:text-[24px] font-medium text-white w-[190px] h-[40px] md:w-[200px] md:h-[50px] lg:w-[370px] lg:h-[81px] gap-[10px] flex items-center justify-center rounded-[10px] p-[10px] bg-[#d4575b] transition-all duration-300 hover:bg-transparent hover:text-[#d4575b] hover:border-[#d4575b] hover:shadow-[0_15px_40px_rgba(212,87,91,0.5)] active:translate-y-0'
-                  style={{ fontWeight: 500 }}
+                  className='btn-hover-bounce border border-transparent text-sm lg:text-[24px] font-normal md:font-medium text-white w-[190px] h-[40px] md:w-[200px] md:h-[50px] lg:w-[370px] lg:h-[81px] gap-[10px] flex items-center justify-center rounded-[10px] p-[10px] bg-[#d4575b] transition-all duration-300 hover:bg-transparent hover:text-[#d4575b] hover:border-[#d4575b] hover:shadow-[0_15px_40px_rgba(212,87,91,0.5)] active:translate-y-0'
                 >
                   Get A Free Consultation
                 </button>
