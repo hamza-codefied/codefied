@@ -521,7 +521,7 @@ export const Header = () => {
                                 className='mt-2 ml-4 space-y-1 border-l-2 border-[#d4575b]/20 pl-4'
                               >
                                 {[
-                                  { title: 'Business Solutions', slug: 'business-solutions' },
+                                  { title: '360 web solution', slug: '360-web-solution' },
                                   { title: 'Developer/IT', slug: 'developer-it' },
                                   { title: 'Back Office', slug: 'back-office' },
                                   { title: 'Community Management', slug: 'community-management' },

@@ -11,25 +11,25 @@ const timelineData = [
     year: '2015',
     title: 'Agency Founded',
     description:
-      'At Codeified Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions. At Codeified Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions.',
+      'At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions. At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions.',
   },
   {
     year: '2016',
     title: 'First Major Milestone',
     description:
-      'At Codeified Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions. At Codeified Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions.',
+      'At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions. At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions.',
   },
   {
     year: '2018',
     title: 'Global Expansion',
     description:
-      'At Codeified Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions. At Codeified Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions.',
+      'At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions. At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions.',
   },
   {
     year: '2020',
     title: 'Innovation Recognition',
     description:
-      'At Codeified Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions. At Codeified Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions.',
+      'At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions. At Codefied Software Development Company, we are passionate about leveraging technology to create innovative and impactful solutions.',
   },
 ];
 
@@ -174,7 +174,7 @@ const Timeline = () => {
           y: -100,
           opacity: 0,
           scale: 0.9,
-          duration: 0.3,
+          duration: 0.2,
           ease: 'power2.in',
         });
     });
@@ -232,7 +232,7 @@ const Timeline = () => {
     <section
       ref={sectionRef}
       id='our-journey'
-      className='relative bg-cover bg-center bg-no-repeat py-32 px-4 md:px-10 lg:px-20 min-h-screen overflow-hidden'
+      className='relative bg-cover bg-center bg-no-repeat py-20 px-4 md:px-10 lg:px-20 min-h-screen overflow-hidden'
       style={{ backgroundImage: `url(${hero_bg})` }}
     >
       {/* Top fade overlay */}
@@ -272,9 +272,9 @@ const Timeline = () => {
         {/* Timeline Container */}
         <div
           ref={timelineRef}
-          className='relative mt-20 md:mt-32 max-w-6xl mx-auto pb-64 md:pb-96'
+          className='relative mt-20 md:mt-32 max-w-6xl mx-auto pb-20 md:pb-30'
         >
-          <div className='flex flex-col space-y-56 md:space-y-80'>
+          <div className='flex flex-col space-y-10 md:space-y-0'>
             {timelineData.map((item, index) => {
               const isLeft = index % 2 !== 0;
               const cardStyles = [

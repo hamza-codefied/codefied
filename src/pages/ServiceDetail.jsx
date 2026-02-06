@@ -122,8 +122,10 @@ export default function ServiceDetail() {
             style={{ fontSize: 'clamp(14px, 2.5vw, 24px)', fontWeight: 400 }}
           >
             {service.breadcrumbs.map((crumb, index) => (
-              <span key={index}>
-                <span className='text-black'>{formatText(crumb)}</span>
+              <span key={index} className='z-10'>
+                <Link className='pointer' to={`${crumb.slug}`}> 
+                <span className='text-black'>{formatText(crumb.title)}</span>
+                </Link>
                 {index < service.breadcrumbs.length - 1 && (
                   <span className='text-[#d4575b] mx-1'>
                     <span style={{ fontFamily: 'Arial, sans-serif' }}>

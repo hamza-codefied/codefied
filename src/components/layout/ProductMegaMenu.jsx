@@ -40,7 +40,7 @@ export const ProductMegaMenu = ({ isOpen, onClose, onMouseEnter, onMouseLeave })
                     digital innovation.
                   </p>
                   <Link
-                    to=''
+                    to='/portfolio'
                     className='text-[#d4575b] hover:underline flex items-center justify-start ml-4'
                     style={{ fontSize: '24px', fontWeight: 600, gap: '8px' }}
                   >

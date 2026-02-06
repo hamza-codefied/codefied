@@ -9,8 +9,8 @@ import { formatText } from '@/utils/textFormatter';
 
 const categories = [
   {
-    title: 'Business Solutions',
-    slug: 'business-solutions',
+    title: '360 Web Solution',
+    slug: '360-web-solution',
     items: [
       'Nicheflow | SAAS Solutions',
       'ERP & CRM Solutions',
@@ -128,13 +128,18 @@ export const MegaMenu = ({ isOpen, onClose, onMouseEnter, onMouseLeave }) => {
                       className='object-contain w-full max-w-[340px] h-auto'
                       style={{ maxHeight: '300px' }}
                     />
+                    {/* <Link to='/contact'>   */}
                     <Button
-                      className='bg-[#d4575b]/80 hover:bg-[#d4575b] text-black rounded-md transition flex items-center justify-center gap-[5px] w-full max-w-[340px]'
+                      className='bg-[#d4575b]/80 hover:bg-[#d4575b] text-black rounded-md transition  w-full max-w-[340px]'
                       style={{ height: '50px', fontSize: '14px', fontWeight: 500 }}
                     >
-                      Discover Now
-                      <MdArrowCircleRight style={{ fontSize: '14px' }} />
+                      <Link to='/contact' className='flex items-center justify-center gap-[5px]'>  
+                        Discover Now
+                        <MdArrowCircleRight style={{ fontSize: '14px' }} />
+                      </Link>
                     </Button>
+                    {/* </Link> */}
+                 
                   </div>
                 </div>
 

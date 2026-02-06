@@ -1,14 +1,65 @@
-import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Button } from '@components/ui/Button';
 import quote_icon from '@/images/quote_icon.png';
 import avatar from '@/images/avatar.png';
 import coins from '@/images/coins.png';
 import { formatText } from '@/utils/textFormatter';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
+
+const testimonials = [
+  {
+    id: 1,
+    text: "I am very helped by this e-wallet application. My days are very easy to use this app and it's very helpful in my life — even I can pay in a short time.",
+    name: "Aria Zhenario",
+    avatar: "https://i.pravatar.cc/150?img=1",
+    emoji: "😍"
+  },
+  {
+    id: 2,
+    text: "Codefied has revolutionized how I manage my freelance finances. The interface is intuitive, the speed is unmatched, and I feel secure knowing my money is safe.",
+    name: "John Miller",
+    avatar: "https://i.pravatar.cc/150?img=11",
+    emoji: "🚀"
+  },
+  {
+    id: 3,
+    text: "Customer support is top-notch. Whenever I have an issue, they resolve it within minutes. Truly the best financial tool I've used in years.",
+    name: "Sarah Jenkins",
+    avatar: "https://i.pravatar.cc/150?img=5",
+    emoji: "💯"
+  },
+  {
+    id: 4,
+    text: "The investment features are surprisingly robust for a wallet app. I've seen steady growth in my portfolio since switching to Codefied.",
+    name: "Michael Chen",
+    avatar: "https://i.pravatar.cc/150?img=8",
+    emoji: "📈"
+  },
+  {
+    id: 5,
+    text: "Finally, an app that understands modern banking needs. Seamless international transfers and great exchange rates. Highly recommended!",
+    name: "Emma Watson",
+    avatar: "https://i.pravatar.cc/150?img=9",
+    emoji: "🌍"
+  }
+];
+
 
 export default function TestimonialsSection() {
+  const [activeIndex, setActiveIndex] = useState(0);
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % testimonials.length);
+    }, 5000); // Change every 5 seconds
 
+    return () => clearInterval(interval);
+  }, []);
+  const currentTestimonial = testimonials[activeIndex];
+  const handleAvatarClick = (index) => {
+    setActiveIndex(index);
+  };
   return (
     <>
       <section
@@ -47,8 +98,38 @@ export default function TestimonialsSection() {
               objectFit: 'contain',
             }}
           />
+  {/* Animated Testimonial Content */}
+  <div className="min-h-[220px]">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentTestimonial.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+            >
+              <blockquote
+                className='text-black w-full mb-[12px] text-[14px] md:text-[18px] font-medium leading-[30px]'
+              >
+                "{currentTestimonial.text}"
+              </blockquote>
+              
+              <p className='mb-[20px] md:mb-[40px] text-2xl'>
+                {currentTestimonial.emoji}
+              </p>
 
-          <blockquote
+              <p
+                className='text-[#D4575B] mb-[20px] md:mb-[40px] text-[14px] md:text-[18px] font-medium'
+                style={{
+                  fontSize: 'clamp(14px, 2vw, 18px)',
+                }}
+              >
+                {currentTestimonial.name}
+              </p>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+          {/* <blockquote
             className='text-black w-full mb-[12px] text-[14px] md:text-[18px] font-medium'
             style={{
               lineHeight: '30px',
@@ -68,61 +149,32 @@ export default function TestimonialsSection() {
             }}
           >
             Aria Zhenario
-          </p>
+          </p> */}
 
-          {/* Avatars */}
-          <div className='flex items-center space-x-4 flex-wrap'>
-            <img
-              src='https://i.pravatar.cc/40?img=1'
-              alt='user'
-              className='rounded-full border-2 border-white shadow'
-              style={{
-                width: 'clamp(50px, 6vw, 66px)',
-                height: 'clamp(50px, 6vw, 66px)',
-                objectFit: 'cover',
-              }}
-            />
-            <img
-              src='https://i.pravatar.cc/40?img=2'
-              alt='user'
-              className='rounded-full border-2 border-white shadow'
-              style={{
-                width: 'clamp(50px, 6vw, 66px)',
-                height: 'clamp(50px, 6vw, 66px)',
-                objectFit: 'cover',
-              }}
-            />
-            <img
-              src='https://i.pravatar.cc/40?img=3'
-              alt='user'
-              className='rounded-full border-2 border-white shadow'
-              style={{
-                width: 'clamp(50px, 6vw, 66px)',
-                height: 'clamp(50px, 6vw, 66px)',
-                objectFit: 'cover',
-              }}
-            />
-            <img
-              src='https://i.pravatar.cc/40?img=4'
-              alt='user'
-              className='rounded-full border-2 border-white shadow'
-              style={{
-                width: 'clamp(50px, 6vw, 66px)',
-                height: 'clamp(50px, 6vw, 66px)',
-                objectFit: 'cover',
-              }}
-            />
-            <img
-              src={avatar}
-              alt='user'
-              className='rounded-full border-2 border-white shadow'
-              style={{
-                width: 'clamp(50px, 6vw, 66px)',
-                height: 'clamp(50px, 6vw, 66px)',
-                objectFit: 'cover',
-              }}
-            />
-          </div>
+              {/* Avatars / Indicators */}
+              <div className='flex items-center space-x-4 flex-wrap gap-y-2'>
+          {testimonials.map((t, index) => (
+            <button
+              key={t.id}
+              onClick={() => handleAvatarClick(index)}
+              className={`relative rounded-full transition-all duration-300 focus:outline-none ${
+                index === activeIndex 
+                  ? 'border-primary ring-2 ring-primary ring-offset-2' 
+                  : 'border-white opacity-60 hover:opacity-100'
+              }`}
+            >
+               <img
+                src={t.avatar}
+                alt={t.name}
+                className={`rounded-full shadow-md object-cover bg-gray-200 transition-all duration-300`}
+                style={{
+                  width: index === activeIndex ? '66px' : '50px',
+                  height: index === activeIndex ? '66px' : '50px',
+                }}
+              />
+            </button>
+          ))}
+        </div>
         </motion.div>
 
         {/* Right Side */}
@@ -212,8 +264,8 @@ export default function TestimonialsSection() {
                   fontWeight: 500,
                 }}
               >
-                or{' '}
-                <span className='text-white font-medium'>Start Free Trial</span>
+                {/* or{' '}
+                <span className='text-white font-medium'>Start Free Trial</span> */}
               </p>
             </form>
           </div>

@@ -7,10 +7,13 @@ import { PWAUpdatePrompt } from '@components/pwa/PWAUpdatePrompt';
 import { PerformanceMonitor } from '@components/performance/PerformanceMonitor';
 import { preloadCriticalResources } from '@utils/performance';
 import AnimatedRoutes from './components/global/AnimatedRoutes';
+import Clarity from '@microsoft/clarity';
 
 // Import pages directly for now to debug the issue
 import ScrollToTop from './components/global/ScrollToTop';
+const projectId = "vd8x37h31f"
 
+Clarity.init(projectId);
 function App() {
   // Preload critical resources
   useEffect(() => {

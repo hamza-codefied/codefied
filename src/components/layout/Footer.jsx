@@ -73,7 +73,8 @@ export const Footer = () => {
             </span>
             <div className='flex space-x-3'>
               <a
-                href='#'
+                href='https://www.linkedin.com/company/codefied-co'
+                target='_blank'
                 className='p-3 bg-[#d4575b] text-white rounded-full hover:bg-[#b84549] transition-all duration-200 flex items-center justify-center'
                 style={{
                   width: 'clamp(40px, 5vw, 48px)',
@@ -83,7 +84,8 @@ export const Footer = () => {
                 <FaLinkedin size={20} className='text-white' />
               </a>
               <a
-                href='#'
+                href='https://www.instagram.com/codefied/'
+                target='_blank'
                 className='p-3 bg-[#d4575b] text-white rounded-full hover:bg-[#b84549] transition-all duration-200 flex items-center justify-center'
                 style={{
                   width: 'clamp(40px, 5vw, 48px)',
@@ -92,7 +94,7 @@ export const Footer = () => {
               >
                 <FaInstagramSquare size={20} className='text-white' />
               </a>
-              <a
+              {/* <a
                 href='#'
                 className='p-3 bg-[#d4575b] text-white rounded-full hover:bg-[#b84549] transition-all duration-200 flex items-center justify-center'
                 style={{
@@ -101,7 +103,7 @@ export const Footer = () => {
                 }}
               >
                 <FaTwitter size={20} className='text-white' />
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
@@ -263,11 +265,11 @@ export const Footer = () => {
             >
               <li>
                 <Link
-                  to='/services/business-solutions'
+                  to='/services/360-web-solution'
                   className='relative hover:text-[#d4575b] transition-colors group inline-block'
                 >
                   <span className='relative'>
-                    Business Solutions
+                    360 Web Solution
                     <span className='absolute bottom-0 left-0 w-0 h-[2px] bg-[#d4575b] transition-all duration-300 group-hover:w-full'></span>
                   </span>
                 </Link>
@@ -437,21 +439,19 @@ export const Footer = () => {
 
         {/* Bottom Bar */}
         <div
-          className='border-t border-gray-200 flex flex-col md:flex-row items-center justify-between text-gray-600'
+          className='border-t border-gray-200 flex  items-center justify-center text-gray-600'
           style={{
             paddingTop: 'clamp(16px, 2.5vw, 24px)',
             fontSize: 'clamp(11px, 1.5vw, 14px)',
           }}
         >
           <div>
-            <p>@2023 Codefied. All Rights Reserved.</p>
+            <p>@2026 Codefied. All Rights Reserved.</p>
           </div>
 
-          <div className='my-2 md:my-0'>
-            <span>Version 1.0</span>
-          </div>
+          
 
-          <div className='flex flex-wrap items-center justify-center gap-3 md:gap-4'>
+          {/* <div className='flex flex-wrap items-center justify-center gap-3 md:gap-4'>
             <a href='#' className='hover:text-[#d4575b] transition-colors'>
               Privacy Policy
             </a>
@@ -462,7 +462,7 @@ export const Footer = () => {
             <a href='#' className='hover:text-[#d4575b] transition-colors'>
               Cookie Policy
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

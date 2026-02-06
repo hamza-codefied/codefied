@@ -3,12 +3,12 @@
 import service from '@/images/service.png';
 
 export const servicesData = {
-  'business-solutions': {
-    title: 'Business Solutions',
+  '360-web-solution': {
+    title: '360 Web Solution',
     subtitle: 'Tailored Innovations For Your Industry',
     description:
-      'Welcome to Business Solutions by Codefied Software Development Company Explore our specialized solutions designed to meet the unique needs of your industry and drive your business forward.At Codefied, we specialize in crafting cutting-edge software solutions tailored to meet the unique needs of your business. Our diverse range of services ensures that we can provide the perfect solution for any industry, enhancing efficiency, productivity, and profitability. Explore our comprehensive service offerings below:',
-    breadcrumbs: ['Home', 'Services', 'Business Solutions'],
+      'Welcome to 360 web solution by Codefied Software Development Company Explore our specialized solutions designed to meet the unique needs of your industry and drive your business forward.At Codefied, we specialize in crafting cutting-edge software solutions tailored to meet the unique needs of your business. Our diverse range of services ensures that we can provide the perfect solution for any industry, enhancing efficiency, productivity, and profitability. Explore our comprehensive service offerings below:',
+    breadcrumbs: [{ title: 'Home', slug: '/' }, { title: 'Services', slug: '/' }, { title: '360 web solution', slug: '/services/360-web-solution' }],
     sections: [
       {
         id: 'nicheflow-saas-solutions',
@@ -174,7 +174,8 @@ export const servicesData = {
     subtitle: 'Cutting-Edge Development for the Digital Age',
     description:
       'From mobile apps to immersive realities, our expert developers bring your vision to life using the latest technologies. We build scalable, secure, and high-performance digital solutions tailored to your needs.',
-    breadcrumbs: ['Home', 'Services', 'Developer / IT Services'],
+    breadcrumbs: [{ title: 'Home', slug: '/' }, { title: 'Services', slug: '/' }, { title: 'Developer / IT Services', slug: '/services/developer-it' }],
+
     sections: [
       {
         id: 'mobile-app-development',
@@ -383,7 +384,7 @@ export const servicesData = {
     subtitle: 'Operational Excellence Behind the Scenes',
     description:
       'Streamline your internal processes with end-to-end project management, documentation, and strategic support. Let us handle the backend so you can focus on growth.',
-    breadcrumbs: ['Home', 'Services', 'Back Office Services'],
+      breadcrumbs: [{ title: 'Home', slug: '/' }, { title: 'Services', slug: '/' }, { title: 'Back Office Services', slug: '/services/back-office' }],
     sections: [
       {
         id: 'end-to-end-production',
@@ -556,7 +557,7 @@ export const servicesData = {
     subtitle: 'Build, Engage & Grow Your Audience',
     description:
       'Turn users into advocates. We help you create thriving online communities on Discord, Telegram, forums, and social platforms.',
-    breadcrumbs: ['Home', 'Services', 'Community Management'],
+    breadcrumbs: [{ title: 'Home', slug: '/' }, { title: 'Services', slug: '/' }, { title: 'Community Management', slug: '/services/community-management' }],
     sections: [
       {
         id: 'engagement-interaction',
@@ -702,7 +703,7 @@ export const servicesData = {
     subtitle: 'Collaborate for Mutual Growth',
     description:
       'Co-create value through innovation, shared resources, and aligned objectives. Let’s build the future together.',
-    breadcrumbs: ['Home', 'Services', 'Strategic Partnership'],
+    breadcrumbs: [{ title: 'Home', slug: '/' }, { title: 'Services', slug: '/' }, { title: 'Strategic Partnership', slug: '/services/strategic-partnership' }],
     sections: [
       {
         id: 'collaborative-innovation',
