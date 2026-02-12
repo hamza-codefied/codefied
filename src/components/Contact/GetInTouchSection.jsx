@@ -105,17 +105,17 @@ const GetInTouchSection = () => {
     {
       icon: LiaPhoneVolumeSolid,
       label: 'PHONE',
-      value: '03 5432 1234',
+      value: '+1 (832) 468-0554',
     },
-    {
-      icon: FaxIcon,
-      label: 'FAX',
-      value: '03 5432 1234',
-    },
+    // {
+    //   icon: FaxIcon,
+    //   label: 'FAX',
+    //   value: '03 5432 1234',
+    // },
     {
       icon: EmailIcon,
       label: 'EMAIL',
-      value: 'info@marcc.com.au',
+      value: 'info@codefied.co',
       isLink: true,
     },
   ];

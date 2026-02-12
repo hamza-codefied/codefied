@@ -1,11 +1,9 @@
 import { useState, useMemo, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
 import { BsBarChart } from 'react-icons/bs';
 import { FaBriefcase } from 'react-icons/fa';
 
 const AvailableJobs = ({ filters }) => {
-  const navigate = useNavigate();
   const [isFiltering, setIsFiltering] = useState(false);
 
   // Add animation styles
@@ -45,64 +43,170 @@ const AvailableJobs = ({ filters }) => {
     return () => clearTimeout(timer);
   }, [filters]);
 
+  const jobLevels = {
+    "Senior": "Senior",
+    "Mid Level": "Mid Level",
+    "Entry Level" : "Entry Level",
+    "Executive":"Executive"
+  }
+
+  const departments = {
+    "Production": "Production",
+    "Engineering": "Engineering",
+    "Design": "Design",
+    "Operations": "Operations",
+    "Marketing": "Marketing",
+  }
   const allJobs = [
     {
       id: 1,
       companyInitial: 'C.',
-      title: 'Backend Engineer',
+      title: 'Product Manager',
       location: 'Onsite',
-      jobLevel: 'Senior',
-      department: 'Production',
+      jobLevel: jobLevels["Mid Level"],
+      department: departments["Production"],
+      applyUrl: 'https://jobs.accelerec.com/jobs?job_id=4ba82ec9-9501-4ac5-8e50-a48cccd2876a',
     },
     {
       id: 2,
       companyInitial: 'C.',
-      title: 'Frontend Developer',
-      location: 'Remote',
-      jobLevel: 'Mid Level',
-      department: 'Engineering',
+      title: 'Backend Engineer',
+      location: 'Onsite',
+      jobLevel: jobLevels["Mid Level"],
+      department: departments["Engineering"],
+      applyUrl: 'https://jobs.accelerec.com/jobs?job_id=00318840-43f1-4277-aeac-48635fbad6bf',
     },
     {
       id: 3,
       companyInitial: 'C.',
       title: (
         <>
-          UI <span style={{ fontFamily: 'Arial' }}>/</span> UX Designer
+          AI <span style={{ fontFamily: 'Arial' }}>/</span> ML Engineer
         </>
       ),
-
       location: 'Onsite',
-      jobLevel: 'Mid Level',
-      department: 'Design',
+      jobLevel: jobLevels["Mid Level"],
+      department: departments["Design"],
+      applyUrl: 'https://jobs.accelerec.com/jobs?job_id=5921cb8c-48a8-449b-bf0b-0ba0c5a85fd3',
     },
     {
       id: 4,
       companyInitial: 'C.',
-      title: 'Product Manager',
-      location: 'Hybrid',
+      title: 'Swift Manager',
+      location: 'Onsite',
       jobLevel: 'Senior',
-      department: 'Operations',
+      department: departments["Operations"],
+      applyUrl: 'https://jobs.accelerec.com/jobs?job_id=fb10279f-159f-464a-9cc7-0de2391d81d6',
     },
     {
       id: 5,
       companyInitial: 'C.',
       title: 'DevOps Engineer',
-      location: 'Remote',
-      jobLevel: 'Senior',
-      department: 'Engineering',
+      location: 'Onsite',
+      jobLevel: jobLevels["Mid Level"],
+      department: departments["Engineering"],
+      applyUrl: 'https://jobs.accelerec.com/jobs?job_id=f8d8fd33-77b4-458c-80f9-5a78e0177692',
     },
     {
       id: 6,
       companyInitial: 'C.',
-      title: 'Marketing Manager',
+      title: 'Quality Assurance Engineer',
       location: 'Onsite',
-      jobLevel: 'Mid Level',
-      department: 'Marketing',
+      jobLevel: 'Entry Level',
+      department: departments["Marketing"],
+      applyUrl: 'https://jobs.accelerec.com/jobs?job_id=c2c365d8-c769-4412-885d-471a73353e54',
+    },
+    {
+      id: 7,
+      companyInitial: 'C.',
+      title: 'Flutter Engineer',
+      location: 'Onsite',
+      jobLevel: jobLevels["Mid Level"],
+      department: departments["Marketing"],
+      applyUrl: 'https://jobs.accelerec.com/jobs?job_id=1a60ce8e-2347-4eba-8d4b-16ab8e424cff',
+    },
+    {
+      id: 8,
+      companyInitial: 'C.',
+      title: (
+        <>
+          AR <span style={{ fontFamily: 'Arial' }}>/</span> VR Developer
+        </>
+      ),
+      location: 'Onsite',
+      jobLevel: jobLevels["Mid Level"],
+      department: departments["Engineering"],
+      applyUrl: 'https://jobs.accelerec.com/jobs?job_id=7227d56d-47b3-416d-8aa6-dd2c991e4041',
+    },
+    {
+      id: 9,
+      companyInitial: 'C.',
+      title: 'Game Developer',
+      location: 'Onsite',
+      jobLevel: jobLevels["Mid Level"],
+      department: departments["Engineering"],
+      applyUrl: 'https://jobs.accelerec.com/jobs?job_id=3a1cacaf-b604-4ac5-acc6-cf10a15b6bf6',
+    },
+    {
+      id: 10,
+      companyInitial: 'C.',
+      title: 'Project Coordinator',
+      location: 'Onsite',
+      jobLevel: jobLevels["Mid Level"],
+      department: departments["Operations"],
+      applyUrl: 'https://jobs.accelerec.com/jobs?job_id=9394036e-8e76-4c5b-8ad8-430d62a6a6ea',
+    },
+    {
+      id: 11,
+      companyInitial: 'C.',
+      title: 'Intern Project Manager',
+      location: 'Onsite',
+      jobLevel: jobLevels["Entry Level"],
+      department: departments["Engineering"],
+      applyUrl: 'https://jobs.accelerec.com/jobs?job_id=61cf3917-cd30-4076-84fe-89459a6968e9',
+    },
+    {
+      id: 12,
+      companyInitial: 'C.',
+      title: '2D Artist',
+      location: 'Onsite',
+      jobLevel: jobLevels["Entry Level"],
+      department: departments["Design"],
+      applyUrl: 'https://jobs.accelerec.com/jobs?job_id=736bf22c-ca31-48bc-9391-86e9b9083e58',
+    },
+    {
+      id: 13,
+      companyInitial: 'C.',
+      title: 'MERN Stack Developer',
+      location: 'Onsite',
+      jobLevel: jobLevels["Mid Level"],
+      department: departments["Engineering"],
+      applyUrl: 'https://jobs.accelerec.com/jobs?job_id=8a7dc246-e9d8-452b-b645-dbd24379497f',
+    },
+    {
+      id: 14,
+      companyInitial: 'C.',
+      title: '3D Computer Graphics Artist',
+      location: 'Onsite',
+      jobLevel: jobLevels["Mid Level"],
+      department: departments["Design"],
+      applyUrl: 'https://jobs.accelerec.com/jobs?job_id=b5eb625e-421c-4b6b-8371-cefa08025ac1',
+    },
+    {
+      id: 15,
+      companyInitial: 'C.',
+      title: 'Data Analyst',
+      location: 'Onsite',
+      jobLevel: jobLevels["Mid Level"],
+      department: departments["Operations"],
+      applyUrl: 'https://jobs.accelerec.com/jobs?job_id=2a72390e-a62b-4b17-8b74-b22f46b1cab8',
     },
   ];
 
-  const handleApply = jobId => {
-    navigate(`/career/apply/${jobId}`);
+  const handleApply = (job) => {
+    if (job.applyUrl) {
+      window.open(job.applyUrl, '_blank', 'noopener,noreferrer');
+    }
   };
 
   // Filter jobs based on search query and filters
@@ -231,7 +335,7 @@ const AvailableJobs = ({ filters }) => {
                   <button
                     onClick={e => {
                       e.stopPropagation();
-                      handleApply(job.id);
+                      handleApply(job);
                     }}
                     className='bg-[#d4575b] hover:bg-[#c04a4e] text-white font-normal w-[100px] h-[40px] lg:w-[147px] lg:h-[51px] text-sm sm:text-base transition-colors duration-200 rounded-[50px] p-[8px] md:p-[10px]'
                   >
