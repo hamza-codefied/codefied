@@ -15,10 +15,10 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico'],
       manifest: {
-        name: 'Codefied - Professional React Application',
+        name: 'Codefied | Software Development Company',
         short_name: 'Codefied',
         description:
-          'A modern, professional React application built with Vite, Tailwind CSS, and best practices for scalable development.',
+          'Codefied is a software development company helping businesses build scalable web, mobile, and cloud solutions with modern technology.',
         theme_color: '#3b82f6',
         background_color: '#ffffff',
         display: 'standalone',
@@ -44,9 +44,9 @@ export default defineConfig({
       minify: true,
       inject: {
         data: {
-          title: 'Codefied - Professional React Application',
+          title: 'Codefied | Software Development Company',
           description:
-            'A modern, professional React application built with Vite, Tailwind CSS, and best practices for scalable development.',
+            'Codefied is a software development company helping businesses build scalable web, mobile, and cloud solutions with modern technology.',
           keywords:
             'React, Vite, Tailwind CSS, PWA, SEO, Performance, Modern Web Development',
           author: 'Codefied Team',

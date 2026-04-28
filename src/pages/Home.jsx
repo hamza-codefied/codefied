@@ -27,9 +27,9 @@ export const Home = () => {
   return (
     <>
       <SEOHead
-        title='Codefied - Professional React Application'
-        description='A modern, professional React application built with Vite, Tailwind CSS, and best practices for scalable development. Get started with our optimized template today.'
-        keywords='React, Vite, Tailwind CSS, PWA, SEO, Performance, Modern Web Development, JavaScript, Frontend Development'
+        title='Codefied | Software Development Company'
+        description='Codefied is a software development company delivering custom web, mobile, and cloud solutions to help businesses scale faster.'
+        keywords='software development company, custom software development, web development services, mobile app development, cloud solutions, UI UX design'
         url='/'
       />
       <StructuredData structuredData={structuredData} />

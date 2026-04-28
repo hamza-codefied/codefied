@@ -5,7 +5,7 @@ export const generateWebsiteStructuredData = () => {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Codefied",
-    "description": "A modern, professional React application built with Vite, Tailwind CSS, and best practices for scalable development.",
+    "description": "Codefied is a software development company helping businesses build scalable web, mobile, and cloud solutions with modern technology.",
     "url": "https://codefied.com",
     "potentialAction": {
       "@type": "SearchAction",
@@ -31,7 +31,7 @@ export const generateOrganizationStructuredData = () => {
     "name": "Codefied",
     "url": "https://codefied.com",
     "logo": "https://codefied.com/logo.png",
-    "description": "A modern, professional React application built with Vite, Tailwind CSS, and best practices for scalable development.",
+    "description": "Codefied is a software development company helping businesses build scalable web, mobile, and cloud solutions with modern technology.",
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+1-555-0123",
@@ -138,7 +138,7 @@ export const generateMetaTitle = (title, siteName = 'Codefied') => {
 }
 
 export const generateMetaDescription = (description, maxLength = 160) => {
-  if (!description) return 'A modern, professional React application built with Vite, Tailwind CSS, and best practices for scalable development.'
+  if (!description) return 'Codefied is a software development company helping businesses build scalable web, mobile, and cloud solutions with modern technology.'
   
   if (description.length <= maxLength) return description
   

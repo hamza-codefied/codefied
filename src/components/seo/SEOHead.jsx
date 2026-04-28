@@ -1,9 +1,9 @@
 import { Helmet } from 'react-helmet-async'
 
 export const SEOHead = ({
-  title = 'Codefied - Professional React Application',
-  description = 'A modern, professional React application built with Vite, Tailwind CSS, and best practices for scalable development.',
-  keywords = 'React, Vite, Tailwind CSS, PWA, SEO, Performance, Modern Web Development',
+  title = 'Codefied | Software Development Company',
+  description = 'Codefied is a software development company helping businesses build scalable web, mobile, and cloud solutions with modern technology.',
+  keywords = 'software development company, web development, mobile app development, cloud solutions, UI UX design, digital product development',
   image = '/og-image.jpg',
   url = '',
   type = 'website',
